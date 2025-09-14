@@ -5,7 +5,7 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#e04f01] text-white">
+    <footer className="bg-[#e84e1b] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Grid principal con divisores entre columnas */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 md:divide-x md:divide-white/20">
@@ -25,11 +25,11 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center gap-2">
                 <Phone className="w-4 h-4" />
-                <span className="text-white/90">+54 11 1234-5678</span>
+                <span className="text-white/90">+54 11 5927-8803</span>
               </div>
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span className="text-white/90">info@geneve.com.ar</span>
+                <span className="text-white/90">obras@geneve.com.ar</span>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@ export const Footer: React.FC = () => {
             <div className="flex items-center gap-6 text-sm text-white/80">
               <a href="/privacy" className="hover:text-white">Política de Privacidad</a>
               <a href="/terms" className="hover:text-white">Términos de Servicio</a>
-              <a href="/sitemap" className="hover:text-white">Mapa del Sitio</a>
+              
             </div>
           </div>
         </div>

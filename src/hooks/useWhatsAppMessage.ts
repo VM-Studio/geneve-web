@@ -7,11 +7,11 @@ interface WhatsAppMessageOptions {
 
 export const useWhatsAppMessage = () => {
   const formatWhatsAppMessage = ({ items, notes = '' }: WhatsAppMessageOptions): string => {
-    let message = 'Hello Geneve, I\'d like a quote:\n\n';
+    let message = 'Hola Geneve, me gustaría recibir un presupuesto:\n\n';
     
     // Add products
     items.forEach(item => {
-      message += `- ${item.name} (SKU: ${item.sku}) - Qty: ${item.quantity}\n`;
+      message += `- ${item.name} (SKU: ${item.sku}) - Cantidad: ${item.quantity}\n`;
     });
     
     // Add notes if provided
@@ -19,13 +19,13 @@ export const useWhatsAppMessage = () => {
       message += `\nNotes: ${notes.trim()}\n`;
     }
     
-    message += '\nThank you!';
+    message += '\nMuchas Gracias!';
     
     return encodeURIComponent(message);
   };
 
   const openWhatsApp = (encodedText: string) => {
-    const phone = import.meta.env.VITE_WHATSAPP_PHONE || '5491112345678';
+    const phone = import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803';
     const url = `https://wa.me/${phone}?text=${encodedText}`;
     window.open(url, '_blank', 'noopener,noreferrer');
   };

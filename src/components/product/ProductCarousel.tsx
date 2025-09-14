@@ -60,7 +60,7 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
               type="button"
               aria-label={p.name}
               onClick={() => onItemClick?.(p)}
-              className="relative block w-full h-full text-left rounded-2xl overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-orange-300"
+              className="relative block w-full h-full text-left rounded-2xl overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]"
               style={{
                 backgroundImage: `url("${p.imageUrl}")`,
                 backgroundSize: "cover",
@@ -93,7 +93,7 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
     boxShadow: "0 0 0 3px transparent",
   }}
   onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e84e1b")}
-  onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px transparent")}
+  onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 4px transparent")}
   type="button"
 >
   <ChevronRight className="w-5 h-5 text-gray-700" />

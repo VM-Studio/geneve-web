@@ -92,7 +92,7 @@ if (filters.category) {
         image: product.images[0],
         sku: product.sku,
       });
-      showToast('Product added to quote!', 'success');
+      showToast('Producto añadido al presupuesto!', 'success');
     }
   };
 
@@ -109,10 +109,10 @@ if (filters.category) {
         {/* Header */}
         <div className="mb-8 text-center">
   <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-    Product Catalog
+    Todos Nuestros Productos
   </h1>
   <p className="text-lg text-gray-600">
-    Browse our comprehensive collection of construction, security, and lighting solutions
+  Descubrí nuestro catálogo completo de iluminación, seguridad y construcción.
   </p>
 </div>
 
@@ -124,7 +124,7 @@ if (filters.category) {
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-lg font-semibold text-gray-900 flex items-center">
                   <Filter className="w-5 h-5 mr-2" />
-                  Filters
+                  Filtros
                 </h2>
                 <Button
                   variant="ghost"
@@ -140,7 +140,7 @@ if (filters.category) {
                 {/* Search */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Search Products
+                    Buscar Productos
                   </label>
                   <div className="relative">
                     <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -158,14 +158,14 @@ if (filters.category) {
                 {/* Category Filter */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Category
+                    Categoría
                   </label>
                   <Select
   value={resolveCategoryName(filters.category)}
   onChange={(e) => setCategory(e.target.value)}
   fullWidth
 >
-  <option value="">All Categories</option>
+  <option value="">Todas las Categorías</option>
   {categoriesData.map((category) => (
     <option key={category.id} value={category.name}>
       {category.name}
@@ -178,16 +178,16 @@ if (filters.category) {
                 {/* Sort */}
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Sort by
+                    Ordenar Por
                   </label>
                   <Select
                     value={filters.sort}
                     onChange={(e) => setSort(e.target.value as 'name' | 'category' | 'featured')}
                     fullWidth
                   >
-                    <option value="featured">Featured First</option>
-                    <option value="name">Name A-Z</option>
-                    <option value="category">Category</option>
+                    <option value="featured">Destacado Primero</option>
+                    <option value="name">Nombre A-Z</option>
+                    <option value="category">Categoría</option>
                   </Select>
                 </div>
 
@@ -198,7 +198,7 @@ if (filters.category) {
                     onClick={handleClearFilters}
                     className="w-full"
                   >
-                    Clear All Filters ({activeFiltersCount})
+                    Borrar Filtros ({activeFiltersCount})
                   </Button>
                 )}
               </div>

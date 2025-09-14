@@ -38,7 +38,7 @@ export const RelatedProducts: React.FC<RelatedProductsProps> = ({
 
   return (
     <div className="mt-12">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Related Products</h2>
+      <h2 className="text-2xl font-bold text-gray-900 mb-6">Productos Relacionados</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {relatedProducts.map((product) => (
           <ProductCard

@@ -15,18 +15,13 @@ export const TechInfo: React.FC = () => {
       </div>
 
       <Container className="py-14 lg:py-18">
-        <div className="mx-auto mb-12 max-w-4xl text-center">
-          <div className="mx-auto mb-4 inline-flex items-center gap-2 rounded-full border border-orange-200 bg-orange-50 px-3 py-1 text-[13px] font-medium text-[#e04f01]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]" />
-            Información Técnica
-          </div>
-          <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 lg:text-5xl">
-            Guías, buenas prácticas y documentación
-          </h1>
-          <p className="mt-4 text-lg leading-relaxed text-gray-600">
-            Selección curada para ayudarte a decidir, instalar y mantener productos de <span className="font-semibold text-[#e04f01]">GENEVE</span>.
-          </p>
-        </div>
+       {/* Header simplificado */}
+<div className="mb-4">
+  <span className="inline-block bg-orange-50 text-orange-600 text-sm font-medium px-4 py-1.5 rounded-full border border-orange-200">
+    • Información Técnica
+  </span>
+</div>
+
 
         <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
           {techNotes.map((n) => (

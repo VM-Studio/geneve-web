@@ -42,7 +42,7 @@ export const Product: React.FC = () => {
         sku: product.sku,
       });
     }
-    showToast(`${quantity} item${quantity > 1 ? 's' : ''} added to quote!`, 'success');
+    showToast(`${quantity} producto${quantity > 1 ? 's' : ''} añadido al presupuesto!`, 'success');
     setQuantity(1);
   };
 
@@ -55,29 +55,30 @@ export const Product: React.FC = () => {
         image: relatedProduct.images[0],
         sku: relatedProduct.sku,
       });
-      showToast('Product added to quote!', 'success');
+      showToast('Producto añadido al presupuesto!', 'success');
     }
   };
 
   const tabs = [
-    { id: 'description', label: 'Description', show: true },
-    { id: 'specifications', label: 'Specifications', show: product.specs && Object.keys(product.specs).length > 0 },
-    { id: 'downloads', label: 'Downloads', show: product.downloads && product.downloads.length > 0 },
+    { id: 'description', label: 'Descripción', show: true },
+    { id: 'specifications', label: 'Especificaciones', show: product.specs && Object.keys(product.specs).length > 0 },
+    { id: 'downloads', label: 'Descargas', show: product.downloads && product.downloads.length > 0 },
   ].filter(tab => tab.show);
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Container className="py-8">
-        {/* Back Button */}
-        <Button
-          as={Link}
-          to="/catalog"
-          variant="ghost"
-          className="mb-8 flex items-center space-x-2 text-gray-600 hover:text-gray-900"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to Catalog</span>
-        </Button>
+       {/* Back Button (solo texto naranja) */}
+       <Link
+  to="/catalog"
+  className="mb-8 inline-flex items-center gap-2 font-semibold text-[#e04f01] hover:text-[#e84e1b]"
+>
+  <ArrowLeft className="w-4 h-4" />
+  <span>Volver al Catálogo</span>
+</Link>
+
+
+
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Gallery */}
@@ -90,13 +91,13 @@ export const Product: React.FC = () => {
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
                 {product.featured && (
-                  <Badge variant="secondary">Featured</Badge>
+                  <Badge variant="secondary">Destacado</Badge>
                 )}
                 {!product.stock && (
-                  <Badge variant="error">Out of Stock</Badge>
+                  <Badge variant="error">Sin Stock</Badge>
                 )}
                 {product.stock && (
-                  <Badge variant="success">In Stock</Badge>
+                  <Badge variant="success">Stock</Badge>
                 )}
               </div>
               
@@ -123,10 +124,10 @@ export const Product: React.FC = () => {
 
             {/* Add to Quote */}
             <div className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Add to Quote</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Agregar Productos</h3>
               
               <div className="flex items-center space-x-4 mb-6">
-                <label className="text-sm font-medium text-gray-700">Quantity:</label>
+                <label className="text-sm font-medium text-gray-700">Cantidad:</label>
                 <div className="flex items-center border border-gray-300 rounded-lg">
                   <button
                     onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -155,7 +156,7 @@ export const Product: React.FC = () => {
               >
                 <ShoppingCart className="w-5 h-5" />
                 <span>
-                  {product.stock ? 'Add to Quote' : 'Out of Stock'}
+                  {product.stock ? 'Añadir Presupuesto' : 'Out of Stock'}
                 </span>
               </Button>
 
@@ -171,7 +172,7 @@ export const Product: React.FC = () => {
               <div className="bg-white rounded-xl border border-gray-200 p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
                   <Download className="w-5 h-5 mr-2" />
-                  Downloads
+                  Descargar Manual
                 </h3>
                 <div className="space-y-2">
                   {product.downloads.map((download, index) => (
@@ -181,10 +182,10 @@ export const Product: React.FC = () => {
                       download
                       className="flex items-center justify-between p-3 border border-gray-200 rounded-lg hover:border-orange-300 hover:bg-orange-50 transition-all group"
                     >
-                      <span className="text-sm font-medium text-gray-900 group-hover:text-orange-600">
+                      <span className="text-sm font-medium text-gray-900 group-hover:text-[#e84e1b]">
                         {download.label}
                       </span>
-                      <Download className="w-4 h-4 text-gray-400 group-hover:text-orange-600" />
+                      <Download className="w-4 h-4 text-gray-400 group-hover:text-[#e84e1b]" />
                     </a>
                   ))}
                 </div>
@@ -206,7 +207,7 @@ export const Product: React.FC = () => {
                     className={`
                       py-3 px-1 border-b-2 font-medium text-sm transition-colors
                       ${activeTab === tab.id
-                        ? 'border-orange-500 text-orange-600'
+                        ? 'border-[#e84e1b] text-[#e84e1b]'
                         : 'border-transparent text-gray-500 hover:text-gray-700'
                       }
                     `}
@@ -222,7 +223,7 @@ export const Product: React.FC = () => {
           <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
             {activeTab === 'description' && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Description</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Descripción del Producto</h2>
                 <div className="prose max-w-none text-gray-700">
                   <p className="text-lg leading-relaxed">{product.description}</p>
                 </div>
@@ -231,26 +232,26 @@ export const Product: React.FC = () => {
 
             {activeTab === 'specifications' && product.specs && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Technical Specifications</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Especifiaciones Técnicas</h2>
                 <ProductSpecs specs={product.specs} />
               </div>
             )}
 
             {activeTab === 'downloads' && product.downloads && product.downloads.length > 0 && (
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Downloads & Documentation</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-6">Descargas & Documentos</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {product.downloads.map((download, index) => (
                     <a
                       key={index}
                       href={download.url}
                       download
-                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-orange-300 hover:bg-orange-50 transition-all group"
+                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-[#e84e1b] hover:bg-orange-50 transition-all group"
                     >
-                      <span className="font-medium text-gray-900 group-hover:text-orange-600">
+                      <span className="font-medium text-gray-900 group-hover:text-[#e84e1b]">
                         {download.label}
                       </span>
-                      <Download className="w-5 h-5 text-gray-400 group-hover:text-orange-600" />
+                      <Download className="w-5 h-5 text-gray-400 group-hover:text-[#e84e1b]" />
                     </a>
                   ))}
                 </div>

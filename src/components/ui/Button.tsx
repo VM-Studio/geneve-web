@@ -29,7 +29,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 
     const variants = {
       primary: `
-        bg-orange-500 hover:bg-orange-600 active:bg-orange-700
+        bg-[#e84e1b] hover:bg-orange-600 active:bg-orange-700
         text-white border border-orange-500 hover:border-orange-600
         shadow-sm hover:shadow-md
       `,

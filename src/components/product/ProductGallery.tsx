@@ -84,7 +84,7 @@ export const ProductGallery: React.FC<ProductGalleryProps> = ({ images, productN
               className={`
                 flex-shrink-0 w-16 h-16 rounded-lg overflow-hidden border-2 transition-all
                 ${index === currentIndex 
-                  ? 'border-orange-500 shadow-md' 
+                  ? 'border-[#e84e1b] shadow-md' 
                   : 'border-gray-200 hover:border-gray-300'
                 }
               `}

@@ -95,15 +95,16 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToQuote 
             SKU: {product.sku}
           </div>
           <Button
-            variant="primary"
-            size="sm"
-            onClick={() => onAddToQuote(product.id)}
-            disabled={!product.stock}
-            className="flex items-center justify-center space-x-2 w-36" /* 9rem → igual en todas */
-          >
-            <ShoppingCart className="w-4 h-4" />
-            <span>Add Quote</span>
-          </Button>
+  variant="primary"
+  size="sm"
+  onClick={() => onAddToQuote(product.id)}
+  disabled={!product.stock}
+  className="flex items-center justify-center space-x-2 w-44 whitespace-nowrap flex-shrink-0"
+>
+  <ShoppingCart className="w-4 h-4" />
+  <span className="whitespace-nowrap">Pedir Presupuesto</span>
+</Button>
+
         </div>
       </div>
     </div>

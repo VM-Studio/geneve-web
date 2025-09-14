@@ -1,8 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
-  theme: {
-    extend: {},
+theme: {
+  extend: {
+    fontFamily: {
+      sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],   // cuerpo
+      heading: ["Sora", "ui-sans-serif", "system-ui", "sans-serif"], // títulos
+    },
   },
-  plugins: [],
+}
 };
+
+
