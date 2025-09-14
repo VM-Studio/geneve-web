@@ -1,0 +1,1931 @@
+[
+  {
+    "id": "ge-sm1412a",
+    "slug": "alarma autónoma-ge-sm1412a",
+    "name": "Alarma Autónoma",
+    "category": "Seguridad",
+    "shortDescription": "Alarma autónoma con doble control remoto infrarrojo y fácil instalación para uso residencial y comercial.",
+    "description": "Sistema de alarma autónoma con activación por control remoto infrarrojo. Ofrece un volumen de 105 dB para una señal sonora potente y efectiva. Instalación sencilla, ideal para casas, locales y obras donde se necesita una solución sin cableado.",
+    "specs": {
+      "Alimentación del dispositivo": "4 pilas AA (No incluidas)",
+      "Alimentación del control remoto": "3 pilas botón AG13 (Incluidas)",
+      "Volumen de alarma": "105 dB",
+      "Rango de distancia del control remoto": "3 a 4 metros",
+      "Retardo de encendido": "20 segundos aproximadamente",
+      "Retardo previo a alarma": "5 segundos",
+      "Tecnología de detección": "Infrarrojo pasivo",
+      "Color": "Blanco"
+    },
+    
+    "tags": ["Autónoma", "A Pilas", "Infrarroja"],
+    "images": [
+      "https://i.postimg.cc/fb08rgfm/Screenshot-2025-09-11-at-8-41-09-AM.png",
+      "https://i.postimg.cc/JzSqZ5Cn/Screenshot-2025-09-11-at-8-41-22-AM.png",
+      "https://i.postimg.cc/kGMFqjKj/Screenshot-2025-09-11-at-8-41-35-AM.png",
+      "https://i.postimg.cc/yYdXGbVx/Screenshot-2025-09-11-at-8-41-44-AM.png",
+      "https://i.postimg.cc/ZRHp7r26/Screenshot-2025-09-11-at-8-41-52-AM.png",
+      "https://i.postimg.cc/rF3WPynZ/Screenshot-2025-09-11-at-8-42-02-AM.png",
+      "https://i.postimg.cc/XJsBcnB8/Screenshot-2025-09-11-at-8-42-12-AM.png",
+      "https://i.postimg.cc/SNB2GTRw/Screenshot-2025-09-11-at-8-42-23-AM.png",
+      "https://i.postimg.cc/qvcRxp93/Screenshot-2025-09-11-at-8-42-34-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SM1412A",
+    "downloads": [
+      { "label": "Installation Manual (PDF)", "url": "/docs/Manual_inner_Alarma-GE-SM1412A.pdf" }
+      
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-detector-humo",
+    "slug": "detector-de-humo",
+    "name": "Detector de Humo",
+    "category": "Seguridad",
+    "shortDescription": "Detector de humo autónomo de fácil instalación, sin necesidad de electricidad.",
+    "description": "Detector de humo con sensor fotoeléctrico, diseñado para uso residencial y comercial. Funciona con alimentación de 9Vcc mediante batería (no incluida), ofreciendo una señal sonora potente de 85 dB para una detección rápida y confiable.",
+    "specs": {
+      "Fácil instalación": "Sí",
+      "Alimentación": "9Vcc (Baterías no incluidas)",
+      "Nivel de presión sonora": "85 dB a metros",
+      "Temperatura de trabajo": "4°C a 38°C",
+      "Sensor": "Fotoeléctrico",
+      "Funciona sin electricidad": "Sí"
+    },
+    "tags": ["Detector", "Humo", "Fotoeléctrico", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/ZRf8V8vX/Screenshot-2025-09-11-at-9-15-39-AM.png",
+      "https://i.postimg.cc/8PbW18HN/Screenshot-2025-09-11-at-9-15-49-AM.png",
+      "https://i.postimg.cc/bwNnr6Cb/Screenshot-2025-09-11-at-9-15-56-AM.png",
+      "https://i.postimg.cc/ncVrGX4f/Screenshot-2025-09-11-at-9-16-08-AM.png",
+      "https://i.postimg.cc/g2n011tM/Screenshot-2025-09-11-at-9-16-18-AM.png",
+      "https://i.postimg.cc/Z52qmj1J/Screenshot-2025-09-11-at-9-16-30-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "79.06.01",
+    "downloads": [
+      { "label": "Manual de Instalación (PDF)", "url": "/docs/04-Manual_Smoke-Alarm_Geneve-1.pdf" }
+    ],
+    "featured": true
+  },
+  
+  {
+    "id": "ge-sm2021-bl",
+    "slug": "detector-de-monoxido-ge-sm2021-bl",
+    "name": "Detector de Monóxido de Carbono",
+    "category": "Seguridad",
+    "shortDescription": "Detector de monóxido de carbono de fácil instalación, funciona sin electricidad y opera con baterías.",
+    "description": "Detector de monóxido de carbono (CO) para uso residencial y comercial. Funciona sin necesidad de red eléctrica gracias a su alimentación con baterías. Incluye alarma sonora de 85 dB y sensor electromecánico de alta precisión para una detección confiable. Rango de trabajo diseñado para ambientes interiores.",
+    "specs": {
+      "Fácil instalación": "Sí",
+      "Funciona sin electricidad": "Sí",
+      "Alimentación": "3 × 1.5V AA (Baterías no incluidas)",
+      "Nivel de presión sonora": "85 dB a metros",
+      "Temperatura de trabajo": "4°C a 38°C",
+      "Tipo de sensor": "Electromecánico de alta precisión"
+    },
+    "tags": ["Monóxido de Carbono", "CO", "A Pilas", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/CxWqgtgq/Screenshot-2025-09-11-at-9-51-26-AM.png",
+      "https://i.postimg.cc/B63P8KtZ/Screenshot-2025-09-11-at-9-51-36-AM.png",
+      "https://i.postimg.cc/C5LZ7pjW/Screenshot-2025-09-11-at-9-51-49-AM.png",
+      "https://i.postimg.cc/59nQ0jJ1/Screenshot-2025-09-11-at-9-52-00-AM.png",
+      "https://i.postimg.cc/KvjkgFcT/Screenshot-2025-09-11-at-9-52-10-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SM2021-BL",
+    "downloads": [
+      { "label": "Manual de Instalación (PDF)", "url": "/docs/04-Manual_Co-Alarm_Geneve.pdf" }
+    ],
+    "featured": true
+  },
+  
+  {
+    "id": "ge-g01",
+    "slug": "sensor-control-luz-ge-g01",
+    "name": "Sensor de Control de Luz",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de control de luz con retardo de encendido de 10 segundos y material ignífugo.",
+    "description": "El Sensor de Control de Luz GE-G01 permite automatizar el encendido y apagado de luces según la luminosidad ambiental. Funciona con tensión de 220-240V/AC, con retardo de 10 segundos para evitar falsos disparos. Ideal para iluminación exterior y de seguridad. Fabricado con material ignífugo para mayor seguridad.",
+    "specs": {
+      "Tensión de trabajo": "220-240V/AC",
+      "Frecuencia": "50 Hz",
+      "Corriente": "6A",
+      "Time Delay": "10 segundos",
+      "Nivel de operación": "8-30 LUX",
+      "Rango de temperatura": "-30°C a 40°C",
+      "Material": "Ignífugo"
+    },
+    "tags": ["Sensor", "Control de Luz", "Automático", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/NMbF5CWb/Screenshot-2025-09-11-at-9-57-23-AM.png",
+      "https://i.postimg.cc/Vv66MBww/Screenshot-2025-09-11-at-9-57-33-AM.png",
+      "https://i.postimg.cc/VvVNFrsC/Screenshot-2025-09-11-at-9-57-42-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-G01",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-16-Manual_sensor_06.pdf" }
+    ],
+    "featured": true
+  },
+  
+  {
+    "id": "ge-g02",
+    "slug": "sensor-control-luz-ge-g02",
+    "name": "Sensor de Control de Luz",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de control de luz con retardo de encendido de 10 segundos y material ignífugo.",
+    "description": "El Sensor de Control de Luz GE-G02 permite automatizar el encendido y apagado de luces en función de la luminosidad ambiental. Funciona con tensión de 220-240V/AC, con un retardo de 10 segundos para evitar falsos encendidos. Ideal para alumbrado público, iluminación exterior y aplicaciones de seguridad. Fabricado con material ignífugo para mayor protección.",
+    "specs": {
+      "Tensión de trabajo": "220-240V/AC",
+      "Frecuencia": "50 Hz",
+      "Corriente": "6A",
+      "Time Delay": "10 segundos",
+      "Nivel de operación": "8-30 LUX",
+      "Rango de temperatura": "-30°C a 40°C",
+      "Material": "Ignífugo"
+    },
+    "tags": ["Sensor", "Control de Luz", "Automático", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/GpKdQ8qm/Screenshot-2025-09-11-at-10-01-54-AM.png",
+      "https://i.postimg.cc/k4h9rrrr/Screenshot-2025-09-11-at-10-02-03-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-G02",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-16-Manual_sensor_06.pdf" }
+    ],
+    "featured": true
+  },
+  
+  {
+    "id": "ge-sh2401-wf",
+    "slug": "sensor-humo-wifi-ge-sh2401-wf",
+    "name": "Sensor de Humo WiFi",
+    "category": "Seguridad",
+    "shortDescription": "Sensor detector de humo inteligente con conexión WiFi y monitoreo en tiempo real mediante la App Tuya.",
+    "description": "El Sensor Detector de Humo Alarma Smart Wifi App Tuya – Geneve es una solución avanzada para la seguridad del hogar. Diseñado para detectar humo de manera eficiente, este dispositivo se conecta a la red WiFi, permitiendo monitorear la situación desde el celular en cualquier momento y lugar. Su diseño compacto, con dimensiones de 4,8 cm de altura y 10,5 cm de ancho, se integra fácilmente en cualquier espacio.\n\nEste sensor cuenta con un nivel de sonido de 85 dB, asegurando que la alarma sea audible incluso en áreas ruidosas. Funciona con una batería de 9V (no incluida), lo que garantiza un rendimiento confiable. Su corriente de espera es de solo 10uA, lo que lo hace eficiente en el consumo de energía.\n\nLa instalación es sencilla y no requiere de un control remoto, simplificando su uso. Con la tecnología de Tuya, se pueden recibir notificaciones en el dispositivo móvil, manteniendo informado al usuario sobre cualquier situación de riesgo. Protege a la familia y al hogar con este detector de humo inteligente que combina funcionalidad y tecnología moderna.",
+    "specs": {
+      "Conexión": "WiFi (App Tuya)",
+      "Alimentación": "1 batería de 9V (no incluida)",
+      "Nivel de presión sonora": "85 dB",
+      "Corriente de espera": "10uA",
+      "Dimensiones": "10,5 cm diámetro x 4,8 cm altura",
+      "Instalación": "Sencilla, sin control remoto",
+      "Monitoreo": "En tiempo real vía aplicación móvil"
+    },
+    "tags": ["WiFi", "Detector de Humo", "Inteligente", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/GmqbPTMh/Screenshot-2025-09-11-at-10-05-53-AM.png",
+      "https://i.postimg.cc/Dz0nxfDQ/Screenshot-2025-09-11-at-10-06-02-AM.png",
+      "https://i.postimg.cc/TYxxZJF3/Screenshot-2025-09-11-at-10-06-13-AM.png",
+      "https://i.postimg.cc/MpKSGKWk/Screenshot-2025-09-11-at-10-06-22-AM.png",
+      "https://i.postimg.cc/1z81pCnJ/Screenshot-2025-09-11-at-10-06-35-AM.png",
+      "https://i.postimg.cc/Hn4qpFRs/Screenshot-2025-09-11-at-10-06-46-AM.png",
+      "https://i.postimg.cc/Dy69Rk1x/Screenshot-2025-09-11-at-10-06-55-AM.png",
+      "https://i.postimg.cc/pLdwHGZR/Screenshot-2025-09-11-at-10-07-06-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SH2401-WF",
+    "featured": true
+  },
+  
+  {
+    "id": "ge-mh2410-wf",
+    "slug": "sensor-monoxido-humo-wifi-ge-mh2410-wf",
+    "name": "Sensor de Monóxido + Humo WiFi",
+    "category": "Seguridad",
+    "shortDescription": "Detector combinado de monóxido de carbono y humo con conexión WiFi, pantalla LCD y monitoreo en tiempo real.",
+    "description": "Detector inteligente 2-en-1 que combina sensor de monóxido de carbono y humo. Diseñado para brindar tranquilidad en el hogar, se conecta por WiFi para enviar notificaciones y permitir el monitoreo en tiempo real desde el celular. Incorpora pantalla LCD para una lectura clara del estado. Funciona con 3 pilas AA (no incluidas).",
+    "specs": {
+      "Conexión": "WiFi",
+      "Pantalla": "LCD",
+      "Alimentación del sensor": "3 pilas AA (no incluidas)",
+      "Monitoreo": "En tiempo real mediante app",
+      "Tipo de dispositivo": "Detector combinado (CO + Humo)"
+    },
+    "tags": ["WiFi", "CO + Humo", "Pantalla LCD", "Smart Home"],
+    "images": [
+      "https://i.postimg.cc/gcQXRQxB/Screenshot-2025-09-11-at-10-13-01-AM.png",
+      "https://i.postimg.cc/4xbmD3Br/Screenshot-2025-09-11-at-10-13-12-AM.png",
+      "https://i.postimg.cc/VkBRLnYg/Screenshot-2025-09-11-at-10-13-20-AM.png",
+      "https://i.postimg.cc/Kz4rNWtp/Screenshot-2025-09-11-at-10-13-26-AM.png",
+      "https://i.postimg.cc/yd5hrTP1/Screenshot-2025-09-11-at-10-13-33-AM.png",
+      "https://i.postimg.cc/CxYGt5jq/Screenshot-2025-09-11-at-10-13-41-AM.png",
+      "https://i.postimg.cc/MTcVRQ8h/Screenshot-2025-09-11-at-10-13-48-AM.png",
+      "https://i.postimg.cc/7h0ztrh9/Screenshot-2025-09-11-at-10-13-54-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-MH2410-WF",
+    "featured": true
+  },
+  {
+    "id": "ge-smh23bl",
+    "slug": "sensor-monoxido-carbono-humo-ge-smh23bl",
+    "name": "Sensor de Monóxido de Carbono + Humo",
+    "category": "Seguridad",
+    "shortDescription": "Sensor autónomo doble función que detecta monóxido de carbono y humo, con pantalla LCD y botón de test.",
+    "description": "El sensor GE-SMH23BL es un dispositivo autónomo diseñado para la seguridad del hogar y espacios cerrados. Detecta tanto humo como monóxido de carbono en el ambiente, emitiendo una señal sonora potente y clara. Incorpora una pantalla LCD que muestra el estado del dispositivo, así como indicadores LED de funcionamiento, alarma y fallos. Cuenta con un botón de prueba (TEST) para verificar su correcto funcionamiento de manera sencilla.",
+    "specs": {
+      "Funciones": "Detección de humo y monóxido de carbono",
+      "Alimentación": "3 pilas AA (no incluidas)",
+      "Pantalla": "LCD para visualización de estado",
+      "Indicadores": "LED de Power, Alarm y Fault",
+      "Botón de Test": "Incluido para verificación de funcionamiento",
+      "Tipo": "Autónomo, sin necesidad de conexión eléctrica"
+    },
+    "tags": ["Humo", "Monóxido de Carbono", "LCD", "Autónomo"],
+    "images": [
+      "https://i.postimg.cc/59SNgtNG/Screenshot-2025-09-11-at-10-29-29-AM.png",
+      "https://i.postimg.cc/NfNGhPXk/Screenshot-2025-09-11-at-10-29-36-AM.png",
+      "https://i.postimg.cc/3xVKN4ny/Screenshot-2025-09-11-at-10-29-44-AM.png",
+      "https://i.postimg.cc/Gm8CW3db/Screenshot-2025-09-11-at-10-29-51-AM.png",
+      "https://i.postimg.cc/C5P32X2Z/Screenshot-2025-09-11-at-10-29-57-AM.png",
+      "https://i.postimg.cc/h42RhQGS/Screenshot-2025-09-11-at-10-30-05-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SMH23BL",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/04-Manual_Smoke-Alarm_Geneve-1.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sps22bl",
+    "slug": "sensor-puerta-ge-sps22bl",
+    "name": "Sensor Puerta",
+    "category": "Seguridad",
+    "shortDescription": "Sensor inteligente para puertas, ventanas y cajones compatible con Google Assistant, Alexa y Smart Life.",
+    "description": "El Sensor Puerta GE-SPS22BL es un dispositivo inteligente que permite detectar la apertura o cierre de puertas, ventanas, armarios o cajones. Funciona con Google Assistant y Alexa, y está diseñado para integrarse con las aplicaciones TuyaSmart / Smart Life. También puede configurarse para interactuar con otros dispositivos inteligentes compatibles mediante Smart Life o IFTTT, facilitando un control automático avanzado. Ofrece comodidad y seguridad en el monitoreo de accesos en el hogar o la oficina.",
+    "specs": {
+      "Compatibilidad": "Google Assistant, Alexa, TuyaSmart, Smart Life, IFTTT",
+      "Funciones": "Detección de apertura y cierre en puertas, ventanas, armarios y cajones",
+      "Conectividad": "WiFi",
+      "Tipo": "Sensor autónomo inteligente",
+      "Aplicaciones": "Monitoreo remoto y control automático"
+    },
+    "tags": ["Puerta", "Ventana", "Smart", "Alexa", "Google Assistant"],
+    "images": [
+      "https://i.postimg.cc/25QPYVJN/Screenshot-2025-09-11-at-10-33-59-AM.png",
+      "https://i.postimg.cc/ydntJ2sf/Screenshot-2025-09-11-at-10-34-06-AM.png",
+      "https://i.postimg.cc/4NjMh6RT/Screenshot-2025-09-11-at-10-34-13-AM.png",
+      "https://i.postimg.cc/NMNCGTkS/Screenshot-2025-09-11-at-10-34-21-AM.png",
+      "https://i.postimg.cc/j2LgD585/Screenshot-2025-09-11-at-10-34-27-AM.png",
+      "https://i.postimg.cc/BZV7dT61/Screenshot-2025-09-11-at-10-34-34-AM.png",
+      "https://i.postimg.cc/x1rxd9Lf/Screenshot-2025-09-11-at-10-34-42-AM.png",
+      "https://i.postimg.cc/bJFLfPzj/Screenshot-2025-09-11-at-10-34-51-AM.png",
+      "https://i.postimg.cc/G2NNJGTY/Screenshot-2025-09-11-at-10-35-00-AM.png",
+      "https://i.postimg.cc/ZndQfn6Q/Screenshot-2025-09-11-at-10-35-09-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SPS22BL",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/ge-sps22bl-manual.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sensor-movimiento-790656",
+    "slug": "sensor-movimiento-790656",
+    "name": "Sensor de Movimiento",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de movimiento con detección 360°, ahorro de energía y protección IP20.",
+    "description": "El Sensor de Movimiento 79.06.56 es ideal para aplicaciones de seguridad y automatización. Ofrece un rango de detección de 360° con alcance de hasta 8 metros, permitiendo cubrir amplias áreas con total eficiencia. Cuenta con retardo de tiempo regulable de 10 segundos a 7 minutos y control de luz inferior a 102000 Lux, lo que garantiza su funcionamiento en diferentes condiciones de iluminación. Su bajo consumo de 0,5W lo convierte en una solución confiable y eficiente para el control automático de iluminación y sistemas de seguridad.",
+    "specs": {
+      "Protección": "IP20",
+      "Ahorro de energía": "Sí",
+      "Rango de detección": "360°",
+      "Tiempo de retardo": "10 segundos – 7 minutos",
+      "Control de luz": "<102000 Lux",
+      "Rango de alcance": "8 metros máximo (24°)",
+      "Consumo": "0,5W"
+    },
+    "tags": ["Sensor", "Movimiento", "Seguridad", "Automatización"],
+    "images": [
+      "https://i.postimg.cc/0jYfMwY9/Screenshot-2025-09-11-at-10-41-24-AM.png",
+      "https://i.postimg.cc/QxDSLfDC/Screenshot-2025-09-11-at-10-41-32-AM.png",
+      "https://i.postimg.cc/Kv5fmtcN/Screenshot-2025-09-11-at-10-41-39-AM.png",
+      "https://i.postimg.cc/3xSZv7v0/Screenshot-2025-09-11-at-10-41-46-AM.png",
+      "https://i.postimg.cc/LsGBxTvH/Screenshot-2025-09-11-at-10-41-54-AM.png",
+      "https://i.postimg.cc/Bb050ndk/Screenshot-2025-09-11-at-10-42-01-AM.png",
+      "https://i.postimg.cc/7P3MNSzk/Screenshot-2025-09-11-at-10-42-09-AM.png",
+      "https://i.postimg.cc/VL4qx14Z/Screenshot-2025-09-11-at-10-42-16-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "79.06.56",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/sensor-movimiento-790656-manual.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sensor-movimiento-790682",
+    "slug": "sensor-movimiento-790682",
+    "name": "Sensor de Movimiento",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de movimiento con detección de 180°, protección IP44 y bajo consumo energético.",
+    "description": "El Sensor de Movimiento 79.06.82 es una solución práctica y eficiente para sistemas de seguridad e iluminación automática. Ofrece un rango de detección de 180° con un alcance máximo de 8 metros, ideal para interiores y exteriores gracias a su protección IP44. Su tiempo de retardo es regulable entre 5 segundos y 7 minutos, adaptándose a distintas necesidades de uso. Además, permite control de luz inferior a 102000 Lux y funciona con un consumo reducido de apenas 0,5W. Su instalación recomendada es a una altura de entre 1.8 y 2.5 metros, lo que asegura un rendimiento óptimo.",
+    "specs": {
+      "Protección": "IP44",
+      "Ahorro de energía": "Sí",
+      "Rango de detección": "180°",
+      "Tiempo de retardo": "5 segundos – 7 minutos",
+      "Control de luz": "<102000 Lux",
+      "Rango de alcance": "8 metros máximo (24°)",
+      "Altura de instalación": "1.8 – 2.5 metros",
+      "Consumo": "0,5W"
+    },
+    "tags": ["Sensor", "Movimiento", "Seguridad", "Automatización", "IP44"],
+    "images": [
+      "https://i.postimg.cc/8kxcsYck/Screenshot-2025-09-11-at-10-47-24-AM.png",
+      "https://i.postimg.cc/zXWBhkHC/Screenshot-2025-09-11-at-10-47-33-AM.png",
+      "https://i.postimg.cc/2SD57BnP/Screenshot-2025-09-11-at-10-47-42-AM.png",
+      "https://i.postimg.cc/qRzBvcdC/Screenshot-2025-09-11-at-10-47-50-AM.png",
+      "https://i.postimg.cc/bJWyDGzV/Screenshot-2025-09-11-at-10-48-01-AM.png",
+      "https://i.postimg.cc/J0X1b10r/Screenshot-2025-09-11-at-10-48-12-AM.png",
+      "https://i.postimg.cc/wThqMTnF/Screenshot-2025-09-11-at-10-48-22-AM.png",
+      "https://i.postimg.cc/Z5HJPsbd/Screenshot-2025-09-11-at-10-48-32-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "79.06.82",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/05-Manual_sensor-mov_Geneve.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sensor-movimiento-790692",
+    "slug": "sensor-movimiento-790692",
+    "name": "Sensor de Movimiento",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de movimiento con detección de 180°, alcance de 12 metros y protección IP44.",
+    "description": "El Sensor de Movimiento 79.06.92 está diseñado para aplicaciones de seguridad e iluminación automática. Ofrece un rango de detección de 180° con un alcance máximo de 12 metros, lo que lo hace ideal para controlar accesos y áreas de tránsito. Su tiempo de retardo es regulable entre 8 segundos y 8 minutos, adaptándose a diferentes necesidades. Incluye control de luz de hasta 3 Lux, asegurando un funcionamiento eficiente en condiciones de baja luminosidad. Gracias a su protección IP44, puede instalarse tanto en interiores como exteriores. Se recomienda una altura de instalación entre 1.8 y 2.5 metros. Su consumo es muy bajo, con solo 0,5W, lo que garantiza ahorro de energía.",
+    "specs": {
+      "Protección": "IP44",
+      "Ahorro de energía": "Sí",
+      "Rango de detección": "180°",
+      "Tiempo de retardo": "8 segundos – 8 minutos",
+      "Control de luz": "3 Lux",
+      "Rango de alcance": "12 metros",
+      "Altura de instalación": "1.8 – 2.5 metros",
+      "Consumo": "0,5W"
+    },
+    "tags": ["Sensor", "Movimiento", "Seguridad", "IP44", "Automatización"],
+    "images": [
+      "https://i.postimg.cc/7ZYF4H45/Screenshot-2025-09-11-at-10-54-01-AM.png",
+      "https://i.postimg.cc/VNJ2SKd1/Screenshot-2025-09-11-at-10-54-08-AM.png",
+      "https://i.postimg.cc/L5pWbRv6/Screenshot-2025-09-11-at-10-54-16-AM.png",
+      "https://i.postimg.cc/Hn9NGKP0/Screenshot-2025-09-11-at-10-54-24-AM.png",
+      "https://i.postimg.cc/PfW98prL/Screenshot-2025-09-11-at-10-54-32-AM.png",
+      "https://i.postimg.cc/CLJ2m38S/Screenshot-2025-09-11-at-10-54-40-AM.png",
+      "https://i.postimg.cc/jjnkqCFS/Screenshot-2025-09-11-at-10-54-47-AM.png",
+      "https://i.postimg.cc/FRjWc8mt/Screenshot-2025-09-11-at-10-54-55-AM.png",
+      "https://i.postimg.cc/XqLs15pQ/Screenshot-2025-09-11-at-10-55-04-AM.png",
+      "https://i.postimg.cc/Gh378X5N/Screenshot-2025-09-11-at-10-55-12-AM.png",
+      "https://i.postimg.cc/K8R0QRFD/Screenshot-2025-09-11-at-10-55-19-AM.png",
+      "https://i.postimg.cc/qRXwgKX4/Screenshot-2025-09-11-at-10-55-25-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "79.06.92",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/04-Manual_sensor-mov-79.06.92_Geneve.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sensor-movimiento-790643",
+    "slug": "sensor-movimiento-790643",
+    "name": "Sensor de Movimiento",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de movimiento de 360° con alcance de 8 metros y retardo regulable hasta 10 minutos.",
+    "description": "El Sensor de Movimiento 79.06.43 está diseñado para aplicaciones de seguridad e iluminación automática en interiores. Su rango de detección de 360° permite cubrir amplias áreas de manera eficiente. Cuenta con un retardo de activación ajustable entre 10 segundos y 10 minutos, y un control de luz menor a 32.000 Lux, lo que asegura un funcionamiento óptimo en distintas condiciones de iluminación. Su alcance máximo es de 8 metros, ideal para habitaciones, pasillos y oficinas. Se recomienda instalarlo a una altura entre 2.2 y 5 metros. Su consumo energético es muy bajo, solo 0,5W, garantizando ahorro de energía.",
+    "specs": {
+      "Ahorro de energía": "Sí",
+      "Rango de detección": "360°",
+      "Tiempo de retardo": "10 segundos – 10 minutos",
+      "Control de luz": "<32.000 Lux",
+      "Rango de alcance": "8 metros",
+      "Altura de instalación": "2.2 – 5 metros",
+      "Consumo": "0,5W"
+    },
+    "tags": ["Sensor", "Movimiento", "360°", "Seguridad", "Eficiencia energética"],
+    "images": [
+      "https://i.postimg.cc/mr6zjgLC/Screenshot-2025-09-11-at-11-07-10-AM.png",
+      "https://i.postimg.cc/v8ng7ypx/Screenshot-2025-09-11-at-11-07-18-AM.png",
+      "https://i.postimg.cc/VLBJTRsY/Screenshot-2025-09-11-at-11-07-26-AM.png",
+      "https://i.postimg.cc/BZ2bLgKx/Screenshot-2025-09-11-at-11-07-31-AM.png",
+      "https://i.postimg.cc/hPpST3P7/Screenshot-2025-09-11-at-11-07-38-AM.png",
+      "https://i.postimg.cc/Hxwmx6hn/Screenshot-2025-09-11-at-11-07-47-AM.png",
+      "https://i.postimg.cc/WzSPmhjP/Screenshot-2025-09-11-at-11-07-54-AM.png",
+      "https://i.postimg.cc/9FF2mttX/Screenshot-2025-09-11-at-11-08-02-AM.png",
+      "https://i.postimg.cc/bYLXBSX7/Screenshot-2025-09-11-at-11-08-10-AM.png",
+      "https://i.postimg.cc/qvh9qmtr/Screenshot-2025-09-11-at-11-08-17-AM.png",
+      "https://i.postimg.cc/W40C6h6f/Screenshot-2025-09-11-at-11-08-23-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "79.06.43",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/04-Manual_sensor-mov_Geneve-43.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sm79a",
+    "slug": "sensor-movimiento-ge-sm79a",
+    "name": "Sensor de Movimiento",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de movimiento con ángulo de detección de 60° y alarma sonora de más de 60 dB.",
+    "description": "El Sensor de Movimiento GE-SM79A funciona con una batería de 9V (no incluida) y está diseñado para aplicaciones de seguridad en interiores. Ofrece un ángulo de detección de 60° y una distancia máxima de hasta 8 metros. Incorpora una alarma sonora con volumen superior a 60 dB para alertar en caso de movimiento detectado. Dispone de un retardo de activación de 15 segundos y cuenta con modo de alarma normal, brindando una solución práctica y eficiente para el hogar o el comercio.",
+    "specs": {
+      "Alimentación": "Batería de 9V (no incluida)",
+      "Ángulo de detección": "60°",
+      "Distancia máxima": "8 metros",
+      "Volumen de alarma": ">60 dB",
+      "Time Delay": "15 segundos",
+      "Tipos de alarma": "Alarma normal"
+    },
+    "tags": ["Sensor", "Movimiento", "60°", "Alarma sonora", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/85P4J5yv/Screenshot-2025-09-11-at-11-13-37-AM.png",
+      "https://i.postimg.cc/nVX50RkD/Screenshot-2025-09-11-at-11-13-44-AM.png",
+      "https://i.postimg.cc/MpSFZW87/Screenshot-2025-09-11-at-11-13-52-AM.png",
+      "https://i.postimg.cc/25HcxhLG/Screenshot-2025-09-11-at-11-14-00-AM.png",
+      "https://i.postimg.cc/zDHtnLzw/Screenshot-2025-09-11-at-11-14-10-AM.png",
+      "https://i.postimg.cc/52bsdnwp/Screenshot-2025-09-11-at-11-14-19-AM.png",
+      "https://i.postimg.cc/cJJT6Ckn/Screenshot-2025-09-11-at-11-14-26-AM.png",
+      "https://i.postimg.cc/JhdxX8Sd/Screenshot-2025-09-11-at-11-14-33-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SM79A",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-09-Manual_sensor-mov.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-sg001",
+    "slug": "sensor-gas-ge-sg001",
+    "name": "Sensor de Gas",
+    "category": "Seguridad",
+    "shortDescription": "Sensor de gas con alimentación AC220V y alarma sonora de más de 75 dB a 1 metro.",
+    "description": "El Sensor de Gas GE-SG001 está diseñado para brindar seguridad en el hogar y en espacios cerrados, detectando fugas de gas con alta precisión. Funciona conectado a la red eléctrica (AC220V) y cuenta con una alarma sonora de más de 75 dB a 1 metro de distancia para alertar de inmediato sobre situaciones de riesgo. Posee una sensibilidad del 6% LEL, bajo consumo de energía (2W), y está preparado para funcionar en un amplio rango de temperatura y humedad, garantizando confiabilidad y eficiencia.",
+    "specs": {
+      "Potencia nominal": "2W",
+      "Fuente de alimentación": "AC220V",
+      "Volumen de alarma": ">75 dB @ 1m",
+      "Sensibilidad": "6% LEL",
+      "Rango de temperatura": "-10°C a +50°C",
+      "Humedad real": "≤95% RH (40°C ± 2°C)"
+    },
+    "tags": ["Sensor", "Gas", "Alarma sonora", "Seguridad", "AC220V"],
+    "images": [
+      "https://i.postimg.cc/sXhYZhYv/Screenshot-2025-09-11-at-11-19-59-AM.png",
+      "https://i.postimg.cc/7hrg1Z9X/Screenshot-2025-09-11-at-11-20-06-AM.png",
+      "https://i.postimg.cc/xTRKHYzy/Screenshot-2025-09-11-at-11-20-12-AM.png",
+      "https://i.postimg.cc/g0fRd2Cd/Screenshot-2025-09-11-at-11-20-18-AM.png",
+      "https://i.postimg.cc/FzxJjg7s/Screenshot-2025-09-11-at-11-20-26-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SG001",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_GAS-GE-SG001_Curvas.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-wsc6000",
+    "slug": "wifi-camara-smart-ge-wsc6000",
+    "name": "WiFi Cámara Smart",
+    "category": "Seguridad",
+    "shortDescription": "Cámara WiFi inteligente con visión en tiempo real, visión nocturna y almacenamiento en la nube.",
+    "description": "La WiFi Cámara Smart GE-WSC6000 está diseñada para brindar seguridad avanzada en el hogar y oficinas. Permite visualizar en tiempo real desde tu dispositivo móvil, con modo día/noche automático y visión nocturna infrarroja de hasta 15 metros. Ofrece almacenamiento en la nube para mayor seguridad de los registros y utiliza compresión inteligente H.265, optimizando el uso de ancho de banda y espacio de almacenamiento. Ideal para interiores gracias a su diseño compacto y moderno.",
+    "specs": {
+      "Visualización": "En tiempo real",
+      "Modo": "Día / Noche",
+      "Visión nocturna": "15m (Infrarroja)",
+      "Almacenamiento": "En la nube",
+      "Compresión": "Smart H.265",
+      "Panel": "Uso interno"
+    },
+    "tags": ["Cámara", "WiFi", "Visión nocturna", "Nube", "Seguridad"],
+    "images": [
+      "https://i.postimg.cc/brvW9mnK/Screenshot-2025-09-11-at-1-13-27-PM.png",
+      "https://i.postimg.cc/HsRRb4kh/Screenshot-2025-09-11-at-1-13-39-PM.png",
+      "https://i.postimg.cc/T1hNDpMx/Screenshot-2025-09-11-at-1-13-48-PM.png",
+      "https://i.postimg.cc/kX0Y2Jjr/Screenshot-2025-09-11-at-1-13-58-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-WSC6000",
+    
+    "featured": true
+  },
+ 
+
+
+
+
+
+
+
+  {
+    "id": "ge-bp500",
+    "slug": "bomba-periferica-ge-bp500",
+    "name": "Bomba Periférica",
+    "category": "Bombas",
+    "shortDescription": "Bomba periférica de 500W, silenciosa y segura, ideal para uso doméstico con operación continua.",
+    "description": "La Bomba Periférica GE-BP500 está diseñada para garantizar un rendimiento confiable y silencioso en aplicaciones domésticas. Ofrece operación continua, fácil instalación y un diseño seguro con protección IP42. Su capacidad de altura máxima de 28 metros asegura un suministro eficiente de agua en distintas condiciones.",
+    "specs": {
+      "Operación": "Continua",
+      "Instalación": "Fácil de instalar",
+      "Seguridad": "Protección IP42",
+      "Características": "Silenciosa",
+      "Altura máxima": "28 mts",
+      "Potencia": "500W"
+    },
+    "tags": ["Bomba", "Periférica", "Agua", "500W", "IP42"],
+    "images": [
+      "https://i.postimg.cc/wBj9GQDQ/Screenshot-2025-09-11-at-1-22-24-PM.png",
+      "https://i.postimg.cc/GhPr35Qj/Screenshot-2025-09-11-at-1-22-41-PM.png",
+      "https://i.postimg.cc/RFn5kshK/Screenshot-2025-09-11-at-1-22-53-PM.png",
+      "https://i.postimg.cc/cLDpry8f/Screenshot-2025-09-11-at-1-23-03-PM.png",
+      "https://i.postimg.cc/Vsj2XbCf/Screenshot-2025-09-11-at-1-23-17-PM.png",
+      "https://i.postimg.cc/fyKHpmcY/Screenshot-2025-09-11-at-1-23-25-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-BP500",
+    "featured": true
+  },
+  {
+    "id": "ge-bomba-circulante",
+    "slug": "bomba-circulante-ge",
+    "name": "Bomba Circulante",
+    "category": "Bombas",
+    "shortDescription": "Bomba circulante de operación continua, silenciosa y segura con protección IP42.",
+    "description": "La Bomba Circulante GE ofrece operación continua, diseño silencioso, instalación sencilla y protección IP42. Con una altura máxima recomendada de uso de 28 metros y potencia de 500W, es ideal para aplicaciones de bombeo de agua domésticas o de jardín.",
+    "specs": {
+      "Operación": "Continua",
+      "Instalación": "Fácil de instalar",
+      "Seguridad": "Protección IP42",
+      "Silenciosa": "Sí",
+      "Altura máxima": "28 mts",
+      "Potencia": "500W"
+    },
+    "tags": ["Bomba", "Circulante", "500W", "IP42"],
+    "images": [
+      "https://i.postimg.cc/MpxBXg8Z/Screenshot-2025-09-11-at-1-29-05-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-BC500", 
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/bomba-circulante-ge-manual.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-bomba-presurizada",
+    "slug": "bomba-presurizada-acquapress",
+    "name": "Bomba Presurizada",
+    "category": "Bombas",
+    "shortDescription": "Bomba presurizadora silenciosa con sensor de flujo automático, ideal para cocinas, baños, lavaderos y calefacción.",
+    "description": "Las bombas presurizadoras ACQUAPRESS (Tanque Elevado) Geneve son completamente silenciosas, lo que las hace ideales para instalar en cocinas, baños, lavaderos y áreas de calefacción. Permiten elevar la presión del agua en artefactos puntuales como duchas, grifos, calefones y más. Cuentan con un sensor de flujo que activa el funcionamiento automático al abrir el paso de agua y se apaga al cerrarlo. Estos equipos requieren una presión mínima de ingreso de 0,5 bar o estar ubicados al menos 50 cm por debajo del tanque elevado.",
+    "specs": {
+      "Potencia": "Disponible en modelos de 100W y 260W",
+      "Funcionamiento": "Automático con sensor de flujo",
+      "Instalación": "Mínimo 50 cm por debajo del tanque elevado",
+      "Presión mínima de ingreso": "0,5 bar",
+      "Nivel de ruido": "Silenciosa",
+      "Protección": "IP42"
+    },
+    "tags": ["Presurizadora", "Automática", "Silenciosa", "Tanque Elevado"],
+    "images": [
+      "https://i.postimg.cc/vBG2z09G/Screenshot-2025-09-11-at-1-31-23-PM.png",
+      "https://i.postimg.cc/m2PX8zc1/Screenshot-2025-09-11-at-1-31-34-PM.png",
+      "https://i.postimg.cc/8zhb0hTc/Screenshot-2025-09-11-at-1-31-43-PM.png",
+      "https://i.postimg.cc/W4T7Lh4n/Screenshot-2025-09-11-at-1-31-52-PM.png",
+      "https://i.postimg.cc/rFGRCN1w/Screenshot-2025-09-11-at-1-32-07-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PR100-260",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "https://geneve.com.ar/wp-content/uploads/2020/12/00-Manual_bomba-GE-PR100-260_Curvas.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-su400as",
+    "slug": "bomba-sumergible-ge-su400as",
+    "name": "Bomba Sumergible",
+    "category": "Bombas",
+    "shortDescription": "Bomba sumergible de 400W apta para agua sucia, ideal para desagote y aplicaciones domésticas.",
+    "description": "La bomba sumergible Geneve GE-SU400AS es una solución práctica para el desagote de agua sucia en sótanos, pozos, tanques o cisternas. Con un motor de 400W y capacidad de caudal máximo de 7,5 m³/h, esta bomba asegura un funcionamiento eficiente y confiable. Su diseño compacto con flotante automático permite un uso seguro y fácil de instalar. Construida con protección IPX8, resiste la inmersión prolongada y garantiza durabilidad. Ideal para aplicaciones residenciales que requieren evacuación rápida de líquidos.",
+    "specs": {
+      "Potencia": "400W",
+      "Corriente": "1.8 AMP",
+      "Caudal Máximo": "7.5 m³/h",
+      "Presión": "1/2 HP",
+      "Altura Máxima": "5 mts",
+      "Temperatura Máxima": "35°C",
+      "Protección": "IPX8",
+      "Aplicación": "Apta para agua sucia"
+    },
+    "tags": ["Sumergible", "Agua Sucia", "400W", "Automática"],
+    "images": [
+      "https://i.postimg.cc/xdnR3dJW/Screenshot-2025-09-11-at-1-39-01-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SU400AS",
+    "featured": true
+  },
+  {
+    "id": "ge-dsk1",
+    "slug": "control-automatico-presion-ge-dsk1",
+    "name": "Control Automático de Presión",
+    "category": "Bombas",
+    "shortDescription": "Dispositivo automático que activa y desactiva la bomba de agua según el paso de agua, evitando funcionamiento en seco.",
+    "description": "El Control Automático de Presión Geneve GE-DSK1 está diseñado para gestionar el encendido y apagado automático de bombas de agua. Activa la bomba al abrirse el paso de agua y la desactiva al cerrarse, brindando protección contra funcionamiento en seco. No requiere presión mínima de ingreso, lo que lo hace ideal para aplicaciones residenciales y comerciales. Su construcción robusta garantiza durabilidad y seguridad en el uso diario.",
+    "specs": {
+      "Corriente Máxima": "10 Amp",
+      "Presión Máxima": "10 Bar",
+      "Presión de Arranque": "1.5 Bar",
+      "Protección": "IP65",
+      "Compatibilidad": "Bombas monofásicas hasta 1.1 kW",
+      "Temperatura Máxima": "65°C"
+    },
+    "tags": ["Automático", "Presión", "Protección Bomba", "Anti-seco"],
+    "images": [
+      "https://i.postimg.cc/jdk2h3WK/Screenshot-2025-09-11-at-1-43-16-PM.png",
+      "https://i.postimg.cc/nLqLpH3c/Screenshot-2025-09-11-at-1-43-23-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-DSK1",
+    "featured": true
+  },
+  {
+    "id": "ge-pt-bl",
+    "slug": "protector-tension-enchufable",
+    "name": "Protector de Tensión Enchufable",
+    "category": "Protector Tensión",
+    "shortDescription": "Protector enchufable que corrige variaciones de voltaje y protege equipos electrónicos frente a daños o pérdidas de información.",
+    "description": "El Protector de Tensión Enchufable Geneve (modelos GE-PT10A-BL, GE-PT16A-BL y GE-PT20A-BL) está diseñado para mantener seguros tus equipos electrónicos frente a variaciones en la línea eléctrica. Garantiza la protección contra daños y pérdida de datos al corregir automáticamente los desvíos de voltaje. Sus indicadores LED muestran si la línea se encuentra en estado normal, baja o alta tensión. Es una solución práctica y confiable para uso residencial y comercial.",
+    "specs": {
+      "Rango de Tensión": "175-245 Vca",
+      "Tiempo de Disparo": "0,5 s",
+      "Tiempo de Conexión/Reposición": "120 s",
+      "Clase/Grado": "Clase 1, IP20",
+      "Histéresis": "5V",
+      "Modelos Disponibles": "GE-PT10A-BL, GE-PT16A-BL, GE-PT20A-BL",
+      "Potencia Máxima": "Hasta 3530W (según modelo)"
+    },
+    "tags": ["Protección", "Enchufable", "Variación de Tensión", "Seguridad Eléctrica"],
+    "images": [
+      "https://i.postimg.cc/0jnTC4cs/Screenshot-2025-09-11-at-1-53-10-PM.png",
+      "https://i.postimg.cc/ryfZQ5qM/Screenshot-2025-09-11-at-1-54-07-PM.png",
+      "https://i.postimg.cc/FzSZrkkn/Screenshot-2025-09-11-at-1-54-17-PM.png",
+      "https://i.postimg.cc/wMk1Q9Cj/Screenshot-2025-09-11-at-1-54-32-PM.png",
+      "https://i.postimg.cc/3xzxpykZ/Screenshot-2025-09-11-at-1-54-42-PM.png",
+      "https://i.postimg.cc/76Kv3cBy/Screenshot-2025-09-11-at-1-54-53-PM.png",
+      "https://i.postimg.cc/fyyGBKFS/Screenshot-2025-09-11-at-1-55-01-PM.png",
+      "https://i.postimg.cc/WbFRZ5gQ/Screenshot-2025-09-11-at-1-55-10-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PT-BL",
+    "featured": true
+  },
+  {
+    "id": "ge-td07m",
+    "slug": "interruptor-digital-wifi",
+    "name": "Interruptor Digital WiFi",
+    "category": "Temporizadores",
+    "shortDescription": "Toma inteligente con control WiFi, temporizador programable y compatibilidad con app y control por voz.",
+    "description": "El Interruptor Digital WiFi Geneve modelo GE-TD07M permite controlar de forma remota la iluminación y/o dispositivos eléctricos y electrónicos a través de una aplicación móvil o tablet. Ofrece funciones de encendido y apagado programables, con posibilidad de temporización configurable para ampliar el rango de operación. Es compatible con asistentes de voz como Alexa y Google Home, lo que brinda mayor comodidad y flexibilidad en su uso.",
+    "specs": {
+      "Timer": "Programable",
+      "Control": "WiFi",
+      "Control APP": "Compatible con Tuya Smart / Smart Life",
+      "Control Voz": "Alexa y Google Assistant",
+      "Aplicaciones": "Iluminación y dispositivos eléctricos"
+    },
+    "tags": ["WiFi", "Smart", "Control Remoto", "Temporizador", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/85vGSww8/Screenshot-2025-09-11-at-2-09-37-PM.png",
+      "https://i.postimg.cc/6QksYnKM/Screenshot-2025-09-11-at-2-09-48-PM.png",
+      "https://i.postimg.cc/zXtcxKST/Screenshot-2025-09-11-at-2-09-58-PM.png",
+      "https://i.postimg.cc/kGMTcg2j/Screenshot-2025-09-11-at-2-10-11-PM.png",
+      "https://i.postimg.cc/854HjgZL/Screenshot-2025-09-11-at-2-10-22-PM.png",
+      "https://i.postimg.cc/X7mgZ8k1/Screenshot-2025-09-11-at-2-10-32-PM.png",
+      "https://i.postimg.cc/gcBV5DQc/Screenshot-2025-09-11-at-2-10-53-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-TD07M",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_GE-TD07M.pdf" }
+    ],
+    "featured": true
+  },
+  {
+    "id": "ge-td08d",
+    "slug": "temporizador-digital",
+    "name": "Temporizador Digital",
+    "category": "Temporizadores",
+    "shortDescription": "Temporizador digital enchufable con 8 programas configurables y rango de tiempo de 1 minuto a 24 horas.",
+    "description": "El Temporizador Digital Geneve GE-TD08D permite automatizar el encendido y apagado de dispositivos eléctricos de manera precisa y sencilla. Es enchufable, fácil de usar y cuenta con pantalla LCD para una programación intuitiva. Ofrece hasta 8 programas configurables, con intervalos de tiempo desde 1 minuto hasta 24 horas, ideal para iluminación, electrodomésticos y equipos eléctricos que requieran control horario.",
+    "specs": {
+      "Tipo": "Enchufable",
+      "Programas": "8 configurables",
+      "Tecnología": "Digital con pantalla LCD",
+      "Tiempo Máximo": "24 horas",
+      "Tiempo Mínimo": "1 minuto"
+    },
+    "tags": ["Temporizador", "Digital", "Programable", "Automatización", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/nhsp2H7c/Screenshot-2025-09-11-at-2-19-29-PM.png",
+      "https://i.postimg.cc/gkjWcYgq/Screenshot-2025-09-11-at-2-19-39-PM.png",
+      "https://i.postimg.cc/SsdBq58v/Screenshot-2025-09-11-at-2-19-47-PM.png",
+      "https://i.postimg.cc/d3SgZy5R/Screenshot-2025-09-11-at-2-19-56-PM.png",
+      "https://i.postimg.cc/jdLp0MjM/Screenshot-2025-09-11-at-2-20-05-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-TD08D",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual-Timer-01_Curvas.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-td02m",
+    "slug": "temporizador-mecanico",
+    "name": "Temporizador Mecánico",
+    "category": "Temporizadores",
+    "shortDescription": "Temporizador mecánico enchufable con programación diaria y ciclos de encendido y apagado de hasta 24 horas.",
+    "description": "El Temporizador Mecánico Geneve GE-TD02M es un dispositivo enchufable diseñado para automatizar el encendido y apagado de equipos eléctricos. Ofrece una programación diaria simple y confiable, permitiendo establecer intervalos de funcionamiento de hasta 24 horas con un tiempo mínimo de 15 minutos. Ideal para controlar luces, electrodomésticos, calefactores y otros aparatos, optimizando el consumo de energía y brindando mayor seguridad.",
+    "specs": {
+      "Tipo": "Enchufable",
+      "Programación": "Diaria",
+      "Tiempo Máximo": "24 horas",
+      "Tiempo Mínimo": "15 minutos"
+    },
+    "tags": ["Temporizador", "Mecánico", "Programación diaria", "Automatización", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/rpXstdbL/Screenshot-2025-09-11-at-2-23-45-PM.png",
+      "https://i.postimg.cc/HnhsWj5R/Screenshot-2025-09-11-at-2-23-54-PM.png",
+      "https://i.postimg.cc/s2rfgkQj/Screenshot-2025-09-11-at-2-24-04-PM.png",
+      "https://i.postimg.cc/qRBk82xW/Screenshot-2025-09-11-at-2-24-14-PM.png",
+      "https://i.postimg.cc/nrgpbgft/Screenshot-2025-09-11-at-2-24-25-PM.png",
+      "https://i.postimg.cc/DznFT1Hm/Screenshot-2025-09-11-at-2-24-33-PM.png",
+      "https://i.postimg.cc/BbLfgpL7/Screenshot-2025-09-11-at-2-24-43-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-TD02M",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual-Timer-TD02D_Curvas.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-td15b",
+    "slug": "timer-digital-riel-din",
+    "name": "Timer Digital GE-TD15B",
+    "category": "Temporizadores",
+    "shortDescription": "Temporizador digital para riel DIN con hasta 8 programas y batería de respaldo de 150 horas.",
+    "description": "El Timer Digital Geneve GE-TD15B es un temporizador diseñado para montaje en riel DIN, ideal para instalaciones eléctricas en tableros de control. Ofrece hasta 8 programas configurables para automatizar el encendido y apagado de dispositivos eléctricos. Su pantalla LCD facilita la programación y supervisión, mientras que la batería de reserva de 150 horas garantiza el mantenimiento de la configuración incluso durante cortes de energía. Con una capacidad nominal de 10A, es una solución confiable y precisa para la gestión de cargas eléctricas.",
+    "specs": {
+      "Pantalla": "LCD",
+      "Programas": "Hasta 8 programas",
+      "Montaje": "Riel DIN",
+      "Batería de Respaldo": "150 horas",
+      "Potencia Nominal": "10A máx"
+    },
+    "tags": ["Temporizador", "Digital", "Riel DIN", "Programable", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/9f5PFQYD/Screenshot-2025-09-11-at-2-30-53-PM.png",
+      "https://i.postimg.cc/QNwFrnbt/Screenshot-2025-09-11-at-2-31-12-PM.png",
+      "https://i.postimg.cc/P5zJYfkp/Screenshot-2025-09-11-at-2-31-23-PM.png",
+      "https://i.postimg.cc/PqXb0rbY/Screenshot-2025-09-11-at-2-31-33-PM.png",
+      "https://i.postimg.cc/0Q3p6YT0/Screenshot-2025-09-11-at-2-31-44-PM.png",
+      "https://i.postimg.cc/mgbFgpcG/Screenshot-2025-09-11-at-2-31-52-PM.png",
+      "https://i.postimg.cc/SQ6sY7bQ/Screenshot-2025-09-11-at-2-32-01-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-TD15B",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_GE-TD15B.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-lf-ledwork",
+    "slug": "liston-led-work-1-2-tubos",
+    "name": "Listón LED Work 1 y 2 Tubos",
+    "category": "Iluminación",
+    "shortDescription": "Listón LED Geneve de alta calidad para 1 o 2 tubos LED de 60 cm o 120 cm, sin necesidad de balasto ni arrancador.",
+    "description": "El Listón LED Work Geneve es la solución moderna y práctica para la instalación de tubos LED. Fabricado con materiales de alta calidad, este zócalo soporta hasta 2 Amper y está diseñado exclusivamente para uso interior. Su instalación es rápida y sencilla, ya que no requiere balasto ni arrancador, garantizando un rendimiento eficiente y seguro. Disponible en versiones para 1 o 2 tubos de 60 cm y 120 cm, se adapta a diferentes necesidades de iluminación en oficinas, talleres, locales comerciales y espacios residenciales.",
+    "specs": {
+      "Modelos Disponibles": [
+        "GE-LF60X1 – 1 Tubo 60 cm",
+        "GE-LF120X1 – 1 Tubo 120 cm",
+        "GE-LF60X2 – 2 Tubos 60 cm",
+        "GE-LF120X2 – 2 Tubos 120 cm"
+      ],
+      "Corriente Máxima": "2 Amper",
+      "Uso": "Interior",
+      "Instalación": "Directa, no requiere balasto ni arrancador"
+    },
+    "tags": ["Listón LED", "Iluminación", "1 Tubo", "2 Tubos", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/MpKbFpmR/Screenshot-2025-09-11-at-2-39-22-PM.png",
+      "https://i.postimg.cc/1XQDcmz8/Screenshot-2025-09-11-at-2-39-30-PM.png",
+      "https://i.postimg.cc/Sxv817sF/Screenshot-2025-09-11-at-2-39-38-PM.png",
+      "https://i.postimg.cc/hjFmcDT2/Screenshot-2025-09-11-at-2-39-49-PM.png",
+      "https://i.postimg.cc/cC08tFDY/Screenshot-2025-09-11-at-2-39-57-PM.png",
+      "https://i.postimg.cc/J47k1dHC/Screenshot-2025-09-11-at-2-40-08-PM.png",
+      "https://i.postimg.cc/1X81BQYZ/Screenshot-2025-09-11-at-2-47-15-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-LF60X1/GE-LF120X1/GE-LF60X2/GE-LF120X2",
+    
+    "featured": false
+  },
+  {
+    "id": "ge-panel-cuadrado",
+    "slug": "panel-led-cuadrado",
+    "name": "Panel LED Cuadrado",
+    "category": "Iluminación",
+    "shortDescription": "Panel LED cuadrado Geneve disponible en versiones de 6W, 12W, 18W y 24W, con alta eficiencia lumínica y diseño moderno.",
+    "description": "El Panel LED Cuadrado Geneve es ideal para iluminación interior en hogares, oficinas, locales comerciales y espacios residenciales. Ofrece ahorro de energía, alta durabilidad de hasta 20.000 horas y un diseño moderno que se adapta a cualquier ambiente. Con un rendimiento lumínico de 80 lúmenes por watt, proporciona una iluminación uniforme y eficiente. Disponible en potencias de 6W, 12W, 18W y 24W para diferentes necesidades de instalación.",
+    "specs": {
+      "Potencias Disponibles": ["6W", "12W", "18W", "24W"],
+      "Eficiencia Lumínica": "80 lm/W",
+      "Durabilidad": "20.000 horas",
+      "Grado de Protección": "IP20",
+      "Uso": "Interior"
+    },
+    "tags": ["Panel LED", "Iluminación", "Cuadrado", "Eficiencia Energética", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/Hn9vbPTC/Screenshot-2025-09-11-at-2-52-09-PM.png",
+      "https://i.postimg.cc/Bb4MZcH7/Screenshot-2025-09-11-at-2-52-17-PM.png",
+      "https://i.postimg.cc/ZKYV1HTC/Screenshot-2025-09-11-at-2-52-25-PM.png",
+      "https://i.postimg.cc/132BVZDq/Screenshot-2025-09-11-at-2-52-41-PM.png",
+      "https://i.postimg.cc/Wz56NR2t/Screenshot-2025-09-11-at-2-52-53-PM.png",
+      "https://i.postimg.cc/KvsrCyqH/Screenshot-2025-09-11-at-2-53-02-PM.png",
+      "https://i.postimg.cc/C5rkyjNq/Screenshot-2025-09-11-at-2-53-12-PM.png",
+      "https://i.postimg.cc/7Z27cJT5/Screenshot-2025-09-11-at-2-53-24-PM.png",
+      "https://i.postimg.cc/mDbHtdp9/Screenshot-2025-09-11-at-2-53-34-PM.png",
+      "https://i.postimg.cc/8cYJXTpd/Screenshot-2025-09-11-at-2-53-49-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PLS6W/12W/18W/24W",
+    "featured": false
+  },
+  {
+    "id": "ge-panel-redondo",
+    "slug": "panel-led-redondo",
+    "name": "Panel LED Redondo",
+    "category": "Iluminación",
+    "shortDescription": "Panel LED redondo Geneve disponible en versiones de 6W, 12W, 18W y 24W, con alta eficiencia lumínica y diseño moderno.",
+    "description": "El Panel LED Redondo Geneve es ideal para iluminación interior en hogares, oficinas, comercios y espacios residenciales. Diseñado para brindar un rendimiento eficiente y uniforme, ofrece un ahorro significativo de energía con una durabilidad de hasta 20.000 horas. Con un flujo luminoso de 80 lúmenes por watt y protección IP20, está recomendado para uso interior en cielorrasos y ambientes donde se busca un acabado moderno y elegante.",
+    "specs": {
+      "Potencias Disponibles": ["6W", "12W", "18W", "24W"],
+      "Eficiencia Lumínica": "80 lm/W",
+      "Durabilidad": "20.000 horas",
+      "Grado de Protección": "IP20",
+      "Uso": "Interior"
+    },
+    "tags": ["Panel LED", "Iluminación", "Redondo", "Eficiencia Energética", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/gk01vmLS/Screenshot-2025-09-11-at-3-00-47-PM.png",
+      "https://i.postimg.cc/CLtrkDg5/Screenshot-2025-09-11-at-3-01-01-PM.png",
+      "https://i.postimg.cc/Bbzp5WRk/Screenshot-2025-09-11-at-3-01-14-PM.png",
+      "https://i.postimg.cc/Qd1m7ymY/Screenshot-2025-09-11-at-3-01-24-PM.png",
+      "https://i.postimg.cc/MHnbpPXD/Screenshot-2025-09-11-at-3-01-37-PM.png",
+      "https://i.postimg.cc/13hcyKSG/Screenshot-2025-09-11-at-3-01-49-PM.png",
+      "https://i.postimg.cc/qRR21bcT/Screenshot-2025-09-11-at-3-02-03-PM.png",
+      "https://i.postimg.cc/c1vbHTp2/Screenshot-2025-09-11-at-3-02-19-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PLR6W/12W/18W/24W",
+    "featured": false
+  },
+  {
+    "id": "ge-panel-empotrable",
+    "slug": "panel-led-empotrable",
+    "name": "Panel LED Empotrable",
+    "category": "Iluminación",
+    "shortDescription": "Panel LED empotrable Geneve disponible en versiones de 6W, 12W, 18W y 24W. Diseño delgado y moderno para uso interior.",
+    "description": "El Panel LED Empotrable Geneve está diseñado para instalación en techos falsos y cielorrasos, ofreciendo una iluminación uniforme y eficiente con un diseño discreto y moderno. Con un ahorro energético significativo, estos paneles tienen una durabilidad de hasta 20.000 horas. Su flujo luminoso es de 80 lúmenes por watt y cuentan con grado de protección IP20, recomendado exclusivamente para interiores.",
+    "specs": {
+      "Potencias Disponibles": ["6W", "12W", "18W", "24W"],
+      "Eficiencia Lumínica": "80 lm/W",
+      "Durabilidad": "20.000 horas",
+      "Grado de Protección": "IP20",
+      "Instalación": "Empotrable en cielorraso",
+      "Uso": "Interior"
+    },
+    "tags": ["Panel LED", "Iluminación", "Empotrable", "Eficiencia Energética", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/RZY3MSKj/Screenshot-2025-09-11-at-3-08-32-PM.png",
+      "https://i.postimg.cc/c446wgcp/Screenshot-2025-09-11-at-3-08-49-PM.png",
+      "https://i.postimg.cc/138t7k2M/Screenshot-2025-09-11-at-3-09-01-PM.png",
+      "https://i.postimg.cc/k5rn1BxX/Screenshot-2025-09-11-at-3-09-12-PM.png",
+      "https://i.postimg.cc/BbvsLDGN/Screenshot-2025-09-11-at-3-09-22-PM.png",
+      "https://i.postimg.cc/sDvs3pmg/Screenshot-2025-09-11-at-3-09-32-PM.png",
+      "https://i.postimg.cc/TPX6jB6K/Screenshot-2025-09-11-at-3-09-42-PM.png",
+      "https://i.postimg.cc/C1hpXDdY/Screenshot-2025-09-11-at-3-09-54-PM.png",
+      "https://i.postimg.cc/vTDFHsWN/Screenshot-2025-09-11-at-3-10-04-PM.png",
+      "https://i.postimg.cc/4xpC3w9s/Screenshot-2025-09-11-at-3-10-16-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PLE6W/12W/18W/24W",
+   
+    "featured": false
+  },
+  {
+    "id": "ge-panel-empotrable-redondo",
+    "slug": "panel-led-empotrable-redondo",
+    "name": "Panel LED Empotrable Redondo",
+    "category": "Iluminación",
+    "shortDescription": "Panel LED empotrable redondo Geneve disponible en versiones de 6W, 12W, 18W y 24W. Ideal para interiores con diseño moderno y delgado.",
+    "description": "El Panel LED Empotrable Redondo Geneve proporciona una iluminación homogénea y de bajo consumo, diseñado para instalación en techos falsos o cielorrasos. Con un diseño minimalista y eficiente, ofrece un ahorro de energía considerable y una durabilidad de hasta 20.000 horas. Su rendimiento lumínico es de 80 lúmenes por watt y cuenta con grado de protección IP20, apto únicamente para interiores.",
+    "specs": {
+      "Potencias Disponibles": ["6W", "12W", "18W", "24W"],
+      "Eficiencia Lumínica": "80 lm/W",
+      "Durabilidad": "20.000 horas",
+      "Grado de Protección": "IP20",
+      "Instalación": "Empotrable en cielorraso",
+      "Uso": "Interior"
+    },
+    "tags": ["Panel LED", "Iluminación", "Empotrable", "Redondo", "Eficiencia Energética", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/26R0b2kN/Screenshot-2025-09-11-at-3-19-17-PM.png",
+      "https://i.postimg.cc/x87J8FQK/Screenshot-2025-09-11-at-3-19-29-PM.png",
+      "https://i.postimg.cc/dtrrDw73/Screenshot-2025-09-11-at-3-19-40-PM.png",
+      "https://i.postimg.cc/bYHqv5y8/Screenshot-2025-09-11-at-3-19-58-PM.png",
+      "https://i.postimg.cc/RFL2vjcD/Screenshot-2025-09-11-at-3-20-05-PM.png",
+      "https://i.postimg.cc/pX4cM2wd/Screenshot-2025-09-11-at-3-20-14-PM.png",
+      "https://i.postimg.cc/mDpN3jRr/Screenshot-2025-09-11-at-3-20-24-PM.png",
+      "https://i.postimg.cc/Qx1YsLhk/Screenshot-2025-09-11-at-3-20-35-PM.png",
+      "https://i.postimg.cc/zfBky4ZQ/Screenshot-2025-09-11-at-3-20-44-PM.png",
+      "https://i.postimg.cc/G2DGYCMX/Screenshot-2025-09-11-at-3-20-54-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PLER6W/12W/18W/24W",
+    "featured": false
+  },
+  {
+    "id": "ge-plafon-estanco-acqua-led",
+    "slug": "plafon-estanco-acqua-led",
+    "name": "Plafón Estanco Acqua LED",
+    "category": "Iluminación",
+    "shortDescription": "Plafón estanco Geneve para uso interior y exterior, disponible en 18W y 36W. Luz fría 6500K, bajo consumo y alta eficiencia.",
+    "description": "El Plafón Estanco Acqua LED de Geneve ofrece iluminación de luz fría (6500K) con bajo consumo y alta eficiencia. Incorpora tapa de policarbonato y cuerpo de ABS, apto para uso INTERNO y EXTERNO. Utiliza chip SMD de ALTA CALIDAD. Flujo luminoso indicado en la ficha: hasta 3600 lúmenes (LM). Modelos disponibles: GE-ESL600 (18W) y GE-ESL1200 (36W).",
+    "specs": {
+      "Potencias Disponibles": ["18W", "36W"],
+      "Temperatura de Color": "6500K (luz fría)",
+      "Flujo Luminoso": "hasta 3600 lm",
+      "Materiales": "Tapa de policarbonato y cuerpo de ABS",
+      "Tecnología de LED": "Chip SMD de alta calidad",
+      "Uso": "Interior y exterior",
+      "Instalación": "Tipo plafón estanco (superficie)"
+    },
+    "models": [
+      { "modelo": "GE-ESL600", "potencia": "18W" },
+      { "modelo": "GE-ESL1200", "potencia": "36W" }
+    ],
+    "tags": ["Plafón", "LED", "Estanco", "Geneve", "Interior", "Exterior", "SMD"],
+    "images": [
+      "https://i.postimg.cc/fyn20ZNK/Screenshot-2025-09-12-at-8-43-31-PM.png",
+      "https://i.postimg.cc/nLX0RMV2/Screenshot-2025-09-12-at-8-43-40-PM.png",
+      "https://i.postimg.cc/8z0b6Dd6/Screenshot-2025-09-12-at-8-43-51-PM.png",
+      "https://i.postimg.cc/jjfynfdp/Screenshot-2025-09-12-at-8-44-00-PM.png",
+      "https://i.postimg.cc/HsL54Rk4/Screenshot-2025-09-12-at-8-44-09-PM.png",
+      "https://i.postimg.cc/Y9b0v2Yc/Screenshot-2025-09-12-at-8-44-23-PM.png",
+      "https://i.postimg.cc/y8L7hpW9/Screenshot-2025-09-12-at-8-44-34-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-ESL600/GE-ESL1200",
+    "featured": false
+  },
+  {
+    "id": "ge-plafon-estanco-para-tubo-led",
+    "slug": "plafon-estanco-para-tubo-led",
+    "name": "Plafón Estanco para Tubo LED",
+    "category": "Iluminación",
+    "shortDescription": "Plafón estanco Geneve para tubo LED. Configuraciones: 1x18W, 2x18W, 1x36W y 2x36W. Grado de protección IP65.",
+    "description": "Plafón estanco para tubo LED, diseñado para aplicar en techo. Cuenta con difusor de policarbonato transparente y ofrece distribución de luz directa – simétrica. Grado de protección IP65. Configuraciones disponibles: 1x18W, 2x18W, 1x36W y 2x36W.",
+    "specs": {
+      "Configuraciones Disponibles": ["1x18W", "2x18W", "1x36W", "2x36W"],
+      "Aplicación": "Para techo (aplicar)",
+      "Difusor": "Policarbonato transparente",
+      "Distribución de Luz": "Directa – simétrica",
+      "Grado de Protección": "IP65"
+    },
+    "models": [
+      { "modelo": "GE-ES118-GSC", "configuracion": "1 x 18W" },
+      { "modelo": "GE-ES218-GSC", "configuracion": "2 x 18W" },
+      { "modelo": "GE-ES136-GSC", "configuracion": "1 x 36W" },
+      { "modelo": "GE-ES236-GSC", "configuracion": "2 x 36W" }
+    ],
+    "tags": ["Plafón", "Estanco", "Tubo LED", "IP65", "Policarbonato", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/WbKB2RD5/Screenshot-2025-09-12-at-8-53-19-PM.png",
+      "https://i.postimg.cc/FKxCkwR5/Screenshot-2025-09-12-at-8-53-29-PM.png",
+      "https://i.postimg.cc/sXD6YKQB/Screenshot-2025-09-12-at-8-53-37-PM.png",
+      "https://i.postimg.cc/J0spgnQM/Screenshot-2025-09-12-at-8-53-46-PM.png",
+      "https://i.postimg.cc/Gt6X1CMY/Screenshot-2025-09-12-at-8-53-58-PM.png",
+      "https://i.postimg.cc/VLb7WJ6F/Screenshot-2025-09-12-at-8-54-07-PM.png",
+      "https://i.postimg.cc/htW2yKQR/Screenshot-2025-09-12-at-8-54-19-PM.png",
+      "https://i.postimg.cc/s23wzKJn/Screenshot-2025-09-12-at-8-54-28-PM.png",
+      "https://i.postimg.cc/CKJJxDPw/Screenshot-2025-09-12-at-8-54-39-PM.png",
+      "https://i.postimg.cc/XNZMt7qr/Screenshot-2025-09-12-at-8-54-53-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-ES118-GSC/GE-ES218-GSC/GE-ES136-GSC/GE-ES236-GSC",
+    "featured": false
+  },
+  {
+    "id": "ge-reflector-led",
+    "slug": "reflector-led",
+    "name": "Reflector LED",
+    "category": "Iluminación",
+    "shortDescription": "Reflector LED Geneve disponible de 10W a 100W. Compacto, delgado y diseñado para exteriores. Ideal para resaltar jardines, fachadas y monumentos.",
+    "description": "El Reflector LED Geneve ofrece una solución eficiente y compacta para iluminación exterior, diseñado para resaltar jardines, fachadas o monumentos. Mantiene constante la iluminación frente a variaciones de tensión gracias a su Driver IC (rango de tensión 85-265VCA 50/60Hz). Vida útil de hasta 25.000 horas. Disponible en versiones de 10W, 30W, 50W y 100W, que equivalen respectivamente a 70W, 200W, 380W y 600W tradicionales. Cuenta con grado de protección IP65, lo que garantiza resistencia a condiciones de intemperie. Garantía de 1 año.",
+    "specs": {
+      "Potencias Disponibles": ["10W", "30W", "50W", "100W"],
+      "Equivalencias": {
+        "10W": "70W",
+        "30W": "200W",
+        "50W": "380W",
+        "100W": "600W"
+      },
+      "Aplicación": "Exteriores (jardines, fachadas, monumentos)",
+      "Diseño": "Compacto y delgado",
+      "Protección": "IP65",
+      "Driver": "IC – Rango de tensión 85-265VCA 50/60Hz",
+      "Vida Útil": "25.000 horas",
+      "Garantía": "1 año"
+    },
+    "models": [
+      { "modelo": "GE-RFL10W", "potencia": "10W", "equivalencia": "70W" },
+      { "modelo": "GE-RFL30W", "potencia": "30W", "equivalencia": "200W" },
+      { "modelo": "GE-RFL50W", "potencia": "50W", "equivalencia": "380W" },
+      { "modelo": "GE-RFL100W", "potencia": "100W", "equivalencia": "600W" }
+    ],
+    "tags": ["Reflector", "LED", "Exterior", "IP65", "Iluminación", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/fT29yCZ2/Screenshot-2025-09-12-at-9-08-02-PM.png",
+      "https://i.postimg.cc/zXbJwFKP/Screenshot-2025-09-12-at-9-08-14-PM.png",
+      "https://i.postimg.cc/sg5sqfnY/Screenshot-2025-09-12-at-9-08-23-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-RFL10W/GE-RFL30W/GE-RFL50W/GE-RFL100W",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_Reflectores-Geneve.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-reflector-led-rgb-50w",
+    "slug": "reflector-led-rgb-50w",
+    "name": "Reflector LED RGB 50W",
+    "category": "Iluminación",
+    "shortDescription": "Reflector LED RGB Geneve de 50W con control remoto. Ideal para interiores y exteriores, resistente al agua con protección IP66.",
+    "description": "El Reflector LED RGB Geneve de 50W es una herramienta de iluminación versátil y resistente al agua, diseñada para interiores y exteriores. Con un flujo luminoso de 2400 lúmenes y eficiencia de 80 lm/W, proporciona una luz brillante y de alta calidad en una amplia variedad de entornos. Incluye control remoto para seleccionar diferentes colores y modos de iluminación, lo que lo convierte en una opción ideal para resaltar áreas grandes, proyectos de paisajismo o ambientes decorativos. Su grado de protección IP66 lo hace resistente a condiciones ambientales extremas, evitando el ingreso de agua y polvo.",
+    "specs": {
+      "Potencia": "50W",
+      "Eficiencia Lumínica": "80 lm/W",
+      "Flujo Luminoso": "2400 lm",
+      "Voltaje": "160-265V",
+      "Protección": "IP66",
+      "Control": "Control remoto incluido",
+      "Uso": "Interior y exterior"
+    },
+    "models": [
+      { "modelo": "GE-RGB50W", "potencia": "50W", "flujoLuminoso": "2400 lm" }
+    ],
+    "tags": ["Reflector", "LED", "RGB", "50W", "IP66", "Exterior", "Interior", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/Hkmkp78Z/Screenshot-2025-09-12-at-9-13-56-PM.png",
+      "https://i.postimg.cc/dV9tDt8q/Screenshot-2025-09-12-at-9-14-05-PM.png",
+      "https://i.postimg.cc/Xv7N5S89/Screenshot-2025-09-12-at-9-14-15-PM.png",
+      "https://i.postimg.cc/Pq3Xz339/Screenshot-2025-09-12-at-9-14-29-PM.png",
+      "https://i.postimg.cc/NMZQZywx/Screenshot-2025-09-12-at-9-14-40-PM.png",
+      "https://i.postimg.cc/J0wWP9b6/Screenshot-2025-09-12-at-9-14-51-PM.png",
+      "https://i.postimg.cc/kM8CBgmk/Screenshot-2025-09-12-at-9-15-03-PM.png",
+      "https://i.postimg.cc/ZKxhxs0H/Screenshot-2025-09-12-at-9-15-13-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-RGB50W",
+    "featured": false
+  },
+  {
+    "id": "ge-reflector-led-rgb-30w",
+    "slug": "reflector-led-rgb-30w",
+    "name": "Reflector LED RGB 30W",
+    "category": "Iluminación",
+    "shortDescription": "Reflector LED RGB Geneve de 30W con control remoto. Resistente al agua con protección IP66, apto para interiores y exteriores.",
+    "description": "El Reflector LED RGB Geneve de 30W es una herramienta de iluminación versátil y resistente al agua, ideal para interiores y exteriores. Con un flujo luminoso de 2400 lúmenes y una eficiencia de 80 lm/W, proporciona una luz brillante y de alta calidad en una amplia variedad de entornos. Incluye control remoto que permite seleccionar diferentes colores y modos de iluminación, lo que lo convierte en una excelente opción para resaltar áreas grandes, paisajismo o proyectos decorativos. Su grado de protección IP66 asegura resistencia contra el polvo y el agua, garantizando durabilidad y funcionamiento confiable en condiciones ambientales extremas.",
+    "specs": {
+      "Potencia": "30W",
+      "Eficiencia Lumínica": "80 lm/W",
+      "Flujo Luminoso": "2400 lm",
+      "Voltaje": "160-265V",
+      "Protección": "IP66",
+      "Control": "Control remoto incluido",
+      "Uso": "Interior y exterior"
+    },
+    "models": [
+      { "modelo": "GE-RGB30W", "potencia": "30W", "flujoLuminoso": "2400 lm" }
+    ],
+    "tags": ["Reflector", "LED", "RGB", "30W", "IP66", "Exterior", "Interior", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/Hkmkp78Z/Screenshot-2025-09-12-at-9-13-56-PM.png",
+      "https://i.postimg.cc/HLRGkfPY/Screenshot-2025-09-12-at-9-21-44-PM.png",
+      "https://i.postimg.cc/Y9W5GbJ1/Screenshot-2025-09-12-at-9-21-55-PM.png",
+      "https://i.postimg.cc/3NQPg2Tz/Screenshot-2025-09-12-at-9-22-03-PM.png",
+      "https://i.postimg.cc/cC7PT61C/Screenshot-2025-09-12-at-9-22-13-PM.png",
+      "https://i.postimg.cc/wx5rCyHT/Screenshot-2025-09-12-at-9-22-26-PM.png",
+      "https://i.postimg.cc/X7QzvRpR/Screenshot-2025-09-12-at-9-22-41-PM.png",
+      "https://i.postimg.cc/QdzYQcgS/Screenshot-2025-09-12-at-9-22-53-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-RGB30W",
+    "featured": false
+  },
+  {
+    "id": "ge-reflector-led-sensor-movimiento",
+    "slug": "reflector-led-sensor-movimiento",
+    "name": "Reflector LED con Sensor de Movimiento",
+    "category": "Iluminación",
+    "shortDescription": "Reflector LED Geneve con sensor de movimiento, disponible en 20W, 30W y 50W. Compacto, delgado y diseñado para exteriores.",
+    "description": "El Reflector LED Geneve con Sensor de Movimiento es ideal para iluminación exterior en jardines, fachadas o monumentos. Su diseño compacto y delgado lo hace versátil y eficiente, brindando seguridad y practicidad al encenderse automáticamente al detectar movimiento. Mantiene constante la iluminación frente a variaciones de tensión gracias a su Driver IC (rango 85-265VCA 50/60Hz). Con una vida útil de hasta 25.000 horas, es una solución duradera y confiable para proyectos residenciales, comerciales o industriales. Disponible en potencias de 20W, 30W y 50W. Grado de protección IP66 y garantía de 1 año.",
+    "specs": {
+      "Potencias Disponibles": ["20W", "30W", "50W"],
+      "Aplicación": "Exterior",
+      "Diseño": "Compacto y delgado",
+      "Protección": "IP66",
+      "Sensor": "Sensor de movimiento integrado",
+      "Driver": "IC – Rango de tensión 85-265VCA 50/60Hz",
+      "Vida Útil": "25.000 horas",
+      "Garantía": "1 año"
+    },
+    "models": [
+      { "modelo": "GE-RFL20W-SM", "potencia": "20W" },
+      { "modelo": "GE-RFL30W-SM", "potencia": "30W" },
+      { "modelo": "GE-RFL50W-SM", "potencia": "50W" }
+    ],
+    "tags": ["Reflector", "LED", "Sensor de Movimiento", "IP66", "Exterior", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/JzXZFJVp/Screenshot-2025-09-12-at-9-31-02-PM.png",
+      "https://i.postimg.cc/JhcJrLhJ/Screenshot-2025-09-12-at-9-31-15-PM.png",
+      "https://i.postimg.cc/pTWjy69S/Screenshot-2025-09-12-at-9-31-30-PM.png",
+      "https://i.postimg.cc/vB0VntfZ/Screenshot-2025-09-12-at-9-31-40-PM.png",
+      "https://i.postimg.cc/6qTGf4fL/Screenshot-2025-09-12-at-9-31-47-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-RFL20W-SM/GE-RFL30W-SM/GE-RFL50W-SM",
+    "featured": false
+  },
+  {
+    "id": "ge-reflector-led-sensor-movimiento-externo-20w",
+    "slug": "reflector-led-sensor-movimiento-externo-20w",
+    "name": "Reflector LED con Sensor de Movimiento Externo 20W",
+    "category": "Iluminación",
+    "shortDescription": "Reflector LED Geneve de 20W con sensor de movimiento externo. Compacto, eficiente y diseñado para exteriores con protección IP66.",
+    "description": "El Reflector LED Geneve con Sensor de Movimiento Externo de 20W es una solución de iluminación segura y eficiente, diseñada para exteriores. Su sensor externo permite detectar movimiento y encender automáticamente la luz, ideal para jardines, accesos, fachadas o áreas de seguridad. Ofrece una luz fría de 6500K con 80 lm/W y un flujo equivalente a 135W tradicionales, garantizando eficiencia y ahorro energético. Compacto, resistente y confiable, cuenta con protección IP66 frente a agua y polvo, asegurando durabilidad en condiciones extremas. Su vida útil es de hasta 25.000 horas e incluye garantía de 1 año.",
+    "specs": {
+      "Potencia": "20W",
+      "Equivalencia": "135W",
+      "Eficiencia Lumínica": "80 lm/W",
+      "Temperatura de Color": "6500K (Luz Fría)",
+      "Protección": "IP66",
+      "Sensor": "Sensor de movimiento externo",
+      "Vida Útil": "25.000 horas",
+      "Aplicación": "Exterior",
+      "Garantía": "1 año"
+    },
+    "models": [
+      { "modelo": "GE-RFL20W-SME", "potencia": "20W", "equivalencia": "135W" }
+    ],
+    "tags": ["Reflector", "LED", "Sensor de Movimiento", "Externo", "20W", "IP66", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/bYFnNLq6/Screenshot-2025-09-12-at-9-34-09-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-RFL20W-SME",
+    "featured": false
+  },
+  {
+    "id": "ge-lampara-escritorio-led-6w",
+    "slug": "lampara-escritorio-led-6w",
+    "name": "Lámpara de Escritorio LED 6W",
+    "category": "Iluminación",
+    "shortDescription": "Lámpara de escritorio LED Geneve de 6W con carga inalámbrica de 5W, 3 temperaturas de luz y puerto USB. Incluye cable de alimentación.",
+    "description": "La Lámpara de Escritorio LED Geneve de 6W combina funcionalidad y diseño moderno. Cuenta con carga inalámbrica de 5W integrada en la base y puerto USB para mayor practicidad. Ofrece 3 temperaturas de luz (3000K, 4000K y 6000K) ajustables para distintas necesidades de iluminación. Su flujo luminoso es de 250 lúmenes, con un índice de reproducción cromática (Ra) superior a 90, garantizando colores más reales y confort visual. Fabricada en ABS+PC, es resistente y ligera. Incluye cable de alimentación de 1 metro con adaptador. Garantía de 1 año.",
+    "specs": {
+      "Potencia": "6W",
+      "Carga Inalámbrica": "5W",
+      "Conectividad": "Cargador USB",
+      "Temperaturas de Luz": ["3000K", "4000K", "6000K"],
+      "Flujo Luminoso": "250 lm",
+      "Índice de Reproducción Cromática (Ra)": ">90",
+      "Material": "ABS + PC",
+      "Accesorios": "Incluye cable de alimentación de 1m con adaptador",
+      "Garantía": "1 año"
+    },
+    "models": [
+      { "modelo": "GE-LAMP6W", "potencia": "6W", "flujoLuminoso": "250 lm" }
+    ],
+    "tags": ["Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/kXKW1Kdf/Screenshot-2025-09-12-at-9-35-42-PM.png",
+      "https://i.postimg.cc/tgCP4cnM/Screenshot-2025-09-12-at-9-35-57-PM.png",
+      "https://i.postimg.cc/15hqqXN6/Screenshot-2025-09-12-at-9-36-05-PM.png",
+      "https://i.postimg.cc/yNbJY8HD/Screenshot-2025-09-12-at-9-36-13-PM.png",
+      "https://i.postimg.cc/d1Zh7cs4/Screenshot-2025-09-12-at-9-36-19-PM.png",
+      "https://i.postimg.cc/65X8QPDf/Screenshot-2025-09-12-at-9-36-28-PM.png",
+      "https://i.postimg.cc/ZKxCvcmt/Screenshot-2025-09-12-at-9-36-34-PM.png",
+      "https://i.postimg.cc/DwC0Bwmx/Screenshot-2025-09-12-at-9-36-42-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-LAMP6W",
+    "featured": false
+  },
+  {
+    "id": "ge-lampara-escritorio-led-6w-negra",
+    "slug": "lampara-escritorio-led-6w-negra",
+    "name": "Lámpara de Escritorio LED 6W Negra",
+    "category": "Iluminación",
+    "shortDescription": "Lámpara de escritorio LED Geneve de 6W en color negro, con carga inalámbrica de 5W, 3 temperaturas de luz y puerto USB.",
+    "description": "La Lámpara de Escritorio LED Geneve de 6W en color negro ofrece una iluminación eficiente y funcional con diseño moderno. Incorpora carga inalámbrica de 5W en la base y puerto USB, permitiendo cargar dispositivos fácilmente. Brinda 3 temperaturas de luz regulables (3000K, 4000K y 6000K), adaptándose a diferentes usos como lectura, estudio o trabajo. Su flujo luminoso es de 250 lúmenes con un índice de reproducción cromática (Ra) >90, proporcionando colores naturales y confort visual. Fabricada en ABS+PC, es resistente y ligera. Incluye cable de alimentación de 1 metro con adaptador. Garantía de 1 año.",
+    "specs": {
+      "Potencia": "6W",
+      "Carga Inalámbrica": "5W",
+      "Conectividad": "Cargador USB",
+      "Temperaturas de Luz": ["3000K", "4000K", "6000K"],
+      "Flujo Luminoso": "250 lm",
+      "Índice de Reproducción Cromática (Ra)": ">90",
+      "Material": "ABS + PC",
+      "Color": "Negro",
+      "Accesorios": "Incluye cable de alimentación de 1m con adaptador",
+      "Garantía": "1 año"
+    },
+    "models": [
+      { "modelo": "GE-LAMP6W-NG", "potencia": "6W", "flujoLuminoso": "250 lm", "color": "Negro" }
+    ],
+    "tags": ["Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Negra", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/nhMpVYc1/Screenshot-2025-09-12-at-9-40-50-PM.png",
+      "https://i.postimg.cc/R0HmKSt6/Screenshot-2025-09-12-at-9-41-04-PM.png",
+      "https://i.postimg.cc/3RjHftn3/Screenshot-2025-09-12-at-9-41-11-PM.png",
+      "https://i.postimg.cc/1XJ1s4kT/Screenshot-2025-09-12-at-9-41-17-PM.png",
+      "https://i.postimg.cc/KvphWkr3/Screenshot-2025-09-12-at-9-41-24-PM.png",
+      "https://i.postimg.cc/XYZ66jQH/Screenshot-2025-09-12-at-9-41-31-PM.png",
+      "https://i.postimg.cc/43VCn8Cp/Screenshot-2025-09-12-at-9-41-38-PM.png",
+      "https://i.postimg.cc/j5bpfzKm/Screenshot-2025-09-12-at-9-41-45-PM.png",
+      "https://i.postimg.cc/sX4t4vgX/Screenshot-2025-09-12-at-9-41-52-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-LAMP6W-NG",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-1punto-wifi",
+    "slug": "interruptor-luz-1punto-wifi",
+    "name": "Interruptor de Luz WiFi 1 Punto",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 1 punto, fabricado en vidrio templado. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 1 punto Geneve transforma cualquier ambiente en un espacio moderno y conectado. Fabricado en vidrio templado, con diseño minimalista y panel táctil suave con luz LED, permite controlar una lámpara o foco desde cualquier lugar. Compatible con Alexa y Google Home, ofrece control por voz y funciones avanzadas como temporizador y programación de encendido/apagado. Requiere cable neutro para su funcionamiento y conexión WiFi 2.4 GHz (no necesita HUB). Su instalación profesional es recomendada para garantizar seguridad y correcto uso.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS01P-NG", "tipo": "1 Punto", "color": "Negro" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/hjt0Nj0h/Screenshot-2025-09-12-at-9-46-07-PM.png",
+      "https://i.postimg.cc/4d0pM1dF/Screenshot-2025-09-12-at-9-46-15-PM.png",
+      "https://i.postimg.cc/j2JyrJnq/Screenshot-2025-09-12-at-9-46-23-PM.png",
+      "https://i.postimg.cc/zDLQftnv/Screenshot-2025-09-12-at-9-46-30-PM.png",
+      "https://i.postimg.cc/9Xvnwdpp/Screenshot-2025-09-12-at-9-46-37-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS01P-NG",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-1punto-wifi-blanco",
+    "slug": "interruptor-luz-1punto-wifi-blanco",
+    "name": "Interruptor de Luz WiFi 1 Punto Blanco",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 1 punto en color blanco. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 1 punto Geneve (color blanco) combina estilo minimalista con tecnología avanzada para el hogar. Fabricado en vidrio templado y con panel táctil suave con luz LED, permite controlar una lámpara o foco desde cualquier lugar. Es compatible con Alexa y Google Home para control por voz y se maneja de forma remota mediante la app Smart Life o Tuya. Ofrece funciones inteligentes como temporizador y programación horaria de encendido/apagado. Funciona con WiFi 2.4 GHz sin necesidad de HUB, aunque requiere cable neutro para su instalación. Su diseño moderno lo convierte en la opción ideal para automatización del hogar.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Blanco",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS01P-BL", "tipo": "1 Punto", "color": "Blanco" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Blanco"],
+    "images": [
+      "https://i.postimg.cc/4dYWmyHq/Screenshot-2025-09-12-at-9-48-47-PM.png",
+      "https://i.postimg.cc/sXbwSzpX/Screenshot-2025-09-12-at-9-48-53-PM.png",
+      "https://i.postimg.cc/j2Nv41Xh/Screenshot-2025-09-12-at-9-49-01-PM.png",
+      "https://i.postimg.cc/7PTB4CkT/Screenshot-2025-09-12-at-9-49-09-PM.png",
+      "https://i.postimg.cc/HsD6kpYv/Screenshot-2025-09-12-at-9-49-17-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS01P-BL",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-2puntos-wifi-negro",
+    "slug": "interruptor-luz-2puntos-wifi-negro",
+    "name": "Interruptor de Luz WiFi 2 Puntos Negro",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 2 puntos en color negro. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 2 puntos Geneve (color negro) ofrece una solución moderna y funcional para automatización del hogar. Permite controlar hasta dos lámparas o focos de manera independiente. Su diseño en vidrio templado y panel táctil suave con luz LED combina estética minimalista con tecnología avanzada. Compatible con Alexa y Google Home, admite control por voz y control remoto desde el celular mediante las apps Smart Life o Tuya. Sus funciones inteligentes incluyen temporizador y programación horaria de encendido/apagado. Funciona con WiFi 2.4 GHz sin necesidad de HUB, aunque requiere cable neutro para la instalación. Es una opción confiable y elegante para hogares inteligentes.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Negro",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 2 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS02P-NG", "tipo": "2 Puntos", "color": "Negro" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "2 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/13Rc8XLB/Screenshot-2025-09-12-at-9-51-36-PM.png",
+      "https://i.postimg.cc/52kvj359/Screenshot-2025-09-12-at-9-51-42-PM.png",
+      "https://i.postimg.cc/prx531vC/Screenshot-2025-09-12-at-9-51-49-PM.png",
+      "https://i.postimg.cc/qqL6rXMT/Screenshot-2025-09-12-at-9-51-56-PM.png",
+      "https://i.postimg.cc/xjyzLYG4/Screenshot-2025-09-12-at-9-52-04-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS02P-NG",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-2puntos-wifi-blanco",
+    "slug": "interruptor-luz-2puntos-wifi-blanco",
+    "name": "Interruptor de Luz WiFi 2 Puntos Blanco",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 2 puntos en color blanco. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 2 puntos Geneve (color blanco) permite controlar hasta dos lámparas o focos de manera independiente, combinando diseño minimalista y tecnología avanzada. Fabricado en vidrio templado y con panel táctil suave con luz LED, ofrece comodidad y modernidad. Es compatible con Alexa y Google Home para control por voz y con apps Smart Life o Tuya para manejo remoto. Sus funciones inteligentes incluyen temporizador, programación horaria y encendido/apagado desde cualquier lugar. Funciona con WiFi 2.4 GHz sin necesidad de HUB, pero requiere cable neutro para su instalación. Es una solución confiable para domótica del hogar.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Blanco",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 2 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS02P-BL", "tipo": "2 Puntos", "color": "Blanco" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "2 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Blanco"],
+    "images": [
+      "https://i.postimg.cc/X71XgvrQ/Screenshot-2025-09-12-at-9-56-09-PM.png",
+      "https://i.postimg.cc/zG9B9PSh/Screenshot-2025-09-12-at-9-56-16-PM.png",
+      "https://i.postimg.cc/wBLvHc0G/Screenshot-2025-09-12-at-9-56-22-PM.png",
+      "https://i.postimg.cc/DZhzzJNy/Screenshot-2025-09-12-at-9-56-28-PM.png",
+      "https://i.postimg.cc/NFff6hY3/Screenshot-2025-09-12-at-9-56-39-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS02P-BL",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-3puntos-wifi-blanco",
+    "slug": "interruptor-luz-3puntos-wifi-blanco",
+    "name": "Interruptor de Luz WiFi 3 Puntos Blanco",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 3 puntos en color blanco. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 3 puntos Geneve (color blanco) permite controlar hasta tres lámparas o focos de forma independiente, integrando domótica avanzada en el hogar. Fabricado en vidrio templado, con panel táctil suave con luz LED, combina elegancia y funcionalidad. Compatible con Alexa y Google Home, admite control por voz y se gestiona también a través de las aplicaciones Smart Life o Tuya. Sus funciones inteligentes incluyen encendido/apagado remoto, temporizador y programación horaria. Funciona con WiFi 2.4 GHz sin necesidad de HUB, aunque requiere instalación con cable neutro. Es la solución ideal para hogares modernos y conectados.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Blanco",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 3 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS03P-BL", "tipo": "3 Puntos", "color": "Blanco" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "3 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Blanco"],
+    "images": [
+      "https://i.postimg.cc/CxDYfMkZ/Screenshot-2025-09-12-at-9-59-30-PM.png",
+      "https://i.postimg.cc/5tVJ5cSs/Screenshot-2025-09-12-at-9-59-40-PM.png",
+      "https://i.postimg.cc/6QfXYHHt/Screenshot-2025-09-12-at-9-59-47-PM.png",
+      "https://i.postimg.cc/Jn7WgbgJ/Screenshot-2025-09-12-at-9-59-56-PM.png",
+      "https://i.postimg.cc/Z5kzZk2J/Screenshot-2025-09-12-at-10-00-04-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS03P-BL",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-3puntos-wifi-negro",
+    "slug": "interruptor-luz-3puntos-wifi-negro",
+    "name": "Interruptor de Luz WiFi 3 Puntos Negro",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 3 puntos en color negro. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 3 puntos Geneve (color negro) está diseñado para controlar hasta tres lámparas o focos de forma independiente. Fabricado en vidrio templado y con un elegante diseño minimalista, incorpora panel táctil suave con luz LED que combina estética y practicidad. Es compatible con Alexa y Google Home, lo que permite controlarlo por voz, y se gestiona también mediante las aplicaciones Smart Life o Tuya. Sus funciones avanzadas incluyen temporizador, programación horaria de encendido/apagado y control remoto desde cualquier lugar. Funciona con WiFi 2.4 GHz sin necesidad de HUB, pero requiere instalación con cable neutro. Ideal para hogares inteligentes que buscan comodidad, eficiencia y modernidad.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Negro",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 3 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS03P-NG", "tipo": "3 Puntos", "color": "Negro" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "3 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Negro"],
+    "images": [
+      "https://i.postimg.cc/s2ckpMX2/Screenshot-2025-09-12-at-10-02-12-PM.png",
+      "https://i.postimg.cc/0QyLZ9M0/Screenshot-2025-09-12-at-10-02-19-PM.png",
+      "https://i.postimg.cc/prx531vC/Screenshot-2025-09-12-at-9-51-49-PM.png",
+      "https://i.postimg.cc/fLq1r1Yn/Screenshot-2025-09-12-at-10-02-35-PM.png",
+      "https://i.postimg.cc/C5Z9TJ4Z/Screenshot-2025-09-12-at-10-02-43-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS03P-NG",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-4puntos-wifi-blanco",
+    "slug": "interruptor-luz-4puntos-wifi-blanco",
+    "name": "Interruptor de Luz WiFi 4 Puntos Blanco",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 4 puntos en color blanco. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 4 puntos Geneve (color blanco) está diseñado para controlar hasta cuatro lámparas o focos de manera independiente. Fabricado en vidrio templado, con un panel táctil suave y elegante con luz LED, aporta un estilo moderno a cualquier ambiente. Compatible con Alexa y Google Home, permite control por voz, además de gestión completa desde las aplicaciones Smart Life o Tuya. Incluye funciones avanzadas como temporizador, programación horaria y encendido/apagado remoto. Funciona con WiFi 2.4 GHz sin necesidad de HUB, aunque requiere instalación con cable neutro. Es ideal para integrar domótica avanzada en el hogar, aportando comodidad, eficiencia y diseño minimalista.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Blanco",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 4 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS04P-BL", "tipo": "4 Puntos", "color": "Blanco" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "4 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Blanco"],
+    "images": [
+      "https://i.postimg.cc/TYjvRN6m/Screenshot-2025-09-12-at-10-04-33-PM.png",
+      "https://i.postimg.cc/3xK5Wj8q/Screenshot-2025-09-12-at-10-04-39-PM.png",
+      "https://i.postimg.cc/L8NdPqh8/Screenshot-2025-09-12-at-10-04-45-PM.png",
+      "https://i.postimg.cc/DZhzzJNy/Screenshot-2025-09-12-at-9-56-28-PM.png",
+      "https://i.postimg.cc/1zjLWLGx/Screenshot-2025-09-12-at-10-05-00-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS04P-BL",
+    "featured": false
+  },
+  {
+    "id": "ge-interruptor-luz-4puntos-wifi-negro",
+    "slug": "interruptor-luz-4puntos-wifi-negro",
+    "name": "Interruptor de Luz WiFi 4 Puntos Negro",
+    "category": "Interruptores",
+    "shortDescription": "Interruptor de luz inteligente Geneve WiFi de 4 puntos en color negro. Compatible con Alexa y Google Home, control táctil y remoto mediante app Smart Life o Tuya.",
+    "description": "El Interruptor de Luz Inteligente WiFi de 4 puntos Geneve (color negro) ofrece control independiente de hasta cuatro lámparas o focos. Su diseño moderno en vidrio templado con panel táctil LED lo convierte en una solución estética y tecnológica para la automatización del hogar. Funciona con WiFi 2.4 GHz sin necesidad de HUB, y es compatible con los asistentes de voz Alexa y Google Home. Permite control remoto desde la aplicación Smart Life o Tuya, así como funciones avanzadas como temporizador, programación horaria y encendido/apagado a distancia. Requiere instalación con cable neutro para su correcto funcionamiento, aportando practicidad, eficiencia y estilo minimalista.",
+    "specs": {
+      "Unidades por Pack": "1",
+      "Voltaje Nominal": "220V",
+      "Corriente Nominal": "10A",
+      "Material": "Vidrio templado",
+      "Dimensiones": "12 cm x 8 cm",
+      "Color": "Negro",
+      "Aplicación Inteligente": "Smart Life / Tuya",
+      "Compatibilidad": ["Alexa", "Google Home"],
+      "Conexión": "WiFi 2.4 GHz",
+      "Instalación": "Requiere cable neutro",
+      "Funciones": [
+        "Control independiente de 4 puntos de luz",
+        "Encendido y apagado remoto",
+        "Control por voz",
+        "Temporizador",
+        "Programación horaria",
+        "Panel táctil con luz LED"
+      ]
+    },
+    "models": [
+      { "modelo": "GE-SS04P-NG", "tipo": "4 Puntos", "color": "Negro" }
+    ],
+    "tags": ["Interruptor", "WiFi", "Inteligente", "4 Puntos", "Alexa", "Google Home", "Smart Life", "Tuya", "Geneve", "Negro"],
+    "images": [
+      "https://i.postimg.cc/76Jjjm95/Screenshot-2025-09-12-at-10-07-07-PM.png",
+      "https://i.postimg.cc/hv96tvHg/Screenshot-2025-09-12-at-10-07-14-PM.png",
+      "https://i.postimg.cc/66RD0bTS/Screenshot-2025-09-12-at-10-07-19-PM.png",
+      "https://i.postimg.cc/wTpnb5mB/Screenshot-2025-09-12-at-10-07-25-PM.png",
+      "https://i.postimg.cc/NFff6hY3/Screenshot-2025-09-12-at-9-56-39-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-SS04P-NG",
+    "featured": false
+  },
+  {
+    "id": "ge-luz-emergencia-30leds",
+    "slug": "luz-emergencia-30leds",
+    "name": "Luz de Emergencia 30 LEDs",
+    "category": "Luces de Emergencia",
+    "shortDescription": "Luz de emergencia portátil Geneve con 30 LEDs, batería recargable de litio, cuerpo ignífugo y autonomía de hasta 6 horas.",
+    "description": "La Luz de Emergencia Geneve de 30 LEDs es una solución confiable y segura para situaciones de corte eléctrico. Cuenta con batería de litio recargable de 3,7V y 1,2Ah, cuerpo ignífugo y luz indicadora de carga en color rojo. Posee un tiempo de carga entre 20 y 24 horas y se enciende automáticamente cuando la tensión baja de 160V. Incluye botón de prueba, sistema de protección contra sobrecarga y ofrece una autonomía de entre 3 y 6 horas dependiendo de la función seleccionada. Su diseño portátil y resistente la convierte en una herramienta indispensable tanto para el hogar como para oficinas, comercios y espacios públicos.",
+    "specs": {
+      "Cantidad de LEDs": "30",
+      "Batería": "Litio recargable 3,7V 1,2Ah",
+      "Cuerpo": "Ignífugo",
+      "Indicador de Carga": "Luz roja",
+      "Tiempo de Carga": "20-24 horas",
+      "Encendido Automático": "Sí, cuando la tensión es <160V",
+      "Botón de Prueba": "Incluido",
+      "Protección": "Contra sobrecarga",
+      "Autonomía": "3 a 6 horas según la función seleccionada"
+    },
+    "models": [
+      { "modelo": "GE-EM30LED", "tipo": "30 LEDs", "autonomia": "3 a 6 horas" }
+    ],
+    "tags": ["Luz de Emergencia", "LED", "30 LEDs", "Recargable", "Batería de Litio", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/jj7XbmVY/Screenshot-2025-09-12-at-10-16-27-PM.png",
+      "https://i.postimg.cc/MTJYK5xM/Screenshot-2025-09-12-at-10-16-33-PM.png",
+      "https://i.postimg.cc/RF1L3tVP/Screenshot-2025-09-12-at-10-16-39-PM.png",
+      "https://i.postimg.cc/PJtz1qCd/Screenshot-2025-09-12-at-10-16-46-PM.png",
+      "https://i.postimg.cc/QC0gmr71/Screenshot-2025-09-12-at-10-16-53-PM.png",
+      "https://i.postimg.cc/Sxw6DdnT/Screenshot-2025-09-12-at-10-17-01-PM.png",
+      "https://i.postimg.cc/yNcF5R9V/Screenshot-2025-09-12-at-10-17-10-PM.png",
+      "https://i.postimg.cc/TwxrXPqn/Screenshot-2025-09-12-at-10-17-16-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-EM30LED",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_Luz-emergencia-30.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-luz-emergencia-60leds",
+    "slug": "luz-emergencia-60leds",
+    "name": "Luz de Emergencia 60 LEDs",
+    "category": "Luces de Emergencia",
+    "shortDescription": "Luz de emergencia Geneve con 60 LEDs, batería recargable de litio de 2,0 Ah, cuerpo ignífugo y autonomía de hasta 6 horas.",
+    "description": "La Luz de Emergencia Geneve de 60 LEDs brinda una iluminación potente y confiable en situaciones de corte eléctrico. Equipada con batería de litio recargable de 3,7V y 2,0Ah, ofrece mayor capacidad y duración en comparación con modelos de menor potencia. Su cuerpo ignífugo garantiza seguridad, mientras que la luz indicadora roja permite verificar el estado de carga. Requiere entre 20 y 24 horas para una carga completa y se enciende automáticamente cuando la tensión baja de 160V. Incorpora botón de prueba, sistema de protección contra sobrecarga y una autonomía de entre 3 y 6 horas según la función seleccionada. Es una opción ideal para hogares, oficinas, comercios y espacios que requieran iluminación de respaldo confiable.",
+    "specs": {
+      "Cantidad de LEDs": "60",
+      "Batería": "Litio recargable 3,7V 2,0Ah",
+      "Cuerpo": "Ignífugo",
+      "Indicador de Carga": "Luz roja",
+      "Tiempo de Carga": "20-24 horas",
+      "Encendido Automático": "Sí, cuando la tensión es <160V",
+      "Botón de Prueba": "Incluido",
+      "Protección": "Contra sobrecarga",
+      "Autonomía": "3 a 6 horas según la función seleccionada"
+    },
+    "models": [
+      { "modelo": "GE-EM60LED", "tipo": "60 LEDs", "autonomia": "3 a 6 horas" }
+    ],
+    "tags": ["Luz de Emergencia", "LED", "60 LEDs", "Recargable", "Batería de Litio", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/bYC2mgMx/Screenshot-2025-09-12-at-10-21-28-PM.png",
+      "https://i.postimg.cc/6584gRJD/Screenshot-2025-09-12-at-10-21-34-PM.png",
+      "https://i.postimg.cc/vHCxsBGD/Screenshot-2025-09-12-at-10-21-40-PM.png",
+      "https://i.postimg.cc/cLYg4SJh/Screenshot-2025-09-12-at-10-21-48-PM.png",
+      "https://i.postimg.cc/XvbZrzGb/Screenshot-2025-09-12-at-10-21-53-PM.png",
+      "https://i.postimg.cc/SKfnCfCz/Screenshot-2025-09-12-at-10-22-00-PM.png",
+      "https://i.postimg.cc/bJYsTS9V/Screenshot-2025-09-12-at-10-22-07-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-EM60LED",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_Luz-emergencia-60.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-luz-emergencia-90leds",
+    "slug": "luz-emergencia-90leds",
+    "name": "Luz de Emergencia 90 LEDs",
+    "category": "Luces de Emergencia",
+    "shortDescription": "Luz de emergencia Geneve con 90 LEDs, batería recargable de litio de 1,2 Ah, cuerpo ignífugo y autonomía de hasta 6 horas.",
+    "description": "La Luz de Emergencia Geneve de 90 LEDs está diseñada para brindar iluminación confiable y segura en cortes de energía. Equipada con batería de litio recargable de 3,7V y 1,2Ah, ofrece un equilibrio entre potencia y autonomía. Su cuerpo ignífugo asegura resistencia y protección, mientras que la luz indicadora roja permite conocer el estado de carga. El tiempo de carga es de 20 a 24 horas y el dispositivo se enciende automáticamente cuando la tensión es inferior a 160V. Incluye botón de prueba, sistema de protección contra sobrecarga y autonomía de entre 3 y 6 horas según la función seleccionada. Es una solución práctica para hogares, oficinas y comercios que requieren respaldo lumínico.",
+    "specs": {
+      "Cantidad de LEDs": "90",
+      "Batería": "Litio recargable 3,7V 1,2Ah",
+      "Cuerpo": "Ignífugo",
+      "Indicador de Carga": "Luz roja",
+      "Tiempo de Carga": "20-24 horas",
+      "Encendido Automático": "Sí, cuando la tensión es <160V",
+      "Botón de Prueba": "Incluido",
+      "Protección": "Contra sobrecarga",
+      "Autonomía": "3 a 6 horas según la función seleccionada"
+    },
+    "models": [
+      { "modelo": "GE-EM90LED", "tipo": "90 LEDs", "autonomia": "3 a 6 horas" }
+    ],
+    "tags": ["Luz de Emergencia", "LED", "90 LEDs", "Recargable", "Batería de Litio", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/NF5LhhV1/Screenshot-2025-09-12-at-10-26-08-PM.png",
+      "https://i.postimg.cc/br7yKZ1h/Screenshot-2025-09-12-at-10-26-15-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-EM90LED",
+    "downloads": [
+      { "label": "Manual de Usuario (PDF)", "url": "/docs/Manual_Luz-emergencia-90_Curvas.pdf" }
+    ],
+    "featured": false
+  },
+  {
+    "id": "ge-cartel-luminoso-salida",
+    "slug": "cartel-luminoso-salida",
+    "name": "Cartel Luminoso Salida",
+    "category": "Luces de Emergencia",
+    "shortDescription": "Cartel luminoso de emergencia Geneve con indicador de salida, batería recargable de litio y autonomía de hasta 5 horas.",
+    "description": "El Cartel Luminoso Salida Geneve GE-ELO5-S garantiza seguridad y visibilidad en todo momento, incluso en cortes de luz. Diseñado para señalizar salidas, vías de escape y cumplir funciones de señalética, ilumina de manera autónoma hasta 5 horas, asegurando evacuaciones rápidas y seguras. Incorpora batería recargable de litio-ion que puede usarse repetidamente manteniendo el tiempo de carga recomendado para mayor rendimiento. Sus LEDs de alta luminosidad aseguran claridad en la señal y su diseño versátil permite múltiples opciones de instalación: voladizo, paralelo a la pared, colgado de los extremos, sobre caños o directamente en el cielorraso. Es una solución ideal para edificios, comercios, oficinas y espacios públicos donde la señalización de salida es fundamental.",
+    "specs": {
+      "Batería": "Litio-Ion recargable",
+      "Autonomía": "5 horas",
+      "LEDs": "Alta luminosidad",
+      "Tiempo de Recarga": "5 horas",
+      "Montaje": "Techo y pared (voladizo, paralelo, colgado o en cielorraso)",
+      "Indicadores": "Indicadores de carga"
+    },
+    "models": [
+      { "modelo": "GE-ELO5-S", "tipo": "Cartel Luminoso Salida", "autonomia": "5 horas" }
+    ],
+    "tags": ["Cartel Luminoso", "Salida", "Emergencia", "Recargable", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/4NcNp1TN/Screenshot-2025-09-12-at-10-29-38-PM.png",
+      "https://i.postimg.cc/t4tqMCTK/Screenshot-2025-09-12-at-10-29-44-PM.png",
+      "https://i.postimg.cc/jjxx00nL/Screenshot-2025-09-12-at-10-29-52-PM.png",
+      "https://i.postimg.cc/PqStd31K/Screenshot-2025-09-12-at-10-30-02-PM.png",
+      "https://i.postimg.cc/xC7nzXxz/Screenshot-2025-09-12-at-10-30-11-PM.png",
+      "https://i.postimg.cc/8c6DBT9n/Screenshot-2025-09-12-at-10-30-25-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-ELO5-S",
+    "featured": false
+  },
+  {
+    "id": "ge-cartel-luminoso-salida-emergencia",
+    "slug": "cartel-luminoso-salida-emergencia",
+    "name": "Cartel Luminoso Salida de Emergencia",
+    "category": "Luces de Emergencia",
+    "shortDescription": "Cartel luminoso de emergencia Geneve con indicador de salida, batería recargable y autonomía de hasta 5 horas.",
+    "description": "El Cartel Luminoso Salida de Emergencia Geneve GE-ELO5-S brinda seguridad y visibilidad en todo momento, incluso en cortes de luz. Funciona de manera autónoma hasta 5 horas, iluminando e indicando la dirección de salida para facilitar evacuaciones rápidas y seguras. Incorpora batería recargable de litio-ion, con un tiempo de recarga recomendado de 5 horas para asegurar máximo rendimiento. Su diseño es ideal para señalizar salidas, vías de escape o señalética en general, siendo muy útil en edificios, oficinas, comercios y espacios públicos. Gracias a su versatilidad, permite diferentes formas de montaje: voladizo, paralelo a la pared, colgado de los extremos, sobre caños o directamente en el cielorraso.",
+    "specs": {
+      "Batería": "Litio-Ion recargable",
+      "Autonomía": "5 horas",
+      "LEDs": "Alta luminosidad",
+      "Tiempo de Recarga": "5 horas",
+      "Montaje": "Techo y pared (voladizo, paralelo, colgado o en cielorraso)",
+      "Indicadores": "Indicadores de carga"
+    },
+    "models": [
+      { "modelo": "GE-ELO5-S", "tipo": "Cartel Luminoso Salida de Emergencia", "autonomia": "5 horas" }
+    ],
+    "tags": ["Cartel Luminoso", "Salida de Emergencia", "Señalización", "Recargable", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/zfg9cx0V/Screenshot-2025-09-12-at-10-34-00-PM.png",
+      "https://i.postimg.cc/xCVWDL4g/Screenshot-2025-09-12-at-10-34-08-PM.png",
+      "https://i.postimg.cc/zBw4JVmN/Screenshot-2025-09-12-at-10-34-16-PM.png",
+      "https://i.postimg.cc/Y0pZjMkW/Screenshot-2025-09-12-at-10-34-24-PM.png",
+      "https://i.postimg.cc/g2f78vmd/Screenshot-2025-09-12-at-10-34-31-PM.png",
+      "https://i.postimg.cc/sXz00sMN/Screenshot-2025-09-12-at-10-34-38-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-ELO5-S",
+    "featured": false
+  },
+  {
+    "id": "ge-caja-termica",
+    "slug": "caja-para-termica",
+    "name": "Caja para Térmica",
+    "category": "Cajas para Térmicas",
+    "shortDescription": "Caja para térmica Geneve de embutir y exterior, resistente a impactos y altas temperaturas.",
+    "description": "La Caja para Térmica Geneve está diseñada para instalaciones de embutir y también para uso exterior, ofreciendo máxima protección y seguridad. Fabricada en material termoplástico de alta resistencia, soporta impactos y altas temperaturas, garantizando durabilidad en cualquier entorno. Con capacidad de 4 a 8 módulos, es ideal para organizar y proteger las llaves térmicas de tu instalación eléctrica. Además, cuenta con un voltaje de aislamiento de 500V, asegurando mayor protección en el uso diario.",
+    "specs": {
+      "Voltaje de Aislamiento": "500V",
+      "Resistencia": "Gran resistencia a los impactos",
+      "Material": "Termoplástico, resistente a altas temperaturas",
+      "Capacidad de Módulos": "4-8"
+    },
+    "models": [
+      { "tipo": "Caja para Térmica", "uso": "Embutir y Exterior", "modulos": "4-8" }
+    ],
+    "tags": ["Caja para Térmica", "Protección Eléctrica", "Embutir", "Exterior", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/Y09RJ9Mb/Screenshot-2025-09-12-at-10-38-29-PM.png",
+      "https://i.postimg.cc/XqzL3bv3/Screenshot-2025-09-12-at-10-38-34-PM.png",
+      "https://i.postimg.cc/gcSN3vH5/Screenshot-2025-09-12-at-10-38-40-PM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": null,
+    "featured": false
+  }
+   
+]

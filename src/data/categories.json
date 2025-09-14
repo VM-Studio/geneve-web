@@ -1,0 +1,10 @@
+[
+  { "id": "security", "name": "Seguridad", "description": "Control de accesos, cámaras de vigilancia y alarmas" },
+  { "id": "lighting", "name": "Bombas", "description": "Sistemas de bombeo y accesorios para circulación de líquidos" },
+  { "id": "pumps", "name": "Protector Tensión", "description": "Protección ante sobretensiones y variación de voltaje" },
+  { "id": "voltage-protectors", "name": "Temporizadores", "description": "Control de encendido y apagado programado de equipos" },
+  { "id": "timers", "name": "Iluminación", "description": "Soluciones LED para iluminación residencial e industrial" },
+  { "id": "emergency-lights", "name": "Interruptores", "description": "Placas y dispositivos para control eléctrico" },
+  { "id": "switches", "name": "Luces de Emergencia", "description": "Iluminación autónoma ante cortes de luz" },
+  { "id": "switches", "name": "Cajas para Térmicas", "description": "Cajas de protección para interruptores térmicos" }
+]
