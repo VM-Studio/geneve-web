@@ -17,16 +17,22 @@ export const Home: React.FC = () => {
 
   const handleAddToQuote = (productId: string) => {
     const product = productsData.find(p => p.id === productId);
-    if (product) {
-      addItem({
-        id: product.id,
-        name: product.name,
-        image: product.images[0],
-        sku: product.sku,
-      });
-      showToast('Product added to quote!', 'success');
-    }
+    if (!product) return;
+  
+    // Normalizaciones para satisfacer el tipo CartItem
+    const image = (product.images?.[0] ?? '') as string;     // si no hay, cadena vacía
+    const sku = product.sku ?? '';                           // si es null, cadena vacía
+  
+    addItem({
+      id: product.id,
+      name: product.name,
+      image,
+      sku,
+    });
+  
+    showToast('¡Producto agregado al presupuesto!', 'success');
   };
+  
 
   // ↓↓↓ items para el carrusel (8 productos)
   const carouselItems = [

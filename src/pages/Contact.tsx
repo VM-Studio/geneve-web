@@ -7,8 +7,8 @@ import { MessageSquare } from 'lucide-react';
 
 export const Contact: React.FC = () => {
   // Datos de contacto (cambiá por los reales)
-  const companyEmail = 'ventas@geneve.com.ar';
-  const whatsappNumber = '5491144444444'; // formato internacional
+  const companyEmail = 'obras@geneve.com.ar';
+  const whatsappNumber = '5491159278803'; // formato internacional
 
   // Estado del formulario
   const [nombre, setNombre] = useState('');
@@ -307,7 +307,7 @@ export const Contact: React.FC = () => {
               <div className="mt-4 grid sm:grid-cols-2 gap-3">
               <button
   onClick={handleWhatsApp}
-  className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-[#e04f01] text-[#e04f01] px-5 py-2.5 text-sm font-medium hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30 transition"
+  className="inline-flex items-center justify-center gap-2 rounded-xl  border-[#e04f01] text-[#e04f01] px-5 py-2.5 text-sm font-medium hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30 transition"
 >
   WhatsApp
 </button>
@@ -322,9 +322,8 @@ export const Contact: React.FC = () => {
 
               <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm">
                 <div className="text-gray-600">Teléfono</div>
-                <div className="font-medium text-gray-900">+54 11 4444-4444</div>
-                <div className="mt-2 text-gray-600">Oficina</div>
-                <div className="font-medium text-gray-900">Av. Siempreviva 742, CABA</div>
+                <div className="font-medium text-gray-900">+54 9 1159278803</div>
+                
               </div>
             </div>
           </aside>
