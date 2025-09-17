@@ -185,7 +185,7 @@ export const Certifications: React.FC = () => {
   <button
     onClick={() =>
       window.open(
-        `https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE || '5491112345678'}?text=Hola Geneve, quisiera más información sobre sus certificaciones.`,
+        `https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803'}?text=Hola Geneve, quisiera más información sobre sus certificaciones.`,
         '_blank'
       )
     }

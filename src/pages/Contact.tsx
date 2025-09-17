@@ -68,20 +68,28 @@ export const Contact: React.FC = () => {
       <Container className="pt-12 pb-16">
         {/* Hero */}
         <header className="mb-10">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-[#e04f01]/20 bg-[#e04f01]/5 px-3 py-1 text-xs text-[#e04f01]">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]"></span>
-              Respuesta en menos de 24 h
-            </span>
-            <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900">
-              Pedí tu <span className="text-[#e04f01]">presupuesto</span> a medida
-            </h1>
-            <p className="mt-4 text-gray-600">
-              Obtené precios personalizados y recomendaciones de nuestros especialistas
-              para asegurar el éxito de tu proyecto.
-            </p>
-          </div>
-        </header>
+  {/* Badge alineado al margen izquierdo del layout */}
+  <div className="container mx-auto px-4 lg:px-8">
+    <span className="inline-flex items-center gap-2 rounded-full border border-[#e04f01]/20 bg-[#e04f01]/5 px-3 py-1 text-xs text-[#e04f01]">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]" />
+      Respuesta en menos de 24 h
+    </span>
+  </div>
+
+  {/* Bloque centrado para título y subtítulo */}
+  <div className="max-w-3xl mx-auto text-center">
+    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900">
+      Pedí tu <span className="text-[#e04f01]">presupuesto</span> a medida
+    </h1>
+    <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+      Obtené precios personalizados y recomendaciones de nuestros especialistas
+      para asegurar el éxito de tu proyecto.
+    </p>
+  </div>
+</header>
+
+
+
 
         {/* Contenido */}
         <main className="grid lg:grid-cols-5 gap-8">
