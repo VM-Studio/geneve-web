@@ -36,15 +36,12 @@ export const Home: React.FC = () => {
 
   // ↓↓↓ items para el carrusel (8 productos)
   const carouselItems = [
-    { id: '1', name: 'DETECTOR DE HUMO', imageUrl: 'https://i.postimg.cc/7P13nc2j/Screenshot-2025-09-10-at-9-38-23-PM.png' },
-    { id: '2', name: 'BOMBA CIRCULANTE', imageUrl: 'https://i.postimg.cc/SKz82t4T/Screenshot-2025-09-10-at-9-40-15-PM.png' },
-    { id: '3', name: 'BOMBA PERIFÉRICA', imageUrl: 'https://i.postimg.cc/QM59x9gv/Screenshot-2025-09-10-at-9-41-31-PM.png' },
-    { id: '4', name: 'PROTECTOR DE TENSIÓN ENCHUFABLE', imageUrl: 'https://i.postimg.cc/3x0Wn4qW/Screenshot-2025-09-10-at-9-42-49-PM.png' },
-    { id: '5', name: 'INTERRUPTOR DIGITAL WIFI', imageUrl: 'https://i.postimg.cc/vTDGTCFD/Screenshot-2025-09-10-at-9-44-22-PM.png' },
-    { id: '6', name: 'TEMPORIZADOR DIGITAL', imageUrl: 'https://i.postimg.cc/y6rVt6cR/Screenshot-2025-09-10-at-9-45-06-PM.png' },
-    { id: '7', name: 'REFLECTOR LED', imageUrl: 'https://i.postimg.cc/J4fR7TT4/Screenshot-2025-09-10-at-9-46-35-PM.png' },
-    { id: '8', name: 'LUZ DE EMERGENCIA', imageUrl: 'https://i.postimg.cc/ZKdhQ8Tk/Screenshot-2025-09-10-at-9-47-35-PM.png' },
+    { id: '1', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
+    { id: '2', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/7PFDXhhB/Screenshot-2025-09-21-at-4-20-15-PM.png' },
+    { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/cC83S2MQ/Screenshot-2025-09-21-at-4-15-20-PM.png' },
+    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/44m2y1JM/Screenshot-2025-09-21-at-4-16-46-PM.png' },
   ];
+  
 
   // Efecto tilt 3D para la tarjeta del hero
   React.useEffect(() => {
@@ -130,7 +127,7 @@ export const Home: React.FC = () => {
 
               <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)]">
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> +350 obras</span>
-                <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Productos certificados</span>
+                <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Productos certificados según normas IEC</span>
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Envíos a todo el país</span>
               </div>
             </div>
@@ -139,11 +136,39 @@ export const Home: React.FC = () => {
       </section>
 
       {/* === CARRUSEL EN FILA === */}
-      <section className="py-10 bg-white">
-        <Container>
-          <ProductCarousel items={carouselItems} />
-        </Container>
-      </section>
+{/* === CARRUSEL EN FILA === */}
+<section className="py-10 bg-white">
+  <Container>
+   
+{/* Header: 1 fila, centrado, con tamaños fluidos */}
+{/* Header: más espacio debajo */}
+<div className="mb-10 md:mb-12 xl:mb-16 grid grid-cols-[1fr_auto_1fr] items-center">
+  <h2 className="col-start-2 justify-self-center text-center font-extrabold tracking-tight leading-tight
+                 text-[clamp(20px,4.5vw,44px)]">
+    Conoce Todas nuestras Categorías
+  </h2>
+
+  <Link
+    to="/catalog"
+    className="col-start-3 justify-self-end inline-flex items-center gap-1 font-semibold
+               text-[#e84e1b] hover:underline text-[clamp(14px,2.2vw,20px)]"
+    aria-label="Ir al catálogo"
+  >
+    Catálogo
+    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+  </Link>
+</div>
+
+
+
+
+
+    {/* Carrusel */}
+    <ProductCarousel items={carouselItems} />
+  </Container>
+</section>
+
+
 
       {/* === (Sección “Nuestro Catálogo” eliminada por pedido) === */}
 
@@ -151,7 +176,8 @@ export const Home: React.FC = () => {
         <section className="py-16 lg:py-20 bg-white">
           <Container>
             <div className="text-center mb-12">
-              <h2 className="text-1xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <h2 className="col-start-2 justify-self-center text-center font-extrabold tracking-tight leading-tight
+               text-[clamp(20px,4.5vw,44px)]">
                 Todos los Productos
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -171,17 +197,19 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="text-center mt-12">
-  <Button
-    as={Link}
-    to="/catalog"
-    variant="outline"
-    size="lg"
-    className="inline-flex items-center space-x-2 border border-[#e84e1b] text-[#e84e1b] hover:bg-[#e84e1b]/10 focus-visible:ring-2 focus-visible:ring-[#e84e1b]/30"
-  >
-    <span>Ver todos los Productos</span>
-    <ArrowRight className="w-5 h-5" />
-  </Button>
-</div>
+            <Button
+  as={Link}
+  to="/catalog"
+  variant="outline"
+  size="lg"
+  className="inline-flex items-center space-x-2 bg-transparent border-2 !border-[#e84e1b] text-[#e84e1b]
+             hover:bg-[#e84e1b]/10 focus-visible:ring-2 focus-visible:ring-[#e84e1b]/30"
+>
+  <span>Ver todos los Productos</span>
+  <ArrowRight className="w-5 h-5" />
+</Button>
+
+            </div>
 
           </Container>
         </section>
@@ -285,7 +313,7 @@ export const Home: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-5xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Acerca de <span className="text-[#e04f01]">GENEVE</span>
+                Acerca de <span className="text-[#e84e1b]">GENEVE</span>
               </h2>
 
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">

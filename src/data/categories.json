@@ -1,10 +1,12 @@
 [
-  { "id": "security", "name": "Seguridad", "description": "Control de accesos, cámaras de vigilancia y alarmas" },
-  { "id": "lighting", "name": "Bombas", "description": "Sistemas de bombeo y accesorios para circulación de líquidos" },
-  { "id": "pumps", "name": "Protector Tensión", "description": "Protección ante sobretensiones y variación de voltaje" },
-  { "id": "voltage-protectors", "name": "Temporizadores", "description": "Control de encendido y apagado programado de equipos" },
-  { "id": "timers", "name": "Iluminación", "description": "Soluciones LED para iluminación residencial e industrial" },
-  { "id": "emergency-lights", "name": "Interruptores", "description": "Placas y dispositivos para control eléctrico" },
-  { "id": "switches", "name": "Luces de Emergencia", "description": "Iluminación autónoma ante cortes de luz" },
-  { "id": "switches", "name": "Cajas para Térmicas", "description": "Cajas de protección para interruptores térmicos" }
+  { "id": "seguridad", "name": "Seguridad", "imageUrl": "https://i.postimg.cc/jj7TdBkH/Screenshot-2025-09-25-at-9-17-15-AM.png" },
+  { "id": "bombas", "name": "Bombas", "imageUrl": "https://i.postimg.cc/vBxtKtTH/Screenshot-2025-09-25-at-9-21-36-AM.png" },
+  { "id": "protector-tension", "name": "Protector Tensión", "imageUrl": "https://i.postimg.cc/6p1RN4D7/Screenshot-2025-09-25-at-9-23-54-AM.png" },
+  { "id": "temporizadores", "name": "Temporizadores", "imageUrl": "https://i.postimg.cc/hGTG3JgR/Screenshot-2025-09-25-at-9-26-49-AM.png" },
+  { "id": "iluminacion", "name": "Iluminación", "imageUrl": "https://i.postimg.cc/KYxXx4B2/Screenshot-2025-09-25-at-9-31-12-AM.png" },
+  { "id": "interruptores", "name": "Interruptores", "imageUrl": "https://i.postimg.cc/YSpPTZB2/Screenshot-2025-09-25-at-9-33-02-AM.png" },
+  { "id": "luces-de-emergencia", "name": "Luces de Emergencia", "imageUrl": "https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png" },
+  { "id": "cajas-para-termicas", "name": "Cajas para Térmicas", "imageUrl": "https://i.postimg.cc/P5c4Q7fF/Screenshot-2025-09-25-at-9-38-37-AM.png" },
+  { "id": "disyuntores-diferenciales", "name": "Disyuntores Diferenciales", "imageUrl": "https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png" },
+  { "id": "canos-corrugados", "name": "Caños Corrugados", "imageUrl": "https://i.postimg.cc/P5ZL0Vz7/Screenshot-2025-09-25-at-9-41-37-AM.png" }
 ]
