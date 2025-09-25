@@ -1,291 +1,167 @@
-import React, { useState, useMemo } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import { Filter, Search, X, Grid, List } from 'lucide-react';
+import React from 'react';
+import { Grid, List } from 'lucide-react';
 import { Container } from '../components/layout/Container';
 import { ProductCard } from '../components/product/ProductCard';
 import { Button } from '../components/ui/Button';
-import { Input } from '../components/ui/Input';
-import { Select } from '../components/ui/Select';
-import { Badge } from '../components/ui/Badge';
 import { useCart } from '../store/CartContext';
-import { useFilters } from '../store/FiltersContext';
 import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
 
-// --- helper: id|name -> name ---
-const resolveCategoryName = (value?: string | null) => {
-  if (!value) return "";
-  const v = value.toLowerCase();
-  const match = (categoriesData as Array<{id: string; name: string}>).find(
-    c => c.id.toLowerCase() === v || c.name.toLowerCase() === v
-  );
-  return match ? match.name : value; // si no encuentra, devuelve lo recibido
-};
-
+type Category = { id: string; name: string; imageUrl?: string };
 
 export const Catalog: React.FC = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false);
-  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
-  
-  const { filters, setCategory, setSearch, setSort, clearFilters } = useFilters();
   const { addItem } = useCart();
+  const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid');
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
-  // Initialize filters from URL params
-  React.useEffect(() => {
-    const categoryParam = searchParams.get('category');
-    if (categoryParam && categoryParam !== filters.category) {
-      setCategory(resolveCategoryName(categoryParam));
-    }
-  }, [searchParams, filters.category, setCategory]);
-  
-
-  const filteredProducts = useMemo(() => {
-    let filtered = [...productsData];
-
-    // Filter by category
-if (filters.category) {
-  const selectedName = resolveCategoryName(filters.category).toLowerCase();
-  filtered = filtered.filter(product =>
-    (product.category || "").toLowerCase() === selectedName
-  );
-}
-
-
-    // Filter by search
-    if (filters.search) {
-      const searchLower = filters.search.toLowerCase();
-      filtered = filtered.filter(product =>
-        product.name.toLowerCase().includes(searchLower) ||
-        product.shortDescription.toLowerCase().includes(searchLower) ||
-        product.sku.toLowerCase().includes(searchLower) ||
-        product.tags.some(tag => tag.toLowerCase().includes(searchLower))
-      );
-    }
-
-    // Sort products
-    filtered.sort((a, b) => {
-      switch (filters.sort) {
-        case 'name':
-          return a.name.localeCompare(b.name);
-        case 'category':
-          return a.category.localeCompare(b.category);
-        case 'featured':
-        default:
-          // Featured first, then by name
-          if (a.featured && !b.featured) return -1;
-          if (!a.featured && b.featured) return 1;
-          return a.name.localeCompare(b.name);
-      }
+  const categories: Category[] = React.useMemo(() => {
+    const seen = new Set<string>();
+    return (categoriesData as Category[]).filter((c) => {
+      const key = c.name.trim().toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
     });
+  }, []);
 
-    return filtered;
-  }, [filters]);
+  const productsOfSelected = React.useMemo(() => {
+    if (!selectedCategory) return [];
+    return productsData
+      .filter(
+        (p) => (p.category || '').toLowerCase() === selectedCategory.toLowerCase()
+      )
+      .sort((a, b) => {
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        return a.name.localeCompare(b.name);
+      });
+  }, [selectedCategory]);
 
   const handleAddToQuote = (productId: string) => {
-    const product = productsData.find(p => p.id === productId);
-    if (product) {
-      addItem({
-        id: product.id,
-        name: product.name,
-        image: product.images[0],
-        sku: product.sku,
-      });
-      showToast('Producto añadido al presupuesto!', 'success');
-    }
+    const product = productsData.find((p) => p.id === productId);
+    if (!product) return;
+
+    const image = (product.images?.[0] ?? '') as string;
+    const sku = product.sku ?? '';
+
+    addItem({
+      id: product.id,
+      name: product.name,
+      image,
+      sku,
+    });
+
+    showToast('¡Producto agregado al presupuesto!', 'success');
   };
 
-  const handleClearFilters = () => {
-    clearFilters();
-    setSearchParams({});
+  // Estilos de tarjeta de categoría (similar a tu ejemplo con franja naranja abajo)
+  const cardBase: React.CSSProperties = {
+    width: '100%',
+    height: '100%',
+    borderRadius: '16px',
+    overflow: 'hidden',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    boxShadow: '0 10px 24px rgba(0,0,0,0.15)',
   };
-
-  const activeFiltersCount = [filters.category, filters.search].filter(Boolean).length;
 
   return (
     <div className="min-h-screen bg-gray-50">
       <Container className="py-8">
         {/* Header */}
         <div className="mb-8 text-center">
-  <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-    Todos Nuestros Productos
-  </h1>
-  <p className="text-lg text-gray-600">
-  Descubrí nuestro catálogo completo de iluminación, seguridad y construcción.
-  </p>
-</div>
+          <h1 className="col-start-2 justify-self-center text-center font-extrabold tracking-tight leading-tight
+               text-[clamp(20px,4.5vw,44px)]">
+            {selectedCategory ? selectedCategory : 'Todas Nuestras Categorias'}
+          </h1>
+          <p className="text-lg text-gray-600">
+            Descubrí nuestro catálogo completo de iluminación, seguridad y construcción.
+          </p>
+        </div>
 
+        {/* Vista: TARJETAS DE CATEGORÍAS */}
+        {/* Vista: TARJETAS DE CATEGORÍAS */}
+{!selectedCategory && (
+  <section>
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {categories.map((cat) => (
+        <article key={cat.id} className="aspect-[5/4]">
+          <button
+            type="button"
+            onClick={() => setSelectedCategory(cat.name)}
+            aria-label={cat.name}
+            className="relative block w-full h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]"
+            style={{
+              ...cardBase,
+              backgroundImage: cat.imageUrl
+                ? `url("${cat.imageUrl}")`
+                : 'linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%)',
+            }}
+          >
+            <div
+              className="absolute bottom-0 left-0 right-0 px-6 py-5"
+              style={{ backgroundColor: 'rgba(232, 78, 27, 0.85)' }}
+            >
+              <h3 className="text-white text-xl lg:text-2xl font-extrabold tracking-wide uppercase whitespace-nowrap">
+                {cat.name}
+              </h3>
+            </div>
+          </button>
+        </article>
+      ))}
+    </div>
+  </section>
+)}
 
-        <div className="flex flex-col lg:flex-row gap-8">
-          {/* Sidebar Filters */}
-          <div className="lg:w-80 mt-10">
-            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-              <div className="flex items-center justify-between mb-6">
-                <h2 className="text-lg font-semibold text-gray-900 flex items-center">
-                  <Filter className="w-5 h-5 mr-2" />
-                  Filtros
-                </h2>
+       
+
+        {/* Vista: PRODUCTOS DE LA CATEGORÍA SELECCIONADA */}
+        {selectedCategory && (
+          <section className="mt-8 space-y-6">
+            {/* Acciones */}
+            <div className="flex items-center justify-between">
+              <Button variant="outline" onClick={() => setSelectedCategory(null)}>
+                ← Volver a Categorías
+              </Button>
+
+              <div className="flex items-center space-x-2">
                 <Button
-                  variant="ghost"
+                  variant={viewMode === 'grid' ? 'primary' : 'ghost'}
                   size="sm"
-                  onClick={() => setIsFiltersOpen(!isFiltersOpen)}
-                  className="lg:hidden"
+                  onClick={() => setViewMode('grid')}
                 >
-                  {isFiltersOpen ? <X className="w-4 h-4" /> : <Filter className="w-4 h-4" />}
+                  <Grid className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'primary' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('list')}
+                >
+                  <List className="w-4 h-4" />
                 </Button>
               </div>
-
-              <div className={`space-y-6 ${isFiltersOpen ? 'block' : 'hidden lg:block'}`}>
-                {/* Search */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Buscar Productos
-                  </label>
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-                    <Input
-                      type="text"
-                      placeholder="Search by name, SKU, or tags..."
-                      value={filters.search}
-                      onChange={(e) => setSearch(e.target.value)}
-                      className="pl-10"
-                      fullWidth
-                    />
-                  </div>
-                </div>
-
-                {/* Category Filter */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Categoría
-                  </label>
-                  <Select
-  value={resolveCategoryName(filters.category)}
-  onChange={(e) => setCategory(e.target.value)}
-  fullWidth
->
-  <option value="">Todas las Categorías</option>
-  {categoriesData.map((category) => (
-    <option key={category.id} value={category.name}>
-      {category.name}
-    </option>
-  ))}
-</Select>
-
-                </div>
-
-                {/* Sort */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Ordenar Por
-                  </label>
-                  <Select
-                    value={filters.sort}
-                    onChange={(e) => setSort(e.target.value as 'name' | 'category' | 'featured')}
-                    fullWidth
-                  >
-                    <option value="featured">Destacado Primero</option>
-                    <option value="name">Nombre A-Z</option>
-                    <option value="category">Categoría</option>
-                  </Select>
-                </div>
-
-                {/* Clear Filters */}
-                {activeFiltersCount > 0 && (
-                  <Button
-                    variant="outline"
-                    onClick={handleClearFilters}
-                    className="w-full"
-                  >
-                    Borrar Filtros ({activeFiltersCount})
-                  </Button>
-                )}
-              </div>
-            </div>
-          </div>
-
-          {/* Main Content */}
-          <div className="flex-1">
-            {/* Results Header */}
-            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-              <div>
-                
-                {/* Active Filters */}
-                {activeFiltersCount > 0 && (
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {filters.category && (
-                      <Badge variant="secondary" className="flex items-center gap-1">
-                        {resolveCategoryName(filters.category)}
-
-                        <button
-                          onClick={() => setCategory('')}
-                          className="ml-1 hover:text-red-600"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      </Badge>
-                    )}
-                    {filters.search && (
-                      <Badge variant="secondary" className="flex items-center gap-1">
-                        "{filters.search}"
-                        <button
-                          onClick={() => setSearch('')}
-                          className="ml-1 hover:text-red-600"
-                        >
-                          <X className="w-3 h-3" />
-                        </button>
-                      </Badge>
-                    )}
-                  </div>
-                )}
-              </div>
-              
-              {/* View mode toggle – flotante, no afecta la alineación */}
-<div className="relative">
-  <div className="absolute right-0 -top-12 hidden sm:flex items-center space-x-2">
-    <Button
-      variant={viewMode === 'grid' ? 'primary' : 'ghost'}
-      size="sm"
-      onClick={() => setViewMode('grid')}
-    >
-      <Grid className="w-4 h-4" />
-    </Button>
-    <Button
-      variant={viewMode === 'list' ? 'primary' : 'ghost'}
-      size="sm"
-      onClick={() => setViewMode('list')}
-    >
-      <List className="w-4 h-4" />
-    </Button>
-  </div>
-</div>
             </div>
 
-            {/* Products Grid/List */}
-            {filteredProducts.length === 0 ? (
+            {/* Productos */}
+            {productsOfSelected.length === 0 ? (
               <div className="text-center py-16 bg-white rounded-xl shadow-sm border border-gray-200">
-                <div className="text-gray-400 mb-4">
-                  <Search className="w-16 h-16 mx-auto" />
-                </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  No products found
+                  Sin productos en esta categoría
                 </h3>
-                <p className="text-gray-600 mb-6">
-                  Try adjusting your filters or search terms
+                <p className="text-gray-600">
+                  Próximamente agregaremos más productos.
                 </p>
-                <Button variant="outline" onClick={handleClearFilters}>
-                  Clear All Filters
-                </Button>
               </div>
             ) : (
-              <div className={`
-                ${viewMode === 'grid' 
-                  ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6' 
-                  : 'space-y-4'
+              <div
+                className={
+                  viewMode === 'grid'
+                    ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'
+                    : 'space-y-4'
                 }
-              `}>
-                {filteredProducts.map((product) => (
+              >
+                {productsOfSelected.map((product) => (
                   <ProductCard
                     key={product.id}
                     product={product}
@@ -294,8 +170,8 @@ if (filters.category) {
                 ))}
               </div>
             )}
-          </div>
-        </div>
+          </section>
+        )}
       </Container>
     </div>
   );

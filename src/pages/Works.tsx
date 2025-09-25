@@ -4,6 +4,7 @@ import { ShoppingCart, MessageCircle, Upload, FileSpreadsheet } from 'lucide-rea
 import { Container } from '../components/layout/Container';
 import { Button } from '../components/ui/Button';
 import { Link } from 'react-router-dom';
+import { ProductCarousel } from '../components/product/ProductCarousel';
 
 export const Works: React.FC = () => {
   const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE || '5491112345678';
@@ -12,9 +13,22 @@ export const Works: React.FC = () => {
     window.open(`https://wa.me/${whatsappPhone}?text=${encodeURIComponent(text)}`, '_blank');
   };
 
+  // Carousel de productos/categorías (podés editar imágenes y rutas)
+  const carouselItems = [
+    { id: '1', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
+    { id: '2', name: 'DISYUNTORES', to: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/7PFDXhhB/Screenshot-2025-09-21-at-4-20-15-PM.png' },
+    { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/cartel-luminoso-salida-emergencia', imageUrl: 'https://i.postimg.cc/cC83S2MQ/Screenshot-2025-09-21-at-4-15-20-PM.png' },
+    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/44m2y1JM/Screenshot-2025-09-21-at-4-16-46-PM.png' },
+  ];
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Container className="py-16">
+
+        {/* === NUEVO: Carrusel arriba de todo === */}
+        <section className="mb-12 -mt-4">
+          <ProductCarousel items={carouselItems} />
+        </section>
 
         {/* CTA arriba de todo - fondo naranja translúcido, sin borde */}
         <div className="text-center bg-[#e04f01]/10 rounded-xl shadow-lg p-12 mb-16">
@@ -123,7 +137,7 @@ export const Works: React.FC = () => {
                     <input
                       type="tel"
                       placeholder="+54 11 5555 5555"
-                      className="mt-2 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 placeholder-gray-400 outline-none focus:border-[#e04f01] focus:ring-2 focus:ring-[#e04f01]/30"
+                      className="mt-2 w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none focus:border-[#e04f01] focus:ring-2 focus:ring-[#e04f01]/30"
                     />
                   </div>
                 </div>

@@ -1926,6 +1926,71 @@
     "stock": true,
     "sku": null,
     "featured": false
+  },
+  {
+    "id": "ge-disyuntor-diferencial-25a-30ma",
+    "slug": "disyuntor-diferencial-25a-30ma",
+    "name": "Disyuntor Diferencial 25A 30mA (2P)",
+    "category": "Disyuntores Diferenciales",
+    "shortDescription": "Interruptor diferencial Geneve 2 polos, 25A, 30mA, 230V~. Protección de personas contra corrientes de fuga. Botón TEST (ensayo mensual).",
+    "description": "El Disyuntor Diferencial Geneve corta automáticamente la alimentación cuando detecta corrientes de fuga a tierra, brindando protección de personas y complementando a las llaves térmicas. Modelo 2 polos para redes monofásicas 230V~, corriente nominal 25A y sensibilidad 30mA (alta sensibilidad). Dispone de botón TEST para verificación mensual del correcto funcionamiento. Cumple norma IEC/EN 61008-1. Etiquetado con resistencia a corrientes de impulso de 500A y poder de corte condicional de 6kA (con protección aguas arriba).",
+    "specs": {
+      "Polos": "2P (bipolar)",
+      "Tensión nominal": "230V~",
+      "Corriente nominal": "25A",
+      "Sensibilidad diferencial (IΔn)": "30mA",
+      "Norma": "IEC/EN 61008-1",
+      "Resistencia a impulso (Im / IΔm)": "500A",
+      "Poder de corte condicional (Inc / IΔc)": "6kA",
+      "Función": "RCCB / ID (solo protección diferencial)",
+      "Botón de prueba": "Sí (TEST mensual)"
+    },
+    "models": [
+      { "amperaje": "25A", "sensibilidad": "30mA", "polos": "2P", "tensión": "230V~", "código": "GE-ID225A/30" }
+    ],
+    "tags": ["Disyuntor Diferencial", "RCCB", "Protección de Personas", "25A", "30mA", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/QN2KSrc7/Screenshot-2025-09-25-at-9-49-03-AM.png",
+      "https://i.postimg.cc/BnYqYxRz/Screenshot-2025-09-25-at-9-50-08-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-ID225A/30",
+    "featured": false
+  },
+  {
+    "id": "ge-cano-corrugado",
+    "slug": "canos-corrugados",
+    "name": "Caños Corrugados",
+    "category": "Caños Corrugados",
+    "shortDescription": "Caños corrugados Geneve de alta resistencia, flexibles, autoextinguibles y aptos para instalaciones eléctricas embutidas.",
+    "description": "Los Caños Corrugados Geneve están diseñados para instalaciones eléctricas seguras y duraderas. Fabricados en material termoplástico de alta resistencia al impacto y al calor, son autoextinguibles y flexibles, lo que facilita su colocación en muros y pisos. Ideales para proteger cables eléctricos en instalaciones embutidas, brindan máxima seguridad y cumplen con las normas eléctricas vigentes. Disponibles en distintos diámetros según la necesidad de la obra.",
+    "specs": {
+      "Material": "Polipropileno termoplástico autoextinguible",
+      "Resistencia": "Alto impacto y altas temperaturas",
+      "Uso": "Instalaciones eléctricas embutidas",
+      "Colores": "Naranja / Negro (según normativa)",
+      "Diámetros disponibles": "16mm, 20mm, 25mm, 32mm"
+    },
+    "models": [
+      { "tipo": "Corrugado eléctrico", "diámetro": "16mm", "uso": "Embutido" },
+      { "tipo": "Corrugado eléctrico", "diámetro": "20mm", "uso": "Embutido" },
+      { "tipo": "Corrugado eléctrico", "diámetro": "25mm", "uso": "Embutido" },
+      { "tipo": "Corrugado eléctrico", "diámetro": "32mm", "uso": "Embutido" }
+    ],
+    "tags": ["Caños Corrugados", "Instalaciones Eléctricas", "Protección de Cables", "Embutir", "Geneve"],
+    "images": [
+      "https://i.postimg.cc/RZrh1Q5L/Screenshot-2025-09-25-at-9-44-59-AM.png",
+      "https://i.postimg.cc/nrjVBM3W/Screenshot-2025-09-25-at-9-46-02-AM.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": null,
+    "featured": false
   }
+  
+  
    
 ]
