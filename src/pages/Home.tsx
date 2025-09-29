@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Download, Award, Users, CheckCircle } from 'lucide-react';
 import { Container } from '../components/layout/Container';
 import { Button } from '../components/ui/Button';
-import { ProductCard } from '../components/product/ProductCard';
 import { ProductCarousel } from '../components/product/ProductCarousel';
 import { useCart } from '../store/CartContext';
 import { showToast } from '../components/ui/Toast';
@@ -13,53 +12,41 @@ export const Home: React.FC = () => {
   const { addItem } = useCart();
   const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803';
 
-  const featuredProducts = productsData.filter(product => product.featured).slice(0, 8);
+  const featuredProducts = productsData.filter(p => p.featured);
+  const gridProducts = featuredProducts.slice(0, 4); // 4 productos (2x2)
 
   const handleAddToQuote = (productId: string) => {
     const product = productsData.find(p => p.id === productId);
     if (!product) return;
-  
-    // Normalizaciones para satisfacer el tipo CartItem
-    const image = (product.images?.[0] ?? '') as string;     // si no hay, cadena vacía
-    const sku = product.sku ?? '';                           // si es null, cadena vacía
-  
-    addItem({
-      id: product.id,
-      name: product.name,
-      image,
-      sku,
-    });
-  
+    const image = (product.images?.[0] ?? '') as string;
+    const sku = product.sku ?? '';
+    addItem({ id: product.id, name: product.name, image, sku });
     showToast('¡Producto agregado al presupuesto!', 'success');
   };
-  
 
-  // ↓↓↓ items para el carrusel (8 productos)
+  // Carrusel superior
   const carouselItems = [
-    { id: '1', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
-    { id: '2', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/7PFDXhhB/Screenshot-2025-09-21-at-4-20-15-PM.png' },
-    { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/cC83S2MQ/Screenshot-2025-09-21-at-4-15-20-PM.png' },
-    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/44m2y1JM/Screenshot-2025-09-21-at-4-16-46-PM.png' },
+    { id: '1', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png' },
+    { id: '2', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png' },
+    { id: '3', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/P5ZL0Vz7/Screenshot-2025-09-25-at-9-41-37-AM.png' },
+    { id: '4', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
   ];
-  
 
-  // Efecto tilt 3D para la tarjeta del hero
+  // Tilt 3D (hero)
   React.useEffect(() => {
     const card = document.getElementById('tilt');
     const inner = card?.querySelector('div.relative') as HTMLDivElement | null;
     if (!card || !inner) return;
-
     const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
     const handle = (e: MouseEvent) => {
       const r = card.getBoundingClientRect();
       const px = (e.clientX - r.left) / r.width;
       const py = (e.clientY - r.top) / r.height;
-      const rx = clamp((0.5 - py) * 10, -8, 8);   // rotación X
-      const ry = clamp((px - 0.5) * 12, -10, 10); // rotación Y
+      const rx = clamp((0.5 - py) * 10, -8, 8);
+      const ry = clamp((px - 0.5) * 12, -10, 10);
       inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
     };
     const reset = () => { inner.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)'; };
-
     card.addEventListener('mousemove', handle);
     card.addEventListener('mouseleave', reset);
     return () => {
@@ -70,16 +57,14 @@ export const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Hero */}
       <section className="relative isolate overflow-hidden py-20 [--brand:#e84e1b] bg-[color:var(--brand)]">
-        {/* Fondo moderno */}
         <div className="absolute inset-0 -z-10">
           <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]"></div>
           <div className="absolute inset-0 opacity-[.18] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,1)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,1)_40px)] bg-[size:40px_40px]"></div>
         </div>
 
-        {/* Contenedor con perspectiva */}
         <div className="mx-auto max-w-6xl px-6 [perspective:1200px]">
-          {/* Card 3D */}
           <div id="tilt" className="relative mx-auto max-w-4xl will-change-transform transition-transform duration-300 [transform-style:preserve-3d]">
             <div className="pointer-events-none absolute -inset-[2px] rounded-[28px] bg-gradient-to-br from-white/30 via-white/10 to-transparent blur-xl opacity-60"></div>
 
@@ -87,7 +72,6 @@ export const Home: React.FC = () => {
               <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-white/25 shadow-lg [transform:translateZ(55px)]"></span>
               <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-white/15 shadow-xl [transform:translateZ(35px)]"></span>
 
-              {/* Título con imagen (misma altura que el texto) */}
               <h2 className="text-3xl sm:text-9xl font-extrabold tracking-tight leading-none [transform:translateZ(60px)]">
                 <img
                   src="/titulo.png"
@@ -99,14 +83,12 @@ export const Home: React.FC = () => {
                 />
               </h2>
 
-              <p className="mx-auto mt-3 max-w-2xl text-white/85 text-lg [transform:translateZ(50px)]">
-                Recibí una cotización a medida para tu obra y el asesoramiento de nuestro equipo técnico.
-              </p>
+              
 
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
                   href={`https://wa.me/${whatsappPhone}?text=Hola%20Geneve%2C%20quiero%20hacer%20una%20consulta.`}
-                  className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[#e84e1b] text-base font-semibold bg-white shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)]"
+                  className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[#e84e1b] text-base font-semibold bg-white shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)] font-heading"
                 >
                   <svg className="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
                     <path d="M19.11 17.32a1 1 0 0 0-1.42 0l-.36.36a10.53 10.53 0 0 1-2.49-1.69 10.45 10.45 0 0 1-1.69-2.49l.36-.36a1 1 0 0 0 0-1.42l-2.13-2.14a1 1 0 0 0-1.42 0l-.75.76a2.56 2.56 0 0 0-.54 2.91 17.91 17.91 0 0 0 3.56 5.12 17.89 17.89 0 0 0 5.12 3.56 2.56 2.56 0 0 0 2.91-.54l.76-.75a1 1 0 0 0 0-1.42Z"/>
@@ -116,7 +98,7 @@ export const Home: React.FC = () => {
 
                 <a
                   href="/quote"
-                  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-white/60 hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] [transform:translateZ(65px)]"
+                  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-white/60 hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] [transform:translateZ(65px)] font-heading"
                 >
                   <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l3-7H6.4M7 13L5.4 5M7 13l-2 7m12-7l2 7M9 21h0m6 0h0"/>
@@ -125,7 +107,7 @@ export const Home: React.FC = () => {
                 </a>
               </div>
 
-              <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)]">
+              <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)] font-heading">
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> +350 obras</span>
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Productos certificados según normas IEC</span>
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Envíos a todo el país</span>
@@ -135,87 +117,116 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* === CARRUSEL EN FILA === */}
-{/* === CARRUSEL EN FILA === */}
-<section className="py-10 bg-white">
-  <Container>
-   
-{/* Header: 1 fila, centrado, con tamaños fluidos */}
-{/* Header: más espacio debajo */}
-<div className="mb-10 md:mb-12 xl:mb-16 grid grid-cols-[1fr_auto_1fr] items-center">
-  <h2 className="col-start-2 justify-self-center text-center font-extrabold tracking-tight leading-tight
-                 text-[clamp(20px,4.5vw,44px)]">
-    Conoce Todas nuestras Categorías
-  </h2>
+      {/* Carrusel categorías */}
+      <section className="py-10 bg-white">
+        <Container>
+          <ProductCarousel items={carouselItems} />
+          <div className="mb-10 md:mb-12 xl:mb-16 grid grid-cols-[1fr_auto_1fr] items-center">
+            <Link
+              to="/catalog"
+              className="col-start-3 justify-self-end inline-flex items-center gap-1 font-semibold text-[#e84e1b] hover:underline text-[clamp(14px,2.2vw,20px)]"
+              aria-label="Ir al catálogo"
+            >
+              Catálogo
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+            </Link>
+          </div>
+        </Container>
+      </section>
 
-  <Link
-    to="/catalog"
-    className="col-start-3 justify-self-end inline-flex items-center gap-1 font-semibold
-               text-[#e84e1b] hover:underline text-[clamp(14px,2.2vw,20px)]"
-    aria-label="Ir al catálogo"
-  >
-    Catálogo
-    <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
-  </Link>
-</div>
-
-
-
-
-
-    {/* Carrusel */}
-    <ProductCarousel items={carouselItems} />
-  </Container>
-</section>
-
-
-
-      {/* === (Sección “Nuestro Catálogo” eliminada por pedido) === */}
-
-      {featuredProducts.length > 0 && (
-        <section className="py-16 lg:py-20 bg-white">
+      {/* =================== 4 PRODUCTOS — DISEÑO HORIZONTAL (2x2) =================== */}
+      {gridProducts.length > 0 && (
+        <section className="bg-white pt-4 pb-14">
           <Container>
-            <div className="text-center mb-12">
-              <h2 className="col-start-2 justify-self-center text-center font-extrabold tracking-tight leading-tight
-               text-[clamp(20px,4.5vw,44px)]">
+            <div className="text-center mb-8">
+              <h2 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,4.5vw,44px)]">
                 Todos los Productos
               </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-gray-600 max-w-3xl mx-auto">
                 Explora soluciones confiables y de alta calidad diseñadas para cada necesidad.
               </p>
             </div>
 
-            {/* Cambiado a 4 columnas en desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-4 lg:grid-cols-4 gap-8">
-              {featuredProducts.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  onAddToQuote={handleAddToQuote}
-                />
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {gridProducts.map((p) => {
+                const img = (p.images?.[0] ?? '') as string;
+                return (
+                  <article
+                    key={p.id}
+                    className="rounded-2xl bg-white ring-1 ring-zinc-200 shadow-[0_20px_60px_-30px_rgba(2,6,23,.12)] p-5 sm:p-6"
+                  >
+                    {/* 2 columnas: imagen fija + texto con ancho máximo */}
+                    <div className="grid grid-cols-[180px_1fr] sm:grid-cols-[220px_1fr] gap-6 sm:gap-8 items-start">
+                      {/* Imagen con remarco naranja (clickeable) */}
+                      <Link
+                        to={`/product/${p.id}`}
+                        aria-label={`Ver detalle de ${p.name}`}
+                        className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e84e1b] rounded-2xl"
+                      >
+                        <img
+                          src={img}
+                          alt={p.name}
+                          className="h-[180px] w-[180px] sm:h-[220px] sm:w-[220px] object-contain rounded-2xl p-3 bg-white ring-2 ring-[#e84e1b] transition hover:scale-[1.02]"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      </Link>
+
+                      {/* Contenido con ancho máximo controlado */}
+                      <div className="max-w-[55ch] sm:max-w-[30ch]">
+                        <h3 className="font-[Sora] text-[clamp(20px,2.8vw,32px)] font-extrabold tracking-tight">
+                          {p.name}
+                        </h3>
+                        <p className="mt-3 text-zinc-700 text-[15.5px]/relaxed line-clamp-6">
+                          {p.description ?? 'Producto de alta confiabilidad para obras y proyectos exigentes.'}
+                        </p>
+
+                        <div className="mt-4 flex items-center gap-3">
+                          <button
+                            type="button"
+                            onClick={() => handleAddToQuote(p.id)}
+                            className="inline-flex items-center justify-center rounded-full px-0 py-2 text-sm font-semibold text-[#e84e1b] hover:underline"
+                            aria-label={`Agregar ${p.name}`}
+                          >
+                            Agregar
+                          </button>
+
+                          <Link
+                            to={`/product/${p.id}`}
+                            className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-2 text-sm font-semibold hover:bg-zinc-50 whitespace-nowrap"
+                            aria-label={`Ver detalle de ${p.name}`}
+                          >
+                            Ver detalle
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                );
+              })}
             </div>
 
-            <div className="text-center mt-12">
+            <div className="text-center mt-10">
             <Button
   as={Link}
   to="/catalog"
-  variant="outline"
   size="lg"
-  className="inline-flex items-center space-x-2 bg-transparent border-2 !border-[#e84e1b] text-[#e84e1b]
-             hover:bg-[#e84e1b]/10 focus-visible:ring-2 focus-visible:ring-[#e84e1b]/30"
+  className="inline-flex items-center gap-2 rounded-2xl
+             !bg-[#e84e1b] !text-white !font-extrabold !font-[Sora]
+             !border-2 !border-[#e84e1b]
+             hover:!bg-[#d94b17] focus-visible:!ring-2 focus-visible:!ring-[#e84e1b]/40
+             !px-8 !py-4 text-[clamp(16px,2.2vw,20px)]"
 >
   <span>Ver todos los Productos</span>
   <ArrowRight className="w-5 h-5" />
 </Button>
 
             </div>
-
           </Container>
         </section>
       )}
 
-      {/* Presupuestos – Hero 3D (fondo blanco continuo) */}
+      {/* Presupuestos */}
       <section className="relative isolate overflow-hidden py-20 [--brand:#ff5c02] bg-white">
         <Container>
           <div className="mx-auto max-w-6xl px-6 [perspective:1200px]">
@@ -246,7 +257,7 @@ export const Home: React.FC = () => {
                     ¿Buscás un Presupuesto?
                   </h2>
 
-                  <p className="mx-auto mt-3 max-w-2xl text-white text-lg [transform:translateZ(50px)]">
+                  <p className="mx-auto mt-3 max-w-1xl text-white  [transform:translateZ(50px)] font-heading">
                     Recibí una cotización a medida para tu obra y el asesoramiento de nuestro equipo técnico.
                   </p>
 
@@ -254,7 +265,7 @@ export const Home: React.FC = () => {
                     <a
                       href="https://wa.me/5491159278803?text=Hola%20Geneve%2C%20necesito%20un%20presupuesto."
                       target="_blank" rel="noreferrer"
-                      className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-white text-base font-semibold bg-[#e84e1b] shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)]"
+                      className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-white text-base font-semibold bg-[#e84e1b] shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)] font-heading"
                     >
                       <svg className="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
                         <path d="M19.11 17.32a1 1 0 0 0-1.42 0l-.36.36a10.53 10.53 0 0 1-2.49-1.69 10.45 10.45 0 0 1-1.69-2.49l.36-.36a1 1 0 0 0 0-1.42l-2.13-2.14a1 1 0 0 0-1.42 0l-.75.76a2.56 2.56 0 0 0-.54 2.91 17.91 17.91 0 0 0 3.56 5.12 17.89 17.89 0 0 0 5.12 3.56 2.56 2.56 0 0 0 2.91-.54l.76-.75a1 1 0 0 0 0-1.42Z" />
@@ -264,7 +275,7 @@ export const Home: React.FC = () => {
 
                     <a
                       href="/cart"
-                      className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-[#e84e1b] hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] [transform:translateZ(65px)]"
+                      className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-[#e84e1b] hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] font-heading"
                     >
                       <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l3-7H6.4M7 13L5.4 5M7 13l-2 7m12-7l2 7M9 21h0m6 0h0" />
@@ -273,7 +284,7 @@ export const Home: React.FC = () => {
                     </a>
                   </div>
 
-                  <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white [transform:translateZ(45px)]">
+                  <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white">
                     <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e84e1b]"></span> +350 obras</span>
                     <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e84e1b]"></span> Productos certificados</span>
                     <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e84e1b]"></span> Envíos a todo el país</span>
@@ -283,31 +294,9 @@ export const Home: React.FC = () => {
             </div>
           </div>
         </Container>
-
-        {/* Script tilt/parallax (vanilla) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              const card = document.getElementById('tilt');
-              const inner = card?.querySelector('div.relative');
-              const clamp = (n,min,max)=>Math.max(min,Math.min(max,n));
-              function handle(e){
-                const r = card.getBoundingClientRect();
-                const px = (e.clientX - r.left) / r.width;
-                const py = (e.clientY - r.top) / r.height;
-                const rx = clamp((0.5 - py) * 10, -8, 8);
-                const ry = clamp((px - 0.5) * 12, -10, 10);
-                inner.style.transform = \`rotateX(\${rx}deg) rotateY(\${ry}deg) translateZ(0)\`;
-              }
-              function reset(){ inner.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)'; }
-              card?.addEventListener('mousemove', handle);
-              card?.addEventListener('mouseleave', reset);
-            `,
-          }}
-        />
       </section>
 
-      {/* Trust & Info Section */}
+      {/* Info */}
       <section className="py-16 lg:py-20 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -315,7 +304,6 @@ export const Home: React.FC = () => {
               <h2 className="text-5xl lg:text-4xl font-bold text-gray-900 mb-6">
                 Acerca de <span className="text-[#e84e1b]">GENEVE</span>
               </h2>
-
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
                 Geneve cuenta con más de 40 años de trayectoria en el mercado, ofreciendo soluciones integrales en electricidad e iluminación.
                 Nuestro compromiso con la innovación y la excelencia nos ha permitido evolucionar constantemente, adaptándonos a las exigencias del sector y a las necesidades de nuestros clientes.
@@ -352,31 +340,29 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              <Link
-                to="/certifications"
-                className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors"
-              >
+              <Link to="/certifications" className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors">
                 <span>Ver Certificaciones</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-4">
+              
               <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
                 <div className="text-3xl font-bold mb-2">+50</div>
-                <div className="text-orange-100">Productos en Catálogo</div>
+                <div className="text-gray-300 font-heading">Productos en Catálogo</div>
               </div>
               <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
                 <div className="text-3xl font-bold mb-2">40+</div>
-                <div className="text-gray-300">Años de Experiencia</div>
+                <div className="text-gray-300 font-heading">Años de Experiencia</div>
               </div>
               <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
                 <div className="text-3xl font-bold mb-2">99%</div>
-                <div className="text-green-100">Satisfacción de Clientes</div>
+                <div className="text-gray-300 font-heading">Satisfacción de Clientes</div>
               </div>
               <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
                 <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className="text-blue-100">Soporte Disponible</div>
+                <div className="text-gray-300 font-heading">Soporte Disponible</div>
               </div>
             </div>
           </div>

@@ -122,7 +122,7 @@ export const Quote: React.FC = () => {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-gray-50">
+      <div className="max-h-screen bg-gray-50">
         <Container className="py-16">
           <div className="text-center max-w-lg mx-auto">
             <div className="text-gray-400 mb-6"></div>
@@ -132,7 +132,7 @@ export const Quote: React.FC = () => {
             <p className="text-lg text-gray-600 mb-8">
               Empezá agregando productos de nuestro catálogo para solicitar un presupuesto.
             </p>
-            <Button as={Link} to="/catalog" size="lg" className="inline-flex items-center space-x-2">
+            <Button as={Link} to="/catalog" size="lg" className="inline-flex items-center space-x-2 font-heading">
               <span>Ver Catálogo</span>
             </Button>
           </div>
@@ -151,7 +151,7 @@ export const Quote: React.FC = () => {
               to="/catalog"
               className="mb-4 inline-flex items-center gap-2 text-[#e84e1b] font-bold hover:text-[#cf4700] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e84e1b]/30 rounded-md"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-4 h-4 font-heading" />
               <span>Volver al Catálogo</span>
             </Link>
 
@@ -168,7 +168,7 @@ export const Quote: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={clearCart}
-              className="text-red-600 hover:text-red-700 hover:border-red-300"
+              className="text-red-600 hover:text-red-700 hover:border-red-300 font-heading"
             >
               Borrar Todo
             </Button>
@@ -287,7 +287,7 @@ export const Quote: React.FC = () => {
             <Button
               onClick={handleSendQuote}
               size="lg"
-              className="w-full bg-[#e84e1b] hover:bg-[#e84e1b] flex items-center justify-center space-x-2"
+              className="w-full bg-[#e84e1b] hover:bg-[#e84e1b] flex items-center justify-center space-x-2 font-heading"
             >
               <MessageCircle className="w-5 h-5" />
               <span>Pedir Presupuesto por WhatsApp</span>

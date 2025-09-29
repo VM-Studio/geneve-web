@@ -57,7 +57,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Navegación centrada */}
-          <div className="flex-1 flex justify-center">
+          <div className="flex-1 flex justify-center font-heading">
             <div className="hidden md:flex items-center space-x-12">
               {navigation.map((item) => (
                 <Link

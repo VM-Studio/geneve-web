@@ -40,7 +40,7 @@ export const Works: React.FC = () => {
             con precios y disponibilidad actualizados.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center font-heading">
             <Button
               as={Link}
               to="/catalog"
@@ -258,7 +258,7 @@ export const Works: React.FC = () => {
                   />
                   <label htmlFor="acepto" className="text-sm text-gray-800">
                     Acepto ser contactado por Geneve y la{' '}
-                    <a href="#" className="text-[#e04f01] hover:underline">política de privacidad</a>.
+                    <a href="#" className="text-[#e04f01] hover:underline font-heading">política de privacidad</a>.
                   </label>
                 </div>
 
@@ -266,14 +266,14 @@ export const Works: React.FC = () => {
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 pt-2">
                   <Button
                     type="submit"
-                    className="inline-flex items-center gap-2 bg-[#e04f01] text-white hover:bg-[#e04f01]/90"
+                    className="inline-flex items-center gap-2 bg-[#e04f01] text-white hover:bg-[#e04f01]/90 font-heading"
                   >
                     Solicitar presupuesto de obra
                   </Button>
 
                   <Button
                     variant="outline"
-                    className="inline-flex items-center gap-2 border-2 border-[#e04f01] text-gray-900 hover:bg-[#e04f01]/10"
+                    className="inline-flex items-center gap-2 border-2 border-[#e04f01] text-gray-900 hover:bg-[#e04f01]/10 font-heading"
                     onClick={() =>
                       openWhatsApp('Hola Geneve, envío planos por WhatsApp para cotización de obra.')
                     }
@@ -292,10 +292,10 @@ export const Works: React.FC = () => {
             <div className="rounded-2xl bg-[#e04f01]/10 p-6 shadow-xl ring-1 ring-[#e04f01]/15">
               <h3 className="text-base font-semibold text-gray-900">Pensado para obras</h3>
               <ul className="mt-4 grid grid-cols-1 gap-3 text-sm text-gray-800">
-                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span> Cotización por ítems y metrado.</li>
-                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span> Ajuste por hitos y entregas programadas.</li>
-                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span> Productos homologados y certificados.</li>
-                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-emerald-500"></span> Equipo técnico para obra y postventa.</li>
+                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-[#e04f01]"></span> Cotización por ítems y metrado.</li>
+                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-[#e04f01]"></span> Ajuste por hitos y entregas programadas.</li>
+                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-[#e04f01]"></span> Productos homologados y certificados.</li>
+                <li className="flex items-start gap-3"><span className="mt-1 h-2 w-2 rounded-full bg-[#e04f01]"></span> Equipo técnico para obra y postventa.</li>
               </ul>
 
               <div className="mt-6 grid grid-cols-3 gap-3">
@@ -304,7 +304,7 @@ export const Works: React.FC = () => {
                   <div className="text-[11px] text-gray-600">obras</div>
                 </div>
                 <div className="rounded-xl border border-gray-200 bg-white p-3 text-center">
-                  <div className="text-lg font-semibold text-gray-900">+15</div>
+                  <div className="text-lg font-semibold text-gray-900">+40</div>
                   <div className="text-[11px] text-gray-600">años</div>
                 </div>
                 <div className="rounded-xl border border-gray-200 bg-white p-3 text-center">
@@ -324,14 +324,14 @@ export const Works: React.FC = () => {
               <div className="mt-4 grid sm:grid-cols-2 gap-3">
                 <button
                   onClick={() => openWhatsApp('Hola, necesito coordinar una visita técnica para mi obra.')}
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e04f01] text-[#e04f01] px-4 py-2.5 text-sm hover:bg-[#e04f01]/10"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-[#e04f01] text-[#e04f01] px-4 py-2.5 text-sm hover:bg-[#e04f01]/10 font-heading"
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp
                 </button>
                 <a
                   href="mailto:info@geneve.com.ar"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-gray-300 bg-white px-4 py-2.5 text-sm text-gray-800 hover:bg-gray-50 font-heading"
                 >
                   Email
                 </a>
@@ -339,9 +339,8 @@ export const Works: React.FC = () => {
 
               <div className="mt-4 rounded-xl border border-gray-200 bg-white p-4 text-sm">
                 <div className="text-gray-600">Teléfono</div>
-                <div className="font-medium text-gray-900">+54 11 5555-5555</div>
-                <div className="mt-2 text-gray-600">Oficina</div>
-                <div className="font-medium text-gray-900">Av. Siempreviva 742, CABA</div>
+                <div className="font-medium text-gray-900">+54 11 5927-8803</div>
+                
               </div>
             </div>
           </aside>

@@ -244,7 +244,7 @@ export const Contact: React.FC = () => {
                 )}
 
                 {/* Botones */}
-                <div className="flex flex-col sm:flex-row gap-3 pt-1">
+                <div className="flex flex-col sm:flex-row gap-3 pt-1 font-heading">
                   <Button type="submit" size="lg" className="w-full sm:w-auto bg-[#e04f01]">
                     Solicitar presupuesto
                   </Button>
@@ -312,7 +312,7 @@ export const Contact: React.FC = () => {
                 Escribinos por WhatsApp o llamanos de Lunes a Viernes de 9 a 18 h.
               </p>
 
-              <div className="mt-4 grid sm:grid-cols-2 gap-3">
+              <div className="mt-4 grid sm:grid-cols-2 gap-3 font-heading">
               <button
   onClick={handleWhatsApp}
   className="inline-flex items-center justify-center gap-2 rounded-xl  border-[#e04f01] text-[#e04f01] px-5 py-2.5 text-sm font-medium hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30 transition"

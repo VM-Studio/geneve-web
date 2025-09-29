@@ -6,9 +6,9 @@ import { Link } from "react-router-dom";
 type CarouselItem = {
   id: string;
   name: string;
-  imageUrl: string;  // cada producto tendrá su link de imagen distinto
-  to?: string;       // ← ruta interna (SPA) opcional
-  href?: string;     // ← URL externa opcional
+  imageUrl: string;
+  to?: string;
+  href?: string;
 };
 
 type Props = {
@@ -25,26 +25,29 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
   const scrollByCards = (dir: "left" | "right") => {
     const el = trackRef.current;
     if (!el) return;
-    const gap = 24;
+    const gap = 24; // gap-6
     const delta = (CARD_WIDTH + gap) * 1.5;
     el.scrollBy({ left: dir === "left" ? -delta : delta, behavior: "smooth" });
   };
 
-  // Card visual: reutilizamos clases/estilos en Link, <a> o <button>
-  const cardStyle: React.CSSProperties = {
-    width: "100%",
-    height: "100%",
-    textAlign: "left" as const,
-    borderRadius: "1rem", // ~ rounded-2xl
-    overflow: "hidden",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    boxShadow: "0 10px 24px rgba(0,0,0,0.35)", // sombra original
-  };
-
-  const titleBarStyle: React.CSSProperties = {
-    backgroundColor: "rgba(232, 78, 27, 0.8)", // #e84e1b con transparencia
-  };
+  // Tarjeta sin sombra de fondo
+  const CardInner: React.FC<{ name: string; imageUrl: string }> = ({ name, imageUrl }) => (
+    <div className="relative overflow-hidden rounded-3xl bg-white  ring-zinc-200/70">
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img
+          src={imageUrl}
+          alt={name}
+          className="absolute inset-0 h-full w-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.05] group-hover:-translate-y-0.5"
+        />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
+        <div className="absolute inset-x-0 bottom-0 grid place-items-center pb-4">
+          <span className="rounded-full bg-[#e84e1b] px-5 py-2 text-sm font-extrabold tracking-wide text-white uppercase shadow backdrop-blur font-heading">
+            {name}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 
   return (
     <div className="relative">
@@ -52,74 +55,59 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
       <button
         aria-label="Anterior"
         onClick={() => scrollByCards("left")}
-        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white shadow border border-gray-200 hover:bg-gray-50 focus:outline-none"
+        type="button"
+        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e84e1b] text-white shadow-lg ring-1 ring-[#e84e1b]/80 transition hover:scale-105 focus:outline-none"
         style={{ outline: "none", boxShadow: "0 0 0 3px transparent" }}
         onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e84e1b")}
         onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px transparent")}
-        type="button"
       >
-        <ChevronLeft className="w-5 h-5 text-gray-700" />
+        <ChevronLeft className="h-5 w-5" />
       </button>
 
       {/* Carril */}
       <div
         ref={trackRef}
-        className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-1 no-scrollbar"
+        className="flex overflow-x-auto snap-x snap-mandatory gap-6 px-1 no-scrollbar scroll-smooth pb-12"
         style={{ scrollPaddingInline: "16px" }}
       >
         {items.map((p) => {
-          const bgStyle: React.CSSProperties = {
-            ...cardStyle,
-            backgroundImage: `url("${p.imageUrl}")`,
-          };
+          const clickableClasses =
+            "group relative block focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b] rounded-3xl";
 
-          const Inner = (
-            <>
-              {/* Franja inferior con el título en naranja translúcido */}
-              <div className="absolute bottom-0 left-0 right-0 px-6 py-3" style={titleBarStyle}>
-                <h3 className="text-white text-lg font-semibold">{p.name}</h3>
-              </div>
-            </>
-          );
+          const inner = <CardInner name={p.name} imageUrl={p.imageUrl} />;
 
           return (
             <article
               key={p.id}
-              className="snap-start shrink-0 relative"
+              className="snap-center shrink-0"
               style={{ width: CARD_WIDTH, height: CARD_HEIGHT }}
             >
-              {/* Preferencia: to > href > button */}
               {p.to ? (
-                <Link
-                  to={p.to}
-                  aria-label={p.name}
-                  className="relative block focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]"
-                  style={bgStyle}
-                >
-                  {Inner}
+                <Link to={p.to} aria-label={p.name} className={clickableClasses}>
+                  {inner}
                 </Link>
               ) : p.href ? (
                 <a
                   href={p.href}
                   aria-label={p.name}
-                  className="relative block focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]"
-                  style={bgStyle}
-                  target="_self" // cambiá a "_blank" si querés nueva pestaña
+                  className={clickableClasses}
+                  target="_self"
                   rel="noreferrer"
                 >
-                  {Inner}
+                  {inner}
                 </a>
               ) : (
                 <button
                   type="button"
                   aria-label={p.name}
                   onClick={() => onItemClick?.(p)}
-                  className="relative block w-full h-full text-left rounded-2xl overflow-hidden focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]"
-                  style={bgStyle}
+                  className={`${clickableClasses} w-full h-full text-left`}
                 >
-                  {Inner}
+                  {inner}
                 </button>
               )}
+
+              {/* (Eliminado) barra/sombra inferior de progreso */}
             </article>
           );
         })}
@@ -129,13 +117,13 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
       <button
         aria-label="Siguiente"
         onClick={() => scrollByCards("right")}
-        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 h-10 w-10 items-center justify-center rounded-full bg-white shadow border border-gray-200 hover:bg-gray-50 focus:outline-none"
+        type="button"
+        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e84e1b] text-white shadow-lg ring-1 ring-[#e84e1b]/80 transition hover:scale-105 focus:outline-none"
         style={{ outline: "none", boxShadow: "0 0 0 3px transparent" }}
         onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e84e1b")}
-        onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 4px transparent")}
-        type="button"
+        onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px transparent")}
       >
-        <ChevronRight className="w-5 h-5 text-gray-700" />
+        <ChevronRight className="h-5 w-5" />
       </button>
     </div>
   );

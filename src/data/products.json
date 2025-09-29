@@ -17,7 +17,7 @@
       "Color": "Blanco"
     },
     
-    "tags": ["Autónoma", "A Pilas", "Infrarroja"],
+    "tags": ["Alarma", "Autónoma", "A Pilas", "Infrarroja"],
     "images": [
       "https://i.postimg.cc/fb08rgfm/Screenshot-2025-09-11-at-8-41-09-AM.png",
       "https://i.postimg.cc/JzSqZ5Cn/Screenshot-2025-09-11-at-8-41-22-AM.png",
@@ -54,7 +54,7 @@
       "Sensor": "Fotoeléctrico",
       "Funciona sin electricidad": "Sí"
     },
-    "tags": ["Detector", "Humo", "Fotoeléctrico", "Seguridad"],
+    "tags": ["Alarma", "Detector", "Humo", "Fotoeléctrico", "Seguridad"],
     "images": [
       "https://i.postimg.cc/ZRf8V8vX/Screenshot-2025-09-11-at-9-15-39-AM.png",
       "https://i.postimg.cc/8PbW18HN/Screenshot-2025-09-11-at-9-15-49-AM.png",
@@ -88,7 +88,7 @@
       "Temperatura de trabajo": "4°C a 38°C",
       "Tipo de sensor": "Electromecánico de alta precisión"
     },
-    "tags": ["Monóxido de Carbono", "CO", "A Pilas", "Seguridad"],
+    "tags": ["Alarma", "Monóxido de Carbono", "CO", "A Pilas", "Seguridad"],
     "images": [
       "https://i.postimg.cc/CxWqgtgq/Screenshot-2025-09-11-at-9-51-26-AM.png",
       "https://i.postimg.cc/B63P8KtZ/Screenshot-2025-09-11-at-9-51-36-AM.png",
@@ -185,7 +185,7 @@
       "Instalación": "Sencilla, sin control remoto",
       "Monitoreo": "En tiempo real vía aplicación móvil"
     },
-    "tags": ["WiFi", "Detector de Humo", "Inteligente", "Seguridad"],
+    "tags": ["Alarma", "WiFi", "Detector de Humo", "Inteligente", "Seguridad"],
     "images": [
       "https://i.postimg.cc/GmqbPTMh/Screenshot-2025-09-11-at-10-05-53-AM.png",
       "https://i.postimg.cc/Dz0nxfDQ/Screenshot-2025-09-11-at-10-06-02-AM.png",
@@ -217,7 +217,7 @@
       "Monitoreo": "En tiempo real mediante app",
       "Tipo de dispositivo": "Detector combinado (CO + Humo)"
     },
-    "tags": ["WiFi", "CO + Humo", "Pantalla LCD", "Smart Home"],
+    "tags": ["Alarma", "WiFi", "CO + Humo", "Pantalla LCD", "Smart Home"],
     "images": [
       "https://i.postimg.cc/gcQXRQxB/Screenshot-2025-09-11-at-10-13-01-AM.png",
       "https://i.postimg.cc/4xbmD3Br/Screenshot-2025-09-11-at-10-13-12-AM.png",
@@ -249,7 +249,7 @@
       "Botón de Test": "Incluido para verificación de funcionamiento",
       "Tipo": "Autónomo, sin necesidad de conexión eléctrica"
     },
-    "tags": ["Humo", "Monóxido de Carbono", "LCD", "Autónomo"],
+    "tags": ["Alarma", "Humo", "Monóxido de Carbono", "LCD", "Autónomo"],
     "images": [
       "https://i.postimg.cc/59SNgtNG/Screenshot-2025-09-11-at-10-29-29-AM.png",
       "https://i.postimg.cc/NfNGhPXk/Screenshot-2025-09-11-at-10-29-36-AM.png",
@@ -471,7 +471,7 @@
       "Time Delay": "15 segundos",
       "Tipos de alarma": "Alarma normal"
     },
-    "tags": ["Sensor", "Movimiento", "60°", "Alarma sonora", "Seguridad"],
+    "tags": ["PIR", "Sensor", "Movimiento", "60°", "Alarma sonora", "Seguridad"],
     "images": [
       "https://i.postimg.cc/85P4J5yv/Screenshot-2025-09-11-at-11-13-37-AM.png",
       "https://i.postimg.cc/nVX50RkD/Screenshot-2025-09-11-at-11-13-44-AM.png",
@@ -538,7 +538,7 @@
       "Compresión": "Smart H.265",
       "Panel": "Uso interno"
     },
-    "tags": ["Cámara", "WiFi", "Visión nocturna", "Nube", "Seguridad"],
+    "tags": ["Sensor", "Movimiento", "PIR", "Cámara", "WiFi", "Visión nocturna", "Nube", "Seguridad"],
     "images": [
       "https://i.postimg.cc/brvW9mnK/Screenshot-2025-09-11-at-1-13-27-PM.png",
       "https://i.postimg.cc/HsRRb4kh/Screenshot-2025-09-11-at-1-13-39-PM.png",
@@ -883,7 +883,7 @@
       "Uso": "Interior",
       "Instalación": "Directa, no requiere balasto ni arrancador"
     },
-    "tags": ["Listón LED", "Iluminación", "1 Tubo", "2 Tubos", "Geneve"],
+    "tags": ["Panel LED", "Listón LED", "Iluminación", "1 Tubo", "2 Tubos", "Geneve"],
     "images": [
       "https://i.postimg.cc/MpKbFpmR/Screenshot-2025-09-11-at-2-39-22-PM.png",
       "https://i.postimg.cc/1XQDcmz8/Screenshot-2025-09-11-at-2-39-30-PM.png",
@@ -1053,7 +1053,7 @@
       { "modelo": "GE-ESL600", "potencia": "18W" },
       { "modelo": "GE-ESL1200", "potencia": "36W" }
     ],
-    "tags": ["Plafón", "LED", "Estanco", "Geneve", "Interior", "Exterior", "SMD"],
+    "tags": ["Panel LED", "Plafón", "LED", "Estanco", "Geneve", "Interior", "Exterior", "SMD"],
     "images": [
       "https://i.postimg.cc/fyn20ZNK/Screenshot-2025-09-12-at-8-43-31-PM.png",
       "https://i.postimg.cc/nLX0RMV2/Screenshot-2025-09-12-at-8-43-40-PM.png",
@@ -1089,7 +1089,7 @@
       { "modelo": "GE-ES136-GSC", "configuracion": "1 x 36W" },
       { "modelo": "GE-ES236-GSC", "configuracion": "2 x 36W" }
     ],
-    "tags": ["Plafón", "Estanco", "Tubo LED", "IP65", "Policarbonato", "Geneve"],
+    "tags": [ "Plafón", "Estanco", "Tubo LED", "IP65", "Policarbonato", "Geneve"],
     "images": [
       "https://i.postimg.cc/WbKB2RD5/Screenshot-2025-09-12-at-8-53-19-PM.png",
       "https://i.postimg.cc/FKxCkwR5/Screenshot-2025-09-12-at-8-53-29-PM.png",
@@ -1280,7 +1280,7 @@
     "models": [
       { "modelo": "GE-RFL20W-SME", "potencia": "20W", "equivalencia": "135W" }
     ],
-    "tags": ["Reflector", "LED", "Sensor de Movimiento", "Externo", "20W", "IP66", "Geneve"],
+    "tags": ["Reflector", "Sensor de Movimiento", "Externo", "20W", "IP66", "Geneve"],
     "images": [
       "https://i.postimg.cc/bYFnNLq6/Screenshot-2025-09-12-at-9-34-09-PM.png"
     ],
@@ -1311,7 +1311,7 @@
     "models": [
       { "modelo": "GE-LAMP6W", "potencia": "6W", "flujoLuminoso": "250 lm" }
     ],
-    "tags": ["Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Geneve"],
+    "tags": ["Panel LED", "Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Geneve"],
     "images": [
       "https://i.postimg.cc/kXKW1Kdf/Screenshot-2025-09-12-at-9-35-42-PM.png",
       "https://i.postimg.cc/tgCP4cnM/Screenshot-2025-09-12-at-9-35-57-PM.png",
@@ -1350,7 +1350,7 @@
     "models": [
       { "modelo": "GE-LAMP6W-NG", "potencia": "6W", "flujoLuminoso": "250 lm", "color": "Negro" }
     ],
-    "tags": ["Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Negra", "Geneve"],
+    "tags": ["Panel LED", "Lámpara", "LED", "Escritorio", "Carga Inalámbrica", "USB", "Negra", "Geneve"],
     "images": [
       "https://i.postimg.cc/nhMpVYc1/Screenshot-2025-09-12-at-9-40-50-PM.png",
       "https://i.postimg.cc/R0HmKSt6/Screenshot-2025-09-12-at-9-41-04-PM.png",

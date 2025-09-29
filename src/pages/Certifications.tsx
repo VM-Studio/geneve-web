@@ -2,6 +2,8 @@
 import React from 'react';
 import { Download, Medal, ExternalLink } from 'lucide-react';
 import { Container } from '../components/layout/Container';
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 
 const BRAND = '#e04f01';
 
@@ -79,10 +81,7 @@ export const Certifications: React.FC = () => {
 <div className="mb-12">
   <div className="flex items-center justify-center gap-4">
     {/* Medalla al costado del título */}
-    <div className="w-14 h-14 rounded-xl flex items-center justify-center shadow-sm ring-1 ring-orange-400/20"
-         style={{ backgroundColor: '#e04f01' }}>
-      <Medal className="w-7 h-7 text-white" strokeWidth={2.5} />
-    </div>
+   
 
     <h1 className="text-4xl lg:text-5xl font-bold text-gray-900">
       Certificaciones & Estándares
@@ -159,7 +158,7 @@ export const Certifications: React.FC = () => {
                   <a
                     href={cert.documentUrl}
                     download
-                    className="ml-auto text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border transition"
+                    className="ml-auto text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border transition font-heading"
                     style={{
                       color: BRAND,
                       borderColor: `${BRAND}55`,
@@ -182,17 +181,19 @@ export const Certifications: React.FC = () => {
         </div>
 
         <div className="flex justify-center mt-10 border-[#e04f01]">
-  <button
-    onClick={() =>
-      window.open(
-        `https://wa.me/${import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803'}?text=Hola Geneve, quisiera más información sobre sus certificaciones.`,
-        '_blank'
-      )
-    }
-    className="inline-flex items-center gap-2 rounded-lg border-2 border-[#e04f01] text-gray-900 px-6 py-3 text-lg font-semibold bg-white shadow-md hover:bg-[#e04f01]/10 transition"
-  >
-    Contactar por WhatsApp
-  </button>
+        <Link
+  to="/catalog"
+  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3
+             text-lg !font-extrabold !font-[Sora]
+             bg-[#e84e1b] text-white border-2 border-[#e84e1b]
+             shadow-[0_6px_16px_-6px_rgba(232,78,27,.45)]
+             hover:bg-[#d94b17] focus-visible:ring-2 focus-visible:ring-[#e84e1b]/40
+             transition"
+  aria-label="Ir a todos los Productos"
+>
+  <span>Ir a todos los Productos</span>
+  <ArrowRight className="w-5 h-5" />
+</Link>
 </div>
 
 
