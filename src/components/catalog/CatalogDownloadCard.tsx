@@ -39,25 +39,41 @@ export const CatalogDownloadCard: React.FC = () => {
 
         {/* Acciones (naranja #e84e1b y blanco) */}
         <div className="flex flex-col items-end gap-2">
-          <a
-            href="/catalogo/completo.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-lg border border-zinc-200 bg-white px-3 py-2 text-xs font-semibold text-zinc-800 hover:bg-zinc-50"
-          >
-            Ver
-          </a>
-          <a
-            href="/catalogo/completo.pdf"
-            download="catalogo-completo.pdf"
-            className="inline-flex items-center gap-1.5 rounded-lg border-2 bg-white px-3 py-2 text-xs font-semibold hover:bg-[rgba(232,78,27,0.05)]"
-            style={{ borderColor: "#e84e1b", color: "#e84e1b" }}
-          >
-            <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-              <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
-            </svg>
-            Descargar
-          </a>
+        <a
+  href="/catalogo/completo.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold
+    border-zinc-200 text-zinc-800 bg-white
+    hover:bg-zinc-50
+    active:bg-[#e84e1b]/10 active:translate-y-px
+    focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/25 focus-visible:ring-offset-0
+    transition no-tap-highlight
+  "
+>
+  Ver
+</a>
+
+<a
+  href="/catalogo/completo.pdf"
+  download="catalogo-completo.pdf"
+  className="
+    inline-flex items-center gap-1.5 rounded-lg border px-3 py-2 text-xs font-semibold
+    border-[#e84e1b]/80 text-[#e84e1b] bg-white
+    hover:bg-[#e84e1b]/5
+    active:bg-[#e84e1b]/15 active:translate-y-px
+    focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/25 focus-visible:ring-offset-0
+    transition no-tap-highlight
+  "
+>
+  <svg className="size-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+    <path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14" />
+  </svg>
+  Descargar
+</a>
+
+
         </div>
       </div>
 

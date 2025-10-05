@@ -7,6 +7,8 @@ import { useCart } from '../store/CartContext';
 import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
+import { CatalogDownloadCard } from '../components/catalog/CatalogDownloadCard';
+
 
 type Category = { id: string; name: string; imageUrl?: string };
 
@@ -154,14 +156,29 @@ export const Catalog: React.FC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <Container className="py-8">
-        {/* Header (se oculta cuando estamos en la vista de subcategorías de Seguridad o Iluminación) */}
-        {title && (
-          <div className="mb-8 text-center">
-            <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,32px)]">
-              {title}
-            </h1>
-          </div>
-        )}
+        {/* Header (título centrado + tarjeta debajo) */}
+{/* Header principal */}
+{!selectedCategory && (
+  <div className="mb-8 space-y-4">
+    <h1 className="text-center font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
+      Todas Nuestras Categorías
+    </h1>
+    <div className="w-full">
+      <CatalogDownloadCard />
+    </div>
+  </div>
+)}
+
+{selectedCategory && (
+  <div className="mb-8 text-center">
+    <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
+      {title}
+    </h1>
+  </div>
+)}
+
+
+        
 
 {/* ===================== CATEGORÍAS (diseño original) ===================== */}
 {!selectedCategory && (
@@ -186,7 +203,8 @@ export const Catalog: React.FC = () => {
               "
             >
               {/* barrita superior naranja (original) */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#e84e1b]" />
+              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-b from-[#e84e1b] to-[#e84e1b]/40" />
+              <div className="absolute inset-x-0 top-[2px] h-px bg-black/5" />
 
               <div className="relative z-10 p-4 md:p-5">
                 {/* Título centrado (original) */}
@@ -475,18 +493,23 @@ export const Catalog: React.FC = () => {
         {(selectedCategory && (!isSecurity || securitySub) && (!isLighting || lightingSub)) && (
           <section className="mt-8 space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2 font-heading">
-                {isSecurity && securitySub && (
-                  <Button variant="ghost" onClick={() => setSecuritySub(null)}>
-                    ← Volver a Seguridad
-                  </Button>
-                )}
-                {isLighting && lightingSub && (
-                  <Button variant="ghost" onClick={() => setLightingSub(null)}>
-                    ← Volver a Iluminación
-                  </Button>
-                )}
-              </div>
+            <div className="flex items-center gap-2 font-heading">
+  <Button variant="ghost" onClick={() => setSelectedCategory(null)}>
+    ← Volver a Categorías
+  </Button>
+
+  {isSecurity && securitySub && (
+    <Button variant="ghost" onClick={() => setSecuritySub(null)}>
+      ← Volver a Seguridad
+    </Button>
+  )}
+  {isLighting && lightingSub && (
+    <Button variant="ghost" onClick={() => setLightingSub(null)}>
+      ← Volver a Iluminación
+    </Button>
+  )}
+</div>
+
 
               <div className="flex items-center space-x-2">
                 <Button
