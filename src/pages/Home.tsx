@@ -32,45 +32,58 @@ export const Home: React.FC = () => {
     { id: '4', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
   ];
 
-  // Tilt 3D (hero)
+  // Tilt 3D (hero + presupuesto)
   React.useEffect(() => {
-    const card = document.getElementById('tilt');
-    const inner = card?.querySelector('div.relative') as HTMLDivElement | null;
-    if (!card || !inner) return;
+    const ids = ['tilt-hero', 'tilt-quote'];
+    const cards: HTMLElement[] = [];
     const clamp = (n: number, min: number, max: number) => Math.max(min, Math.min(max, n));
-    const handle = (e: MouseEvent) => {
-      const r = card.getBoundingClientRect();
-      const px = (e.clientX - r.left) / r.width;
-      const py = (e.clientY - r.top) / r.height;
-      const rx = clamp((0.5 - py) * 10, -8, 8);
-      const ry = clamp((px - 0.5) * 12, -10, 10);
-      inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
-    };
-    const reset = () => { inner.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)'; };
-    card.addEventListener('mousemove', handle);
-    card.addEventListener('mouseleave', reset);
+
+    ids.forEach(id => {
+      const card = document.getElementById(id);
+      const inner = card?.querySelector('div.relative') as HTMLDivElement | null;
+      if (!card || !inner) return;
+
+      const handle = (e: MouseEvent) => {
+        const r = card.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width;
+        const py = (e.clientY - r.top) / r.height;
+        const rx = clamp((0.5 - py) * 10, -8, 8);
+        const ry = clamp((px - 0.5) * 12, -10, 10);
+        inner.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+      };
+      const reset = () => { inner.style.transform = 'rotateX(0deg) rotateY(0deg) translateZ(0)'; };
+
+      card.addEventListener('mousemove', handle);
+      card.addEventListener('mouseleave', reset);
+      (card as any).__tiltHandlers = { handle, reset };
+      cards.push(card);
+    });
+
     return () => {
-      card.removeEventListener('mousemove', handle);
-      card.removeEventListener('mouseleave', reset);
+      cards.forEach(card => {
+        const { handle, reset } = (card as any).__tiltHandlers || {};
+        if (handle) card.removeEventListener('mousemove', handle);
+        if (reset) card.removeEventListener('mouseleave', reset);
+      });
     };
   }, []);
 
   return (
     <div className="min-h-screen">
-      {/* Hero */}
+      {/* Hero con efecto restaurado y capas sin capturar clics */}
       <section className="relative isolate overflow-hidden py-20 [--brand:#e84e1b] bg-[color:var(--brand)]">
-        <div className="absolute inset-0 -z-10">
-          <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]"></div>
-          <div className="absolute inset-0 opacity-[.18] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,1)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,1)_40px)] bg-[size:40px_40px]"></div>
+        <div className="absolute inset-0 -z-10 pointer-events-none">
+          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]"></div>
+          <div className="absolute inset-0 pointer-events-none opacity-[.18] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,1)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,1)_40px)] bg-[size:40px_40px]"></div>
         </div>
 
         <div className="mx-auto max-w-6xl px-6 [perspective:1200px]">
-          <div id="tilt" className="relative mx-auto max-w-4xl will-change-transform transition-transform duration-300 [transform-style:preserve-3d]">
+          <div id="tilt-hero" className="relative mx-auto max-w-4xl will-change-transform transition-transform duration-300 [transform-style:preserve-3d]">
             <div className="pointer-events-none absolute -inset-[2px] rounded-[28px] bg-gradient-to-br from-white/30 via-white/10 to-transparent blur-xl opacity-60"></div>
 
             <div className="relative rounded-[26px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,.35)] px-8 sm:px-12 py-12 text-center text-white [transform-style:preserve-3d]">
-              <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-white/25 shadow-lg [transform:translateZ(55px)]"></span>
-              <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-white/15 shadow-xl [transform:translateZ(35px)]"></span>
+              <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-white/25 shadow-lg [transform:translateZ(55px)] pointer-events-none"></span>
+              <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-white/15 shadow-xl [transform:translateZ(35px)] pointer-events-none"></span>
 
               <h2 className="text-3xl sm:text-9xl font-extrabold tracking-tight leading-none [transform:translateZ(60px)]">
                 <img
@@ -83,29 +96,7 @@ export const Home: React.FC = () => {
                 />
               </h2>
 
-              
-
-              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a
-                  href={`https://wa.me/${whatsappPhone}?text=Hola%20Geneve%2C%20quiero%20hacer%20una%20consulta.`}
-                  className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-[#e84e1b] text-base font-semibold bg-white shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)] font-heading"
-                >
-                  <svg className="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-                    <path d="M19.11 17.32a1 1 0 0 0-1.42 0l-.36.36a10.53 10.53 0 0 1-2.49-1.69 10.45 10.45 0 0 1-1.69-2.49l.36-.36a1 1 0 0 0 0-1.42l-2.13-2.14a1 1 0 0 0-1.42 0l-.75.76a2.56 2.56 0 0 0-.54 2.91 17.91 17.91 0 0 0 3.56 5.12 17.89 17.89 0 0 0 5.12 3.56 2.56 2.56 0 0 0 2.91-.54l.76-.75a1 1 0 0 0 0-1.42Z"/>
-                  </svg>
-                  WhatsApp
-                </a>
-
-                <a
-                  href="/quote"
-                  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-white/60 hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] [transform:translateZ(65px)] font-heading"
-                >
-                  <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l3-7H6.4M7 13L5.4 5M7 13l-2 7m12-7l2 7M9 21h0m6 0h0"/>
-                  </svg>
-                  Ver Presupuesto
-                </a>
-              </div>
+             
 
               <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)] font-heading">
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> +350 obras</span>
@@ -207,26 +198,25 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="text-center mt-10">
-            <Button
-  as={Link}
-  to="/catalog"
-  size="lg"
-  className="inline-flex items-center gap-2 rounded-2xl
-             !bg-[#e84e1b] !text-white !font-extrabold !font-[Sora]
-             !border-2 !border-[#e84e1b]
-             hover:!bg-[#d94b17] focus-visible:!ring-2 focus-visible:!ring-[#e84e1b]/40
-             !px-8 !py-4 text-[clamp(16px,2.2vw,20px)]"
->
-  <span>Ver todos los Productos</span>
-  <ArrowRight className="w-5 h-5" />
-</Button>
-
+              <Button
+                as={Link}
+                to="/catalog"
+                size="lg"
+                className="inline-flex items-center gap-2 rounded-2xl
+                          !bg-[#e84e1b] !text-white !font-extrabold !font-[Sora]
+                          !border-2 !border-[#e84e1b]
+                          hover:!bg-[#d94b17] focus-visible:!ring-2 focus-visible:!ring-[#e84e1b]/40
+                          !px-8 !py-4 text-[clamp(16px,2.2vw,20px)]"
+              >
+                <span>Ver todos los Productos</span>
+                <ArrowRight className="w-5 h-5" />
+              </Button>
             </div>
           </Container>
         </section>
       )}
 
-      {/* Presupuestos */}
+      {/* Presupuestos con efecto y botones funcionando */}
       <section className="relative isolate overflow-hidden py-20 [--brand:#ff5c02] bg-white">
         <Container>
           <div className="mx-auto max-w-6xl px-6 [perspective:1200px]">
@@ -235,19 +225,19 @@ export const Home: React.FC = () => {
                 aria-hidden
                 className="pointer-events-none absolute inset-0 rounded-[26px] bg-[color:var(--brand)] -z-10 overflow-hidden"
               >
-                <div className="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]" />
-                <div className="absolute inset-0 opacity-[.08] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,.8)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,.8)_40px)] bg-[size:40px_40px]" />
+                <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]" />
+                <div className="absolute inset-0 pointer-events-none opacity-[.08] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,.8)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,.8)_40px)] bg-[size:40px_40px]" />
               </div>
 
               <div
-                id="tilt"
+                id="tilt-quote"
                 className="relative mx-auto max-w-4xl will-change-transform transition-transform duration-300 [transform-style:preserve-3d]"
               >
                 <div className="pointer-events-none absolute -inset-[2px] rounded-[28px] bg-gradient-to-br from-white/30 via-white/10 to-transparent blur-xl opacity-60"></div>
 
                 <div className="relative rounded-[26px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,.35)] px-8 sm:px-12 py-12 text-center text-white [transform-style:preserve-3d]">
-                  <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-[#e84e1b] shadow-lg [transform:translateZ(55px)]"></span>
-                  <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-[#e84e1b] shadow-xl [transform:translateZ(35px)]"></span>
+                  <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-[#e84e1b] shadow-lg [transform:translateZ(55px)] pointer-events-none"></span>
+                  <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-[#e84e1b] shadow-xl [transform:translateZ(35px)] pointer-events-none"></span>
 
                   <div className="mx-auto mb-5 inline-flex items-center gap-2 rounded-full border border-[#e84e1b] bg-white/10 px-3 py-1 text-xs text-white [transform:translateZ(40px)]">
                     <span className="h-2 w-2 rounded-full bg-emerald-300"></span> Respuesta en menos de 24 h
@@ -261,28 +251,7 @@ export const Home: React.FC = () => {
                     Recibí una cotización a medida para tu obra y el asesoramiento de nuestro equipo técnico.
                   </p>
 
-                  <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a
-                      href="https://wa.me/5491159278803?text=Hola%20Geneve%2C%20necesito%20un%20presupuesto."
-                      target="_blank" rel="noreferrer"
-                      className="group inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-white text-base font-semibold bg-[#e84e1b] shadow-[0_8px_24px_rgba(0,0,0,.25)] ring-1 ring-black/10 hover:translate-y-[-1px] transition [transform:translateZ(70px)] font-heading"
-                    >
-                      <svg className="h-5 w-5" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
-                        <path d="M19.11 17.32a1 1 0 0 0-1.42 0l-.36.36a10.53 10.53 0 0 1-2.49-1.69 10.45 10.45 0 0 1-1.69-2.49l.36-.36a1 1 0 0 0 0-1.42l-2.13-2.14a1 1 0 0 0-1.42 0l-.75.76a2.56 2.56 0 0 0-.54 2.91 17.91 17.91 0 0 0 3.56 5.12 17.89 17.89 0 0 0 5.12 3.56 2.56 2.56 0 0 0 2.91-.54l.76-.75a1 1 0 0 0 0-1.42Z" />
-                      </svg>
-                      WhatsApp
-                    </a>
-
-                    <a
-                      href="/cart"
-                      className="inline-flex items-center gap-2 rounded-2xl px-6 py-3 text-base font-semibold text-white bg-transparent ring-1 ring-[#e84e1b] hover:ring-white hover:bg-white/10 transition shadow-[inset_0_0_0_1px_rgba(255,255,255,.25)] font-heading"
-                    >
-                      <svg className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l3-7H6.4M7 13L5.4 5M7 13l-2 7m12-7l2 7M9 21h0m6 0h0" />
-                      </svg>
-                      Ver Presupuesto
-                    </a>
-                  </div>
+                  
 
                   <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white">
                     <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e84e1b]"></span> +350 obras</span>
@@ -347,7 +316,6 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              
               <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
                 <div className="text-3xl font-bold mb-2">+50</div>
                 <div className="text-gray-300 font-heading">Productos en Catálogo</div>

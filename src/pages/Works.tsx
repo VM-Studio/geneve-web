@@ -15,10 +15,11 @@ export const Works: React.FC = () => {
 
   // Carousel de productos/categorías (podés editar imágenes y rutas)
   const carouselItems = [
-    { id: '1', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
-    { id: '2', name: 'DISYUNTORES', to: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/7PFDXhhB/Screenshot-2025-09-21-at-4-20-15-PM.png' },
-    { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/cartel-luminoso-salida-emergencia', imageUrl: 'https://i.postimg.cc/cC83S2MQ/Screenshot-2025-09-21-at-4-15-20-PM.png' },
-    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
+    
+    { id: '1', name: 'DISYUNTORES', to: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png' },
+    { id: '2', name: 'LUCES DE EMERGENCIA', to: '/product/cartel-luminoso-salida-emergencia', imageUrl: 'https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png' },
+    { id: '3', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
+    { id: '4', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
   ];
 
   return (
