@@ -5,6 +5,15 @@ interface WhatsAppMessageOptions {
   notes?: string;
 }
 
+/* === GTM helper local (no requiere crear otros archivos) === */
+declare global {
+  interface Window { dataLayer: any[] }
+}
+const track = (event: string, params: Record<string, any> = {}) => {
+  if (!window.dataLayer) window.dataLayer = [];
+  window.dataLayer.push({ event, ...params });
+};
+
 export const useWhatsAppMessage = () => {
   const formatWhatsAppMessage = ({ items, notes = '' }: WhatsAppMessageOptions): string => {
     let message = 'Hola Geneve, me gustaría recibir un presupuesto:\n\n';
@@ -31,6 +40,21 @@ export const useWhatsAppMessage = () => {
   };
 
   const sendQuote = (options: WhatsAppMessageOptions) => {
+    // ---- GTM: medición del click en WhatsApp ----
+    try {
+      const { items, notes } = options;
+      track('whatsapp_click', {
+        source: 'quote',                           // origen del CTA
+        path: typeof window !== 'undefined' ? window.location.pathname : '',
+        item_count: items.length,                  // cantidad de items
+        skus: items.map(i => i.sku).filter(Boolean).join(','), // SKUs (string corto)
+        has_notes: Boolean(notes && notes.trim()), // si agregó notas
+      });
+    } catch (_) {
+      // silencioso: nunca rompemos el envío si falla la métrica
+    }
+    // ---------------------------------------------
+
     const encodedMessage = formatWhatsAppMessage(options);
     openWhatsApp(encodedMessage);
   };
