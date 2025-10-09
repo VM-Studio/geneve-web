@@ -4,11 +4,24 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Textarea } from '../components/ui/Textarea';
 import { MessageSquare } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'; // 👉 navegación al “gracias”
+
+// 👉 helper de GTM local (no rompe si no hay GTM aún)
+declare global { interface Window { dataLayer: any[] } }
+const track = (event: string, params: Record<string, any> = {}) => {
+  if (!window.dataLayer) window.dataLayer = [];
+  window.dataLayer.push({ event, ...params });
+};
+
+// 👉 EmailJS (cliente)
+import emailjs from '@emailjs/browser';
 
 export const Contact: React.FC = () => {
   // Datos de contacto (cambiá por los reales)
   const companyEmail = 'obras@geneve.com.ar';
   const whatsappNumber = '5491159278803'; // formato internacional
+
+  const navigate = useNavigate(); // 👉 para redirigir al “gracias”
 
   // Estado del formulario
   const [nombre, setNombre] = useState('');
@@ -22,6 +35,7 @@ export const Contact: React.FC = () => {
   const [mensaje, setMensaje] = useState('');
   const [acepto, setAcepto] = useState(false);
   const [touched, setTouched] = useState<{[k: string]: boolean}>({});
+  const [sending, setSending] = useState(false); // 👉 estado de envío
 
   // Validaciones simples
   const errors = {
@@ -48,14 +62,69 @@ export const Contact: React.FC = () => {
     `Ubicación: ${ubicacion}\n\n` +
     `Mensaje:\n${mensaje}`;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // 👉 envío con EmailJS + fallback a mailto
+  const sendEmail = async () => {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+
+    if (!serviceId || !templateId || !publicKey) {
+      // si faltan credenciales, caemos a mailto
+      const subject = 'Consulta / Solicitud de presupuesto';
+      const body = buildText();
+      window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      return 'mailto_fallback';
+    }
+
+    // parámetros que usás dentro del template de EmailJS
+    const params = {
+      to_email: companyEmail,
+      from_name: nombre || 'Sin nombre',
+      from_email: email || 'Sin email',
+      phone: telefono || 'Sin teléfono',
+      company: empresa || '—',
+      project_type: tipo,
+      deadline: plazo,
+      budget: presupuesto,
+      location: ubicacion || '—',
+      message: mensaje || '—',
+      page_path: window.location.pathname,
+    };
+
+    await emailjs.send(serviceId, templateId, params, { publicKey });
+    return 'emailjs_ok';
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setTouched({ nombre: true, email: true, mensaje: true, acepto: true });
-    if (isInvalid) return;
+    if (isInvalid || sending) return;
 
-    const subject = 'Consulta / Solicitud de presupuesto';
-    const body = buildText();
-    window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    setSending(true);
+    try {
+      const result = await sendEmail();
+
+      // 👉 métrica de éxito
+      track('presupuesto_success', {
+        method: result === 'emailjs_ok' ? 'emailjs' : 'mailto',
+        path: window.location.pathname,
+      });
+
+      // 👉 redirección a /agradecimiento
+      navigate('/agradecimiento', { replace: true });
+    } catch (err) {
+      // Si EmailJS falla y tampoco pudimos redirigir, al menos intentamos mailto
+      try {
+        const subject = 'Consulta / Solicitud de presupuesto';
+        const body = buildText();
+        window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      } finally {
+        // igual mandamos la métrica de fallo
+        track('presupuesto_error', { path: window.location.pathname });
+      }
+    } finally {
+      setSending(false);
+    }
   };
 
   const handleWhatsApp = () => {
@@ -68,28 +137,25 @@ export const Contact: React.FC = () => {
       <Container className="pt-12 pb-16">
         {/* Hero */}
         <header className="mb-10">
-  {/* Badge alineado al margen izquierdo del layout */}
-  <div className="container mx-auto px-4 lg:px-8">
-    <span className="inline-flex items-center gap-2 rounded-full border border-[#e04f01]/20 bg-[#e04f01]/5 px-3 py-1 text-xs text-[#e04f01]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]" />
-      Respuesta en menos de 24 h
-    </span>
-  </div>
+          {/* Badge alineado al margen izquierdo del layout */}
+          <div className="container mx-auto px-4 lg:px-8">
+            <span className="inline-flex items-center gap-2 rounded-full border border-[#e04f01]/20 bg-[#e04f01]/5 px-3 py-1 text-xs text-[#e04f01]">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]" />
+              Respuesta en menos de 24 h
+            </span>
+          </div>
 
-  {/* Bloque centrado para título y subtítulo */}
-  <div className="max-w-3xl mx-auto text-center">
-    <h1 className="mt-4 text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900">
-      Pedí tu <span className="text-[#e04f01]">presupuesto</span> a medida
-    </h1>
-    <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-      Obtené precios personalizados y recomendaciones de nuestros especialistas
-      para asegurar el éxito de tu proyecto.
-    </p>
-  </div>
-</header>
-
-
-
+          {/* Bloque centrado para título y subtítulo */}
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
+              Pedí tu <span className="text-[#e04f01]">presupuesto</span> a medida
+            </h1>
+            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
+              Obtené precios personalizados y recomendaciones de nuestros especialistas
+              para asegurar el éxito de tu proyecto.
+            </p>
+          </div>
+        </header>
 
         {/* Contenido */}
         <main className="grid lg:grid-cols-5 gap-8">
@@ -164,13 +230,9 @@ export const Contact: React.FC = () => {
                 </div>
 
                 {/* Proyecto */}
-                <div className="grid sm:grid-cols-2 gap-4">
-                  
-                  
-                </div>
+                <div className="grid sm:grid-cols-2 gap-4"></div>
 
                 <div className="grid sm:grid-cols-2 gap-4">
-                  
                   <div>
                     <label className="block text-sm text-gray-700">Ubicación</label>
                     <Input
@@ -200,7 +262,7 @@ export const Contact: React.FC = () => {
                   )}
                 </div>
 
-                {/* Adjunto + cómo nos conociste */}
+                {/* Adjunto + cómo nos conociste (se deja igual, no se envía por EmailJS) */}
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm text-gray-700">Adjuntar archivos (opcional)</label>
@@ -216,11 +278,13 @@ export const Contact: React.FC = () => {
                     <label className="block text-sm text-gray-700">¿Cómo nos conociste?</label>
                     <select
                       className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none focus:border-[#e04f01] focus:ring-2 focus:ring-[#e04f01]/30"
+                      value={tipo}
+                      onChange={(e) => setTipo(e.target.value)}
                     >
-                      <option>Recomendación</option>
-                      <option>Búsqueda en Google</option>
-                      <option>Redes sociales</option>
-                      <option>Obra / Local</option>
+                      <option>Residencial</option>
+                      <option>Comercial</option>
+                      <option>Industrial</option>
+                      <option>Obra</option>
                     </select>
                   </div>
                 </div>
@@ -245,19 +309,24 @@ export const Contact: React.FC = () => {
 
                 {/* Botones */}
                 <div className="flex flex-col sm:flex-row gap-3 pt-1 font-heading">
-                  <Button type="submit" size="lg" className="w-full sm:w-auto bg-[#e04f01]">
-                    Solicitar presupuesto
-                  </Button>
                   <Button
-  type="button"
-  variant="outline"
-  size="lg"
-  onClick={handleWhatsApp}
-  className="w-full sm:w-auto border-2 border-[#e04f01] text-[#e04f01] hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30"
->
-  Enviar por WhatsApp
-</Button>
+                    type="submit"
+                    size="lg"
+                    className="w-full sm:w-auto bg-[#e04f01]"
+                    disabled={sending}
+                  >
+                    {sending ? 'Enviando…' : 'Solicitar presupuesto'}
+                  </Button>
 
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="lg"
+                    onClick={handleWhatsApp}
+                    className="w-full sm:w-auto border-2 border-[#e04f01] text-[#e04f01] hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30"
+                  >
+                    Enviar por WhatsApp
+                  </Button>
                 </div>
 
                 <p className="text-xs text-gray-500">
@@ -313,12 +382,12 @@ export const Contact: React.FC = () => {
               </p>
 
               <div className="mt-4 grid sm:grid-cols-2 gap-3 font-heading">
-              <button
-  onClick={handleWhatsApp}
-  className="inline-flex items-center justify-center gap-2 rounded-xl  border-[#e04f01] text-[#e04f01] px-5 py-2.5 text-sm font-medium hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30 transition"
->
-  WhatsApp
-</button>
+                <button
+                  onClick={handleWhatsApp}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl  border-[#e04f01] text-[#e04f01] px-5 py-2.5 text-sm font-medium hover:bg-[#e04f01]/10 focus:ring-2 focus:ring-[#e04f01]/30 transition"
+                >
+                  WhatsApp
+                </button>
 
                 <a
                   href={`mailto:${companyEmail}`}
@@ -331,7 +400,6 @@ export const Contact: React.FC = () => {
               <div className="mt-4 rounded-lg border border-gray-200 bg-gray-50 p-4 text-sm">
                 <div className="text-gray-600">Teléfono</div>
                 <div className="font-medium text-gray-900">+54 9 1159278803</div>
-                
               </div>
             </div>
           </aside>

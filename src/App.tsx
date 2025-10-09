@@ -16,6 +16,7 @@ import { TechInfo } from './pages/TechInfo';
 import { TechArticle } from './pages/TechArticle';
 import { Certifications } from './pages/Certifications';
 import { Contact } from './pages/Contact';
+import ThankYou from './pages/ThankYou'; // ← pantalla de agradecimiento
 
 // Import styles
 import './styles/variables.css';
@@ -42,6 +43,10 @@ function App() {
 
                 <Route path="/certifications" element={<Certifications />} />
                 <Route path="/contact" element={<Contact />} />
+
+                {/* ✅ Páginas de agradecimiento (ambas para compatibilidad) */}
+                <Route path="/agradecimiento" element={<ThankYou />} />
+                <Route path="/contact/agradecimiento" element={<ThankYou />} />
               </Routes>
             </main>
             <Footer />
@@ -54,7 +59,7 @@ function App() {
               rel="noreferrer"
               className="fixed bottom-5 right-5 z-50 bg-green-500 rounded-full p-4 shadow-lg hover:scale-110 transition-transform"
             >
-              {/* Logo de WhatsApp en SVG (no necesitás imagen extra) */}
+              {/* Logo de WhatsApp en SVG */}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 32 32"
