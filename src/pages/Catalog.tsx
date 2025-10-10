@@ -9,6 +9,8 @@ import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
 import { CatalogDownloadCard } from '../components/catalog/CatalogDownloadCard';
 
+/* ✅ SEO */
+import { Seo } from '../components/Seo';
 
 type Category = { id: string; name: string; imageUrl?: string };
 
@@ -155,115 +157,115 @@ export const Catalog: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* ✅ Meta SEO para /catalog */}
+      <Seo
+        title="Catálogo de Productos | Geneve"
+        description="Explorá el catálogo completo de Geneve: seguridad eléctrica, iluminación, caños, disyuntores, luces de emergencia y más. Asesoramiento técnico y envíos a todo el país."
+        pathname="/catalog"
+        ogImage="/og/catalog.jpg"
+      />
+
       <Container className="py-8">
         {/* Header (título centrado + tarjeta debajo) */}
-{/* Header principal */}
-{!selectedCategory && (
-  <div className="mb-8 space-y-4">
-    <h1 className="text-center font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
-      Todas Nuestras Categorías
-    </h1>
-    <div className="w-full">
-      <CatalogDownloadCard />
-    </div>
-  </div>
-)}
+        {/* Header principal */}
+        {!selectedCategory && (
+          <div className="mb-8 space-y-4">
+            <h1 className="text-center font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
+              Todas Nuestras Categorías
+            </h1>
+            <div className="w-full">
+              <CatalogDownloadCard />
+            </div>
+          </div>
+        )}
 
-{selectedCategory && (
-  <div className="mb-8 text-center">
-    <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
-      {title}
-    </h1>
-  </div>
-)}
+        {selectedCategory && (
+          <div className="mb-8 text-center">
+            <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
+              {title}
+            </h1>
+          </div>
+        )}
 
+        {/* ===================== CATEGORÍAS (diseño original) ===================== */}
+        {!selectedCategory && (
+          <section>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
+              {categories.map((cat, i) => {
+                const img =
+                  cat.imageUrl ??
+                  'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop';
 
-        
+                const select = () => setSelectedCategory(cat.name);
 
-{/* ===================== CATEGORÍAS (diseño original) ===================== */}
-{!selectedCategory && (
-  <section>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-      {categories.map((cat, i) => {
-        const img =
-          cat.imageUrl ??
-          'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop';
-
-        const select = () => setSelectedCategory(cat.name);
-
-        return (
-          <article key={cat.id} className="w-full">
-            <div
-              className="
+                return (
+                  <article key={cat.id} className="w-full">
+                    <div
+                      className="
                 group relative overflow-hidden rounded-2xl bg-white
                 border border-zinc-200/80 ring-1 ring-black/[0.03]
                 shadow-[0_10px_26px_-14px_rgba(2,6,23,0.25)]
                 hover:shadow-[0_18px_46px_-20px_rgba(2,6,23,0.35)]
                 transition
               "
-            >
-              {/* barrita superior naranja (original) */}
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-b from-[#e84e1b] to-[#e84e1b]/40" />
-              <div className="absolute inset-x-0 top-[2px] h-px bg-black/5" />
+                    >
+                      {/* barrita superior naranja (original) */}
+                      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-b from-[#e84e1b] to-[#e84e1b]/40" />
+                      <div className="absolute inset-x-0 top-[2px] h-px bg-black/5" />
 
-              <div className="relative z-10 p-4 md:p-5">
-                {/* Título centrado (original) */}
-                <h3 className="text-center text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
-                  {cat.name}
-                </h3>
+                      <div className="relative z-10 p-4 md:p-5">
+                        {/* Título centrado (original) */}
+                        <h3 className="text-center text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
+                          {cat.name}
+                        </h3>
 
-                {/* Imagen SIN sombra + leve zoom (original) */}
-                <div className="relative mt-3 aspect-[4/3] overflow-hidden rounded-xl bg-white">
-                  {/* halo sutil para integrarla sin sombra */}
-                  <div className="absolute inset-0 rounded-xl bg-[radial-gradient(60%_60%_at_50%_55%,rgba(232,78,27,0.08),transparent_65%)]" />
-                  <img
-                    src={img}
-                    alt={cat.name}
-                    loading="lazy"
-                    className="
+                        {/* Imagen SIN sombra + leve zoom (original) */}
+                        <div className="relative mt-3 aspect-[4/3] overflow-hidden rounded-xl bg-white">
+                          {/* halo sutil para integrarla sin sombra */}
+                          <div className="absolute inset-0 rounded-xl bg-[radial-gradient(60%_60%_at_50%_55%,rgba(232,78,27,0.08),transparent_65%)]" />
+                          <img
+                            src={img}
+                            alt={cat.name}
+                            loading="lazy"
+                            className="
                       absolute inset-0 m-auto h-[86%] w-[86%] object-contain
                       scale-[1.03] group-hover:scale-[1.07]
                       transition-transform duration-500 ease-out
                     "
-                  />
-                </div>
+                          />
+                        </div>
 
-                {/* CTA naranja (original) */}
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    onClick={select}
-                    className="
+                        {/* CTA naranja (original) */}
+                        <div className="mt-4">
+                          <button
+                            type="button"
+                            onClick={select}
+                            className="
                       inline-flex w-full items-center justify-center gap-2 rounded-xl
                       bg-[#e84e1b] text-white font-semibold
                       px-4 py-2 text-sm
                       hover:opacity-95 active:translate-y-[1px]
                       focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
                     "
-                    aria-label={`Ver productos de ${cat.name}`}
-                  >
-                    Ver productos
-                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
-                      <path d="M13 5l7 7-7 7M5 12h14" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
+                            aria-label={`Ver productos de ${cat.name}`}
+                          >
+                            Ver productos
+                            <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
+                              <path d="M13 5l7 7-7 7M5 12h14" />
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
 
-              {/* borde interior sutil (original) */}
-              <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/40 mix-blend-overlay" />
+                      {/* borde interior sutil (original) */}
+                      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/40 mix-blend-overlay" />
+                    </div>
+                  </article>
+                );
+              })}
             </div>
-          </article>
-        );
-      })}
-    </div>
-  </section>
-)}
-
-
-
-
-
+          </section>
+        )}
 
         {/* ===================== SUBCATEGORÍAS DE SEGURIDAD ===================== */}
         {isSecurity && !securitySub && (
@@ -493,23 +495,22 @@ export const Catalog: React.FC = () => {
         {(selectedCategory && (!isSecurity || securitySub) && (!isLighting || lightingSub)) && (
           <section className="mt-8 space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
-            <div className="flex items-center gap-2 font-heading">
-  <Button variant="ghost" onClick={() => setSelectedCategory(null)}>
-    ← Volver a Categorías
-  </Button>
+              <div className="flex items-center gap-2 font-heading">
+                <Button variant="ghost" onClick={() => setSelectedCategory(null)}>
+                  ← Volver a Categorías
+                </Button>
 
-  {isSecurity && securitySub && (
-    <Button variant="ghost" onClick={() => setSecuritySub(null)}>
-      ← Volver a Seguridad
-    </Button>
-  )}
-  {isLighting && lightingSub && (
-    <Button variant="ghost" onClick={() => setLightingSub(null)}>
-      ← Volver a Iluminación
-    </Button>
-  )}
-</div>
-
+                {isSecurity && securitySub && (
+                  <Button variant="ghost" onClick={() => setSecuritySub(null)}>
+                    ← Volver a Seguridad
+                  </Button>
+                )}
+                {isLighting && lightingSub && (
+                  <Button variant="ghost" onClick={() => setLightingSub(null)}>
+                    ← Volver a Iluminación
+                  </Button>
+                )}
+              </div>
 
               <div className="flex items-center space-x-2">
                 <Button

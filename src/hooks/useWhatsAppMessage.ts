@@ -1,6 +1,6 @@
 import { CartItem } from '../store/CartContext';
 
-interface WhatsAppMessageOptions {
+export interface WhatsAppMessageOptions {
   items: CartItem[];
   notes?: string;
 }
@@ -10,50 +10,66 @@ declare global {
   interface Window { dataLayer: any[] }
 }
 const track = (event: string, params: Record<string, any> = {}) => {
-  if (!window.dataLayer) window.dataLayer = [];
-  window.dataLayer.push({ event, ...params });
+  try {
+    if (typeof window === 'undefined') return;
+    if (!window.dataLayer) window.dataLayer = [];
+    window.dataLayer.push({ event, ...params });
+  } catch {
+    /* nunca romper por métricas */
+  }
 };
+
+const DEFAULT_PHONE = '5491159278803';
+const MAX_TEXT_LEN = 3500; // margen para el límite de WhatsApp (~4096)
+
+const sanitizePhone = (raw: string) => raw.replace(/[^\d]/g, '');
+
+/** Corta el texto si se excede y agrega indicador de truncado */
+const clampText = (txt: string, max = MAX_TEXT_LEN) =>
+  txt.length > max ? `${txt.slice(0, max - 10)}\n…(mensaje truncado)` : txt;
 
 export const useWhatsAppMessage = () => {
   const formatWhatsAppMessage = ({ items, notes = '' }: WhatsAppMessageOptions): string => {
     let message = 'Hola Geneve, me gustaría recibir un presupuesto:\n\n';
-    
-    // Add products
-    items.forEach(item => {
-      message += `- ${item.name} (SKU: ${item.sku}) - Cantidad: ${item.quantity}\n`;
+
+    items.forEach((item) => {
+      message += `- ${item.name} (SKU: ${item.sku ?? '-'}) - Cantidad: ${item.quantity}\n`;
     });
-    
-    // Add notes if provided
+
     if (notes.trim()) {
-      message += `\nNotes: ${notes.trim()}\n`;
+      message += `\nNotas: ${notes.trim()}\n`;
     }
-    
-    message += '\nMuchas Gracias!';
-    
-    return encodeURIComponent(message);
+
+    message += '\n¡Muchas gracias!';
+
+    return encodeURIComponent(clampText(message));
   };
 
   const openWhatsApp = (encodedText: string) => {
-    const phone = import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803';
+    const envPhone = (import.meta as any)?.env?.VITE_WHATSAPP_PHONE || DEFAULT_PHONE;
+    const phone = sanitizePhone(envPhone);
     const url = `https://wa.me/${phone}?text=${encodedText}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+
+    // puede bloquear el popup: no lanzamos error
+    try {
+      window.open(url, '_blank', 'noopener,noreferrer');
+    } catch {
+      // fallback: abrir en la misma pestaña si el navegador lo permite
+      window.location.href = url;
+    }
   };
 
   const sendQuote = (options: WhatsAppMessageOptions) => {
-    // ---- GTM: medición del click en WhatsApp ----
-    try {
-      const { items, notes } = options;
-      track('whatsapp_click', {
-        source: 'quote',                           // origen del CTA
-        path: typeof window !== 'undefined' ? window.location.pathname : '',
-        item_count: items.length,                  // cantidad de items
-        skus: items.map(i => i.sku).filter(Boolean).join(','), // SKUs (string corto)
-        has_notes: Boolean(notes && notes.trim()), // si agregó notas
-      });
-    } catch (_) {
-      // silencioso: nunca rompemos el envío si falla la métrica
-    }
-    // ---------------------------------------------
+    // ---- GTM: medición del click en WhatsApp (consistente con el resto del sitio) ----
+    const { items, notes } = options;
+    track('click_whatsapp', {
+      source: 'quote',
+      path: typeof window !== 'undefined' ? window.location.pathname : '',
+      item_count: items.length,
+      skus: items.map((i) => i.sku).filter(Boolean).join(','), // string corto
+      has_notes: Boolean(notes && notes.trim()),
+    });
+    // -----------------------------------------------------------------------------------
 
     const encodedMessage = formatWhatsAppMessage(options);
     openWhatsApp(encodedMessage);

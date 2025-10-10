@@ -7,6 +7,8 @@ import { ProductCarousel } from '../components/product/ProductCarousel';
 import { useCart } from '../store/CartContext';
 import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
+import { Seo } from '../components/Seo'; // ← SEO
+import { track } from '../analytics/track'; // ← tracking GTM
 
 export const Home: React.FC = () => {
   const { addItem } = useCart();
@@ -15,9 +17,22 @@ export const Home: React.FC = () => {
   const featuredProducts = productsData.filter(p => p.featured);
   const gridProducts = featuredProducts.slice(0, 4); // 4 productos (2x2)
 
-  const handleAddToQuote = (productId: string) => {
+  const handleAddToQuote = (productId: string, indexInGrid?: number) => {
     const product = productsData.find(p => p.id === productId);
     if (!product) return;
+
+    // 🔹 Métrica: click en "Agregar"
+    try {
+      track('cta_add_to_quote_click', {
+        source: 'home_grid',
+        path: typeof window !== 'undefined' ? window.location.pathname : '',
+        position: typeof indexInGrid === 'number' ? indexInGrid : null,
+        product_id: product.id,
+        product_name: product.name,
+        sku: product.sku || '',
+      });
+    } catch {}
+
     const image = (product.images?.[0] ?? '') as string;
     const sku = product.sku ?? '';
     addItem({ id: product.id, name: product.name, image, sku });
@@ -70,6 +85,25 @@ export const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO */}
+      <Seo
+        title="Geneve — Construcción, Seguridad e Iluminación"
+        description="Catálogo de productos Geneve: soluciones en electricidad, seguridad e iluminación para obras residenciales y comerciales. Asesoramiento técnico y envíos a todo el país."
+        pathname="/"
+        image="/og/home.jpg"
+        keywords={[
+          'Geneve',
+          'catálogo de productos',
+          'electricidad',
+          'iluminación',
+          'seguridad',
+          'obras',
+          'disyuntores',
+          'luces de emergencia',
+          'caños corrugados'
+        ]}
+      />
+
       {/* Hero con efecto restaurado y capas sin capturar clics */}
       <section className="relative isolate overflow-hidden py-20 [--brand:#e84e1b] bg-[color:var(--brand)]">
         <div className="absolute inset-0 -z-10 pointer-events-none">
@@ -96,8 +130,6 @@ export const Home: React.FC = () => {
                 />
               </h2>
 
-             
-
               <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)] font-heading">
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> +350 obras</span>
                 <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Productos certificados según normas IEC</span>
@@ -117,6 +149,12 @@ export const Home: React.FC = () => {
               to="/catalog"
               className="col-start-3 justify-self-end inline-flex items-center gap-1 font-semibold text-[#e84e1b] hover:underline text-[clamp(14px,2.2vw,20px)]"
               aria-label="Ir al catálogo"
+              onClick={() =>
+                track('cta_catalog_link_click', {
+                  source: 'home_carousel_block',
+                  path: typeof window !== 'undefined' ? window.location.pathname : '',
+                })
+              }
             >
               Catálogo
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
@@ -139,7 +177,7 @@ export const Home: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {gridProducts.map((p) => {
+              {gridProducts.map((p, idx) => {
                 const img = (p.images?.[0] ?? '') as string;
                 return (
                   <article
@@ -153,6 +191,16 @@ export const Home: React.FC = () => {
                         to={`/product/${p.id}`}
                         aria-label={`Ver detalle de ${p.name}`}
                         className="block focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e84e1b] rounded-2xl"
+                        onClick={() =>
+                          track('cta_view_product_click', {
+                            source: 'home_grid_image',
+                            path: typeof window !== 'undefined' ? window.location.pathname : '',
+                            position: idx,
+                            product_id: p.id,
+                            product_name: p.name,
+                            sku: p.sku || '',
+                          })
+                        }
                       >
                         <img
                           src={img}
@@ -175,7 +223,7 @@ export const Home: React.FC = () => {
                         <div className="mt-4 flex items-center gap-3">
                           <button
                             type="button"
-                            onClick={() => handleAddToQuote(p.id)}
+                            onClick={() => handleAddToQuote(p.id, idx)}
                             className="inline-flex items-center justify-center rounded-full px-0 py-2 text-sm font-semibold text-[#e84e1b] hover:underline"
                             aria-label={`Agregar ${p.name}`}
                           >
@@ -186,6 +234,16 @@ export const Home: React.FC = () => {
                             to={`/product/${p.id}`}
                             className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-2 text-sm font-semibold hover:bg-zinc-50 whitespace-nowrap"
                             aria-label={`Ver detalle de ${p.name}`}
+                            onClick={() =>
+                              track('cta_view_product_click', {
+                                source: 'home_grid_button',
+                                path: typeof window !== 'undefined' ? window.location.pathname : '',
+                                position: idx,
+                                product_id: p.id,
+                                product_name: p.name,
+                                sku: p.sku || '',
+                              })
+                            }
                           >
                             Ver detalle
                           </Link>
@@ -207,6 +265,12 @@ export const Home: React.FC = () => {
                           !border-2 !border-[#e84e1b]
                           hover:!bg-[#d94b17] focus-visible:!ring-2 focus-visible:!ring-[#e84e1b]/40
                           !px-8 !py-4 text-[clamp(16px,2.2vw,20px)]"
+                onClick={() =>
+                  track('cta_view_all_products_click', {
+                    source: 'home_grid_footer',
+                    path: typeof window !== 'undefined' ? window.location.pathname : '',
+                  })
+                }
               >
                 <span>Ver todos los Productos</span>
                 <ArrowRight className="w-5 h-5" />
@@ -250,8 +314,6 @@ export const Home: React.FC = () => {
                   <p className="mx-auto mt-3 max-w-1xl text-white  [transform:translateZ(50px)] font-heading">
                     Recibí una cotización a medida para tu obra y el asesoramiento de nuestro equipo técnico.
                   </p>
-
-                  
 
                   <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white">
                     <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-[#e84e1b]"></span> +350 obras</span>
@@ -309,7 +371,16 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              <Link to="/certifications" className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors">
+              <Link
+                to="/certifications"
+                className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors"
+                onClick={() =>
+                  track('cta_view_certifications_click', {
+                    source: 'home_about_block',
+                    path: typeof window !== 'undefined' ? window.location.pathname : '',
+                  })
+                }
+              >
                 <span>Ver Certificaciones</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>

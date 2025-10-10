@@ -17,6 +17,10 @@ import { TechArticle } from './pages/TechArticle';
 import { Certifications } from './pages/Certifications';
 import { Contact } from './pages/Contact';
 import ThankYou from './pages/ThankYou'; // ← pantalla de agradecimiento
+import NotFound from './pages/NotFound'; // ← ✅ página 404
+
+// ✅ Analytics helper
+import { track } from './analytics/track';
 
 // Import styles
 import './styles/variables.css';
@@ -47,17 +51,26 @@ function App() {
                 {/* ✅ Páginas de agradecimiento (ambas para compatibilidad) */}
                 <Route path="/agradecimiento" element={<ThankYou />} />
                 <Route path="/contact/agradecimiento" element={<ThankYou />} />
+
+                {/* ⛑️ Catch-all 404 */}
+                <Route path="*" element={<NotFound />} />
               </Routes>
             </main>
             <Footer />
             <ToastContainer />
 
-            {/* 🚀 Botón flotante de WhatsApp */}
+            {/* 🚀 Botón flotante de WhatsApp (instrumentado con GTM) */}
             <a
               href="https://wa.me/5491159278803?text=Hola%20Geneve%2C%20quiero%20hacer%20una%20consulta."
               target="_blank"
               rel="noreferrer"
               className="fixed bottom-5 right-5 z-50 bg-green-500 rounded-full p-4 shadow-lg hover:scale-110 transition-transform"
+              onClick={() =>
+                track('cta_whatsapp_fab_click', {
+                  source: 'floating_button',
+                  path: typeof window !== 'undefined' ? window.location.pathname : '',
+                })
+              }
             >
               {/* Logo de WhatsApp en SVG */}
               <svg

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
-import { ArrowLeft, Download, ShoppingCart, Plus, Minus, Check } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { ArrowLeft, Download, ShoppingCart, Plus, Minus } from 'lucide-react';
 import { Container } from '../components/layout/Container';
 import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
@@ -13,6 +12,9 @@ import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
 
+/* ✅ SEO */
+import { Seo } from '../components/Seo';
+
 export const Product: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'downloads'>('description');
@@ -21,11 +23,11 @@ export const Product: React.FC = () => {
   const { addItem } = useCart();
   
   const product = productsData.find(p => p.slug === slug);
+
   useEffect(() => {
     // Lleva el scroll a la parte superior al entrar en un producto
     window.scrollTo(0, 0);
   }, [slug]);
-  
   
   if (!product) {
     return <Navigate to="/catalog" replace />;
@@ -65,20 +67,92 @@ export const Product: React.FC = () => {
     { id: 'downloads', label: 'Descargas', show: product.downloads && product.downloads.length > 0 },
   ].filter(tab => tab.show);
 
+  /* ======================= SEO: meta + JSON-LD ======================= */
+  const pageTitle = `${product.name} | Geneve`;
+  const pageDescription =
+    product.shortDescription ||
+    product.description?.slice(0, 160) ||
+    'Ficha técnica y detalles del producto Geneve.';
+  const pathname = `/product/${product.slug}`;
+
+  // JSON-LD Product (sin precios; con disponibilidad si aplica)
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    sku: product.sku,
+    image: product.images,
+    description: product.description || product.shortDescription || '',
+    category: category?.name || product.category || '',
+    brand: {
+      '@type': 'Brand',
+      name: 'Geneve'
+    },
+    ...(typeof product.stock === 'boolean'
+      ? {
+          offers: {
+            '@type': 'Offer',
+            availability: product.stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
+          }
+        }
+      : {})
+  };
+
+  // JSON-LD Breadcrumb
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Inicio',
+        item: typeof window !== 'undefined' ? `${window.location.origin}/` : '/'
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Catálogo',
+        item: typeof window !== 'undefined' ? `${window.location.origin}/catalog` : '/catalog'
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: product.name,
+        item: typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : pathname
+      }
+    ]
+  };
+  /* ================================================================ */
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* ✅ Meta para la ficha */}
+      <Seo
+        title={pageTitle}
+        description={pageDescription}
+        pathname={pathname}
+        ogImage={product.images?.[0]}
+      />
+      {/* ✅ JSON-LD estructurado */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+
       <Container className="py-8">
-       {/* Back Button (solo texto naranja) */}
-       <Link
-  to="/catalog"
-  className="mb-8 inline-flex items-center gap-2 font-semibold text-[#e04f01] hover:text-[#e84e1b]"
->
-  <ArrowLeft className="w-4 h-4" />
-  <span>Volver al Catálogo</span>
-</Link>
-
-
-
+        {/* Back Button (solo texto naranja) */}
+        <Link
+          to="/catalog"
+          className="mb-8 inline-flex items-center gap-2 font-semibold text-[#e04f01] hover:text-[#e84e1b]"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>Volver al Catálogo</span>
+        </Link>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Product Gallery */}
