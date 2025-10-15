@@ -4,19 +4,19 @@ import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Textarea } from '../components/ui/Textarea';
 import { MessageSquare } from 'lucide-react';
-import { useNavigate } from 'react-router-dom'; // 👉 navegación al “gracias”
+import { useNavigate } from 'react-router-dom';
 import { Seo } from '../components/Seo';
-import { track } from '../analytics/track'; // ✅ usa el helper central
+import { track, sendAdsConversion } from '../analytics/track';
 
-// 👉 EmailJS (cliente)
+// EmailJS
 import emailjs from '@emailjs/browser';
 
 export const Contact: React.FC = () => {
-  // Datos de contacto (cambiá por los reales)
+  // Datos de contacto
   const companyEmail = 'obras@geneve.com.ar';
   const whatsappNumber = '5491159278803'; // formato internacional
 
-  const navigate = useNavigate(); // 👉 para redirigir al “gracias”
+  const navigate = useNavigate();
 
   // Estado del formulario
   const [nombre, setNombre] = useState('');
@@ -29,8 +29,8 @@ export const Contact: React.FC = () => {
   const [ubicacion, setUbicacion] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [acepto, setAcepto] = useState(false);
-  const [touched, setTouched] = useState<{[k: string]: boolean}>({});
-  const [sending, setSending] = useState(false); // 👉 estado de envío
+  const [touched, setTouched] = useState<{ [k: string]: boolean }>({});
+  const [sending, setSending] = useState(false);
 
   // Validaciones simples
   const errors = {
@@ -41,9 +41,10 @@ export const Contact: React.FC = () => {
       ? 'Email no válido'
       : '',
     mensaje: !mensaje ? 'Escribí tu mensaje' : '',
-    acepto: !acepto ? 'Debés aceptar ser contactado' : ''
+    acepto: !acepto ? 'Debés aceptar ser contactado' : '',
   };
-  const isInvalid = !!errors.nombre || !!errors.email || !!errors.mensaje || !!errors.acepto;
+  const isInvalid =
+    !!errors.nombre || !!errors.email || !!errors.mensaje || !!errors.acepto;
 
   const buildText = () =>
     `Consulta desde el sitio Web\n\n` +
@@ -57,21 +58,22 @@ export const Contact: React.FC = () => {
     `Ubicación: ${ubicacion}\n\n` +
     `Mensaje:\n${mensaje}`;
 
-  // 👉 envío con EmailJS + fallback a mailto
+  // Envío con EmailJS + fallback a mailto
   const sendEmail = async () => {
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
     const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
     const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
 
     if (!serviceId || !templateId || !publicKey) {
-      // si faltan credenciales, caemos a mailto
+      // Fallback a mailto si faltan credenciales
       const subject = 'Consulta / Solicitud de presupuesto';
       const body = buildText();
-      window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(
+        subject
+      )}&body=${encodeURIComponent(body)}`;
       return 'mailto_fallback';
     }
 
-    // parámetros que usás dentro del template de EmailJS
     const params = {
       to_email: companyEmail,
       from_name: nombre || 'Sin nombre',
@@ -95,29 +97,37 @@ export const Contact: React.FC = () => {
     setTouched({ nombre: true, email: true, mensaje: true, acepto: true });
     if (isInvalid || sending) return;
 
-    // 👇 métrica de clic al botón "Solicitar presupuesto"
+    // Métrica: clic al botón
     track('click_presupuesto', { page: 'contact', source: 'form' });
 
     setSending(true);
     try {
       const result = await sendEmail();
 
-      // 👉 métrica de éxito
+      // Métrica de éxito
       track('presupuesto_success', {
         method: result === 'emailjs_ok' ? 'emailjs' : 'mailto',
         path: window.location.pathname,
       });
 
-      // 👉 redirección a /agradecimiento
+      // ✅ Disparo de CONVERSIÓN de Google Ads (evento)
+      // Label provisto por Google Ads: AW-17635295323/4TkRCNSqvqkbENuAIdlB
+      sendAdsConversion('AW-17635295323/4TkRCNSqvqkbENuAIdlB', {
+        value: 1.0,       // opcional; si no usás valor, podés quitarlo
+        currency: 'ARS',  // opcional; alinealo con la config de Ads
+      });
+
+      // Redirección a página de agradecimiento
       navigate('/agradecimiento', { replace: true });
     } catch (err) {
-      // Si EmailJS falla y tampoco pudimos redirigir, al menos intentamos mailto
+      // Fallback: intentar mailto si EmailJS falla
       try {
         const subject = 'Consulta / Solicitud de presupuesto';
         const body = buildText();
-        window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = `mailto:${companyEmail}?subject=${encodeURIComponent(
+          subject
+        )}&body=${encodeURIComponent(body)}`;
       } finally {
-        // igual mandamos la métrica de fallo
         track('presupuesto_error', { path: window.location.pathname });
       }
     } finally {
@@ -126,11 +136,14 @@ export const Contact: React.FC = () => {
   };
 
   const handleWhatsApp = () => {
-    // 👇 métrica de clic a WhatsApp (botón del formulario)
+    // Métrica de clic a WhatsApp
     track('click_whatsapp', { page: 'contact', source: 'form_button' });
 
     const text = buildText();
-    window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`, '_blank');
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+      '_blank'
+    );
   };
 
   return (
@@ -144,7 +157,6 @@ export const Contact: React.FC = () => {
         <Container className="pt-12 pb-16">
           {/* Hero */}
           <header className="mb-10">
-            {/* Badge alineado al margen izquierdo del layout */}
             <div className="container mx-auto px-4 lg:px-8">
               <span className="inline-flex items-center gap-2 rounded-full border border-[#e04f01]/20 bg-[#e04f01]/5 px-3 py-1 text-xs text-[#e04f01]">
                 <span className="h-1.5 w-1.5 rounded-full bg-[#e04f01]" />
@@ -152,7 +164,6 @@ export const Contact: React.FC = () => {
               </span>
             </div>
 
-            {/* Bloque centrado para título y subtítulo */}
             <div className="max-w-3xl mx-auto text-center">
               <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight text-gray-900">
                 Pedí tu <span className="text-[#e04f01]">presupuesto</span> a medida
@@ -269,7 +280,7 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Adjunto + cómo nos conociste (se deja igual, no se envía por EmailJS) */}
+                  {/* Adjunto + cómo nos conociste */}
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-sm text-gray-700">Adjuntar archivos (opcional)</label>
