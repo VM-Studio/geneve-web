@@ -1,9 +1,9 @@
 {
     "cleanUrls": true,
-    "rewrites": [
-      { "source": "/(robots.txt|sitemap.xml|favicon.ico)", "destination": "/$1" },
-      { "source": "/assets/(.*)", "destination": "/assets/$1" },
-      { "source": "/(.*)", "destination": "/index.html", "missing": [ { "type": "file" } ] }
+    "routes": [
+      { "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)", "dest": "/$1" },
+      { "src": "/assets/(.*)", "dest": "/assets/$1" },
+      { "src": "/.*", "dest": "/index.html" }
     ]
   }
   
