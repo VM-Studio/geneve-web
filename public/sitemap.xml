@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
   <!-- Rutas principales -->
   <url>
     <loc>https://www.geneveobras.com/</loc>
@@ -24,7 +23,7 @@
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info</loc>
+    <loc>https://www.geneveobras.com/techinfo</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
@@ -44,47 +43,46 @@
     <priority>0.5</priority>
   </url>
 
-  <!-- Artículos de Información Técnica -->
+  <!-- Artículos de Información Técnica (usar /techinfo/:slug) -->
   <url>
-    <loc>https://www.geneveobras.com/tech-info/ventajas-iluminacion-led</loc>
+    <loc>https://www.geneveobras.com/techinfo/ventajas-iluminacion-led</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info/sensor-de-movimiento</loc>
+    <loc>https://www.geneveobras.com/techinfo/sensor-de-movimiento</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info/proteccion-electrica</loc>
+    <loc>https://www.geneveobras.com/techinfo/proteccion-electrica</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info/monoxido-de-carbono</loc>
+    <loc>https://www.geneveobras.com/techinfo/monoxido-de-carbono</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info/sistema-de-automatizacion</loc>
+    <loc>https://www.geneveobras.com/techinfo/sistema-de-automatizacion</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 
   <url>
-    <loc>https://www.geneveobras.com/tech-info/iluminacion-de-emergencia</loc>
+    <loc>https://www.geneveobras.com/techinfo/iluminacion-de-emergencia</loc>
     <lastmod>2025-09-16</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
-
 </urlset>
