@@ -1,9 +1,11 @@
 {
     "cleanUrls": true,
-    "rewrites": [
-      { "source": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)", "destination": "/$1" },
+    "routes": [
+      { "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)", "dest": "/$1" },
+  
       { "handle": "filesystem" },
-      { "source": "/.*", "destination": "/index.html" }
+  
+      { "src": "/.*", "dest": "/index.html" }
     ]
   }
   
