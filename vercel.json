@@ -2,9 +2,7 @@
     "cleanUrls": true,
     "routes": [
       { "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)", "dest": "/$1" },
-  
-      { "handle": "filesystem" },
-  
+      { "src": "/.*\\..*", "dest": "/$0" },
       { "src": "/.*", "dest": "/index.html" }
     ]
   }
