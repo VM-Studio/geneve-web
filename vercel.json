@@ -1,9 +1,10 @@
 {
     "cleanUrls": true,
-    "routes": [
-      { "src": "/(robots\\.txt|sitemap\\.xml|favicon\\.ico)", "dest": "/$1" },
-      { "src": "/.*\\..*", "dest": "/$0" },
-      { "src": "/.*", "dest": "/index.html" }
+    "trailingSlash": false,
+    "rewrites": [
+      { "source": "/(robots.txt|sitemap.xml|favicon.ico)", "destination": "/$1" },
+      { "source": "/assets/:path*", "destination": "/assets/:path*" },
+      { "source": "/(.*)", "destination": "/index.html" }
     ]
   }
   
