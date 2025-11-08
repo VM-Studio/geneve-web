@@ -41,10 +41,11 @@ export const Home: React.FC = () => {
 
   // Carrusel superior
   const carouselItems = [
-    { id: '1', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png' },
-    { id: '2', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png' },
-    { id: '3', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
-    { id: '4', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
+    { id: '1', name: 'CABLES', to: '/product/caja-para-termica', imageUrl: "/productos/catalogo/cabless.png" },
+    { id: '2', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png' },
+    { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png' },
+    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
+    { id: '5', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
   ];
 
   // Tilt 3D (hero + presupuesto)

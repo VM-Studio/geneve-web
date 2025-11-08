@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
-import { useCart } from '../../store/CartContext';
 
 export const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { getTotalItems } = useCart();
   const location = useLocation();
-  const totalItems = getTotalItems();
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -24,7 +21,6 @@ export const Navbar: React.FC = () => {
   };
 
   const isHome = location.pathname === '/';
-  const budgetIconSrc = isHome ? '/presupuesto.png' : '/presupuestodos.png';
 
   return (
     <nav
@@ -41,7 +37,7 @@ export const Navbar: React.FC = () => {
       }
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* fila principal: logo izq (solo no-home) + menú centrado + presupuesto/menú mobile der */}
+        {/* fila principal: logo izq (solo no-home) + menú centrado + botón mobile der */}
         <div className="flex items-center h-16">
           {/* Logo izquierda: solo cuando NO es Home */}
           <div className="w-28 flex items-center">
@@ -80,34 +76,8 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Botón Presupuesto + botón mobile (derecha) */}
+          {/* Botón mobile (derecha) */}
           <div className="flex items-center gap-1">
-            <Link
-              to="/quote"
-              className={[
-                'relative p-1 hover:opacity-90 transition-opacity outline-none focus:outline-none',
-                isHome ? 'text-[#e84e1b]' : 'text-white'
-              ].join(' ')}
-              aria-label={`Presupuesto con ${totalItems} ítems`}
-            >
-              <span className="sr-only">Presupuesto</span>
-
-              {/* Ícono de presupuesto (imagen) según sección */}
-              <img
-                src={budgetIconSrc}
-                alt=""
-                aria-hidden="true"
-                className="w-9 h-9 md:w-11 md:h-11 object-contain shrink-0"
-              />
-
-              {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[#e84e1b] text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
-                  {totalItems > 99 ? '99+' : totalItems}
-                </span>
-              )}
-            </Link>
-
-            {/* Botón mobile */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className={[
@@ -142,7 +112,7 @@ export const Navbar: React.FC = () => {
                         : 'text-gray-900 hover:text-[#e84e1b] bg-white/90')
                     : (isActiveLink(item.href)
                         ? 'text-[#e84e1b] bg-white'
-                        : 'text-white hover:bg-white/10')
+                        : 'text-white hover:bg:white/10 hover:bg-white/10')
                 ].join(' ')}
               >
                 {item.name}

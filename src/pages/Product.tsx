@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, Navigate, Link } from 'react-router-dom';
-import { ArrowLeft, Download, ShoppingCart, Plus, Minus } from 'lucide-react';
+import { ArrowLeft, Download } from 'lucide-react';
 import { Container } from '../components/layout/Container';
-import { Button } from '../components/ui/Button';
 import { Badge } from '../components/ui/Badge';
 import { ProductGallery } from '../components/product/ProductGallery';
 import { ProductSpecs } from '../components/product/ProductSpecs';
@@ -11,45 +10,81 @@ import { useCart } from '../store/CartContext';
 import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
-
-/* ✅ SEO */
 import { Seo } from '../components/Seo';
 
-export const Product: React.FC = () => {
+type ProductDetailProps = {
+  product?: any;                 // si viene, se usa este producto (modo embebido)
+  mode?: 'inline' | 'page';      // 'page' (ruta /product/:slug) o 'inline' (embebido en catálogo)
+};
+
+export const Product: React.FC<ProductDetailProps> = ({ product: productProp, mode = 'page' }) => {
   const { slug } = useParams<{ slug: string }>();
   const [activeTab, setActiveTab] = useState<'description' | 'specifications' | 'downloads'>('description');
-  const [quantity, setQuantity] = useState(1);
-  
+
+  // Para RelatedProducts (se mantiene igual)
   const { addItem } = useCart();
-  
-  const product = productsData.find(p => p.slug === slug);
+
+  // Producto fuente: prop (inline) o ruta (page)
+  const routeProduct = useMemo(
+    () => productsData.find((p: any) => p.slug === slug),
+    [slug]
+  );
+  const product: any = productProp ?? routeProduct;
 
   useEffect(() => {
-    // Lleva el scroll a la parte superior al entrar en un producto
-    window.scrollTo(0, 0);
-  }, [slug]);
-  
+    if (mode === 'page') window.scrollTo(0, 0);
+  }, [slug, mode]);
+
   if (!product) {
-    return <Navigate to="/catalog" replace />;
+    // En modo página, redirige si no existe; en inline no renderiza nada
+    return mode === 'page' ? <Navigate to="/catalog" replace /> : null;
   }
 
-  const category = categoriesData.find(cat => cat.id === product.category);
+  const category =
+    categoriesData.find((cat: any) => cat.id === product.category) ??
+    categoriesData.find((cat: any) => cat.name === product.category);
 
-  const handleAddToQuote = () => {
-    for (let i = 0; i < quantity; i++) {
-      addItem({
-        id: product.id,
-        name: product.name,
-        image: product.images[0],
-        sku: product.sku,
-      });
-    }
-    showToast(`${quantity} producto${quantity > 1 ? 's' : ''} añadido al presupuesto!`, 'success');
-    setQuantity(1);
+  // Tabs visibles según data
+  const tabs = [
+    { id: 'description', label: 'Descripción', show: true },
+    { id: 'specifications', label: 'Especificaciones', show: product.specs && Object.keys(product.specs).length > 0 },
+    { id: 'downloads', label: 'Descargas', show: product.downloads && product.downloads.length > 0 },
+  ].filter((tab) => tab.show);
+
+  /* ======================= SEO (solo en modo "page") ======================= */
+  const pageTitle = `${product.name} | Geneve`;
+  const pageDescription =
+    product.shortDescription || product.description?.slice(0, 160) || 'Ficha técnica y detalles del producto Geneve.';
+  const pathname = `/product/${product.slug}`;
+
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    sku: product.sku,
+    image: product.images,
+    description: product.description || product.shortDescription || '',
+    category: category?.name || product.category || '',
+    brand: { '@type': 'Brand', name: 'Geneve' },
+    ...(typeof product.stock === 'boolean'
+      ? { offers: { '@type': 'Offer', availability: product.stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' } }
+      : {}),
   };
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: typeof window !== 'undefined' ? `${window.location.origin}/` : '/' },
+      { '@type': 'ListItem', position: 2, name: 'Catálogo', item: typeof window !== 'undefined' ? `${window.location.origin}/catalog` : '/catalog' },
+      { '@type': 'ListItem', position: 3, name: product.name, item: typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : pathname },
+    ],
+  };
+  /* ======================================================================= */
+
+  // Handler para "Productos relacionados" (se conserva)
   const handleRelatedProductAdd = (productId: string) => {
-    const relatedProduct = productsData.find(p => p.id === productId);
+    const relatedProduct = (productsData as any[]).find((p) => p.id === productId);
     if (relatedProduct) {
       addItem({
         id: relatedProduct.id,
@@ -61,185 +96,66 @@ export const Product: React.FC = () => {
     }
   };
 
-  const tabs = [
-    { id: 'description', label: 'Descripción', show: true },
-    { id: 'specifications', label: 'Especificaciones', show: product.specs && Object.keys(product.specs).length > 0 },
-    { id: 'downloads', label: 'Descargas', show: product.downloads && product.downloads.length > 0 },
-  ].filter(tab => tab.show);
-
-  /* ======================= SEO: meta + JSON-LD ======================= */
-  const pageTitle = `${product.name} | Geneve`;
-  const pageDescription =
-    product.shortDescription ||
-    product.description?.slice(0, 160) ||
-    'Ficha técnica y detalles del producto Geneve.';
-  const pathname = `/product/${product.slug}`;
-
-  // JSON-LD Product (sin precios; con disponibilidad si aplica)
-  const productJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.name,
-    sku: product.sku,
-    image: product.images,
-    description: product.description || product.shortDescription || '',
-    category: category?.name || product.category || '',
-    brand: {
-      '@type': 'Brand',
-      name: 'Geneve'
-    },
-    ...(typeof product.stock === 'boolean'
-      ? {
-          offers: {
-            '@type': 'Offer',
-            availability: product.stock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock'
-          }
-        }
-      : {})
-  };
-
-  // JSON-LD Breadcrumb
-  const breadcrumbJsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Inicio',
-        item: typeof window !== 'undefined' ? `${window.location.origin}/` : '/'
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Catálogo',
-        item: typeof window !== 'undefined' ? `${window.location.origin}/catalog` : '/catalog'
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: product.name,
-        item: typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : pathname
-      }
-    ]
-  };
-  /* ================================================================ */
-
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* ✅ Meta para la ficha */}
-      <Seo
-        title={pageTitle}
-        description={pageDescription}
-        pathname={pathname}
-        ogImage={product.images?.[0]}
-      />
-      {/* ✅ JSON-LD estructurado */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
+    <div className={mode === 'page' ? 'min-h-screen bg-gray-50' : ''}>
+      {/* ✅ Meta para la ficha (solo page) */}
+      {mode === 'page' && (
+        <>
+          <Seo title={pageTitle} description={pageDescription} pathname={pathname} ogImage={product.images?.[0]} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+        </>
+      )}
 
-      <Container className="py-8">
-        {/* Back Button (solo texto naranja) */}
-        <Link
-          to="/catalog"
-          className="mb-8 inline-flex items-center gap-2 font-semibold text-[#e04f01] hover:text-[#e84e1b]"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Volver al Catálogo</span>
-        </Link>
+      <Container className={mode === 'page' ? 'py-8' : 'pt-0'}>
+        {/* Back Button solo en página */}
+        {mode === 'page' && (
+          <Link to="/catalog" className="mb-8 inline-flex items-center gap-2 font-semibold text-[#e04f01] hover:text-[#e84e1b]">
+            <ArrowLeft className="w-4 h-4" />
+            <span>Volver al Catálogo</span>
+          </Link>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Product Gallery */}
+          {/* Galería */}
           <div>
             <ProductGallery images={product.images} productName={product.name} />
           </div>
 
-          {/* Product Info */}
+          {/* Información */}
           <div>
             <div className="mb-6">
               <div className="flex items-center gap-2 mb-3">
-                {product.featured && (
-                  <Badge variant="secondary">Destacado</Badge>
-                )}
-                {!product.stock && (
-                  <Badge variant="error">Sin Stock</Badge>
-                )}
-                {product.stock && (
-                  <Badge variant="success">Stock</Badge>
-                )}
-              </div>
-              
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
-                {product.name}
-              </h1>
-              
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                {product.shortDescription}
-              </p>
-
-              <div className="flex flex-wrap gap-2 mb-6">
-                {product.tags.map((tag, index) => (
-                  <Badge key={index} variant="default">
-                    {tag}
-                  </Badge>
-                ))}
+                {product.featured && <Badge variant="secondary">Destacado</Badge>}
+                {product.stock === false && <Badge variant="error">Sin Stock</Badge>}
+                {product.stock === true && <Badge variant="success">Stock</Badge>}
               </div>
 
-              <div className="text-sm text-gray-500 mb-6">
-                SKU: <span className="font-mono font-medium">{product.sku}</span>
-              </div>
-            </div>
+              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
-            {/* Add to Quote */}
-            <div className="bg-white rounded-xl border border-gray-200 p-6 mb-8">
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Agregar Productos</h3>
-              
-              <div className="flex items-center space-x-4 mb-6">
-                <label className="text-sm font-medium text-gray-700">Cantidad:</label>
-                <div className="flex items-center border border-gray-300 rounded-lg">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-2 hover:bg-gray-100 transition-colors"
-                    disabled={quantity <= 1}
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="px-4 py-2 min-w-16 text-center font-medium">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="p-2 hover:bg-gray-100 transition-colors"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
+              {product.shortDescription && (
+                <p className="text-lg text-gray-600 mb-6 leading-relaxed">{product.shortDescription}</p>
+              )}
+
+              {product.tags?.length ? (
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {product.tags.map((tag: string, index: number) => (
+                    <Badge key={index} variant="default">
+                      {tag}
+                    </Badge>
+                  ))}
                 </div>
-              </div>
+              ) : null}
 
-              <Button
-                onClick={handleAddToQuote}
-                disabled={!product.stock}
-                size="lg"
-                className="w-full flex items-center justify-center space-x-2"
-              >
-                <ShoppingCart className="w-5 h-5" />
-                <span>
-                  {product.stock ? 'Añadir Presupuesto' : 'Out of Stock'}
-                </span>
-              </Button>
-
-              {!product.stock && (
-                <p className="text-sm text-gray-500 text-center mt-2">
-                  Contact us for availability updates
-                </p>
+              {product.sku && (
+                <div className="text-sm text-gray-500 mb-6">
+                  SKU: <span className="font-mono font-medium">{product.sku}</span>
+                </div>
               )}
             </div>
+
+            {/* 🔥 Se eliminó: bloque de "Agregar al presupuesto" */}
+            {/* (no hay controles de cantidad ni botón principal) */}
 
             {/* Downloads */}
             {product.downloads && product.downloads.length > 0 && (
@@ -249,7 +165,7 @@ export const Product: React.FC = () => {
                   Descargar Manual
                 </h3>
                 <div className="space-y-2">
-                  {product.downloads.map((download, index) => (
+                  {product.downloads.map((download: any, index: number) => (
                     <a
                       key={index}
                       href={download.url}
@@ -268,73 +184,70 @@ export const Product: React.FC = () => {
           </div>
         </div>
 
-        {/* Tabs Content */}
-        <div className="mt-16">
-          {/* Tab Navigation */}
-          {tabs.length > 1 && (
-            <div className="border-b border-gray-200 mb-8">
-              <nav className="flex space-x-8">
-                {tabs.map((tab) => (
-                  <button
-                    key={tab.id}
-                    onClick={() => setActiveTab(tab.id as any)}
-                    className={`
-                      py-3 px-1 border-b-2 font-medium text-sm transition-colors
-                      ${activeTab === tab.id
-                        ? 'border-[#e84e1b] text-[#e84e1b]'
-                        : 'border-transparent text-gray-500 hover:text-gray-700'
-                      }
-                    `}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </nav>
-            </div>
-          )}
-
-          {/* Tab Content */}
-          <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
-            {activeTab === 'description' && (
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Descripción del Producto</h2>
-                <div className="prose max-w-none text-gray-700">
-                  <p className="text-lg leading-relaxed">{product.description}</p>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'specifications' && product.specs && (
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Especifiaciones Técnicas</h2>
-                <ProductSpecs specs={product.specs} />
-              </div>
-            )}
-
-            {activeTab === 'downloads' && product.downloads && product.downloads.length > 0 && (
-              <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Descargas & Documentos</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {product.downloads.map((download, index) => (
-                    <a
-                      key={index}
-                      href={download.url}
-                      download
-                      className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-[#e84e1b] hover:bg-orange-50 transition-all group"
+        {/* Tabs */}
+        {tabs.length > 0 && (
+          <div className={mode === 'page' ? 'mt-16' : 'mt-10'}>
+            {tabs.length > 1 && (
+              <div className="border-b border-gray-200 mb-8">
+                <nav className="flex space-x-8">
+                  {tabs.map((tab) => (
+                    <button
+                      key={tab.id}
+                      onClick={() => setActiveTab(tab.id as any)}
+                      className={`
+                        py-3 px-1 border-b-2 font-medium text-sm transition-colors
+                        ${activeTab === tab.id ? 'border-[#e84e1b] text-[#e84e1b]' : 'border-transparent text-gray-500 hover:text-gray-700'}
+                      `}
                     >
-                      <span className="font-medium text-gray-900 group-hover:text-[#e84e1b]">
-                        {download.label}
-                      </span>
-                      <Download className="w-5 h-5 text-gray-400 group-hover:text-[#e84e1b]" />
-                    </a>
+                      {tab.label}
+                    </button>
                   ))}
-                </div>
+                </nav>
               </div>
             )}
-          </div>
-        </div>
 
-        {/* Related Products */}
+            <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-8">
+              {activeTab === 'description' && (
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-4">Descripción del Producto</h2>
+                  <div className="prose max-w-none text-gray-700">
+                    <p className="text-lg leading-relaxed">{product.description}</p>
+                  </div>
+                </div>
+              )}
+
+              {activeTab === 'specifications' && product.specs && (
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Especificaciones Técnicas</h2>
+                  <ProductSpecs specs={product.specs} />
+                </div>
+              )}
+
+              {activeTab === 'downloads' && product.downloads && product.downloads.length > 0 && (
+                <div>
+                  <h2 className="text-2xl font-bold text-gray-900 mb-6">Descargas & Documentos</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {product.downloads.map((download: any, index: number) => (
+                      <a
+                        key={index}
+                        href={download.url}
+                        download
+                        className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-[#e84e1b] hover:bg-orange-50 transition-all group"
+                      >
+                        <span className="font-medium text-gray-900 group-hover:text-[#e84e1b]">
+                          {download.label}
+                        </span>
+                        <Download className="w-5 h-5 text-gray-400 group-hover:text-[#e84e1b]" />
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Relacionados (se mantiene) */}
         <RelatedProducts
           currentProductId={product.id}
           category={product.category}
@@ -344,3 +257,6 @@ export const Product: React.FC = () => {
     </div>
   );
 };
+
+// Export default para poder importarlo como <ProductDetail />
+export default Product;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, List } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Grid, List } from 'lucide-react';
 import { Container } from '../components/layout/Container';
 import { ProductCard } from '../components/product/ProductCard';
 import { Button } from '../components/ui/Button';
@@ -8,13 +8,13 @@ import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
 import categoriesData from '../data/categories.json';
 import { CatalogDownloadCard } from '../components/catalog/CatalogDownloadCard';
-
-/* ✅ SEO */
 import { Seo } from '../components/Seo';
+
+// Importamos tu detalle (mismo archivo que usás en /product)
+import ProductDetail from './Product';
 
 type Category = { id: string; name: string; imageUrl?: string };
 
-/* ===================== Helpers de texto ===================== */
 const normalize = (s: unknown) =>
   String(s ?? '')
     .normalize('NFD')
@@ -22,77 +22,11 @@ const normalize = (s: unknown) =>
     .replace(/\p{Diacritic}/gu, '')
     .toLowerCase();
 
-const textHas = (text: string, ...needles: string[]) =>
-  needles.some((n) => text.includes(normalize(n)));
-
-const isAlarm = (product: any) => {
-  const n = normalize(product.name);
-  const tags = (product.tags ?? []).map((t: string) => normalize(t)).join(' ');
-  return textHas(n, 'alarma', 'sirena', 'central') || textHas(tags, 'alarma', 'sirena', 'central');
-};
-
-const isMotionSensor = (product: any) => {
-  const n = normalize(product.name);
-  const tags = (product.tags ?? []).map((t: string) => normalize(t)).join(' ');
-  return (
-    (textHas(n, 'sensor') && textHas(n, 'movimiento')) ||
-    textHas(n, 'pir') ||
-    (textHas(tags, 'sensor') && textHas(tags, 'movimiento')) ||
-    textHas(tags, 'pir', 'infrarrojo')
-  );
-};
-
-/* ===== Iluminación: helpers ===== */
-const isPanelLed = (product: any) => {
-  const n = normalize(product.name);
-  const tags = (product.tags ?? []).map((t: string) => normalize(t)).join(' ');
-  return textHas(n, 'panel') || textHas(tags, 'panel', 'panel led', 'downlight');
-};
-
-const isReflector = (product: any) => {
-  const n = normalize(product.name);
-  const tags = (product.tags ?? []).map((t: string) => normalize(t)).join(' ');
-  return (
-    textHas(n, 'reflector', 'proyector', 'flood') ||
-    textHas(tags, 'reflector', 'proyector', 'flood', 'exterior', 'ip65', 'ip66')
-  );
-};
-
-/* ===================== Helpers de estilo (paleta GENEVE) ===================== */
-const TopoTexture: React.FC<{ className?: string }> = ({ className }) => (
-  <svg className={className ?? ''} viewBox="0 0 400 400" fill="none" aria-hidden>
-    <path
-      d="M0 60c120-30 200-30 320 0M0 120c120-24 200-24 320 0M0 180c120-24 200-24 320 0M0 240c120-24 200-24 320 0M0 300c120-24 200-24 320 0"
-      stroke="currentColor"
-      strokeWidth="1"
-      className="text-black/5"
-    />
-  </svg>
-);
-
-const accentClass = (i: number) => (i % 2 === 0 ? 'bg-[#e84e1b]' : 'bg-gray-300');
-
 export const Catalog: React.FC = () => {
   const { addItem } = useCart();
   const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid');
-  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
 
-  // Subcategorías Seguridad
-  const [securitySub, setSecuritySub] = React.useState<'Alarmas' | 'Sensores de Movimiento' | null>(null);
-  const isSecurity = selectedCategory && normalize(selectedCategory) === 'seguridad';
-
-  // Subcategorías Iluminación
-  const [lightingSub, setLightingSub] = React.useState<'Paneles LED' | 'Reflectores' | null>(null);
-  const isLighting = selectedCategory && normalize(selectedCategory) === 'iluminacion';
-
-  React.useEffect(() => {
-    if (!isSecurity) setSecuritySub(null);
-  }, [isSecurity]);
-
-  React.useEffect(() => {
-    if (!isLighting) setLightingSub(null);
-  }, [isLighting]);
-
+  // ===== Categorías únicas
   const categories: Category[] = React.useMemo(() => {
     const seen = new Set<string>();
     return (categoriesData as Category[]).filter((c) => {
@@ -103,6 +37,40 @@ export const Catalog: React.FC = () => {
     });
   }, []);
 
+  // ===== Carrusel / selección categorías
+  const [activeIndex, setActiveIndex] = React.useState(0);
+  const [selectedCategory, setSelectedCategory] = React.useState<string | null>(null);
+
+  const scrollerRef = React.useRef<HTMLDivElement | null>(null);
+  const cardRefs = React.useRef<(HTMLButtonElement | null)[]>([]);
+  const productsRef = React.useRef<HTMLDivElement | null>(null);
+
+  const scrollToIndex = (idx: number) => {
+    const el = cardRefs.current[idx];
+    el?.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  };
+
+  const selectCategory = (idx: number) => {
+    const cat = categories[idx];
+    setActiveIndex(idx);
+    setSelectedCategory(cat?.name ?? null);
+    scrollToIndex(idx);
+  };
+
+  const prev = () => selectCategory((activeIndex - 1 + categories.length) % categories.length);
+  const next = () => selectCategory((activeIndex + 1) % categories.length);
+
+  // ✅ Siempre arrancar con la primera categoría seleccionada
+  React.useEffect(() => {
+    if (categories.length && !selectedCategory) {
+      setActiveIndex(0);
+      setSelectedCategory(categories[0].name);
+      setTimeout(() => scrollToIndex(0), 0);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categories.length]);
+
+  // ===== Productos filtrados por categoría
   const productsOfSelected = React.useMemo(() => {
     if (!selectedCategory) return [];
     const sel = normalize(selectedCategory);
@@ -115,20 +83,22 @@ export const Catalog: React.FC = () => {
       });
   }, [selectedCategory]);
 
-  const productsOfSecuritySub = React.useMemo(() => {
-    if (!isSecurity) return productsOfSelected;
-    if (!securitySub) return [];
-    if (securitySub === 'Alarmas') return productsOfSelected.filter(isAlarm);
-    return productsOfSelected.filter(isMotionSensor);
-  }, [isSecurity, securitySub, productsOfSelected]);
+  // ===== Selección de producto + detalle
+  const [selectedProductId, setSelectedProductId] = React.useState<string | null>(null);
+  const selectedProduct = React.useMemo(
+    () => productsOfSelected.find((p) => p.id === selectedProductId) ?? productsOfSelected[0],
+    [productsOfSelected, selectedProductId]
+  );
 
-  const productsOfLightingSub = React.useMemo(() => {
-    if (!isLighting) return productsOfSelected;
-    if (!lightingSub) return [];
-    if (lightingSub === 'Paneles LED') return productsOfSelected.filter(isPanelLed);
-    return productsOfSelected.filter(isReflector);
-  }, [isLighting, lightingSub, productsOfSelected]);
+  React.useEffect(() => {
+    if (productsOfSelected.length) {
+      setSelectedProductId(productsOfSelected[0].id);
+    } else {
+      setSelectedProductId(null);
+    }
+  }, [productsOfSelected]);
 
+  // ===== Agregar a presupuesto desde catálogo (si lo usás en otros lugares)
   const handleAddToQuote = (productId: string) => {
     const product = (productsData as any[]).find((p) => p.id === productId);
     if (!product) return;
@@ -138,26 +108,42 @@ export const Catalog: React.FC = () => {
     showToast('¡Producto agregado al presupuesto!', 'success');
   };
 
-  const cardBase: React.CSSProperties = {
-    width: '100%',
-    height: '100%',
-    borderRadius: '16px',
-    overflow: 'hidden',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    boxShadow: '0 10px 24px rgba(0,0,0,0.12)',
+  // Scroll a productos desde botón de categoría
+  const goToProducts = (idx: number) => {
+    selectCategory(idx);
+    setTimeout(() => {
+      productsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 60);
   };
 
-  const title =
-    isSecurity
-      ? (securitySub ? `Seguridad — ${securitySub}` : '')
-      : isLighting
-        ? (lightingSub ? `Iluminación — ${lightingSub}` : '')
-        : selectedCategory || 'Todas Nuestras Categorias';
+  // ===== Carrusel de productos
+  const prodScrollerRef = React.useRef<HTMLDivElement | null>(null);
+  const prodItemWidth = 240;
+  const prodGap = 20;
+
+  // Suavizado: desactivar snap durante el scroll programático para evitar "trabas"
+  const [progScroll, setProgScroll] = React.useState(false);
+
+  const prodScrollBy = (sign: 1 | -1) => {
+    const el = prodScrollerRef.current;
+    if (!el) return;
+
+    const itemFull = prodItemWidth + prodGap;
+    const current = el.scrollLeft;
+    // Avanza/retrocede exactamente 3 tarjetas completas
+    const target = Math.max(0, current + sign * itemFull * 3);
+
+    setProgScroll(true);
+    el.scrollTo({ left: target, behavior: 'smooth' });
+
+    // Rehabilitar snap cuando termina la animación
+    // (valor 360ms acompasa la duración del 'smooth' típico)
+    window.clearTimeout((el as any).__snapTimer);
+    (el as any).__snapTimer = window.setTimeout(() => setProgScroll(false), 360);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* ✅ Meta SEO para /catalog */}
       <Seo
         title="Catálogo de Productos | Geneve"
         description="Explorá el catálogo completo de Geneve: seguridad eléctrica, iluminación, caños, disyuntores, luces de emergencia y más. Asesoramiento técnico y envíos a todo el país."
@@ -166,352 +152,120 @@ export const Catalog: React.FC = () => {
       />
 
       <Container className="py-8">
-        {/* Header (título centrado + tarjeta debajo) */}
-        {/* Header principal */}
-        {!selectedCategory && (
-          <div className="mb-8 space-y-4">
-            <h1 className="text-center font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
-              Todas Nuestras Categorías
-            </h1>
-            <div className="w-full">
-              <CatalogDownloadCard />
-            </div>
-          </div>
-        )}
+        {/* ===== Título arriba del carrusel ===== */}
+        <div className="mb-8 text-center font-heading">
+          <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,40px)]">
+            Todas Nuestras Categorías
+          </h1>
+        </div>
 
-        {selectedCategory && (
-          <div className="mb-8 text-center">
-            <h1 className="font-extrabold tracking-tight leading-tight text-[clamp(18px,3vw,52px)] whitespace-nowrap">
-              {title}
-            </h1>
-          </div>
-        )}
+        {/* ===== Carrusel de CATEGORÍAS ===== */}
+        <div className="relative mb-8">
+          <button
+            onClick={prev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50 focus:outline-none"
+            aria-label="Anterior"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={next}
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50 focus:outline-none"
+            aria-label="Siguiente"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
 
-        {/* ===================== CATEGORÍAS (diseño original) ===================== */}
-        {!selectedCategory && (
-          <section>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
-              {categories.map((cat, i) => {
-                const img =
-                  cat.imageUrl ??
-                  'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop';
+          <div
+            ref={scrollerRef}
+            className="flex gap-8 overflow-x-auto px-14 py-4 snap-x snap-mandatory items-stretch hide-scrollbar"
+          >
+            {categories.map((cat, i) => {
+              const img =
+                cat.imageUrl ??
+                'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop';
+              const active = selectedCategory === cat.name;
 
-                const select = () => setSelectedCategory(cat.name);
+              return (
+                <button
+                  key={cat.id}
+                  ref={(el) => (cardRefs.current[i] = el)}
+                  onClick={() => selectCategory(i)}
+                  aria-label={`Ver ${cat.name}`}
+                  className={`group relative flex-shrink-0 snap-center transition-all duration-500 ease-out
+                    ${active ? 'w-[min(70vw,340px)] scale-105' : 'w-[min(56vw,260px)] scale-[.97] opacity-95'}
+                    focus:outline-none
+                  `}
+                  style={{ flex: '0 0 auto' }}
+                >
+                  <div
+                    className={[
+                      'relative overflow-hidden rounded-3xl bg-white',
+                      'shadow-[0_16px_50px_-22px_rgba(2,6,23,0.45)]',
+                      'transition-all duration-500 ease-out',
+                    ].join(' ')}
+                  >
+                    <div className="relative w-full aspect-[3/4] bg-white">
+                      <img
+                        src={img}
+                        alt={cat.name}
+                        loading="lazy"
+                        className={`absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out
+                          ${active ? 'scale-[1.12]' : 'scale-[1.04] group-hover:scale-[1.08]'}
+                        `}
+                      />
 
-                return (
-                  <article key={cat.id} className="w-full">
-                    <div
-                      className="
-                group relative overflow-hidden rounded-2xl bg-white
-                border border-zinc-200/80 ring-1 ring-black/[0.03]
-                shadow-[0_10px_26px_-14px_rgba(2,6,23,0.25)]
-                hover:shadow-[0_18px_46px_-20px_rgba(2,6,23,0.35)]
-                transition
-              "
-                    >
-                      {/* barrita superior naranja (original) */}
-                      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-b from-[#e84e1b] to-[#e84e1b]/40" />
-                      <div className="absolute inset-x-0 top-[2px] h-px bg-black/5" />
-
-                      <div className="relative z-10 p-4 md:p-5">
-                        {/* Título centrado (original) */}
-                        <h3 className="text-center text-lg md:text-xl font-extrabold text-gray-900 tracking-tight">
+                      {/* Inferior: título + botón alineados a la izquierda (naranja) */}
+                      <div className="absolute inset-x-0 bottom-0 p-5 text-left">
+                        <h3
+                          className={`mb-2 font-extrabold tracking-tight text-[#e84e1b] whitespace-normal break-words ${
+                            active ? 'text-[1.35rem]' : 'text-[1.05rem]'
+                          }`}
+                        >
                           {cat.name}
                         </h3>
 
-                        {/* Imagen SIN sombra + leve zoom (original) */}
-                        <div className="relative mt-3 aspect-[4/3] overflow-hidden rounded-xl bg-white">
-                          {/* halo sutil para integrarla sin sombra */}
-                          <div className="absolute inset-0 rounded-xl bg-[radial-gradient(60%_60%_at_50%_55%,rgba(232,78,27,0.08),transparent_65%)]" />
-                          <img
-                            src={img}
-                            alt={cat.name}
-                            loading="lazy"
-                            className="
-                      absolute inset-0 m-auto h-[86%] w-[86%] object-contain
-                      scale-[1.03] group-hover:scale-[1.07]
-                      transition-transform duration-500 ease-out
-                    "
-                          />
-                        </div>
-
-                        {/* CTA naranja (original) */}
-                        <div className="mt-4">
-                          <button
-                            type="button"
-                            onClick={select}
-                            className="
-                      inline-flex w-full items-center justify-center gap-2 rounded-xl
-                      bg-[#e84e1b] text-white font-semibold
-                      px-4 py-2 text-sm
-                      hover:opacity-95 active:translate-y-[1px]
-                      focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
-                    "
-                            aria-label={`Ver productos de ${cat.name}`}
-                          >
-                            Ver productos
-                            <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden>
-                              <path d="M13 5l7 7-7 7M5 12h14" />
-                            </svg>
-                          </button>
-                        </div>
+                        <span
+                          onClick={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            goToProducts(i);
+                          }}
+                          className="inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold
+                                     bg-[#e84e1b] text-white hover:opacity-95 transition active:translate-y-px"
+                        >
+                          Ver productos
+                        </span>
                       </div>
-
-                      {/* borde interior sutil (original) */}
-                      <div className="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/40 mix-blend-overlay" />
                     </div>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
+
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/5" />
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* (Oculto por defecto; siempre hay categoría activa) */}
+        {false && !selectedCategory && (
+          <div className="mb-8">
+            <CatalogDownloadCard />
+          </div>
         )}
 
-        {/* ===================== SUBCATEGORÍAS DE SEGURIDAD ===================== */}
-        {isSecurity && !securitySub && (
-          <section className="mt-6">
-            {/* Botón + título centrado en la misma fila */}
-            <div className="mb-6 grid grid-cols-[auto,1fr,auto] items-center gap-3 font-heading">
-              <Button variant="outline" onClick={() => setSelectedCategory(null)}>
-                ← Volver a Categorías
-              </Button>
-
-              <h2 className="text-center text-5xl md:text-4xl font-extrabold tracking-tight text-gray-900">
-                Nuestros Productos de <span className="text-[#e84e1b]">Seguridad</span>
-              </h2>
-
-              <Button variant="outline" className="opacity-0 pointer-events-none select-none">
-                ← Volver a Categorías
-              </Button>
+        {/* ===== Productos de la categoría seleccionada — CARRUSEL EN UNA FILA ===== */}
+        {selectedCategory ? (
+          <section ref={productsRef} id="products" className="mt-20 ">
+            {/* ➕ Título solicitado */}
+            <div className="font-heading">
+              <h1 className="font-extrabold text-center tracking-tight leading-tight text-[clamp(18px,3vw,36px)]">
+                {`Todos los Productos de ${selectedCategory}`}
+              </h1>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {/* Alarmas */}
-              <article>
-                <button
-                  type="button"
-                  onClick={() => setSecuritySub('Alarmas')}
-                  aria-label="Alarmas"
-                  className="
-                    group relative block w-full overflow-hidden rounded-[28px]
-                    bg-white/90 backdrop-blur ring-1 ring-zinc-200
-                    shadow-[0_20px_60px_-28px_rgba(2,6,23,.35)]
-                    hover:shadow-[0_30px_80px_-30px_rgba(2,6,23,.45)]
-                    transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
-                  "
-                >
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-[#e84e1b]" />
-                  <div className="p-6 md:p-8">
-                    <h3 className="text-center text-xl md:text-2xl font-extrabold tracking-tight text-gray-900">
-                      Alarmas
-                    </h3>
-                    <div className="relative mt-5 aspect-[16/10] rounded-2xl border border-zinc-200/80 bg-white">
-                      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(70%_70%_at_50%_60%,rgba(232,78,27,0.16),transparent_62%)]" />
-                      <img
-                        src="https://i.postimg.cc/4yqQz2N0/Screenshot-2025-09-29-at-7-32-45-AM.png"
-                        alt="Alarmas"
-                        className="absolute inset-0 h-full w-full object-cover object-center
-           transition-transform duration-500 ease-out
-           group-hover:scale-[1.05] rounded-2xl"
-                      />
-                    </div>
-                    <div className="mt-6">
-                      <div
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#e84e1b] px-4 py-3 text-sm font-semibold text-white hover:opacity-95 active:translate-y-px transition"
-                        aria-hidden="true"
-                      >
-                        Ver productos
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M13 5l7 7-7 7M5 12h14" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/60 mix-blend-overlay" />
-                </button>
-              </article>
-
-              {/* Sensores de Movimiento */}
-              <article>
-                <button
-                  type="button"
-                  onClick={() => setSecuritySub('Sensores de Movimiento')}
-                  aria-label="Sensores de Movimiento"
-                  className="
-                    group relative block w-full overflow-hidden rounded-[28px]
-                    bg-white/90 backdrop-blur ring-1 ring-zinc-200
-                    shadow-[0_20px_60px_-28px_rgba(2,6,23,.35)]
-                    hover:shadow-[0_30px_80px_-30px_rgba(2,6,23,.45)]
-                    transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
-                  "
-                >
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-[#e84e1b]" />
-                  <div className="p-6 md:p-8">
-                    <h3 className="text-center text-xl md:text-2xl font-extrabold tracking-tight text-gray-900">
-                      Sensores de Movimiento
-                    </h3>
-                    <div className="relative mt-5 aspect-[16/10] rounded-2xl border border-zinc-200/80 bg-white">
-                      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(70%_70%_at_50%_60%,rgba(232,78,27,0.14),transparent_64%)]" />
-                      <img
-                        src="https://i.postimg.cc/0QmmJYBP/Screenshot-2025-09-29-at-7-35-35-AM.png"
-                        alt="Sensores de movimiento"
-                        className="absolute inset-0 h-full w-full object-cover object-center
-           transition-transform duration-500 ease-out
-           group-hover:scale-[1.05] rounded-2xl"
-                      />
-                    </div>
-                    <div className="mt-6">
-                      <div
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#e84e1b] px-4 py-3 text-sm font-semibold text-white hover:opacity-95 active:translate-y-px transition"
-                        aria-hidden="true"
-                      >
-                        Ver productos
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M13 5l7 7-7 7M5 12h14" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/60 mix-blend-overlay" />
-                </button>
-              </article>
-            </div>
-          </section>
-        )}
-
-        {/* ===================== SUBCATEGORÍAS DE ILUMINACIÓN ===================== */}
-        {isLighting && !lightingSub && (
-          <section className="mt-6">
-            {/* Botón + título centrado */}
-            <div className="mb-6 grid grid-cols-[auto,1fr,auto] items-center gap-3 font-heading">
-              <Button variant="outline" onClick={() => setSelectedCategory(null)}>
-                ← Volver a Categorías
-              </Button>
-
-              <h2 className="text-center text-5xl md:text-4xl font-extrabold tracking-tight text-gray-900">
-                Nuestros Productos de <span className="text-[#e84e1b]">Iluminación</span>
-              </h2>
-
-              <Button variant="outline" className="opacity-0 pointer-events-none select-none">
-                ← Volver a Categorías
-              </Button>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:gap-8">
-              {/* Paneles LED */}
-              <article>
-                <button
-                  type="button"
-                  onClick={() => setLightingSub('Paneles LED')}
-                  aria-label="Paneles LED"
-                  className="
-                    group relative block w-full overflow-hidden rounded-[28px]
-                    bg-white/90 backdrop-blur ring-1 ring-zinc-200
-                    shadow-[0_20px_60px_-28px_rgba(2,6,23,.35)]
-                    hover:shadow-[0_30px_80px_-30px_rgba(2,6,23,.45)]
-                    transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
-                  "
-                >
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-[#e84e1b]" />
-                  <div className="p-6 md:p-8">
-                    <h3 className="text-center text-xl md:text-2xl font-extrabold tracking-tight text-gray-900">
-                      Paneles LED
-                    </h3>
-                    <div className="relative mt-5 aspect-[16/10] rounded-2xl border border-zinc-200/80 bg-white">
-                      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(70%_70%_at_50%_60%,rgba(232,78,27,0.14),transparent_62%)]" />
-                      <img
-                        src="https://i.postimg.cc/jjRPJnrh/Screenshot-2025-09-29-at-7-49-06-AM.png"
-                        alt="Paneles LED"
-                        className="absolute inset-0 h-full w-full object-cover object-center
-           transition-transform duration-500 ease-out
-           group-hover:scale-[1.05] rounded-2xl"
-                      />
-                    </div>
-                    <div className="mt-6">
-                      <div
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#e84e1b] px-4 py-3 text-sm font-semibold text-white hover:opacity-95 active:translate-y-px transition"
-                        aria-hidden="true"
-                      >
-                        Ver productos
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M13 5l7 7-7 7M5 12h14" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/60 mix-blend-overlay" />
-                </button>
-              </article>
-
-              {/* Reflectores */}
-              <article>
-                <button
-                  type="button"
-                  onClick={() => setLightingSub('Reflectores')}
-                  aria-label="Reflectores"
-                  className="
-                    group relative block w-full overflow-hidden rounded-[28px]
-                    bg-white/90 backdrop-blur ring-1 ring-zinc-200
-                    shadow-[0_20px_60px_-28px_rgba(2,6,23,.35)]
-                    hover:shadow-[0_30px_80px_-30px_rgba(2,6,23,.45)]
-                    transition focus:outline-none focus-visible:ring-4 focus-visible:ring-[#e84e1b]/30
-                  "
-                >
-                  <div className="absolute inset-x-0 top-0 h-1.5 bg-[#e84e1b]" />
-                  <div className="p-6 md:p-8">
-                    <h3 className="text-center text-xl md:text-2xl font-extrabold tracking-tight text-gray-900">
-                      Reflectores
-                    </h3>
-                    <div className="relative mt-5 aspect-[16/10] rounded-2xl border border-zinc-200/80 bg-white">
-                      <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(70%_70%_at_50%_60%,rgba(232,78,27,0.14),transparent_62%)]" />
-                      <img
-                        src="https://i.postimg.cc/c42NHfw3/Screenshot-2025-09-29-at-7-53-26-AM.png"
-                        alt="Reflectores"
-                        className="absolute inset-0 h-full w-full object-cover object-center
-           transition-transform duration-500 ease-out
-           group-hover:scale-[1.05] rounded-2xl"
-                      />
-                    </div>
-                    <div className="mt-6">
-                      <div
-                        className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#e84e1b] px-4 py-3 text-sm font-semibold text-white hover:opacity-95 active:translate-y-px transition"
-                        aria-hidden="true"
-                      >
-                        Ver productos
-                        <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
-                          <path d="M13 5l7 7-7 7M5 12h14" />
-                        </svg>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="pointer-events-none absolute inset-0 rounded-[28px] ring-1 ring-inset ring-white/60 mix-blend-overlay" />
-                </button>
-              </article>
-            </div>
-          </section>
-        )}
-
-        {/* ===================== PRODUCTOS ===================== */}
-        {(selectedCategory && (!isSecurity || securitySub) && (!isLighting || lightingSub)) && (
-          <section className="mt-8 space-y-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div className="flex items-center gap-2 font-heading">
-                <Button variant="ghost" onClick={() => setSelectedCategory(null)}>
-                  ← Volver a Categorías
-                </Button>
-
-                {isSecurity && securitySub && (
-                  <Button variant="ghost" onClick={() => setSecuritySub(null)}>
-                    ← Volver a Seguridad
-                  </Button>
-                )}
-                {isLighting && lightingSub && (
-                  <Button variant="ghost" onClick={() => setLightingSub(null)}>
-                    ← Volver a Iluminación
-                  </Button>
-                )}
-              </div>
-
+            {/* Mantengo tus toggles por compatibilidad visual */}
+            <div className="flex flex-wrap items-center justify-end gap-3">
               <div className="flex items-center space-x-2">
                 <Button
                   variant={viewMode === 'grid' ? 'primary' : 'ghost'}
@@ -530,39 +284,69 @@ export const Catalog: React.FC = () => {
               </div>
             </div>
 
-            {(() => {
-              const list = isSecurity
-                ? productsOfSecuritySub
-                : isLighting
-                  ? productsOfLightingSub
-                  : productsOfSelected;
+            {productsOfSelected.length === 0 ? (
+              <div className="text-center py-16 bg-white rounded-xl shadow-sm border border-gray-200">
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">Sin productos en esta categoría</h3>
+                <p className="text-gray-600">Próximamente agregaremos más productos.</p>
+              </div>
+            ) : (
+              <>
+                {/* Carrusel de productos */}
+                <div className="relative">
+                  <button
+                    type="button"
+                    aria-label="Productos anteriores"
+                    onClick={() => prodScrollBy(-1)}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden md:inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50"
+                  >
+                    <ChevronLeft className="h-5 w-5" />
+                  </button>
 
-              if (list.length === 0) {
-                return (
-                  <div className="text-center py-16 bg-white rounded-xl shadow-sm border border-gray-200">
-                    <h3 className="text-xl font-semibold text-gray-900 mb-2">Sin productos en esta selección</h3>
-                    <p className="text-gray-600">Próximamente agregaremos más productos.</p>
+                  <div
+                    ref={prodScrollerRef}
+                    className="flex overflow-x-auto gap-5 px-1 md:px-8 py-2 hide-scrollbar"
+                    style={{
+                      scrollPaddingLeft: '24px',
+                      scrollPaddingRight: '24px',
+                      scrollSnapType: progScroll ? 'none' : 'x mandatory',
+                      scrollBehavior: 'smooth',
+                    }}
+                  >
+                    {productsOfSelected.map((p: any) => (
+                      <ProductCard
+                        key={p.id}
+                        product={p}
+                        onSelect={(prod) => setSelectedProductId(prod.id)}
+                        isActive={selectedProduct?.id === p.id}
+                        width={240}
+                        height={240}
+                      />
+                    ))}
                   </div>
-                );
-              }
 
-              return (
-                <div
-                  className={
-                    viewMode === 'grid'
-                      ? 'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'
-                      : 'space-y-4'
-                  }
-                >
-                  {list.map((product: any) => (
-                    <ProductCard key={product.id} product={product} onAddToQuote={handleAddToQuote} />
-                  ))}
+                  <button
+                    type="button"
+                    aria-label="Productos siguientes"
+                    onClick={() => prodScrollBy(1)}
+                    className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:inline-flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50"
+                  >
+                    <ChevronRight className="h-5 w-5" />
+                  </button>
                 </div>
-              );
-            })()}
+
+                {/* Detalle embebido usando tu Product.tsx */}
+                {selectedProduct ? (
+                  <div className="mt-6">
+                    <ProductDetail product={selectedProduct} mode="inline" />
+                  </div>
+                ) : null}
+              </>
+            )}
           </section>
-        )}
+        ) : null}
       </Container>
+
+    
     </div>
   );
 };

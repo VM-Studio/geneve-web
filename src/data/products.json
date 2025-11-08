@@ -1,45 +1,5 @@
 [
   {
-    "id": "ge-sm1412a",
-    "slug": "alarma autónoma-ge-sm1412a",
-    "name": "Alarma Autónoma",
-    "category": "Seguridad",
-    "shortDescription": "Alarma autónoma con doble control remoto infrarrojo y fácil instalación para uso residencial y comercial.",
-    "description": "Sistema de alarma autónoma con activación por control remoto infrarrojo. Ofrece un volumen de 105 dB para una señal sonora potente y efectiva. Instalación sencilla, ideal para casas, locales y obras donde se necesita una solución sin cableado.",
-    "specs": {
-      "Alimentación del dispositivo": "4 pilas AA (No incluidas)",
-      "Alimentación del control remoto": "3 pilas botón AG13 (Incluidas)",
-      "Volumen de alarma": "105 dB",
-      "Rango de distancia del control remoto": "3 a 4 metros",
-      "Retardo de encendido": "20 segundos aproximadamente",
-      "Retardo previo a alarma": "5 segundos",
-      "Tecnología de detección": "Infrarrojo pasivo",
-      "Color": "Blanco"
-    },
-    
-    "tags": ["Alarma", "Autónoma", "A Pilas", "Infrarroja"],
-    "images": [
-      "https://i.postimg.cc/fb08rgfm/Screenshot-2025-09-11-at-8-41-09-AM.png",
-      "https://i.postimg.cc/JzSqZ5Cn/Screenshot-2025-09-11-at-8-41-22-AM.png",
-      "https://i.postimg.cc/kGMFqjKj/Screenshot-2025-09-11-at-8-41-35-AM.png",
-      "https://i.postimg.cc/yYdXGbVx/Screenshot-2025-09-11-at-8-41-44-AM.png",
-      "https://i.postimg.cc/ZRHp7r26/Screenshot-2025-09-11-at-8-41-52-AM.png",
-      "https://i.postimg.cc/rF3WPynZ/Screenshot-2025-09-11-at-8-42-02-AM.png",
-      "https://i.postimg.cc/XJsBcnB8/Screenshot-2025-09-11-at-8-42-12-AM.png",
-      "https://i.postimg.cc/SNB2GTRw/Screenshot-2025-09-11-at-8-42-23-AM.png",
-      "https://i.postimg.cc/qvcRxp93/Screenshot-2025-09-11-at-8-42-34-AM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-SM1412A",
-    "downloads": [
-      { "label": "Installation Manual (PDF)", "url": "/docs/Manual_inner_Alarma-GE-SM1412A.pdf" }
-      
-    ],
-    "featured": true
-  },
-  {
     "id": "ge-detector-humo",
     "slug": "detector-de-humo",
     "name": "Detector de Humo",
@@ -55,14 +15,16 @@
       "Funciona sin electricidad": "Sí"
     },
     "tags": ["Alarma", "Detector", "Humo", "Fotoeléctrico", "Seguridad"],
-    "images": [
-      "https://i.postimg.cc/ZRf8V8vX/Screenshot-2025-09-11-at-9-15-39-AM.png",
-      "https://i.postimg.cc/8PbW18HN/Screenshot-2025-09-11-at-9-15-49-AM.png",
-      "https://i.postimg.cc/bwNnr6Cb/Screenshot-2025-09-11-at-9-15-56-AM.png",
-      "https://i.postimg.cc/ncVrGX4f/Screenshot-2025-09-11-at-9-16-08-AM.png",
-      "https://i.postimg.cc/g2n011tM/Screenshot-2025-09-11-at-9-16-18-AM.png",
-      "https://i.postimg.cc/Z52qmj1J/Screenshot-2025-09-11-at-9-16-30-AM.png"
-    ],
+    
+  "images": [
+    "/productos/seguridad/humoportada.png",
+    "/productos/seguridad/humo1.png",
+    "/productos/seguridad/humo2.png",
+    "/productos/seguridad/humo3.png",
+    "/productos/seguridad/humo4.png",
+    "/productos/seguridad/humo5.png",
+    "/productos/seguridad/humo6.png"
+  ],
     "price": null,
     "currency": "ARS",
     "stock": true,
@@ -90,11 +52,13 @@
     },
     "tags": ["Alarma", "Monóxido de Carbono", "CO", "A Pilas", "Seguridad"],
     "images": [
-      "https://i.postimg.cc/CxWqgtgq/Screenshot-2025-09-11-at-9-51-26-AM.png",
-      "https://i.postimg.cc/B63P8KtZ/Screenshot-2025-09-11-at-9-51-36-AM.png",
-      "https://i.postimg.cc/C5LZ7pjW/Screenshot-2025-09-11-at-9-51-49-AM.png",
-      "https://i.postimg.cc/59nQ0jJ1/Screenshot-2025-09-11-at-9-52-00-AM.png",
-      "https://i.postimg.cc/KvjkgFcT/Screenshot-2025-09-11-at-9-52-10-AM.png"
+      "/productos/seguridad/monoxidoportada.png",
+      "/productos/seguridad/monoxido1.png",
+      "/productos/seguridad/monoxido2.png",
+      "/productos/seguridad/monoxido3.png",
+      "/productos/seguridad/monoxido4.png",
+      "/productos/seguridad/monoxido5.png"
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -124,45 +88,17 @@
     },
     "tags": ["Sensor", "Control de Luz", "Automático", "Seguridad"],
     "images": [
-      "https://i.postimg.cc/NMbF5CWb/Screenshot-2025-09-11-at-9-57-23-AM.png",
-      "https://i.postimg.cc/Vv66MBww/Screenshot-2025-09-11-at-9-57-33-AM.png",
-      "https://i.postimg.cc/VvVNFrsC/Screenshot-2025-09-11-at-9-57-42-AM.png"
+      "/productos/seguridad/sensorluzportada.png",
+      "/productos/seguridad/sensorluz1.png",
+      "/productos/seguridad/sensorluz2.png",
+      "/productos/seguridad/sensorluz3.png",
+      "/productos/seguridad/sensorluz4.png",
+      "/productos/seguridad/sensorluz5.png"
     ],
     "price": null,
     "currency": "ARS",
     "stock": true,
     "sku": "GE-G01",
-    "downloads": [
-      { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-16-Manual_sensor_06.pdf" }
-    ],
-    "featured": true
-  },
-  
-  {
-    "id": "ge-g02",
-    "slug": "sensor-control-luz-ge-g02",
-    "name": "Sensor de Control de Luz",
-    "category": "Seguridad",
-    "shortDescription": "Sensor de control de luz con retardo de encendido de 10 segundos y material ignífugo.",
-    "description": "El Sensor de Control de Luz GE-G02 permite automatizar el encendido y apagado de luces en función de la luminosidad ambiental. Funciona con tensión de 220-240V/AC, con un retardo de 10 segundos para evitar falsos encendidos. Ideal para alumbrado público, iluminación exterior y aplicaciones de seguridad. Fabricado con material ignífugo para mayor protección.",
-    "specs": {
-      "Tensión de trabajo": "220-240V/AC",
-      "Frecuencia": "50 Hz",
-      "Corriente": "6A",
-      "Time Delay": "10 segundos",
-      "Nivel de operación": "8-30 LUX",
-      "Rango de temperatura": "-30°C a 40°C",
-      "Material": "Ignífugo"
-    },
-    "tags": ["Sensor", "Control de Luz", "Automático", "Seguridad"],
-    "images": [
-      "https://i.postimg.cc/GpKdQ8qm/Screenshot-2025-09-11-at-10-01-54-AM.png",
-      "https://i.postimg.cc/k4h9rrrr/Screenshot-2025-09-11-at-10-02-03-AM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-G02",
     "downloads": [
       { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-16-Manual_sensor_06.pdf" }
     ],
@@ -187,14 +123,17 @@
     },
     "tags": ["Alarma", "WiFi", "Detector de Humo", "Inteligente", "Seguridad"],
     "images": [
-      "https://i.postimg.cc/GmqbPTMh/Screenshot-2025-09-11-at-10-05-53-AM.png",
-      "https://i.postimg.cc/Dz0nxfDQ/Screenshot-2025-09-11-at-10-06-02-AM.png",
-      "https://i.postimg.cc/TYxxZJF3/Screenshot-2025-09-11-at-10-06-13-AM.png",
-      "https://i.postimg.cc/MpKSGKWk/Screenshot-2025-09-11-at-10-06-22-AM.png",
-      "https://i.postimg.cc/1z81pCnJ/Screenshot-2025-09-11-at-10-06-35-AM.png",
-      "https://i.postimg.cc/Hn4qpFRs/Screenshot-2025-09-11-at-10-06-46-AM.png",
-      "https://i.postimg.cc/Dy69Rk1x/Screenshot-2025-09-11-at-10-06-55-AM.png",
-      "https://i.postimg.cc/pLdwHGZR/Screenshot-2025-09-11-at-10-07-06-AM.png"
+      "/productos/seguridad/humowifiportada.png",
+      "/productos/seguridad/humowifi1.png",
+      "/productos/seguridad/humowifi2.png",
+      "/productos/seguridad/humowifi3.png",
+      "/productos/seguridad/humowifi4.png",
+      "/productos/seguridad/humowifi5.png",
+      "/productos/seguridad/humowifi6.png",
+      "/productos/seguridad/humowifi7.png",
+      "/productos/seguridad/humowifi8.png"
+      
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -219,14 +158,17 @@
     },
     "tags": ["Alarma", "WiFi", "CO + Humo", "Pantalla LCD", "Smart Home"],
     "images": [
-      "https://i.postimg.cc/gcQXRQxB/Screenshot-2025-09-11-at-10-13-01-AM.png",
-      "https://i.postimg.cc/4xbmD3Br/Screenshot-2025-09-11-at-10-13-12-AM.png",
-      "https://i.postimg.cc/VkBRLnYg/Screenshot-2025-09-11-at-10-13-20-AM.png",
-      "https://i.postimg.cc/Kz4rNWtp/Screenshot-2025-09-11-at-10-13-26-AM.png",
-      "https://i.postimg.cc/yd5hrTP1/Screenshot-2025-09-11-at-10-13-33-AM.png",
-      "https://i.postimg.cc/CxYGt5jq/Screenshot-2025-09-11-at-10-13-41-AM.png",
-      "https://i.postimg.cc/MTcVRQ8h/Screenshot-2025-09-11-at-10-13-48-AM.png",
-      "https://i.postimg.cc/7h0ztrh9/Screenshot-2025-09-11-at-10-13-54-AM.png"
+      "/productos/seguridad/monoxidohumoportada.png",
+      "/productos/seguridad/monoxidohumo1.png",
+      "/productos/seguridad/monoxidohumo2.png",
+      "/productos/seguridad/monoxidohumo3.png",
+      "/productos/seguridad/monoxidohumo4.png",
+      "/productos/seguridad/monoxidohumo5.png",
+      "/productos/seguridad/monoxidohumo6.png",
+      "/productos/seguridad/monoxidohumo7.png",
+      "/productos/seguridad/monoxidohumo8.png"
+      
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -251,12 +193,13 @@
     },
     "tags": ["Alarma", "Humo", "Monóxido de Carbono", "LCD", "Autónomo"],
     "images": [
-      "https://i.postimg.cc/59SNgtNG/Screenshot-2025-09-11-at-10-29-29-AM.png",
-      "https://i.postimg.cc/NfNGhPXk/Screenshot-2025-09-11-at-10-29-36-AM.png",
-      "https://i.postimg.cc/3xVKN4ny/Screenshot-2025-09-11-at-10-29-44-AM.png",
-      "https://i.postimg.cc/Gm8CW3db/Screenshot-2025-09-11-at-10-29-51-AM.png",
-      "https://i.postimg.cc/C5P32X2Z/Screenshot-2025-09-11-at-10-29-57-AM.png",
-      "https://i.postimg.cc/h42RhQGS/Screenshot-2025-09-11-at-10-30-05-AM.png"
+      "/productos/seguridad/carbonhumoportada.png",
+      "/productos/seguridad/carbonhumo1.png",
+      "/productos/seguridad/carbonhumo2.png",
+      "/productos/seguridad/carbonhumo3.png",
+      "/productos/seguridad/carbonhumo4.png",
+      "/productos/seguridad/carbonhumo5.png",
+      "/productos/seguridad/carbonhumo6.png"
     ],
     "price": null,
     "currency": "ARS",
@@ -283,16 +226,17 @@
     },
     "tags": ["Puerta", "Ventana", "Smart", "Alexa", "Google Assistant"],
     "images": [
-      "https://i.postimg.cc/25QPYVJN/Screenshot-2025-09-11-at-10-33-59-AM.png",
-      "https://i.postimg.cc/ydntJ2sf/Screenshot-2025-09-11-at-10-34-06-AM.png",
-      "https://i.postimg.cc/4NjMh6RT/Screenshot-2025-09-11-at-10-34-13-AM.png",
-      "https://i.postimg.cc/NMNCGTkS/Screenshot-2025-09-11-at-10-34-21-AM.png",
-      "https://i.postimg.cc/j2LgD585/Screenshot-2025-09-11-at-10-34-27-AM.png",
-      "https://i.postimg.cc/BZV7dT61/Screenshot-2025-09-11-at-10-34-34-AM.png",
-      "https://i.postimg.cc/x1rxd9Lf/Screenshot-2025-09-11-at-10-34-42-AM.png",
-      "https://i.postimg.cc/bJFLfPzj/Screenshot-2025-09-11-at-10-34-51-AM.png",
-      "https://i.postimg.cc/G2NNJGTY/Screenshot-2025-09-11-at-10-35-00-AM.png",
-      "https://i.postimg.cc/ZndQfn6Q/Screenshot-2025-09-11-at-10-35-09-AM.png"
+      "/productos/seguridad/sensorpuertaportada.png",
+      "/productos/seguridad/sensorpuerta1.png",
+      "/productos/seguridad/sensorpuerta2.png",
+      "/productos/seguridad/sensorpuerta3.png",
+      "/productos/seguridad/sensorpuerta4.png",
+      "/productos/seguridad/sensorpuerta5.png",
+      "/productos/seguridad/sensorpuerta6.png",
+      "/productos/seguridad/sensorpuerta7.png",
+      "/productos/seguridad/sensorpuerta8.png",
+      "/productos/seguridad/sensorpuerta9.png",
+      "/productos/seguridad/sensorpuerta10.png"
     ],
     "price": null,
     "currency": "ARS",
@@ -306,7 +250,7 @@
   {
     "id": "ge-sensor-movimiento-790656",
     "slug": "sensor-movimiento-790656",
-    "name": "Sensor de Movimiento",
+    "name": "Sensor de Movimiento TECHO",
     "category": "Seguridad",
     "shortDescription": "Sensor de movimiento con detección 360°, ahorro de energía y protección IP20.",
     "description": "El Sensor de Movimiento 79.06.56 es ideal para aplicaciones de seguridad y automatización. Ofrece un rango de detección de 360° con alcance de hasta 8 metros, permitiendo cubrir amplias áreas con total eficiencia. Cuenta con retardo de tiempo regulable de 10 segundos a 7 minutos y control de luz inferior a 102000 Lux, lo que garantiza su funcionamiento en diferentes condiciones de iluminación. Su bajo consumo de 0,5W lo convierte en una solución confiable y eficiente para el control automático de iluminación y sistemas de seguridad.",
@@ -321,14 +265,15 @@
     },
     "tags": ["Sensor", "Movimiento", "Seguridad", "Automatización"],
     "images": [
-      "https://i.postimg.cc/0jYfMwY9/Screenshot-2025-09-11-at-10-41-24-AM.png",
-      "https://i.postimg.cc/QxDSLfDC/Screenshot-2025-09-11-at-10-41-32-AM.png",
-      "https://i.postimg.cc/Kv5fmtcN/Screenshot-2025-09-11-at-10-41-39-AM.png",
-      "https://i.postimg.cc/3xSZv7v0/Screenshot-2025-09-11-at-10-41-46-AM.png",
-      "https://i.postimg.cc/LsGBxTvH/Screenshot-2025-09-11-at-10-41-54-AM.png",
-      "https://i.postimg.cc/Bb050ndk/Screenshot-2025-09-11-at-10-42-01-AM.png",
-      "https://i.postimg.cc/7P3MNSzk/Screenshot-2025-09-11-at-10-42-09-AM.png",
-      "https://i.postimg.cc/VL4qx14Z/Screenshot-2025-09-11-at-10-42-16-AM.png"
+      "/productos/seguridad/movimientotechoportada.png",
+      "/productos/seguridad/movimientotecho1.png",
+      "/productos/seguridad/movimientotecho2.png",
+      "/productos/seguridad/movimientotecho3.png",
+      "/productos/seguridad/movimientotecho4.png",
+      "/productos/seguridad/movimientotecho5.png",
+      "/productos/seguridad/movimientotecho6.png",
+      "/productos/seguridad/movimientotecho7.png"
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -342,7 +287,7 @@
   {
     "id": "ge-sensor-movimiento-790682",
     "slug": "sensor-movimiento-790682",
-    "name": "Sensor de Movimiento",
+    "name": "Sensor de Movimiento PARED LARGO",
     "category": "Seguridad",
     "shortDescription": "Sensor de movimiento con detección de 180°, protección IP44 y bajo consumo energético.",
     "description": "El Sensor de Movimiento 79.06.82 es una solución práctica y eficiente para sistemas de seguridad e iluminación automática. Ofrece un rango de detección de 180° con un alcance máximo de 8 metros, ideal para interiores y exteriores gracias a su protección IP44. Su tiempo de retardo es regulable entre 5 segundos y 7 minutos, adaptándose a distintas necesidades de uso. Además, permite control de luz inferior a 102000 Lux y funciona con un consumo reducido de apenas 0,5W. Su instalación recomendada es a una altura de entre 1.8 y 2.5 metros, lo que asegura un rendimiento óptimo.",
@@ -358,14 +303,16 @@
     },
     "tags": ["Sensor", "Movimiento", "Seguridad", "Automatización", "IP44"],
     "images": [
-      "https://i.postimg.cc/8kxcsYck/Screenshot-2025-09-11-at-10-47-24-AM.png",
-      "https://i.postimg.cc/zXWBhkHC/Screenshot-2025-09-11-at-10-47-33-AM.png",
-      "https://i.postimg.cc/2SD57BnP/Screenshot-2025-09-11-at-10-47-42-AM.png",
-      "https://i.postimg.cc/qRzBvcdC/Screenshot-2025-09-11-at-10-47-50-AM.png",
-      "https://i.postimg.cc/bJWyDGzV/Screenshot-2025-09-11-at-10-48-01-AM.png",
-      "https://i.postimg.cc/J0X1b10r/Screenshot-2025-09-11-at-10-48-12-AM.png",
-      "https://i.postimg.cc/wThqMTnF/Screenshot-2025-09-11-at-10-48-22-AM.png",
-      "https://i.postimg.cc/Z5HJPsbd/Screenshot-2025-09-11-at-10-48-32-AM.png"
+      "/productos/seguridad/paredlargoportada.png",
+      "/productos/seguridad/paredlargo1.png",
+      "/productos/seguridad/paredlargo2.png",
+      "/productos/seguridad/paredlargo3.png",
+      "/productos/seguridad/paredlargo4.png",
+      "/productos/seguridad/paredlargo5.png",
+      "/productos/seguridad/paredlargo6.png",
+      "/productos/seguridad/paredlargo7.png",
+      "/productos/seguridad/paredlargo8.png"
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -379,7 +326,7 @@
   {
     "id": "ge-sensor-movimiento-790692",
     "slug": "sensor-movimiento-790692",
-    "name": "Sensor de Movimiento",
+    "name": "Sensor de Movimiento PARED",
     "category": "Seguridad",
     "shortDescription": "Sensor de movimiento con detección de 180°, alcance de 12 metros y protección IP44.",
     "description": "El Sensor de Movimiento 79.06.92 está diseñado para aplicaciones de seguridad e iluminación automática. Ofrece un rango de detección de 180° con un alcance máximo de 12 metros, lo que lo hace ideal para controlar accesos y áreas de tránsito. Su tiempo de retardo es regulable entre 8 segundos y 8 minutos, adaptándose a diferentes necesidades. Incluye control de luz de hasta 3 Lux, asegurando un funcionamiento eficiente en condiciones de baja luminosidad. Gracias a su protección IP44, puede instalarse tanto en interiores como exteriores. Se recomienda una altura de instalación entre 1.8 y 2.5 metros. Su consumo es muy bajo, con solo 0,5W, lo que garantiza ahorro de energía.",
@@ -395,18 +342,19 @@
     },
     "tags": ["Sensor", "Movimiento", "Seguridad", "IP44", "Automatización"],
     "images": [
-      "https://i.postimg.cc/7ZYF4H45/Screenshot-2025-09-11-at-10-54-01-AM.png",
-      "https://i.postimg.cc/VNJ2SKd1/Screenshot-2025-09-11-at-10-54-08-AM.png",
-      "https://i.postimg.cc/L5pWbRv6/Screenshot-2025-09-11-at-10-54-16-AM.png",
-      "https://i.postimg.cc/Hn9NGKP0/Screenshot-2025-09-11-at-10-54-24-AM.png",
-      "https://i.postimg.cc/PfW98prL/Screenshot-2025-09-11-at-10-54-32-AM.png",
-      "https://i.postimg.cc/CLJ2m38S/Screenshot-2025-09-11-at-10-54-40-AM.png",
-      "https://i.postimg.cc/jjnkqCFS/Screenshot-2025-09-11-at-10-54-47-AM.png",
-      "https://i.postimg.cc/FRjWc8mt/Screenshot-2025-09-11-at-10-54-55-AM.png",
-      "https://i.postimg.cc/XqLs15pQ/Screenshot-2025-09-11-at-10-55-04-AM.png",
-      "https://i.postimg.cc/Gh378X5N/Screenshot-2025-09-11-at-10-55-12-AM.png",
-      "https://i.postimg.cc/K8R0QRFD/Screenshot-2025-09-11-at-10-55-19-AM.png",
-      "https://i.postimg.cc/qRXwgKX4/Screenshot-2025-09-11-at-10-55-25-AM.png"
+      "/productos/seguridad/sensorparedportada.png",
+      "/productos/seguridad/sensorpared1.png",
+      "/productos/seguridad/sensorpared2.png",
+      "/productos/seguridad/sensorpared3.png",
+      "/productos/seguridad/sensorpared4.png",
+      "/productos/seguridad/sensorpared5.png",
+      "/productos/seguridad/sensorpared6.png",
+      "/productos/seguridad/sensorpared7.png",
+      "/productos/seguridad/sensorpared8.png",
+      "/productos/seguridad/sensorpared9.png",
+      "/productos/seguridad/sensorpared10.png",
+      "/productos/seguridad/sensorpared11.png",
+      "/productos/seguridad/sensorpared12.png"
     ],
     "price": null,
     "currency": "ARS",
@@ -435,17 +383,18 @@
     },
     "tags": ["Sensor", "Movimiento", "360°", "Seguridad", "Eficiencia energética"],
     "images": [
-      "https://i.postimg.cc/mr6zjgLC/Screenshot-2025-09-11-at-11-07-10-AM.png",
-      "https://i.postimg.cc/v8ng7ypx/Screenshot-2025-09-11-at-11-07-18-AM.png",
-      "https://i.postimg.cc/VLBJTRsY/Screenshot-2025-09-11-at-11-07-26-AM.png",
-      "https://i.postimg.cc/BZ2bLgKx/Screenshot-2025-09-11-at-11-07-31-AM.png",
-      "https://i.postimg.cc/hPpST3P7/Screenshot-2025-09-11-at-11-07-38-AM.png",
-      "https://i.postimg.cc/Hxwmx6hn/Screenshot-2025-09-11-at-11-07-47-AM.png",
-      "https://i.postimg.cc/WzSPmhjP/Screenshot-2025-09-11-at-11-07-54-AM.png",
-      "https://i.postimg.cc/9FF2mttX/Screenshot-2025-09-11-at-11-08-02-AM.png",
-      "https://i.postimg.cc/bYLXBSX7/Screenshot-2025-09-11-at-11-08-10-AM.png",
-      "https://i.postimg.cc/qvh9qmtr/Screenshot-2025-09-11-at-11-08-17-AM.png",
-      "https://i.postimg.cc/W40C6h6f/Screenshot-2025-09-11-at-11-08-23-AM.png"
+      "/productos/seguridad/sensormovportada.png",
+      "/productos/seguridad/sensormov1.png",
+      "/productos/seguridad/sensormov2.png",
+      "/productos/seguridad/sensormov3.png",
+      "/productos/seguridad/sensormov4.png",
+      "/productos/seguridad/sensormov5.png",
+      "/productos/seguridad/sensormov6.png",
+      "/productos/seguridad/sensormov7.png",
+      "/productos/seguridad/sensormov8.png",
+      "/productos/seguridad/sensormov9.png",
+      "/productos/seguridad/sensormov10.png"
+     
     ],
     "price": null,
     "currency": "ARS",
@@ -453,41 +402,6 @@
     "sku": "79.06.43",
     "downloads": [
       { "label": "Manual de Usuario (PDF)", "url": "/docs/04-Manual_sensor-mov_Geneve-43.pdf" }
-    ],
-    "featured": true
-  },
-  {
-    "id": "ge-sm79a",
-    "slug": "sensor-movimiento-ge-sm79a",
-    "name": "Sensor de Movimiento",
-    "category": "Seguridad",
-    "shortDescription": "Sensor de movimiento con ángulo de detección de 60° y alarma sonora de más de 60 dB.",
-    "description": "El Sensor de Movimiento GE-SM79A funciona con una batería de 9V (no incluida) y está diseñado para aplicaciones de seguridad en interiores. Ofrece un ángulo de detección de 60° y una distancia máxima de hasta 8 metros. Incorpora una alarma sonora con volumen superior a 60 dB para alertar en caso de movimiento detectado. Dispone de un retardo de activación de 15 segundos y cuenta con modo de alarma normal, brindando una solución práctica y eficiente para el hogar o el comercio.",
-    "specs": {
-      "Alimentación": "Batería de 9V (no incluida)",
-      "Ángulo de detección": "60°",
-      "Distancia máxima": "8 metros",
-      "Volumen de alarma": ">60 dB",
-      "Time Delay": "15 segundos",
-      "Tipos de alarma": "Alarma normal"
-    },
-    "tags": ["PIR", "Sensor", "Movimiento", "60°", "Alarma sonora", "Seguridad"],
-    "images": [
-      "https://i.postimg.cc/85P4J5yv/Screenshot-2025-09-11-at-11-13-37-AM.png",
-      "https://i.postimg.cc/nVX50RkD/Screenshot-2025-09-11-at-11-13-44-AM.png",
-      "https://i.postimg.cc/MpSFZW87/Screenshot-2025-09-11-at-11-13-52-AM.png",
-      "https://i.postimg.cc/25HcxhLG/Screenshot-2025-09-11-at-11-14-00-AM.png",
-      "https://i.postimg.cc/zDHtnLzw/Screenshot-2025-09-11-at-11-14-10-AM.png",
-      "https://i.postimg.cc/52bsdnwp/Screenshot-2025-09-11-at-11-14-19-AM.png",
-      "https://i.postimg.cc/cJJT6Ckn/Screenshot-2025-09-11-at-11-14-26-AM.png",
-      "https://i.postimg.cc/JhdxX8Sd/Screenshot-2025-09-11-at-11-14-33-AM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-SM79A",
-    "downloads": [
-      { "label": "Manual de Usuario (PDF)", "url": "/docs/2020-04-09-Manual_sensor-mov.pdf" }
     ],
     "featured": true
   },
@@ -508,11 +422,13 @@
     },
     "tags": ["Sensor", "Gas", "Alarma sonora", "Seguridad", "AC220V"],
     "images": [
-      "https://i.postimg.cc/sXhYZhYv/Screenshot-2025-09-11-at-11-19-59-AM.png",
-      "https://i.postimg.cc/7hrg1Z9X/Screenshot-2025-09-11-at-11-20-06-AM.png",
-      "https://i.postimg.cc/xTRKHYzy/Screenshot-2025-09-11-at-11-20-12-AM.png",
-      "https://i.postimg.cc/g0fRd2Cd/Screenshot-2025-09-11-at-11-20-18-AM.png",
-      "https://i.postimg.cc/FzxJjg7s/Screenshot-2025-09-11-at-11-20-26-AM.png"
+      "/productos/seguridad/gasportada.png",
+      "/productos/seguridad/gas1.png",
+      "/productos/seguridad/gas2.png",
+      "/productos/seguridad/gas3.png",
+      "/productos/seguridad/gas4.png"
+      
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -540,10 +456,11 @@
     },
     "tags": ["Sensor", "Movimiento", "PIR", "Cámara", "WiFi", "Visión nocturna", "Nube", "Seguridad"],
     "images": [
-      "https://i.postimg.cc/brvW9mnK/Screenshot-2025-09-11-at-1-13-27-PM.png",
-      "https://i.postimg.cc/HsRRb4kh/Screenshot-2025-09-11-at-1-13-39-PM.png",
-      "https://i.postimg.cc/T1hNDpMx/Screenshot-2025-09-11-at-1-13-48-PM.png",
-      "https://i.postimg.cc/kX0Y2Jjr/Screenshot-2025-09-11-at-1-13-58-PM.png"
+      "/productos/seguridad/wificamaraportada.png",
+      "/productos/seguridad/wificamara1.png",
+      "/productos/seguridad/wificamara2.png",
+      "/productos/seguridad/wificamara3.png"
+      
     ],
     "price": null,
     "currency": "ARS",
@@ -560,149 +477,26 @@
 
 
 
-  {
-    "id": "ge-bp500",
-    "slug": "bomba-periferica-ge-bp500",
-    "name": "Bomba Periférica",
-    "category": "Bombas",
-    "shortDescription": "Bomba periférica de 500W, silenciosa y segura, ideal para uso doméstico con operación continua.",
-    "description": "La Bomba Periférica GE-BP500 está diseñada para garantizar un rendimiento confiable y silencioso en aplicaciones domésticas. Ofrece operación continua, fácil instalación y un diseño seguro con protección IP42. Su capacidad de altura máxima de 28 metros asegura un suministro eficiente de agua en distintas condiciones.",
-    "specs": {
-      "Operación": "Continua",
-      "Instalación": "Fácil de instalar",
-      "Seguridad": "Protección IP42",
-      "Características": "Silenciosa",
-      "Altura máxima": "28 mts",
-      "Potencia": "500W"
-    },
-    "tags": ["Bomba", "Periférica", "Agua", "500W", "IP42"],
-    "images": [
-      "https://i.postimg.cc/wBj9GQDQ/Screenshot-2025-09-11-at-1-22-24-PM.png",
-      "https://i.postimg.cc/GhPr35Qj/Screenshot-2025-09-11-at-1-22-41-PM.png",
-      "https://i.postimg.cc/RFn5kshK/Screenshot-2025-09-11-at-1-22-53-PM.png",
-      "https://i.postimg.cc/cLDpry8f/Screenshot-2025-09-11-at-1-23-03-PM.png",
-      "https://i.postimg.cc/Vsj2XbCf/Screenshot-2025-09-11-at-1-23-17-PM.png",
-      "https://i.postimg.cc/fyKHpmcY/Screenshot-2025-09-11-at-1-23-25-PM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-BP500",
-    "featured": true
-  },
-  {
-    "id": "ge-bomba-circulante",
-    "slug": "bomba-circulante-ge",
-    "name": "Bomba Circulante",
-    "category": "Bombas",
-    "shortDescription": "Bomba circulante de operación continua, silenciosa y segura con protección IP42.",
-    "description": "La Bomba Circulante GE ofrece operación continua, diseño silencioso, instalación sencilla y protección IP42. Con una altura máxima recomendada de uso de 28 metros y potencia de 500W, es ideal para aplicaciones de bombeo de agua domésticas o de jardín.",
-    "specs": {
-      "Operación": "Continua",
-      "Instalación": "Fácil de instalar",
-      "Seguridad": "Protección IP42",
-      "Silenciosa": "Sí",
-      "Altura máxima": "28 mts",
-      "Potencia": "500W"
-    },
-    "tags": ["Bomba", "Circulante", "500W", "IP42"],
-    "images": [
-      "https://i.postimg.cc/MpxBXg8Z/Screenshot-2025-09-11-at-1-29-05-PM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-BC500", 
-    "downloads": [
-      { "label": "Manual de Usuario (PDF)", "url": "/docs/bomba-circulante-ge-manual.pdf" }
-    ],
-    "featured": true
-  },
-  {
-    "id": "ge-bomba-presurizada",
-    "slug": "bomba-presurizada-acquapress",
-    "name": "Bomba Presurizada",
-    "category": "Bombas",
-    "shortDescription": "Bomba presurizadora silenciosa con sensor de flujo automático, ideal para cocinas, baños, lavaderos y calefacción.",
-    "description": "Las bombas presurizadoras ACQUAPRESS (Tanque Elevado) Geneve son completamente silenciosas, lo que las hace ideales para instalar en cocinas, baños, lavaderos y áreas de calefacción. Permiten elevar la presión del agua en artefactos puntuales como duchas, grifos, calefones y más. Cuentan con un sensor de flujo que activa el funcionamiento automático al abrir el paso de agua y se apaga al cerrarlo. Estos equipos requieren una presión mínima de ingreso de 0,5 bar o estar ubicados al menos 50 cm por debajo del tanque elevado.",
-    "specs": {
-      "Potencia": "Disponible en modelos de 100W y 260W",
-      "Funcionamiento": "Automático con sensor de flujo",
-      "Instalación": "Mínimo 50 cm por debajo del tanque elevado",
-      "Presión mínima de ingreso": "0,5 bar",
-      "Nivel de ruido": "Silenciosa",
-      "Protección": "IP42"
-    },
-    "tags": ["Presurizadora", "Automática", "Silenciosa", "Tanque Elevado"],
-    "images": [
-      "https://i.postimg.cc/vBG2z09G/Screenshot-2025-09-11-at-1-31-23-PM.png",
-      "https://i.postimg.cc/m2PX8zc1/Screenshot-2025-09-11-at-1-31-34-PM.png",
-      "https://i.postimg.cc/8zhb0hTc/Screenshot-2025-09-11-at-1-31-43-PM.png",
-      "https://i.postimg.cc/W4T7Lh4n/Screenshot-2025-09-11-at-1-31-52-PM.png",
-      "https://i.postimg.cc/rFGRCN1w/Screenshot-2025-09-11-at-1-32-07-PM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-PR100-260",
-    "downloads": [
-      { "label": "Manual de Usuario (PDF)", "url": "https://geneve.com.ar/wp-content/uploads/2020/12/00-Manual_bomba-GE-PR100-260_Curvas.pdf" }
-    ],
-    "featured": true
-  },
-  {
-    "id": "ge-su400as",
-    "slug": "bomba-sumergible-ge-su400as",
-    "name": "Bomba Sumergible",
-    "category": "Bombas",
-    "shortDescription": "Bomba sumergible de 400W apta para agua sucia, ideal para desagote y aplicaciones domésticas.",
-    "description": "La bomba sumergible Geneve GE-SU400AS es una solución práctica para el desagote de agua sucia en sótanos, pozos, tanques o cisternas. Con un motor de 400W y capacidad de caudal máximo de 7,5 m³/h, esta bomba asegura un funcionamiento eficiente y confiable. Su diseño compacto con flotante automático permite un uso seguro y fácil de instalar. Construida con protección IPX8, resiste la inmersión prolongada y garantiza durabilidad. Ideal para aplicaciones residenciales que requieren evacuación rápida de líquidos.",
-    "specs": {
-      "Potencia": "400W",
-      "Corriente": "1.8 AMP",
-      "Caudal Máximo": "7.5 m³/h",
-      "Presión": "1/2 HP",
-      "Altura Máxima": "5 mts",
-      "Temperatura Máxima": "35°C",
-      "Protección": "IPX8",
-      "Aplicación": "Apta para agua sucia"
-    },
-    "tags": ["Sumergible", "Agua Sucia", "400W", "Automática"],
-    "images": [
-      "https://i.postimg.cc/xdnR3dJW/Screenshot-2025-09-11-at-1-39-01-PM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-SU400AS",
-    "featured": true
-  },
-  {
-    "id": "ge-dsk1",
-    "slug": "control-automatico-presion-ge-dsk1",
-    "name": "Control Automático de Presión",
-    "category": "Bombas",
-    "shortDescription": "Dispositivo automático que activa y desactiva la bomba de agua según el paso de agua, evitando funcionamiento en seco.",
-    "description": "El Control Automático de Presión Geneve GE-DSK1 está diseñado para gestionar el encendido y apagado automático de bombas de agua. Activa la bomba al abrirse el paso de agua y la desactiva al cerrarse, brindando protección contra funcionamiento en seco. No requiere presión mínima de ingreso, lo que lo hace ideal para aplicaciones residenciales y comerciales. Su construcción robusta garantiza durabilidad y seguridad en el uso diario.",
-    "specs": {
-      "Corriente Máxima": "10 Amp",
-      "Presión Máxima": "10 Bar",
-      "Presión de Arranque": "1.5 Bar",
-      "Protección": "IP65",
-      "Compatibilidad": "Bombas monofásicas hasta 1.1 kW",
-      "Temperatura Máxima": "65°C"
-    },
-    "tags": ["Automático", "Presión", "Protección Bomba", "Anti-seco"],
-    "images": [
-      "https://i.postimg.cc/jdk2h3WK/Screenshot-2025-09-11-at-1-43-16-PM.png",
-      "https://i.postimg.cc/nLqLpH3c/Screenshot-2025-09-11-at-1-43-23-PM.png"
-    ],
-    "price": null,
-    "currency": "ARS",
-    "stock": true,
-    "sku": "GE-DSK1",
-    "featured": true
-  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-pt-bl",
     "slug": "protector-tension-enchufable",
@@ -721,14 +515,14 @@
     },
     "tags": ["Protección", "Enchufable", "Variación de Tensión", "Seguridad Eléctrica"],
     "images": [
-      "https://i.postimg.cc/0jnTC4cs/Screenshot-2025-09-11-at-1-53-10-PM.png",
-      "https://i.postimg.cc/ryfZQ5qM/Screenshot-2025-09-11-at-1-54-07-PM.png",
-      "https://i.postimg.cc/FzSZrkkn/Screenshot-2025-09-11-at-1-54-17-PM.png",
-      "https://i.postimg.cc/wMk1Q9Cj/Screenshot-2025-09-11-at-1-54-32-PM.png",
-      "https://i.postimg.cc/3xzxpykZ/Screenshot-2025-09-11-at-1-54-42-PM.png",
-      "https://i.postimg.cc/76Kv3cBy/Screenshot-2025-09-11-at-1-54-53-PM.png",
-      "https://i.postimg.cc/fyyGBKFS/Screenshot-2025-09-11-at-1-55-01-PM.png",
-      "https://i.postimg.cc/WbFRZ5gQ/Screenshot-2025-09-11-at-1-55-10-PM.png"
+      "/productos/tension/protectortensionportada.png",
+      "/productos/tension/protectortension1.png",
+      "/productos/tension/protectortension2.png",
+      "/productos/tension/protectortension3.png",
+      "/productos/tension/protectortension4.png",
+      "/productos/tension/protectortension5.png",
+      "/productos/tension/protectortension6.png",
+      "/productos/tension/protectortension7.png"
     ],
     "price": null,
     "currency": "ARS",
@@ -736,6 +530,113 @@
     "sku": "GE-PT-BL",
     "featured": true
   },
+  {
+    "id": "ge-ptd63",
+    "slug": "protector-tension-din-63a",
+    "name": "Protector de Tensión DIN 63 A",
+    "category": "Protector Tensión",
+    "shortDescription": "Protector digital de subtensión, sobretensión y sobrecorriente para riel DIN. Ideal para líneas monofásicas de hasta 63 A.",
+    "description": "El GE-PTD63 es un protector de subtensión, sobretensión y sobrecorriente monofásico 1P+N para montaje en riel DIN. Mide y visualiza tensión y corriente en displays independientes, permite configurar umbrales y retardos, y realiza reconexión automática. Recomendado para proteger aires acondicionados, heladeras, luminarias, bombas, persianas y equipos electrónicos.",
+    "specs": {
+      "Número de Polos": "1P+N",
+      "Tensión nominal": "220 Vca",
+      "Rango de operación": "60–400 V",
+      "Frecuencia nominal": "50–60 Hz",
+      "Corriente nominal": "63 A",
+      "Rango configurable de sobrecorriente": "1–40 A (40 A por defecto)",
+      "Rango configurable de sobretensión": "230–300 V (270 V por defecto)",
+      "Rango configurable de subtensión": "110–210 V (170 V por defecto)",
+      "Retardo de disparo (sub/sobre tensión)": "0.1–1 s (0.1 s por defecto)",
+      "Retardo de disparo (sobrecorriente)": "1–30 s (5 s por defecto)",
+      "Cantidad de fallas de sobrecorriente": "0–20 veces (OFF por defecto)",
+      "Tiempo de autoreconexión": "1–500 s (5 s por defecto)",
+      "Temperatura de trabajo": "-20 °C a 70 °C",
+      "Altitud": "≤ 2000 m",
+      "Consumo de energía": "< 2 W",
+      "Montaje": "Riel DIN 35 mm",
+      "Normas": "IEC 60669-2-1 Ed. 4.2",
+      "Sección de conductor": "Hasta 25 mm²"
+    },
+    "tags": ["Protección", "DIN", "63A", "Sobretensión", "Subtensión", "Sobrecorriente"],
+    "images": [
+      "/productos/tension/protector63ampportada.png",
+      "/productos/tension/protector63amp1.png",
+      "/productos/tension/protector63amp2.png",
+      "/productos/tension/protector63amp3.png",
+      "/productos/tension/protector63amp4.png",
+      "/productos/tension/protector63amp5.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PTD63",
+    "featured": true
+  },
+  {
+    "id": "ge-ptd40",
+    "slug": "protector-tension-din-40a",
+    "name": "Protector de Tensión 40 A DIN",
+    "category": "Protector Tensión",
+    "shortDescription": "Protector digital monofásico de 40 A para riel DIN, configurable y con reconexión automática.",
+    "description": "El GE-PTD40 protege instalaciones y equipos ante subtensión, sobretensión y sobrecorriente. Cuenta con displays para visualizar tensión y corriente, umbrales configurables y reconexión automática. Su formato compacto lo hace ideal para tableros residenciales y comerciales.",
+    "specs": {
+      "Número de Polos": "1P+N",
+      "Tensión nominal": "220 Vca",
+      "Rango de operación": "60–400 V",
+      "Frecuencia nominal": "50–60 Hz",
+      "Corriente nominal": "40 A",
+      "Rango configurable de sobrecorriente": "1–40 A (40 A por defecto)",
+      "Rango configurable de sobretensión": "230–300 V (270 V por defecto)",
+      "Rango configurable de subtensión": "110–210 V (170 V por defecto)",
+      "Retardo de disparo (sub/sobre tensión)": "0.1–1 s (0.1 s por defecto)",
+      "Retardo de disparo (sobrecorriente)": "1–30 s (5 s por defecto)",
+      "Cantidad de fallas de sobrecorriente": "0–20 veces (OFF por defecto)",
+      "Tiempo de autoreconexión": "1–500 s (5 s por defecto)",
+      "Temperatura de trabajo": "-20 °C a 70 °C",
+      "Altitud": "≤ 2000 m",
+      "Consumo de energía": "< 2 W",
+      "Montaje": "Riel DIN 35 mm",
+      "Normas": "IEC 60669-2-1 Ed. 4.2",
+      "Sección de conductor": "Hasta 25 mm²"
+    },
+    "tags": ["Protección", "DIN", "40A", "Sobretensión", "Subtensión", "Sobrecorriente"],
+    "images": [
+      "/productos/tension/protector40ampportada.png",
+      "/productos/tension/protector40amp1.png",
+      "/productos/tension/protector40amp2.png",
+      "/productos/tension/protector40amp3.png",
+      "/productos/tension/protector40amp4.png",
+      "/productos/tension/protector40amp5.png"
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": "GE-PTD40",
+    "featured": true
+  },
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-td07m",
     "slug": "interruptor-digital-wifi",
@@ -752,13 +653,13 @@
     },
     "tags": ["WiFi", "Smart", "Control Remoto", "Temporizador", "Geneve"],
     "images": [
-      "https://i.postimg.cc/85vGSww8/Screenshot-2025-09-11-at-2-09-37-PM.png",
-      "https://i.postimg.cc/6QksYnKM/Screenshot-2025-09-11-at-2-09-48-PM.png",
-      "https://i.postimg.cc/zXtcxKST/Screenshot-2025-09-11-at-2-09-58-PM.png",
-      "https://i.postimg.cc/kGMTcg2j/Screenshot-2025-09-11-at-2-10-11-PM.png",
-      "https://i.postimg.cc/854HjgZL/Screenshot-2025-09-11-at-2-10-22-PM.png",
-      "https://i.postimg.cc/X7mgZ8k1/Screenshot-2025-09-11-at-2-10-32-PM.png",
-      "https://i.postimg.cc/gcBV5DQc/Screenshot-2025-09-11-at-2-10-53-PM.png"
+      "/productos/temporizadores/interruptorwifiportada.png",
+      "/productos/temporizadores/interruptorwifi1.png",
+      "/productos/temporizadores/interruptorwifi2.png",
+      "/productos/temporizadores/interruptorwifi3.png",
+      "/productos/temporizadores/interruptorwifi4.png",
+      "/productos/temporizadores/interruptorwifi5.png",
+      "/productos/temporizadores/interruptorwifi6.png"
     ],
     "price": null,
     "currency": "ARS",
@@ -785,11 +686,12 @@
     },
     "tags": ["Temporizador", "Digital", "Programable", "Automatización", "Geneve"],
     "images": [
-      "https://i.postimg.cc/nhsp2H7c/Screenshot-2025-09-11-at-2-19-29-PM.png",
-      "https://i.postimg.cc/gkjWcYgq/Screenshot-2025-09-11-at-2-19-39-PM.png",
-      "https://i.postimg.cc/SsdBq58v/Screenshot-2025-09-11-at-2-19-47-PM.png",
-      "https://i.postimg.cc/d3SgZy5R/Screenshot-2025-09-11-at-2-19-56-PM.png",
-      "https://i.postimg.cc/jdLp0MjM/Screenshot-2025-09-11-at-2-20-05-PM.png"
+      "/productos/temporizadores/tempdigitalportada.png",
+      "/productos/temporizadores/tempdigital1.png",
+      "/productos/temporizadores/tempdigital2.png",
+      "/productos/temporizadores/tempdigital3.png",
+      "/productos/temporizadores/tempdigital4.png"
+     
     ],
     "price": null,
     "currency": "ARS",
@@ -815,13 +717,15 @@
     },
     "tags": ["Temporizador", "Mecánico", "Programación diaria", "Automatización", "Geneve"],
     "images": [
-      "https://i.postimg.cc/rpXstdbL/Screenshot-2025-09-11-at-2-23-45-PM.png",
-      "https://i.postimg.cc/HnhsWj5R/Screenshot-2025-09-11-at-2-23-54-PM.png",
-      "https://i.postimg.cc/s2rfgkQj/Screenshot-2025-09-11-at-2-24-04-PM.png",
-      "https://i.postimg.cc/qRBk82xW/Screenshot-2025-09-11-at-2-24-14-PM.png",
-      "https://i.postimg.cc/nrgpbgft/Screenshot-2025-09-11-at-2-24-25-PM.png",
-      "https://i.postimg.cc/DznFT1Hm/Screenshot-2025-09-11-at-2-24-33-PM.png",
-      "https://i.postimg.cc/BbLfgpL7/Screenshot-2025-09-11-at-2-24-43-PM.png"
+      "/productos/temporizadores/tempmecanicoportada.png",
+      "/productos/temporizadores/tempmecanico1.png",
+      "/productos/temporizadores/tempmecanico2.png",
+      "/productos/temporizadores/tempmecanico3.png",
+      "/productos/temporizadores/tempmecanico4.png",
+      "/productos/temporizadores/tempmecanico5.png",
+      "/productos/temporizadores/tempmecanico6.png",
+      "/productos/temporizadores/tempmecanico7.png"
+     
     ],
     "price": null,
     "currency": "ARS",
@@ -848,13 +752,15 @@
     },
     "tags": ["Temporizador", "Digital", "Riel DIN", "Programable", "Geneve"],
     "images": [
-      "https://i.postimg.cc/9f5PFQYD/Screenshot-2025-09-11-at-2-30-53-PM.png",
-      "https://i.postimg.cc/QNwFrnbt/Screenshot-2025-09-11-at-2-31-12-PM.png",
-      "https://i.postimg.cc/P5zJYfkp/Screenshot-2025-09-11-at-2-31-23-PM.png",
-      "https://i.postimg.cc/PqXb0rbY/Screenshot-2025-09-11-at-2-31-33-PM.png",
-      "https://i.postimg.cc/0Q3p6YT0/Screenshot-2025-09-11-at-2-31-44-PM.png",
-      "https://i.postimg.cc/mgbFgpcG/Screenshot-2025-09-11-at-2-31-52-PM.png",
-      "https://i.postimg.cc/SQ6sY7bQ/Screenshot-2025-09-11-at-2-32-01-PM.png"
+      "/productos/temporizadores/timerportada.png",
+      "/productos/temporizadores/timer1.png",
+      "/productos/temporizadores/timer2.png",
+      "/productos/temporizadores/timer3.png",
+      "/productos/temporizadores/timer4.png",
+      "/productos/temporizadores/timer5.png",
+      "/productos/temporizadores/timer6.png"
+    
+     
     ],
     "price": null,
     "currency": "ARS",
@@ -865,6 +771,37 @@
     ],
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-lf-ledwork",
     "slug": "liston-led-work-1-2-tubos",
@@ -885,6 +822,7 @@
     },
     "tags": ["Panel LED", "Listón LED", "Iluminación", "1 Tubo", "2 Tubos", "Geneve"],
     "images": [
+      "/productos/iluminacion/ledworkportada.png",
       "https://i.postimg.cc/MpKbFpmR/Screenshot-2025-09-11-at-2-39-22-PM.png",
       "https://i.postimg.cc/1XQDcmz8/Screenshot-2025-09-11-at-2-39-30-PM.png",
       "https://i.postimg.cc/Sxv817sF/Screenshot-2025-09-11-at-2-39-38-PM.png",
@@ -1368,6 +1306,35 @@
     "sku": "GE-LAMP6W-NG",
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-interruptor-luz-1punto-wifi",
     "slug": "interruptor-luz-1punto-wifi",
@@ -1717,6 +1684,34 @@
     "sku": "GE-SS04P-NG",
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
   {
     "id": "ge-luz-emergencia-30leds",
     "slug": "luz-emergencia-30leds",
@@ -1899,6 +1894,36 @@
     "sku": "GE-ELO5-S",
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-caja-termica",
     "slug": "caja-para-termica",
@@ -1927,6 +1952,39 @@
     "sku": null,
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-disyuntor-diferencial-25a-30ma",
     "slug": "disyuntor-diferencial-25a-30ma",
@@ -1959,6 +2017,37 @@
     "sku": "GE-ID225A/30",
     "featured": false
   },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   {
     "id": "ge-cano-corrugado",
     "slug": "canos-corrugados",
@@ -1990,7 +2079,142 @@
     "stock": true,
     "sku": null,
     "featured": false
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "ge-cable-taller-bipolar",
+    "slug": "cable-taller-bipolar",
+    "name": "Cable Bipolar Tipo Taller",
+    "category": "Cables",
+    "shortDescription": "Cable flexible bipolar (tipo taller) para extensiones y alimentación de artefactos. Aislación y cubierta en PVC no propagante de llama.",
+    "description": "Cable de dos conductores de cobre clase 5 con aislación PVC y cubierta exterior PVC negra. Diseñado para usos generales de taller y hogar: alargues, lámparas, electrodomésticos livianos y tableros móviles. Flexible, extra deslizante y de fácil tendido. Cumple normas IRAM/IEC y es no propagante de llama.",
+    "specs": {
+      "Conductor": "Cobre electrolítico clase 5 (multihilo)",
+      "Aislación/Cubierta": "PVC no propagante de llama",
+      "Tensión nominal": "300/500 V",
+      "Temperatura de servicio": "-5 °C a 70 °C",
+      "Norma de referencia": "IRAM NM 247 / IEC 60227",
+      "Color de cubierta": "Negro (conductores azul/marrón)"
+    },
+    "models": [
+      { "sección": "2 × 0.75 mm²", "uso": "Extensiones livianas / iluminación" },
+      { "sección": "2 × 1.00 mm²", "uso": "Artefactos y tomas generales" },
+      { "sección": "2 × 1.50 mm²", "uso": "Mayor demanda / herramientas" },
+      { "sección": "2 × 2.50 mm²", "uso": "Cargas más exigentes" }
+    ],
+    "tags": ["Cables", "Bipolar", "Tipo Taller", "Flexible", "PVC", "Extensiones"],
+    "images": [
+      "/productos/cables/cablesportada.png",
+      "/productos/cables/cablestaller1.png",
+      "/productos/cables/cablestaller2.png"
+      
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": null,
+    "featured": false
+  },
+  {
+    "id": "ge-cable-multipolar-1kv",
+    "slug": "cables-multipolares-1kv",
+    "name": "Cable Multipolar Flexible 0,6/1 kV",
+    "category": "Cables",
+    "shortDescription": "Cable multipolar flexible 0,6/1 kV, no propagante de llama, extra deslizante y clase 5.",
+    "description": "Cable multipolar con conductores de cobre clase 5 y aislación/cubierta especial no propagante de llama. Presenta elevada flexibilidad, gran resistencia a la temperatura y a agentes químicos, y baja emisión de humos. Ideal para tableros, máquinas, bandejas y tendidos donde se requiera robustez y maniobrabilidad. Temp. máx. en cortocircuito 160 °C.",
+    "specs": {
+      "Conductor": "Cobre clase 5 (multihilo)",
+      "Aislación/Cubierta": "Compuestos termoplásticos ecológicos (NPF)",
+      "Tensión nominal": "0,6/1 kV",
+      "Temperatura de servicio": "-10 °C a 90 °C (160 °C en cortocircuito)",
+      "Propiedades": "No propagante de llama, extra deslizante, resistente a agentes químicos",
+      "Flexibilidad": "Clase 5",
+      "Norma de referencia": "IRAM / IEC 60502-1"
+    },
+    "models": [
+      { "configuración": "3 × 1.5 mm²", "aplicación": "Iluminación y tomas en tableros" },
+      { "configuración": "4 × 2.5 mm²", "aplicación": "Motores monofásicos / trifásicos livianos" },
+      { "configuración": "5 × 4 mm²", "aplicación": "Trifásico con neutro y tierra" },
+      { "configuración": "3 × 6 mm²", "aplicación": "Alimentación de máquinas" }
+    ],
+    "tags": ["Cables", "Multipolar", "1kV", "No propagante de llama", "Clase 5", "Industrial"],
+    "images": [
+      "/productos/cables/multipolar.png"
+      
+    
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": null,
+    "featured": false
+  },
+  {
+    "id": "ge-cable-unipolar-750v",
+    "slug": "cables-unipolares-750v",
+    "name": "Cable Unipolar Flexible 450/750 V",
+    "category": "Cables",
+    "shortDescription": "Cable unipolar de cobre clase 5, aislación PVC 450/750 V para instalaciones domiciliarias y tableros.",
+    "description": "Conductor unipolar de cobre flexible clase 5 con aislación en PVC no propagante de llama. Apto para instalaciones eléctricas embutidas en caño corrugado o rígido, canalizaciones, bandejas y cableado interno de tableros. Disponible en múltiples colores para fase, neutro y PE.",
+    "specs": {
+      "Conductor": "Cobre electrolítico clase 5 (multihilo)",
+      "Aislación": "PVC 70 °C, no propagante de llama",
+      "Tensión nominal": "450/750 V",
+      "Temperatura de servicio": "-5 °C a 70 °C",
+      "Colores": "Negro, rojo, azul, marrón, blanco, verde/amarillo (PE)",
+      "Norma de referencia": "IRAM NM 247-3 / IEC 60227"
+    },
+    "models": [
+      { "sección": "1 × 1.5 mm²", "uso": "Iluminación" },
+      { "sección": "1 × 2.5 mm²", "uso": "Tomas de uso general" },
+      { "sección": "1 × 4 mm²", "uso": "Líneas dedicadas / aire acondicionado chico" },
+      { "sección": "1 × 6 mm²", "uso": "Alimentaciones / termotanques" },
+      { "sección": "1 × 10 mm²", "uso": "Tableros y montantes" }
+    ],
+    "tags": ["Cables", "Unipolar", "450/750V", "Flexible", "PVC", "Instalaciones"],
+    "images": [
+      "/productos/cables/unipolar.png"
+    
+    ],
+    "price": null,
+    "currency": "ARS",
+    "stock": true,
+    "sku": null,
+    "featured": false
   }
+  
   
   
    

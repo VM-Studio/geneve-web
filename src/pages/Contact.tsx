@@ -1,15 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { Container } from '../components/layout/Container';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Textarea } from '../components/ui/Textarea';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Seo } from '../components/Seo';
 import { track, sendAdsConversion } from '../analytics/track';
 
 // EmailJS
 import emailjs from '@emailjs/browser';
+
+// Datos (categorías y productos) para el selector
+import productsData from '../data/products.json';
+import categoriesData from '../data/categories.json';
 
 export const Contact: React.FC = () => {
   // Datos de contacto
@@ -31,6 +35,39 @@ export const Contact: React.FC = () => {
   const [acepto, setAcepto] = useState(false);
   const [touched, setTouched] = useState<{ [k: string]: boolean }>({});
   const [sending, setSending] = useState(false);
+
+  // === NUEVO: consulta por producto ===
+  const [wantProduct, setWantProduct] = useState<'si' | 'no' | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCategoryId, setSelectedCategoryId] = useState<string | null>(null);
+  const [pickedProducts, setPickedProducts] = useState<string[]>([]);
+
+  const categories: { id: string; name: string; imageUrl?: string }[] = useMemo(
+    () => (categoriesData as any[]) as any[],
+    []
+  );
+
+  const productsByCategory = useMemo(() => {
+    const map: Record<string, any[]> = {};
+    (productsData as any[]).forEach((p: any) => {
+      const key = (p.category || '').toString();
+      if (!map[key]) map[key] = [];
+      map[key].push(p);
+    });
+    return map;
+  }, []);
+
+  const templateWithProducts = (items: string[]) =>
+    `Hola! Deseo consultar por los siguientes productos:\n- ${items.join('\n- ')}`;
+
+  // Si hay productos agregados y el mensaje está vacío (o ya era el template), autocompletar
+  useEffect(() => {
+    if (pickedProducts.length === 0) return;
+    const tmpl = templateWithProducts(pickedProducts);
+    if (mensaje.trim().length === 0 || mensaje.startsWith('Hola! Deseo consultar por los siguientes productos')) {
+      setMensaje(tmpl);
+    }
+  }, [pickedProducts]); // eslint-disable-line
 
   // Validaciones simples
   const errors = {
@@ -113,8 +150,8 @@ export const Contact: React.FC = () => {
       // ✅ Disparo de CONVERSIÓN de Google Ads (evento)
       // Label provisto por Google Ads: AW-17635295323/4TkRCNSqvqkbENuAIdlB
       sendAdsConversion('AW-17635295323/4TkRCNSqvqkbENuAIdlB', {
-        value: 1.0,       // opcional; si no usás valor, podés quitarlo
-        currency: 'ARS',  // opcional; alinealo con la config de Ads
+        value: 1.0,
+        currency: 'ARS',
       });
 
       // Redirección a página de agradecimiento
@@ -144,6 +181,15 @@ export const Contact: React.FC = () => {
       `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
       '_blank'
     );
+  };
+
+  // Agregar producto al listado del mensaje
+  const addProduct = (name: string) => {
+    setPickedProducts((prev) => {
+      if (prev.includes(name)) return prev;
+      return [...prev, name];
+    });
+    alert('¡Se agregó con éxito!');
   };
 
   return (
@@ -263,6 +309,54 @@ export const Contact: React.FC = () => {
                     </div>
                   </div>
 
+                  {/* NUEVO: ¿Desea consultar sobre un producto? */}
+                  <div className="border rounded-xl p-4 bg-gray-50">
+                    <label className="block text-sm font-medium text-gray-800 mb-2">
+                      ¿Desea consultar sobre un producto en particular?
+                    </label>
+                    <div className="flex items-center gap-4">
+                      <label className="inline-flex items-center gap-2 text-sm">
+                        <input
+                          type="radio"
+                          name="wantProduct"
+                          value="si"
+                          checked={wantProduct === 'si'}
+                          onChange={() => {
+                            setWantProduct('si');
+                          }}
+                        />
+                        Sí
+                      </label>
+                      <label className="inline-flex items-center gap-2 text-sm">
+                        <input
+                          type="radio"
+                          name="wantProduct"
+                          value="no"
+                          checked={wantProduct === 'no'}
+                          onChange={() => setWantProduct('no')}
+                        />
+                        No
+                      </label>
+
+                      {wantProduct === 'si' && (
+                        <Button
+                          type="button"
+                          size="sm"
+                          className="ml-auto bg-[#e04f01]"
+                          onClick={() => setModalOpen(true)}
+                        >
+                          Elegir productos
+                        </Button>
+                      )}
+                    </div>
+
+                    {pickedProducts.length > 0 && (
+                      <p className="mt-3 text-xs text-gray-700">
+                        Seleccionados: <span className="font-semibold">{pickedProducts.join(', ')}</span>
+                      </p>
+                    )}
+                  </div>
+
                   {/* Mensaje */}
                   <div>
                     <label className="block text-sm text-gray-700">Detalles del proyecto *</label>
@@ -280,29 +374,19 @@ export const Contact: React.FC = () => {
                     )}
                   </div>
 
-                  {/* Adjunto + cómo nos conociste */}
+                  {/* (REMOVIDO) Adjunto + cómo nos conociste  -> solo '¿Cómo nos conociste?' */}
                   <div className="grid sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm text-gray-700">Adjuntar archivos (opcional)</label>
-                      <label
-                        htmlFor="archivo"
-                        className="mt-2 flex cursor-pointer items-center gap-3 rounded-lg border border-dashed border-gray-300 bg-gray-50 px-4 py-3 text-sm text-gray-700 hover:border-[#e04f01]/40"
-                      >
-                        Subir PDF, JPG, PNG… (máx. 10 MB)
-                      </label>
-                      <input id="archivo" name="archivo" type="file" className="sr-only" />
-                    </div>
-                    <div>
+                    <div className="sm:col-span-2">
                       <label className="block text-sm text-gray-700">¿Cómo nos conociste?</label>
                       <select
                         className="mt-2 w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 outline-none focus:border-[#e04f01] focus:ring-2 focus:ring-[#e04f01]/30"
                         value={tipo}
                         onChange={(e) => setTipo(e.target.value)}
                       >
-                        <option>Residencial</option>
-                        <option>Comercial</option>
-                        <option>Industrial</option>
-                        <option>Obra</option>
+                        <option>Contactos</option>
+                        <option>Redes Sociales</option>
+                        
+                        <option>Obras</option>
                       </select>
                     </div>
                   </div>
@@ -424,6 +508,106 @@ export const Contact: React.FC = () => {
           </main>
         </Container>
       </div>
+
+      {/* === MODAL DE SELECCIÓN DE PRODUCTOS === */}
+      {modalOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center">
+          <div
+            className="absolute inset-0 bg-black/50"
+            onClick={() => setModalOpen(false)}
+          />
+          <div className="relative bg-white w-[min(100%,1000px)] max-h-[85vh] rounded-2xl shadow-2xl overflow-hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b">
+              <h3 className="text-lg font-semibold">Elegí una categoría y agregá productos</h3>
+              <button
+                className="p-2 rounded hover:bg-gray-100"
+                onClick={() => setModalOpen(false)}
+                aria-label="Cerrar"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <div className="grid md:grid-cols-12 gap-0">
+              {/* Categorías */}
+              <aside className="md:col-span-4 border-r overflow-y-auto max-h-[65vh]">
+                <div className="p-4 grid grid-cols-2 md:grid-cols-1 gap-3">
+                  {categories.map((c) => (
+                    <button
+                      key={c.id}
+                      onClick={() => setSelectedCategoryId(c.name)}
+                      className={[
+                        'flex items-center gap-3 rounded-xl border px-3 py-2 text-left hover:border-[#e04f01]/50 transition',
+                        selectedCategoryId === c.name ? 'border-[#e04f01] bg-[#e04f01]/5' : 'border-gray-200 bg-white'
+                      ].join(' ')}
+                    >
+                      <img
+                        src={
+                          c.imageUrl ??
+                          'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=400&auto=format&fit=crop'
+                        }
+                        alt={c.name}
+                        className="w-12 h-12 rounded-lg object-cover"
+                      />
+                      <span className="text-sm font-medium">{c.name}</span>
+                    </button>
+                  ))}
+                </div>
+              </aside>
+
+              {/* Productos */}
+              <section className="md:col-span-8 overflow-y-auto max-h-[65vh] p-4">
+                {!selectedCategoryId ? (
+                  <p className="text-sm text-gray-600">Elegí una categoría para ver sus productos.</p>
+                ) : (
+                  <div className="space-y-3">
+                    {(productsByCategory[selectedCategoryId] ?? []).map((p: any) => (
+                      <div
+                        key={p.id}
+                        className="flex items-center justify-between rounded-xl border border-gray-200 p-3"
+                      >
+                        <div className="flex items-center gap-3">
+                          <img
+                            src={(p.images && p.images[0]) || '/placeholder.png'}
+                            alt={p.name}
+                            className="w-14 h-14 rounded-md object-cover bg-gray-50"
+                          />
+                          <div>
+                            <div className="text-sm font-semibold">{p.name}</div>
+                            <div className="text-xs text-gray-600">{p.sku || p.id}</div>
+                          </div>
+                        </div>
+                        <Button
+                          type="button"
+                          size="sm"
+                          className="bg-[#e04f01]"
+                          onClick={() => addProduct(p.name)}
+                        >
+                          Agregar este producto
+                        </Button>
+                      </div>
+                    ))}
+                    {(productsByCategory[selectedCategoryId] ?? []).length === 0 && (
+                      <p className="text-sm text-gray-600">No hay productos en esta categoría.</p>
+                    )}
+                  </div>
+                )}
+
+                <div className="pt-4">
+                  <Button
+                    type="button"
+                    variant="outline"
+                    className="w-full"
+                    onClick={() => setModalOpen(false)}
+                  >
+                    Listo
+                  </Button>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };
