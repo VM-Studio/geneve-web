@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
 import { CartProvider } from './store/CartContext';
@@ -53,11 +53,18 @@ function App() {
 
                 {/* --- Redirects/alias para Ads y SEO --- */}
                 <Route path="/catalogo" element={<Navigate to="/catalog" replace />} />
-                <Route path="/informacion-tecnica" element={<Navigate to="/techinfo" replace />} />
-                <Route path="/certificaciones" element={<Navigate to="/certifications" replace />} />
+                <Route
+                  path="/informacion-tecnica"
+                  element={<Navigate to="/techinfo" replace />}
+                />
+                <Route
+                  path="/certificaciones"
+                  element={<Navigate to="/certifications" replace />}
+                />
                 <Route path="/obras" element={<Navigate to="/works" replace />} />
                 <Route path="/contacto" element={<Navigate to="/contact" replace />} />
 
+                {/* Alias viejos / variantes de mayúsculas */}
                 <Route path="/tech-info" element={<Navigate to="/techinfo" replace />} />
                 <Route path="/Catalog" element={<Navigate to="/catalog" replace />} />
                 <Route path="/Works" element={<Navigate to="/works" replace />} />
@@ -80,7 +87,8 @@ function App() {
               onClick={() =>
                 track('cta_whatsapp_fab_click', {
                   source: 'floating_button',
-                  path: typeof window !== 'undefined' ? window.location.pathname : '',
+                  path:
+                    typeof window !== 'undefined' ? window.location.pathname : '',
                 })
               }
             >

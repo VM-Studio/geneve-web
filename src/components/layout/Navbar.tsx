@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -7,18 +7,13 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
 
   const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'Catálogo', href: '/catalog' },
-    { name: 'Obras', href: '/works' },
-    { name: 'Información Técnica', href: '/tech-info' },
-    { name: 'Certificaciones', href: '/certifications' },
-    { name: 'Contacto', href: '/contact' },
+    { name: 'Home', to: '/' },
+    { name: 'Catálogo', to: '/catalog' },
+    { name: 'Obras', to: '/works' },
+    { name: 'Información Técnica', to: '/tech-info' },
+    { name: 'Certificaciones', to: '/certifications' },
+    { name: 'Contacto', to: '/contact' },
   ];
-
-  const isActiveLink = (href: string) => {
-    if (href === '/') return location.pathname === '/';
-    return location.pathname.startsWith(href);
-  };
 
   const isHome = location.pathname === '/';
 
@@ -56,22 +51,25 @@ export const Navbar: React.FC = () => {
           <div className="flex-1 flex justify-center font-heading">
             <div className="hidden md:flex items-center space-x-12">
               {navigation.map((item) => (
-                <Link
+                <NavLink
                   key={item.name}
-                  to={item.href}
-                  className={[
-                    'text-sm font-bold transition-colors outline-none focus:outline-none',
-                    isHome
-                      ? (isActiveLink(item.href)
+                  to={item.to}
+                  end={item.to === '/'}
+                  className={({ isActive }) =>
+                    [
+                      'text-sm font-bold transition-colors outline-none focus:outline-none',
+                      isHome
+                        ? isActive
                           ? 'text-[#e84e1b] border-b-2 border-[#e84e1b] pb-1 bg-white/90 rounded-t'
-                          : 'text-gray-900 hover:text-[#e84e1b]')
-                      : (isActiveLink(item.href)
+                          : 'text-gray-900 hover:text-[#e84e1b]'
+                        : isActive
                           ? 'text-white border-b-2 border-white pb-1'
-                          : 'text-white/90 hover:text-white')
-                  ].join(' ')}
+                          : 'text-white/90 hover:text-white'
+                    ].join(' ')
+                  }
                 >
                   {item.name}
-                </Link>
+                </NavLink>
               ))}
             </div>
           </div>
@@ -100,23 +98,26 @@ export const Navbar: React.FC = () => {
         >
           <div className="pt-2 space-y-2">
             {navigation.map((item) => (
-              <Link
+              <NavLink
                 key={item.name}
-                to={item.href}
+                to={item.to}
+                end={item.to === '/'}
                 onClick={() => setIsMenuOpen(false)}
-                className={[
-                  'block px-4 py-2 rounded-lg text-base font-bold transition-colors outline-none focus:outline-none',
-                  isHome
-                    ? (isActiveLink(item.href)
+                className={({ isActive }) =>
+                  [
+                    'block px-4 py-2 rounded-lg text-base font-bold transition-colors outline-none focus:outline-none',
+                    isHome
+                      ? isActive
                         ? 'text-white bg-[#e84e1b]'
-                        : 'text-gray-900 hover:text-[#e84e1b] bg-white/90')
-                    : (isActiveLink(item.href)
+                        : 'text-gray-900 hover:text-[#e84e1b] bg-white/90'
+                      : isActive
                         ? 'text-[#e84e1b] bg-white'
-                        : 'text-white hover:bg:white/10 hover:bg-white/10')
-                ].join(' ')}
+                        : 'text-white hover:bg-white/10'
+                  ].join(' ')
+                }
               >
                 {item.name}
-              </Link>
+              </NavLink>
             ))}
           </div>
         </div>
