@@ -104,7 +104,7 @@ export const Certifications: React.FC = () => {
             return (
               <article
                 key={cert.id}
-                className="group rounded-xl bg-white p-5 border border-gray-200 hover:shadow-md transition"
+                className="group rounded-lg bg-white p-5 border border-gray-200 hover:shadow-md transition"
               >
                 {/* Cabecera */}
                 <div className="flex items-center gap-4">
@@ -115,15 +115,7 @@ export const Certifications: React.FC = () => {
                     <h3 className="font-semibold text-gray-900 leading-tight truncate">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-gray-500 truncate">{cert.issuer}</p>
                   </div>
-
-                  {/* Estado */}
-                  <span
-                    className={`shrink-0 rounded-full text-xs px-2 py-1 ring-1 ${status.className}`}
-                  >
-                    {status.label}
-                  </span>
                 </div>
 
                 {/* Tags */}
@@ -142,23 +134,10 @@ export const Certifications: React.FC = () => {
 
                 {/* Acciones */}
                 <div className="mt-5 flex items-center gap-3">
-                  {cert.credentialUrl && (
-                    <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border border-gray-200 hover:bg-gray-50 transition"
-                    >
-                      {/* ícono abrir */}
-                      <ExternalLink className="h-4 w-4" />
-                      Ver credencial
-                    </a>
-                  )}
-
                   <a
                     href={cert.documentUrl}
                     download
-                    className="ml-auto text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border transition font-heading"
+                    className="text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border transition font-heading"
                     style={{
                       color: BRAND,
                       borderColor: `${BRAND}55`,
@@ -174,6 +153,19 @@ export const Certifications: React.FC = () => {
                     <Download className="h-4 w-4" />
                     Descargar PDF
                   </a>
+                  
+                  {cert.credentialUrl && (
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm inline-flex items-center gap-2 rounded-lg px-3 py-2 border border-gray-200 hover:bg-gray-50 transition"
+                    >
+                      {/* ícono abrir */}
+                      <ExternalLink className="h-4 w-4" />
+                      Ver credencial
+                    </a>
+                  )}
                 </div>
               </article>
             );
@@ -183,11 +175,11 @@ export const Certifications: React.FC = () => {
         <div className="flex justify-center mt-10 border-[#e04f01]">
         <Link
   to="/catalog"
-  className="inline-flex items-center gap-2 rounded-2xl px-6 py-3
+  className="inline-flex items-center gap-2 rounded-none px-6 py-3
              text-lg !font-extrabold !font-[Sora]
-             bg-[#e84e1b] text-white border-2 border-[#e84e1b]
-             shadow-[0_6px_16px_-6px_rgba(232,78,27,.45)]
-             hover:bg-[#d94b17] focus-visible:ring-2 focus-visible:ring-[#e84e1b]/40
+             bg-[#e67a5d] text-white border-2 border-[#e67a5d]
+             shadow-[0_6px_16px_-6px_rgba(230,122,93,.45)]
+             hover:bg-[#e67a5d]/90 focus-visible:ring-2 focus-visible:ring-[#e67a5d]/40
              transition"
   aria-label="Ir a todos los Productos"
 >

@@ -32,7 +32,7 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
 
   // Tarjeta sin sombra de fondo
   const CardInner: React.FC<{ name: string; imageUrl: string }> = ({ name, imageUrl }) => (
-    <div className="relative overflow-hidden rounded-3xl bg-white  ring-zinc-200/70">
+    <div className="relative overflow-hidden rounded-lg bg-white  ring-zinc-200/70">
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
           src={imageUrl}
@@ -41,7 +41,7 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
         />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/55 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 grid place-items-center pb-4">
-          <span className="rounded-full bg-[#e84e1b] px-5 py-2 text-sm font-extrabold tracking-wide text-white uppercase shadow backdrop-blur font-heading">
+          <span className="rounded-none bg-[#e84e1b] px-5 py-2 text-sm font-extrabold tracking-wide text-white uppercase shadow backdrop-blur font-heading">
             {name}
           </span>
         </div>
@@ -56,9 +56,9 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
         aria-label="Anterior"
         onClick={() => scrollByCards("left")}
         type="button"
-        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e84e1b] text-white shadow-lg ring-1 ring-[#e84e1b]/80 transition hover:scale-105 focus:outline-none"
+        className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e67a5d] text-white shadow-lg ring-1 ring-[#e67a5d]/80 transition hover:scale-105 focus:outline-none"
         style={{ outline: "none", boxShadow: "0 0 0 3px transparent" }}
-        onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e84e1b")}
+        onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e67a5d")}
         onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px transparent")}
       >
         <ChevronLeft className="h-5 w-5" />
@@ -118,9 +118,9 @@ export const ProductCarousel: React.FC<Props> = ({ items, onItemClick }) => {
         aria-label="Siguiente"
         onClick={() => scrollByCards("right")}
         type="button"
-        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e84e1b] text-white shadow-lg ring-1 ring-[#e84e1b]/80 transition hover:scale-105 focus:outline-none"
+        className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-10 h-12 w-12 items-center justify-center rounded-full bg-[#e67a5d] text-white shadow-lg ring-1 ring-[#e67a5d]/80 transition hover:scale-105 focus:outline-none"
         style={{ outline: "none", boxShadow: "0 0 0 3px transparent" }}
-        onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e84e1b")}
+        onFocus={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px #e67a5d")}
         onBlur={(e) => (e.currentTarget.style.boxShadow = "0 0 0 3px transparent")}
       >
         <ChevronRight className="h-5 w-5" />

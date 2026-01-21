@@ -5,37 +5,34 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#e84e1b] text-white">
+    <footer className="bg-[#e67a5d] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Grid principal con divisores entre columnas */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-10 md:divide-x md:divide-white/20">
-          {/* Columna 1: Descripción (sin logo ni botón) */}
-          <div className="space-y-3 md:pr-6">
-            <h3 className="text-lg font-semibold text-white">Geneve</h3>
-            <p className="text-white/90 text-sm leading-relaxed">
-              Soluciones confiables para proyectos de construcción, seguridad e
-              iluminación. Más de 20 años brindando servicios a clientes
-              residenciales y comerciales.
-            </p>
-          </div>
-
-          {/* Columna 2: Contacto (sin ubicación) */}
-          <div className="space-y-3 md:px-6">
-            <h3 className="text-lg font-semibold text-white">Contacto</h3>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4" />
-                <span className="text-white/90">+54 11 5927-8803</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Mail className="w-4 h-4" />
-                <span className="text-white/90">obras@geneve.com.ar</span>
+        {/* Grid principal sin divisores */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          {/* Columna 1: Logo y Contacto */}
+          <div className="space-y-6">
+            <img
+              src="/genevenavbar.png"
+              alt="GENEVE"
+              className="h-12 w-auto object-contain"
+            />
+            <div className="space-y-3">
+              <h3 className="text-lg font-semibold text-white">Contacto</h3>
+              <div className="space-y-2 text-sm">
+                <div className="flex items-center gap-2">
+                  <Phone className="w-4 h-4" />
+                  <span className="text-white/90">+54 11 5927-8803</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4" />
+                  <span className="text-white/90">obras@geneve.com.ar</span>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Columna 3: Enlaces Rápidos */}
-          <div className="space-y-3 md:px-6">
+          {/* Columna 2: Enlaces Rápidos */}
+          <div className="space-y-3">
             <h3 className="text-lg font-semibold text-white">Enlaces Rápidos</h3>
             <ul className="space-y-2 text-sm">
               <li>
@@ -61,8 +58,8 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Columna 4: Horarios */}
-          <div className="space-y-3 md:pl-6">
+          {/* Columna 3: Horarios */}
+          <div className="space-y-3">
             <h3 className="text-lg font-semibold text-white">Horarios</h3>
             <div className="space-y-2 text-sm text-white/90">
               <p>

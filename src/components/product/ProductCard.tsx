@@ -31,8 +31,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   product,
   onSelect,
   isActive = false,
-  width = 240,
-  height = 240,
+  width = 180,
+  height = 180,
 }) => {
   const img = product?.images?.[0] ?? '';
 
@@ -46,8 +46,8 @@ export const ProductCard: React.FC<ProductCardProps> = ({
     >
       {/* Imagen */}
       <div
-        className={`relative overflow-hidden rounded-3xl bg-white transition-all duration-300
-                    ${isActive ? 'ring-2 ring-[#e84e1b] shadow-lg' : 'shadow-md hover:shadow-lg'}`}
+        className={`relative overflow-hidden rounded-none bg-white transition-all duration-300
+                    ${isActive ? 'ring-2 ring-[#e67a5d]' : 'hover:shadow-lg'}`}
         style={{ width, height }}
       >
         <img
@@ -61,15 +61,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       {/* Nombre */}
       <h3
         className={`mt-4 font-semibold leading-tight text-gray-900
-                    ${isActive ? 'text-[#e84e1b]' : 'group-hover:text-[#e84e1b]'} transition-colors`}
+                    ${isActive ? 'text-[#e67a5d]' : 'group-hover:text-[#e67a5d]'} transition-colors`}
       >
         {product.name}
       </h3>
-
-      {/* Link visual (no navega) */}
-      <span className="mt-1 text-sm text-[#e84e1b] font-medium group-hover:underline">
-        Ver detalle
-      </span>
     </button>
   );
 };

@@ -125,12 +125,6 @@ export const Product: React.FC<ProductDetailProps> = ({ product: productProp, mo
           {/* Información */}
           <div>
             <div className="mb-6">
-              <div className="flex items-center gap-2 mb-3">
-                {product.featured && <Badge variant="secondary">Destacado</Badge>}
-                {product.stock === false && <Badge variant="error">Sin Stock</Badge>}
-                {product.stock === true && <Badge variant="success">Stock</Badge>}
-              </div>
-
               <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
               {product.shortDescription && (

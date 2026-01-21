@@ -10,9 +10,6 @@ import { Home } from './pages/Home';
 import { Catalog } from './pages/Catalog';
 import { Product } from './pages/Product';
 import { Quote } from './pages/Quote';
-import { Works } from './pages/Works';
-import { TechInfo } from './pages/TechInfo';
-import { TechArticle } from './pages/TechArticle';
 import { Certifications } from './pages/Certifications';
 import { Contact } from './pages/Contact';
 import ThankYou from './pages/ThankYou';
@@ -39,13 +36,8 @@ function App() {
                 <Route path="/catalog" element={<Catalog />} />
                 <Route path="/product/:slug" element={<Product />} />
                 <Route path="/quote" element={<Quote />} />
-                <Route path="/works" element={<Works />} />
                 <Route path="/certifications" element={<Certifications />} />
                 <Route path="/contact" element={<Contact />} />
-
-                {/* Técnica */}
-                <Route path="/techinfo" element={<TechInfo />} />
-                <Route path="/techinfo/:slug" element={<TechArticle />} />
 
                 {/* Thank you */}
                 <Route path="/agradecimiento" element={<ThankYou />} />
@@ -54,20 +46,13 @@ function App() {
                 {/* --- Redirects/alias para Ads y SEO --- */}
                 <Route path="/catalogo" element={<Navigate to="/catalog" replace />} />
                 <Route
-                  path="/informacion-tecnica"
-                  element={<Navigate to="/techinfo" replace />}
-                />
-                <Route
                   path="/certificaciones"
                   element={<Navigate to="/certifications" replace />}
                 />
-                <Route path="/obras" element={<Navigate to="/works" replace />} />
                 <Route path="/contacto" element={<Navigate to="/contact" replace />} />
 
                 {/* Alias viejos / variantes de mayúsculas */}
-                <Route path="/tech-info" element={<Navigate to="/techinfo" replace />} />
                 <Route path="/Catalog" element={<Navigate to="/catalog" replace />} />
-                <Route path="/Works" element={<Navigate to="/works" replace />} />
                 <Route path="/Contact" element={<Navigate to="/contact" replace />} />
 
                 {/* 404 */}

@@ -42,9 +42,9 @@ export const Home: React.FC = () => {
   // Carrusel superior
   const carouselItems = [
     { id: '1', name: 'CABLES', to: '/product/caja-para-termica', imageUrl: "/productos/catalogo/cabless.png" },
+    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
     { id: '2', name: 'DISYUNTORES', href: '/product/disyuntor-diferencial-25a-30ma', imageUrl: 'https://i.postimg.cc/k48CjWvx/Screenshot-2025-09-25-at-8-29-38-AM.png' },
     { id: '3', name: 'LUCES DE EMERGENCIA', to: '/product/luz-emergencia-60leds', imageUrl: 'https://i.postimg.cc/V6tHt8jR/Screenshot-2025-09-25-at-9-36-53-AM.png' },
-    { id: '4', name: 'CAÑOS CORRUGADOS', to: '/product/canos-corrugados', imageUrl: 'https://i.postimg.cc/zGtm6kNb/Screenshot-2025-10-03-at-7-37-30-AM.png' },
     { id: '5', name: 'CAJAS TÉRMICAS', to: '/product/caja-para-termica', imageUrl: 'https://i.postimg.cc/dt8trw5b/Screenshot-2025-09-21-at-4-13-10-PM.png' },
   ];
 
@@ -105,40 +105,46 @@ export const Home: React.FC = () => {
         ]}
       />
 
-      {/* Hero con efecto restaurado y capas sin capturar clics */}
-      <section className="relative isolate overflow-hidden py-20 [--brand:#e84e1b] bg-[color:var(--brand)]">
-        <div className="absolute inset-0 -z-10 pointer-events-none">
-          <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(1200px_600px_at_50%_-10%,_rgba(255,255,255,.22),_transparent_60%),radial-gradient(900px_500px_at_10%_120%,_rgba(0,0,0,.18),_transparent_40%)]"></div>
-          <div className="absolute inset-0 pointer-events-none opacity-[.18] mix-blend-overlay bg-[linear-gradient(transparent_39px,_rgba(255,255,255,1)_40px),linear-gradient(90deg,transparent_39px,_rgba(255,255,255,1)_40px)] bg-[size:40px_40px]"></div>
-        </div>
+      {/* Hero - Dos columnas */}
+      <section className="relative isolate overflow-hidden bg-white">
+        <Container className="py-14 lg:py-20">
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+            {/* Columna Izquierda - Contenido */}
+            <div className="space-y-7 lg:pr-8">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
+                Soluciones Eléctricas para tu Obra
+              </h1>
+              
+              <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed">
+                Proveemos productos eléctricos certificados de alta calidad para obras residenciales y comerciales. Asesoramiento técnico y envíos a todo el país.
+              </p>
+              
+              <div className="pt-4">
+                <Button
+                  as={Link}
+                  to="/catalog"
+                  size="lg"
+                  className="inline-flex items-center space-x-2 bg-[#e67a5d] text-white hover:bg-[#e67a5d]/90 rounded-none"
+                >
+                  <span>Ver Catálogo</span>
+                  <ArrowRight className="w-5 h-5" />
+                </Button>
+              </div>
+            </div>
 
-        <div className="mx-auto max-w-6xl px-6 [perspective:1200px]">
-          <div id="tilt-hero" className="relative mx-auto max-w-4xl will-change-transform transition-transform duration-300 [transform-style:preserve-3d]">
-            <div className="pointer-events-none absolute -inset-[2px] rounded-[28px] bg-gradient-to-br from-white/30 via-white/10 to-transparent blur-xl opacity-60"></div>
-
-            <div className="relative rounded-[26px] bg-white/10 backdrop-blur-xl border border-white/20 shadow-[0_20px_60px_rgba(0,0,0,.35)] px-8 sm:px-12 py-12 text-center text-white [transform-style:preserve-3d]">
-              <span className="hidden sm:block absolute -top-4 -left-4 h-24 w-24 rounded-2xl bg-white/15 border border-white/25 shadow-lg [transform:translateZ(55px)] pointer-events-none"></span>
-              <span className="hidden sm:block absolute -bottom-6 -right-6 h-28 w-28 rounded-2xl bg-black/10 border border-white/15 shadow-xl [transform:translateZ(35px)] pointer-events-none"></span>
-
-              <h2 className="text-3xl sm:text-9xl font-extrabold tracking-tight leading-none [transform:translateZ(60px)]">
+            {/* Columna Derecha - Imagen */}
+            <div className="relative lg:pl-8 lg:scale-110">
+              <div className="aspect-[5/3] rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/titulo.png"
-                  alt="GENEVE"
-                  className="mx-auto block h-[1em] w-auto select-none pointer-events-none align-middle [filter:drop-shadow(0_2px_0_rgba(0,0,0,.15))]"
+                  src="/productos/catalogo/cabless.png"
+                  alt="Productos Geneve"
+                  className="w-full h-full object-cover"
                   loading="eager"
-                  decoding="async"
-                  draggable={false}
                 />
-              </h2>
-
-              <div className="mt-6 flex items-center justify-center gap-6 text-xs text-white/80 [transform:translateZ(45px)] font-heading">
-                <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> +350 obras</span>
-                <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Productos certificados según normas IEC</span>
-                <span className="inline-flex items-center gap-2"><span className="h-1.5 w-1.5 rounded-full bg-white/70"></span> Envíos a todo el país</span>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
       {/* Carrusel categorías */}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { ChevronLeft, ChevronRight, Grid, List, Download, X } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Download, X } from 'lucide-react';
 import { Container } from '../components/layout/Container';
 import { ProductCard } from '../components/product/ProductCard';
-import { Button } from '../components/ui/Button';
+import { ProductCarousel } from '../components/product/ProductCarousel';
 import { useCart } from '../store/CartContext';
 import { showToast } from '../components/ui/Toast';
 import productsData from '../data/products.json';
@@ -35,7 +35,6 @@ const CATALOG_PDFS = [
 
 export const Catalog: React.FC = () => {
   const { addItem } = useCart();
-  const [viewMode, setViewMode] = React.useState<'grid' | 'list'>('grid');
 
   // ===== Modal PDFs
   const [showCatalogs, setShowCatalogs] = React.useState(false);
@@ -100,6 +99,8 @@ export const Catalog: React.FC = () => {
     () => productsOfSelected.find((p) => p.id === selectedProductId) ?? productsOfSelected[0],
     [productsOfSelected, selectedProductId]
   );
+  const productDetailRef = React.useRef<HTMLDivElement | null>(null);
+  
   React.useEffect(() => {
     setSelectedProductId(productsOfSelected.length ? productsOfSelected[0].id : null);
   }, [productsOfSelected]);
@@ -156,9 +157,9 @@ export const Catalog: React.FC = () => {
           <button
             type="button"
             onClick={() => setShowCatalogs(true)}
-            className="group w-[92%] max-w-5xl rounded-3xl bg-white px-6 py-5 text-left 
-                       shadow-[0_8px_25px_-5px_rgba(232,78,27,0.35)] ring-1 ring-[#e84e1b]/20 
-                       hover:shadow-[0_8px_30px_-5px_rgba(232,78,27,0.45)] transition"
+            className="group w-[92%] max-w-5xl rounded-none bg-white px-6 py-5 text-left 
+                       ring-1 ring-[#e84e1b]/20 
+                       hover:ring-[#e84e1b]/30 transition outline-none focus:outline-none"
           >
             <div className="flex items-center gap-4">
               <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-[#e84e1b]/10">
@@ -172,7 +173,7 @@ export const Catalog: React.FC = () => {
                   Abrí el listado y descargá el PDF que necesites.
                 </p>
               </div>
-              <span className="rounded-xl bg-[#e84e1b] px-4 py-2 text-sm font-semibold text-white group-hover:opacity-95 transition">
+              <span className="rounded-none bg-[#e67a5d] px-4 py-2 text-sm font-semibold text-white group-hover:opacity-95 transition">
                 Ver catálogos
               </span>
             </div>
@@ -231,81 +232,18 @@ export const Catalog: React.FC = () => {
         )}
 
         {/* ===== Carrusel de CATEGORÍAS ===== */}
-        <div className="relative mb-8">
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50 focus:outline-none"
-            aria-label="Anterior"
-          >
-            <ChevronLeft className="h-5 w-5" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white shadow ring-1 ring-black/10 hover:bg-gray-50 focus:outline-none"
-            aria-label="Siguiente"
-          >
-            <ChevronRight className="h-5 w-5" />
-          </button>
-
-          <div
-            ref={scrollerRef}
-            className="flex gap-8 overflow-x-auto px-14 py-4 snap-x snap-mandatory items-stretch hide-scrollbar"
-          >
-            {categories.map((cat, i) => {
-              const img =
-                cat.imageUrl ??
-                'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop';
-              const active = selectedCategory === cat.name;
-
-              return (
-                <button
-                  key={cat.id}
-                  ref={(el) => (cardRefs.current[i] = el)}
-                  onClick={() => selectCategory(i)}
-                  aria-label={`Ver ${cat.name}`}
-                  className={`group relative flex-shrink-0 snap-center transition-all duration-500 ease-out
-                    ${active ? 'w-[min(70vw,340px)] scale-105' : 'w-[min(56vw,260px)] scale-[.97] opacity-95'}
-                    focus:outline-none
-                  `}
-                  style={{ flex: '0 0 auto' }}
-                >
-                  <div className="relative overflow-hidden rounded-3xl bg-white shadow-[0_16px_50px_-22px_rgba(2,6,23,0.45)] transition-all duration-500 ease-out">
-                    <div className="relative w-full aspect-[3/4] bg-white">
-                      <img
-                        src={img}
-                        alt={cat.name}
-                        loading="lazy"
-                        className={`absolute inset-0 h-full w-full object-contain transition-transform duration-500 ease-out
-                          ${active ? 'scale-[1.12]' : 'scale-[1.04] group-hover:scale-[1.08]'}
-                        `}
-                      />
-                      <div className="absolute inset-x-0 bottom-0 p-5 text-left">
-                        <h3
-                          className={`mb-2 font-extrabold tracking-tight text-[#e84e1b] whitespace-normal break-words ${
-                            active ? 'text-[1.35rem]' : 'text-[1.05rem]'
-                          }`}
-                        >
-                          {cat.name}
-                        </h3>
-
-                        <span
-                          onClick={(e) => {
-                            e.preventDefault();
-                            e.stopPropagation();
-                            goToProducts(i);
-                          }}
-                          className="inline-flex items-center justify-center rounded-2xl px-4 py-2 text-sm font-semibold bg-[#e84e1b] text-white hover:opacity-95 transition"
-                        >
-                          Ver productos
-                        </span>
-                      </div>
-                    </div>
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/5" />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
+        <div className="mb-8">
+          <ProductCarousel 
+            items={categories.map((cat, i) => ({
+              id: cat.id,
+              name: cat.name,
+              imageUrl: cat.imageUrl ?? 'https://images.unsplash.com/photo-1589903619406-a9c9d5f9b2c3?q=80&w=1600&auto=format&fit=crop',
+            }))}
+            onItemClick={(item) => {
+              const index = categories.findIndex(c => c.id === item.id);
+              if (index !== -1) goToProducts(index);
+            }}
+          />
         </div>
 
         {/* (Oculto por defecto; siempre hay categoría activa) */}
@@ -318,21 +256,10 @@ export const Catalog: React.FC = () => {
         {/* ===== Productos de la categoría seleccionada ===== */}
         {selectedCategory ? (
           <section ref={productsRef} id="products" className="mt-20">
-            <div className="font-heading">
+            <div className="font-heading mb-12">
               <h1 className="font-extrabold text-center tracking-tight leading-tight text-[clamp(18px,3vw,36px)]">
                 {`Todos los Productos de ${selectedCategory}`}
               </h1>
-            </div>
-
-            <div className="flex flex-wrap items-center justify-end gap-3">
-              <div className="flex items-center space-x-2">
-                <Button variant={viewMode === 'grid' ? 'primary' : 'ghost'} size="sm" onClick={() => setViewMode('grid')}>
-                  <Grid className="w-4 h-4" />
-                </Button>
-                <Button variant={viewMode === 'list' ? 'primary' : 'ghost'} size="sm" onClick={() => setViewMode('list')}>
-                  <List className="w-4 h-4" />
-                </Button>
-              </div>
             </div>
 
             {productsOfSelected.length === 0 ? (
@@ -385,7 +312,7 @@ export const Catalog: React.FC = () => {
                 </div>
 
                 {selectedProduct ? (
-                  <div className="mt-6">
+                  <div ref={productDetailRef} className="mt-6">
                     <ProductDetail product={selectedProduct} mode="inline" />
                   </div>
                 ) : null}
