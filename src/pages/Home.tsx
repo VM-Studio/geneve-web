@@ -14,8 +14,12 @@ export const Home: React.FC = () => {
   const { addItem } = useCart();
   const whatsappPhone = import.meta.env.VITE_WHATSAPP_PHONE || '5491159278803';
 
-  const featuredProducts = productsData.filter(p => p.featured);
-  const gridProducts = featuredProducts.slice(0, 4); // 4 productos (2x2)
+  // Productos específicos para la grilla
+  const productNames = ['Cable Bipolar Tipo Taller', 'Caños Corrugados', 'Disyuntor Diferencial', 'Luz de Emergencia 30 LEDs'];
+  const gridProducts = productNames
+    .map(name => productsData.find((p: any) => p.name.includes(name)))
+    .filter((p): p is any => p !== undefined)
+    .slice(0, 4);
 
   const handleAddToQuote = (productId: string, indexInGrid?: number) => {
     const product = productsData.find(p => p.id === productId);
@@ -124,10 +128,9 @@ export const Home: React.FC = () => {
                   as={Link}
                   to="/catalog"
                   size="lg"
-                  className="inline-flex items-center space-x-2 bg-[#e67a5d] text-white hover:bg-[#e67a5d]/90 rounded-none"
+                  className="inline-flex items-center space-x-2 bg-[#e67a5d] text-white hover:bg-[#e67a5d]/90 !rounded-none"
                 >
                   <span>Ver Catálogo</span>
-                  <ArrowRight className="w-5 h-5" />
                 </Button>
               </div>
             </div>
@@ -189,7 +192,7 @@ export const Home: React.FC = () => {
                 return (
                   <article
                     key={p.id}
-                    className="rounded-2xl bg-white ring-1 ring-zinc-200 shadow-[0_20px_60px_-30px_rgba(2,6,23,.12)] p-5 sm:p-6"
+                    className="rounded-none bg-white ring-1 ring-zinc-200 shadow-[0_20px_60px_-30px_rgba(2,6,23,.12)] p-5 sm:p-6"
                   >
                     {/* 2 columnas: imagen fija + texto con ancho máximo */}
                     <div className="grid grid-cols-[180px_1fr] sm:grid-cols-[220px_1fr] gap-6 sm:gap-8 items-start">
@@ -228,18 +231,9 @@ export const Home: React.FC = () => {
                         </p>
 
                         <div className="mt-4 flex items-center gap-3">
-                          <button
-                            type="button"
-                            onClick={() => handleAddToQuote(p.id, idx)}
-                            className="inline-flex items-center justify-center rounded-full px-0 py-2 text-sm font-semibold text-[#e84e1b] hover:underline"
-                            aria-label={`Agregar ${p.name}`}
-                          >
-                            Agregar
-                          </button>
-
                           <Link
                             to={`/product/${p.id}`}
-                            className="inline-flex items-center justify-center rounded-full border border-zinc-300 bg-white px-6 py-2 text-sm font-semibold hover:bg-zinc-50 whitespace-nowrap"
+                            className="inline-flex items-center justify-center rounded-none border border-zinc-300 bg-white px-6 py-2 text-sm font-semibold hover:bg-zinc-50 whitespace-nowrap"
                             aria-label={`Ver detalle de ${p.name}`}
                             onClick={() =>
                               track('cta_view_product_click', {
@@ -267,10 +261,10 @@ export const Home: React.FC = () => {
                 as={Link}
                 to="/catalog"
                 size="lg"
-                className="inline-flex items-center gap-2 rounded-2xl
-                          !bg-[#e84e1b] !text-white !font-extrabold !font-[Sora]
-                          !border-2 !border-[#e84e1b]
-                          hover:!bg-[#d94b17] focus-visible:!ring-2 focus-visible:!ring-[#e84e1b]/40
+                className="inline-flex items-center gap-2 rounded-none
+                          !bg-[#e67a5d] !text-white !font-extrabold !font-[Sora]
+                          !border-2 !border-[#e67a5d]
+                          hover:!bg-[#e67a5d]/90 focus-visible:!ring-2 focus-visible:!ring-[#e67a5d]/40
                           !px-8 !py-4 text-[clamp(16px,2.2vw,20px)]"
                 onClick={() =>
                   track('cta_view_all_products_click', {
@@ -280,7 +274,6 @@ export const Home: React.FC = () => {
                 }
               >
                 <span>Ver todos los Productos</span>
-                <ArrowRight className="w-5 h-5" />
               </Button>
             </div>
           </Container>
@@ -337,80 +330,55 @@ export const Home: React.FC = () => {
       {/* Info */}
       <section className="py-16 lg:py-20 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-5xl lg:text-4xl font-bold text-gray-900 mb-6">
-                Acerca de <span className="text-[#e84e1b]">GENEVE</span>
-              </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Geneve cuenta con más de 40 años de trayectoria en el mercado, ofreciendo soluciones integrales en electricidad e iluminación.
-                Nuestro compromiso con la innovación y la excelencia nos ha permitido evolucionar constantemente, adaptándonos a las exigencias del sector y a las necesidades de nuestros clientes.
-              </p>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="text-5xl lg:text-4xl font-bold text-gray-900 mb-12">
+              Acerca de <span className="text-[#e84e1b]">GENEVE</span>
+            </h2>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
-                <div className="flex items-start space-x-3">
-                  <CheckCircle className="w-6 h-6 text-[#e84e1b] mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Calidad Certificada</h3>
-                    <p className="text-gray-600 text-sm">Todos los productos cumplen con normas internacionales</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Users className="w-6 h-6 text-[#e84e1b] mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Soporte Experto</h3>
-                    <p className="text-gray-600 text-sm">Asistencia técnica de nuestro equipo</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Award className="w-6 h-6 text-[#e84e1b] mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">+40 Años</h3>
-                    <p className="text-gray-600 text-sm">Trayectoria al servicio de la industria de la construcción</p>
-                  </div>
-                </div>
-                <div className="flex items-start space-x-3">
-                  <Download className="w-6 h-6 text-orange-500 mt-0.5" />
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Documentación</h3>
-                    <p className="text-gray-600 text-sm">Manuales y guías completas</p>
-                  </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+              <div className="flex flex-col items-center text-center space-y-2">
+                <CheckCircle className="w-6 h-6 text-[#e84e1b]" />
+                <div>
+                  <h3 className="font-semibold text-gray-900">Calidad Certificada</h3>
+                  <p className="text-gray-600 text-sm">Todos los productos cumplen con normas internacionales</p>
                 </div>
               </div>
-
-              <Link
-                to="/certifications"
-                className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors"
-                onClick={() =>
-                  track('cta_view_certifications_click', {
-                    source: 'home_about_block',
-                    path: typeof window !== 'undefined' ? window.location.pathname : '',
-                  })
-                }
-              >
-                <span>Ver Certificaciones</span>
-                <ArrowRight className="w-4 h-4 ml-1" />
-              </Link>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <Users className="w-6 h-6 text-[#e84e1b]" />
+                <div>
+                  <h3 className="font-semibold text-gray-900">Soporte Experto</h3>
+                  <p className="text-gray-600 text-sm">Asistencia técnica de nuestro equipo</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <Award className="w-6 h-6 text-[#e84e1b]" />
+                <div>
+                  <h3 className="font-semibold text-gray-900">+40 Años</h3>
+                  <p className="text-gray-600 text-sm">Trayectoria al servicio de la industria de la construcción</p>
+                </div>
+              </div>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <Download className="w-6 h-6 text-orange-500" />
+                <div>
+                  <h3 className="font-semibold text-gray-900">Documentación</h3>
+                  <p className="text-gray-600 text-sm">Manuales y guías completas</p>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
-                <div className="text-3xl font-bold mb-2">+50</div>
-                <div className="text-gray-300 font-heading">Productos en Catálogo</div>
-              </div>
-              <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
-                <div className="text-3xl font-bold mb-2">40+</div>
-                <div className="text-gray-300 font-heading">Años de Experiencia</div>
-              </div>
-              <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
-                <div className="text-3xl font-bold mb-2">99%</div>
-                <div className="text-gray-300 font-heading">Satisfacción de Clientes</div>
-              </div>
-              <div className="bg-[#e04f01] rounded-xl p-8 text-white text-center">
-                <div className="text-3xl font-bold mb-2">24/7</div>
-                <div className="text-gray-300 font-heading">Soporte Disponible</div>
-              </div>
-            </div>
+            <Link
+              to="/certifications"
+              className="inline-flex items-center text-orange-600 hover:text-orange-700 font-medium transition-colors"
+              onClick={() =>
+                track('cta_view_certifications_click', {
+                  source: 'home_about_block',
+                  path: typeof window !== 'undefined' ? window.location.pathname : '',
+                })
+              }
+            >
+              <span>Ver Certificaciones</span>
+              <ArrowRight className="w-4 h-4 ml-1" />
+            </Link>
           </div>
         </Container>
       </section>

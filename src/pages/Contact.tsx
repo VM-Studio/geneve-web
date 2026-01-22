@@ -33,27 +33,22 @@ export const Contact: React.FC = () => {
   const isInvalid =
     !!errors.nombre || !!errors.email || !!errors.mensaje || !!errors.acepto;
 
-  // Envío con Resend API
+  // Envío directo por email
   const sendEmail = async () => {
-    const response = await fetch('/api/send-email', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        nombre,
-        email,
-        telefono,
-        mensaje,
-      }),
-    });
+    const subject = `Nueva consulta de ${nombre}`;
+    const body = `
+Nombre: ${nombre}
+Email: ${email}
+Teléfono: ${telefono || 'No proporcionado'}
 
-    if (!response.ok) {
-      throw new Error('Error al enviar el email');
-    }
+Mensaje:
+${mensaje}
+    `.trim();
 
-    const data = await response.json();
-    return data;
+    // Abrir cliente de correo
+    window.location.href = `mailto:obras@geneve.com.ar?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    
+    return { success: true };
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -65,30 +60,27 @@ export const Contact: React.FC = () => {
     track('click_presupuesto', { page: 'contact', source: 'form' });
 
     setSending(true);
-    try {
-      await sendEmail();
+    
+    // Métrica de éxito
+    track('presupuesto_success', {
+      method: 'mailto',
+      path: window.location.pathname,
+    });
 
-      // Métrica de éxito
-      track('presupuesto_success', {
-        method: 'resend',
-        path: window.location.pathname,
-      });
+    // ✅ Disparo de CONVERSIÓN de Google Ads (evento)
+    sendAdsConversion('AW-17635295323/4TkRCNSqvqkbENuAIdlB', {
+      value: 1.0,
+      currency: 'ARS',
+    });
 
-      // ✅ Disparo de CONVERSIÓN de Google Ads (evento)
-      sendAdsConversion('AW-17635295323/4TkRCNSqvqkbENuAIdlB', {
-        value: 1.0,
-        currency: 'ARS',
-      });
-
-      // Redirección a página de agradecimiento
-      navigate('/agradecimiento', { replace: true });
-    } catch (error) {
-      console.error('Error al enviar formulario:', error);
-      track('presupuesto_error', { path: window.location.pathname });
-      alert('Hubo un error al enviar el mensaje. Por favor, intentá nuevamente.');
-    } finally {
+    // Abrir email y redirigir
+    sendEmail();
+    
+    // Esperar un momento y redirigir
+    setTimeout(() => {
       setSending(false);
-    }
+      navigate('/agradecimiento', { replace: true });
+    }, 1000);
   };
 
   return (

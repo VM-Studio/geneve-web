@@ -32,7 +32,15 @@ export const Product: React.FC<ProductDetailProps> = ({ product: productProp, mo
   const product: any = productProp ?? routeProduct;
 
   useEffect(() => {
-    if (mode === 'page') window.scrollTo(0, 0);
+    if (mode === 'page') {
+      // Scroll a la sección de contenido después de un pequeño delay
+      setTimeout(() => {
+        const contentSection = document.getElementById('product-content');
+        if (contentSection) {
+          contentSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
   }, [slug, mode]);
 
   if (!product) {
@@ -125,7 +133,7 @@ export const Product: React.FC<ProductDetailProps> = ({ product: productProp, mo
           {/* Información */}
           <div>
             <div className="mb-6">
-              <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
+              <h1 id="product-content" className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
               {product.shortDescription && (
                 <p className="text-lg text-gray-600 mb-6 leading-relaxed">{product.shortDescription}</p>
